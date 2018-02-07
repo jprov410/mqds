@@ -1,6 +1,6 @@
-#mqds
+# mqds
 
-##the modular quantum dynamics and spectroscopy package
+## the modular quantum dynamics and spectroscopy package
 
 This program will use explicitly defined data types given in:
 
