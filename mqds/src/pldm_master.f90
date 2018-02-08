@@ -9,7 +9,6 @@ SUBROUTINE pldm_master
   USE hamiltonians
   USE random_numbers
   IMPLICIT NONE
-  INTEGER :: time
 
   ! Initialize random seed (with mype argument for MPI)
   CALL initialize_rn
