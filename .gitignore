@@ -5,3 +5,4 @@
 build/
 *.mod
 *.o
+__pycache__/

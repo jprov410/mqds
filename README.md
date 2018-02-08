@@ -1,16 +1,11 @@
 # mqds
 
-## the modular quantum dynamics and spectroscopy package
+> A modular quantum dynamics and spectroscopy package
 
-This program will use explicitly defined data types given in:
+#### This package is currently capable of the following calculations:
+---------------------------------------------------------------------
 
-     kinds.f90
+* PLDM (partially linearized density matrix) calculation of the reduced density matrix of a system-bath model where the bath consists of a set of harmonic oscillators.
 
-double precision numbers will be initialized as:
 
-       e.g.)  variable = 1.e10_dp
-
-single precision numbers will be initialized as:
-       
-       e.g.) variable = 1.e10_sp
 
