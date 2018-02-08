@@ -6,3 +6,6 @@ build/
 *.mod
 *.o
 __pycache__/
+mqds
+processed_run.in
+pldm.*

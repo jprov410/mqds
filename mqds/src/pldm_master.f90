@@ -7,8 +7,12 @@ SUBROUTINE pldm_master
   USE harmonic_bath
   USE mapping_variables
   USE hamiltonians
+  USE random_numbers
   IMPLICIT NONE
   INTEGER :: time
+
+  ! Initialize random seed (with mype argument for MPI)
+  CALL initialize_rn
 
   ! Allocate arrays and initialize mapping variables
   CALL initialize_pldm_map
