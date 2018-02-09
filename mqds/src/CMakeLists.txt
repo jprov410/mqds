@@ -14,5 +14,5 @@ set(MQDS_GENERAL_LIB	input_output.f90
 
 add_library(generallib ${MQDS_GENERAL_LIB})
 
-add_executable(mqds main.f90)
-target_link_libraries(mqds generallib)
+add_executable(mqds.exe main.f90)
+target_link_libraries(mqds.exe generallib)
