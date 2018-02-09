@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="3f075c67-2b4b-4c26-af0b-b19f6871eade" name="SCC" url="http://scc1.bu.edu">
+        <fileTransfer host="scc1.bu.edu" port="22" rootFolder="/usr3/graduate/justinap" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
