@@ -17,5 +17,6 @@ PROGRAM mqds
 
   IF ( method .EQ. 'pldm' ) CALL pldm_master
   
+  IF ( method .EQ. 'twa' ) CALL twa_master
 
 END PROGRAM mqds

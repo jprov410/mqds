@@ -179,7 +179,25 @@ CONTAINS
       res(:) = res(:) - c(:,i) * 0.25_dp * ( x_map(i)**2 + p_map(i)**2 + xt_map(i)**2 + pt_map(i)**2 )
       ! 0.5 from the mapping variables and 0.5 from average of fwd & bkwd
    END DO
-
+ 
  END FUNCTION bilinear_harmonic_force_pldm
+
+ FUNCTION bilinear_harmonic_force_twa(x, x_map, p_map) RESULT(res)
+   USE kinds
+   USE input_output
+   IMPLICIT NONE
+   INTEGER :: i
+   REAL(dp) :: res(nbath*nosc)
+   REAL(dp), INTENT(in) :: x(nbath*nosc)
+   REAL(dp), INTENT(in) :: x_map(nstate), p_map(nstate)
+   
+   res(:) = - omega(:) ** 2 * x(:)
+   DO i=1, nstate
+      res(:) = res(:) - c(:,i) * 0.5_dp * ( x_map(i)**2 + p_map(i)**2 - 2.0_dp * zpe )
+      ! 0.5 from the mapping variables
+   END DO
+
+ END FUNCTION bilinear_harmonic_force_twa
+
 
 END MODULE harmonic_bath

@@ -28,6 +28,23 @@ CONTAINS
     DEALLOCATE(x_map,xt_map,p_map,pt_map)
     
   END SUBROUTINE finalize_pldm_map
+
+  ! Allocate the mapping variable arrays for TWA calculation
+  SUBROUTINE initialize_twa_map    
+    USE input_output
+    IMPLICIT NONE
+    
+    ALLOCATE( x_map(nstate) ,p_map(nstate) )
+    
+  END SUBROUTINE initialize_twa_map
+  
+  ! Deallocate the mapping variable arrays for TWA calculation
+  SUBROUTINE finalize_twa_map
+    IMPLICIT NONE
+    
+    DEALLOCATE( x_map, p_map )
+    
+  END SUBROUTINE finalize_twa_map
   
   ! Sample the initial distribution of mapping variables for PLDM
   SUBROUTINE sample_pldm_map(x_init, p_init, xt_init, pt_init)
@@ -49,6 +66,32 @@ CONTAINS
     prod = 0.5_dp * ( x_init(initstate) - eye * p_init(initstate) ) &
          * ( xt_init(initstatet) + eye * pt_init(initstatet) )
   END SUBROUTINE sample_pldm_map
+
+  ! Sample the initial distribution of mapping variables for 
+  ! truncated wigner approximation in action-angle variables
+  SUBROUTINE sample_twa_map(x_init, p_init)
+    USE random_numbers
+    USE parameters
+    USE input_output
+    USE kinds
+    IMPLICIT NONE
+    REAL(dp), INTENT(out) :: x_init(nstate), p_init(nstate)
+    REAL(dp) :: n(nstate), q(nstate)
+    n = 0.0_dp ; q = 0.0_dp
+    prod = (0.0_dp, 0.0_dp)
+    
+    n(initstate) = n(initstate) + 0.5_dp
+    n(initstatet) = n(initstatet) + 0.5_dp
+
+    q(:) = 2.0_dp * pi * uniform_rn(q)
+    
+    prod = & !DSQRT( n( initstate ) + zpe ) * DSQRT( n( initstatet ) + zpe ) &
+         EXP( eye * ( q(initstate) - q(initstatet) ) )
+
+    p_init = -DSQRT( 2.0_dp * ( n + zpe ) ) * DSIN( q ) 
+    x_init = DSQRT( 2.0_dp * ( n + zpe ) ) * DCOS( q ) 
+
+  END SUBROUTINE sample_twa_map
   
   ! propagates x and p mapping variables using the Hamiltonian (H)
   SUBROUTINE verlet_mapping_variables(x, p, H, dt)
@@ -118,5 +161,29 @@ CONTAINS
     END DO
 
   END FUNCTION pldm_redmat
+
+
+  ! Calculate the reduced density matrix using PLDM with the mapping variables
+  FUNCTION twa_redmat(x, p) RESULT( res )
+    USE kinds
+    USE parameters
+    USE input_output
+    IMPLICIT NONE
+    INTEGER :: i, j
+    REAL(dp), INTENT(in) :: x(nstate), p(nstate)
+    REAL(dp) :: n(nstate), q(nstate)
+    COMPLEX(dp) :: res( nstate, nstate )
+    n = 0.5_dp * ( p**2 + x**2 ) - zpe
+    q = -DATAN2( p, x )
+
+    DO i=1, nstate
+       DO j=1, nstate
+          res(j,i) = &  !DSQRT( n(i) + zpe ) * DSQRT( n(j) + zpe ) &
+               EXP( eye * ( q(j) - q(i) ) ) * prod
+!          res(j,i) = 0.5_dp * ( x(j) + eye * p(j) ) * ( x(i) - eye * p(i) ) * prod
+       END DO
+    END DO
+
+  END FUNCTION twa_redmat
 
 END MODULE mapping_variables

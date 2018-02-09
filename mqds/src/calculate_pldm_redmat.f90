@@ -53,8 +53,7 @@ SUBROUTINE calculate_pldm_redmat
         x_bath = x_bath + p_bath * dt_bath + bath_force * 0.5_dp * dt_bath ** 2
         p_bath = p_bath + bath_force * 0.5_dp * dt_bath
 
-        
-!        PRINT*, p_bath(1) , x_bath(1)
+
         ! Update the full hamiltonian
         ham = diabatic_bilinear_coupling_hamiltonian(x_bath, c)
         
