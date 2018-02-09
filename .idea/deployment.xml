@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="SCC">
+  <component name="PublishConfigData" serverName="SCC" uploadOnCheckin="3f075c67-2b4b-4c26-af0b-b19f6871eade" exclude=".svn;.cvs;.idea;.DS_Store;.git;.hg;*.hprof;*.pyc;*~">
     <serverData>
       <paths name="SCC">
         <serverdata>
@@ -10,5 +10,6 @@
         </serverdata>
       </paths>
     </serverData>
+    <option name="myUploadOnCheckinName" value="SCC" />
   </component>
 </project>

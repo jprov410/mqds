@@ -9,3 +9,4 @@ __pycache__/
 mqds
 processed_run.in
 pldm.*
+twa.*
