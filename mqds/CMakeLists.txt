@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.2)
 project(MQDS
 	LANGUAGES Fortran
-	VERSION 1.0
+	VERSION 0.0.1
 )
 
 

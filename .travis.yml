@@ -1,0 +1,10 @@
+language: c
+sudo: required
+before_install:
+  - sudo apt-get install gfortran
+  - sudo apt-get install cmake
+
+script:
+  - mkdir build && cd build
+  - cmake ../mqds
+  - make

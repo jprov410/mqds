@@ -92,8 +92,8 @@ CONTAINS
     x_init = DSQRT( 2.0_dp * ( n + zpe ) ) * DCOS( q ) 
 
   END SUBROUTINE sample_twa_map
-  
-  ! propagates x and p mapping variables using the Hamiltonian (H)
+
+    ! propagates x and p mapping variables using the Hamiltonian (H)
   SUBROUTINE verlet_mapping_variables(x, p, H, dt)
     USE kinds
     USE input_output
@@ -152,6 +152,7 @@ CONTAINS
     IMPLICIT NONE
     INTEGER :: i, j
     REAL(dp), INTENT(in) :: x(nstate), p(nstate), xt(nstate), pt(nstate)
+
     COMPLEX(dp) :: res( nstate, nstate )
 
     DO i=1, nstate
