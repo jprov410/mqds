@@ -8,7 +8,8 @@ MODULE harmonic_bath
   ! etc
   !
   
-CONTAINS 
+CONTAINS
+
   ! Build initial distribution based on spectral density and allocate arrays
   SUBROUTINE initialize_bath
     USE kinds
@@ -82,7 +83,7 @@ CONTAINS
 
     !~~ Sample bath according to the method described by ~~!
     !~~         Wang et al JCP 110, 4828 (1999)          ~~!
-    IF ( freq(1) .NE. 0.0_dp ) lambda(:,1) = dw * sd(:,1) / freq(1)
+    IF ( freq(1) /= 0.0_dp ) lambda(:,1) = dw * sd(:,1) / freq(1)
     DO i=1, nbath
        DO j=2, npts
           lambda(i,j) = lambda(i,j-1) + dw * sd(i,j) / freq(j)
@@ -95,7 +96,7 @@ CONTAINS
     DO i=1, nbath
        smode = 1
        DO imode=1, nosc-1
-          DO WHILE ( lambda(i,smode) .LE. REAL(imode) )
+          DO WHILE ( lambda(i,smode) <= REAL(imode) )
              smode = smode + 1
           END DO
           sampledw(i,imode) = freq(smode)
@@ -126,9 +127,8 @@ CONTAINS
    ! Write log of sampled modes
    OPEN(unit=40,FILE=SPECTRALOUT)
    DO j=1, nosc
-      WRITE(40,*) 'Freq', &
-           (sampledw(i,j) * convert('au_ang_freq','wvnbr') , i=1, nbath) , &
-           'Spec', (sampledj(i,j) * convert('au_energy','wvnbr') , i=1, nbath) 
+      WRITE(40,*) 'Freq', ( sampledw(i,j) * convert('au_ang_freq','wvnbr'), i = 1, nbath ) , &
+           'Spec', ( sampledj(i,j) * convert('au_energy','wvnbr'), i=1, nbath )
    END DO
    CLOSE(40)
    

@@ -164,7 +164,7 @@ CONTAINS
   END FUNCTION pldm_redmat
 
 
-  ! Calculate the reduced density matrix using PLDM with the mapping variables
+  ! Calculate the reduced density matrix using TWA with the mapping variables
   FUNCTION twa_redmat(x, p) RESULT( res )
     USE kinds
     USE parameters
