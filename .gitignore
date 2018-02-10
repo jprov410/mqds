@@ -1,13 +1,24 @@
+#-- General files --#
 .DS_Store
 *~
-*.log
-*.pyc
-build/
+
+#-- IDE files --#
+.idea*
+
+#-- Compiled files --#
 *.mod
 *.o
+build/
+mqds.exe
+
+#-- Python files --#
+*.pyc
 __pycache__/
 processed_run.in
+
+#-- Output files --#
+*linrespfunc.out
 pldm.*
 twa.*
-.idea*
-mqds.exe
+*.log
+*.out

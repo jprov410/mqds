@@ -17,19 +17,19 @@ SUBROUTINE pldm_master
   CALL initialize_pldm_map
 
   ! Do calculations ins the diabatic basis with harmonic bath
-  IF ( bath .EQ. 'harmonic' ) THEN
+  IF ( bath == 'harmonic' ) THEN
 
      CALL initialize_bath
 
-     IF ( basis .EQ. 'diabatic' ) THEN        
+     IF ( basis == 'diabatic' ) THEN
 
         CALL initialize_hel
 
-        IF ( calculation .EQ. 'redmat' ) CALL calculate_pldm_redmat
+        IF ( calculation == 'redmat' ) CALL calculate_pldm_redmat
 
-        !IF (calculation .EQ. 'absorption') CALL calculate_pldm_absorption
+        IF (calculation == 'absorption' ) CALL calculate_pldm_absorption
 
-        !IF (calculation .EQ. 'nonlinear') CALL calculate_pldm_nonlinear
+        !IF (calculation == 'nonlinear') CALL calculate_pldm_nonlinear
 
         CALL finalize_hel
 

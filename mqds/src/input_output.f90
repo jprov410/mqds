@@ -13,7 +13,7 @@ MODULE input_output
   CHARACTER(20), PARAMETER :: SPECTRALOUT='sampledbath.log'
   CHARACTER(20), PARAMETER :: DIPOLEIN='dipole.in'
   CHARACTER(20), PARAMETER :: ERRORLOG='error.log'
-  
+
   ! General variables from input file
   INTEGER :: ntraj, nbstep, nlit, dump, nstate, initstate, initstatet
   INTEGER :: ndof, tdim, ndisc, slicestep
@@ -99,11 +99,11 @@ CONTAINS
     namesize=LEN_TRIM(method)+2*(INT(LOG10(REAL(nstate)))+1)+1
     
     ! filename format based on the number of states
-    if(nstate.ge.1.and.nstate.lt.10) writeformat='(A,A,I1.1,A,I1.1)'
-    if(nstate.ge.10.and.nstate.lt.100) writeformat='(A,A,I2.2,A,I2.2)'
-    if(nstate.ge.100.and.nstate.lt.1000) writeformat='(A,A,I3.3,A,I3.3)'
-    if(nstate.ge.1000.and.nstate.lt.10000) writeformat='(A,A,I4.4,A,I4.4)'
-    if(nstate.ge.10000.and.nstate.lt.100000) writeformat='(A,A,I5.5,A,I5.5)'
+    if(nstate >= 1 .AND. nstate < 10) writeformat='(A,A,I1.1,A,I1.1)'
+    if(nstate >= 10 .AND. nstate < 100) writeformat='(A,A,I2.2,A,I2.2)'
+    if(nstate >= 100 .AND. nstate < 1000) writeformat='(A,A,I3.3,A,I3.3)'
+    if(nstate >= 1000 .AND. nstate < 10000) writeformat='(A,A,I4.4,A,I4.4)'
+    if(nstate >= 10000 .AND. nstate < 100000) writeformat='(A,A,I5.5,A,I5.5)'
     
     ! create file for each redmat element and write
     DO i=1, nstate
