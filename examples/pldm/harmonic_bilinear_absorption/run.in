@@ -1,0 +1,14 @@
+!~~GENERAL VARIABLES~~!
+method		    pldm	! dynamics method to use
+bath	  	    harmonic 	! bath model
+calculation	    absorption	! type of calculation
+basis		    diabatic 	! system basis
+nstate		    2	 	! number of system states
+initstate	    1	 	! initial forward propagation state
+initstatet	    1	 	! initial backward propagation state
+temperature	    77.0	! temperature of bath in simulation
+runtime		    1000.0 	! calculation time in femtoseconds
+nbstep		    1000	! number of bath timesteps in runtime
+nlit		    20	 	! number of system timesteps per bath step
+dump		    1	 	! number of bath steps per observation
+ntraj		    10000	! Number of trajectories
