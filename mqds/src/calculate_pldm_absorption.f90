@@ -116,7 +116,7 @@ SUBROUTINE calculate_pldm_absorption
   redmat = redmat / REAL( ntraj )
 
   ! Expectation value of the dipole operator with perturbed density matrix
-  DO itime=1, ( nbstep / dump )
+  DO itime=0, ( nbstep / dump )
       redmat(:, :, itime) = dipole_operator( redmat(:, :, itime) )
   END DO
   ! calculate trace at all times

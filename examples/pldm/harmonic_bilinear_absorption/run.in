@@ -3,7 +3,7 @@ method		    pldm	! dynamics method to use
 bath	  	    harmonic 	! bath model
 calculation	    absorption	! type of calculation
 basis		    diabatic 	! system basis
-nstate		    2	 	! number of system states
+nstate		    3	 	! number of system states
 initstate	    1	 	! initial forward propagation state
 initstatet	    1	 	! initial backward propagation state
 temperature	    77.0	! temperature of bath in simulation
