@@ -10,9 +10,14 @@ set(MQDS_GENERAL_LIB
         twa_master.f90
         calculate_twa_redmat.f90
         kinds.f90
+        windows.f90
         parameters.f90
         spectroscopy.f90
-        calculate_pldm_absorption.f90)
+        calculate_pldm_absorption.f90
+        sqc_master.f90
+        calculate_twa_redmat.f90
+        calculate_sqc_redmat.f90
+        sqc_master.f90)
 
 
 add_library(generallib ${MQDS_GENERAL_LIB})
