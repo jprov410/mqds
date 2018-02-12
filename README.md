@@ -1,9 +1,9 @@
-# mqds
+## Travis
+[![Build Status](https://travis-ci.org/jprov410/mqds.svg?branch=master)](https://travis-ci.org/jprov410/mqds)
+
+# MQDS
 
 > A modular quantum dynamics and spectroscopy package
-
-# Travis
-[![Build Status](https://travis-ci.org/jprov410/mqds.svg?branch=master)](https://travis-ci.org/jprov410/mqds)
 
 This package is currently capable of the following calculations:
 ----
