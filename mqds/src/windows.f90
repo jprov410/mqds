@@ -70,7 +70,7 @@ END SUBROUTINE sample_sqc_map
         COMPLEX(dp) :: res( nstate, nstate )
         res = (0.0_dp, 0.0_dp)
         n = 0.5_dp * ( p**2 + x**2 ) - zpe
-        q = -DATAN2( p, x )
+        q = -ATAN2( p, x )
         icount = 0
 
         ! loop over states to check for populations and coherences
@@ -79,31 +79,33 @@ END SUBROUTINE sample_sqc_map
             ! Check if state i is close enough to action = 1
             IF ( n(i) < 1.0_dp + window .AND. n(i) >= 1.0_dp - window ) THEN
                 DO j=1, nstate
-                    ! Check if all other states are close enought to action = 0
+                    ! Check if all other states are close enough to action = 0
                     IF ( j /= i ) THEN
                         IF ( n(j) > window .OR. n(j) <= -window ) EXIT
                     END IF
                 END DO
-                res(i,i) = 1.0_dp
+                res(i,i) = 1.0_dp * prod
                 toll(itime) = toll(itime) + 1.0_dp
             END IF
 
             !~~~~~COHERENCES~~~~!
-            ! check if state i is
+            ! check if state i is close enough to action = 0.5
             IF ( n(i) < 0.5_dp + window .AND. n(i) >= 0.5_dp - window ) THEN
                 DO j=1, nstate
                     IF ( j /= i ) THEN
+                        ! Make sure state j is close enough to action = 0.5
                         IF ( n(j) > 0.5_dp + window .OR. n(j) <= 0.5_dp - window ) CYCLE
                         DO k=1, nstate
                             IF ( k /= i .AND. k /= j ) THEN
+                                ! Make sure rest of states are close enough to action = 0
                                 IF ( n(k) > window .OR. n(k) <= -window ) GO TO 99
                             END IF
                         END DO
+                        res(i,j) = EXP( eye * ( q(j) - q(i) ) ) * prod
+                        icount = icount + 1
+                        IF ( icount == 1 ) od_toll(itime) = od_toll(itime) + 2.0_dp
+                        99 CONTINUE
                     END IF
-                    res(i,j) = EXP( eye * ( q(j) - q(i) ) ) * prod
-                    icount = icount + 1
-                    IF ( icount == 1 ) od_toll(itime) = od_toll(itime) + 1.0_dp
-                    99 CONTINUE
                 END DO
             END IF
         END DO
@@ -116,16 +118,16 @@ END SUBROUTINE sample_sqc_map
         INTEGER :: i, j, itime
 
         DO itime=0, nbstep / dump, 1
-            IF ( toll(i) == 0 ) toll(i) = 1.0_dp
-            IF ( od_toll(i) == 0 ) od_toll(i) = 1.0_dp
+            IF ( toll(itime) == 0 ) toll(itime) = 1.0_dp
+            IF ( od_toll(itime) == 0 ) od_toll(itime) = 1.0_dp
         END DO
 
         DO i=1, nstate
             DO j=1, nstate
                 IF ( i == j ) THEN
-                    redmat(i, j, :) = redmat(i, j, :) / toll(:)
+                    redmat(j, i, :) = redmat(j, i, :) / toll(:)
                 ELSE
-                    redmat(i, j, :) = redmat(i, j, :) / od_toll(:)
+                    redmat(j, i, :) = redmat(j, i, :) / od_toll(:)
                 END IF
             END DO
         END DO
