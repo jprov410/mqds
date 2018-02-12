@@ -2,6 +2,9 @@
 
 > A modular quantum dynamics and spectroscopy package
 
+# Travis
+[![Build Status](https://travis-ci.org/jprov410/mqds.svg?branch=master)](https://travis-ci.org/jprov410/mqds)
+
 This package is currently capable of the following calculations:
 ----
 
@@ -13,5 +16,3 @@ This package is currently capable of the following calculations:
 
 * SQC (Symmetrical Quasi-Classical) calculation of the reduced density  matrix of a system-bath model where the bath consists of a set of harmonic oscillators. 
 
-# Travis
-[![Build Status](https://travis-ci.org/jprov410/mqds.svg?branch=master)](https://travis-ci.org/jprov410/mqds)
