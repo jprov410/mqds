@@ -20,5 +20,6 @@ processed_run.in
 *linrespfunc.out
 pldm.*
 twa.*
+sqc.*
 *.log
 *.out

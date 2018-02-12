@@ -1,4 +1,4 @@
-# TWA reduced density matrix 2-state, harmonic bath, bilinear coupling
+# SQC reduced density matrix 2-state, harmonic bath, bilinear coupling
 
 * __run.in:__ Raw input file where user can define specific values for input variables
 * __process_input.py:__ Python script that produces the input file that the __mqds__ executable interprets. This file contains values for _all_ input variables. If values are not provided in the raw __run.in__ file, they are assigned their default values. Execute `python process_input.py` to produce the __processed_run.in__ input file.
