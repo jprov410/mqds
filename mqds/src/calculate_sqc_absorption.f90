@@ -38,6 +38,7 @@ SUBROUTINE calculate_sqc_absorption
   dt_bath = runtime / REAL(nbstep)
   dt_map = dt_bath / REAL(nlit)
 
+  print*, 'got into absorption'
   ! Read the input electonic Hamiltonian
   CALL read_hel
   hel = hel * convert('wvnbr','au_energy')

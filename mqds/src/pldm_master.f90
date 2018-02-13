@@ -25,9 +25,9 @@ SUBROUTINE pldm_master
 
         CALL initialize_hel
 
-        print*, 'got here'
         IF ( calculation == 'redmat' ) CALL calculate_pldm_redmat
 
+        print*, 'got to before absorption'
         IF (calculation == 'absorption' ) CALL calculate_pldm_absorption
 
         !IF (calculation == 'nonlinear') CALL calculate_pldm_nonlinear
