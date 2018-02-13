@@ -39,7 +39,7 @@ SUBROUTINE calculate_pldm_absorption
   dt_bath = runtime / REAL(nbstep)
   dt_map = dt_bath / REAL(nlit)
 
-  ! Read the input electonic Hamiltonian
+    ! Read the input electonic Hamiltonian
   CALL read_hel
   hel = hel * convert('wvnbr','au_energy')
 

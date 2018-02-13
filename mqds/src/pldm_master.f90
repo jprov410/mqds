@@ -10,6 +10,7 @@ SUBROUTINE pldm_master
   USE random_numbers
   IMPLICIT NONE
 
+  print*, 'got into pldm master'
   ! Initialize random seed (with mype argument for MPI)
   CALL initialize_rn
 
@@ -27,7 +28,6 @@ SUBROUTINE pldm_master
 
         IF ( calculation == 'redmat' ) CALL calculate_pldm_redmat
 
-        print*, 'got to before absorption'
         IF (calculation == 'absorption' ) CALL calculate_pldm_absorption
 
         !IF (calculation == 'nonlinear') CALL calculate_pldm_nonlinear

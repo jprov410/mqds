@@ -16,6 +16,7 @@ PROGRAM mqds
   END IF
 
   ! mapping variable methods
+  print*, 'read input file'
   IF ( method == 'pldm' ) CALL pldm_master
   
   IF ( method == 'twa' ) CALL twa_master
