@@ -44,7 +44,6 @@ SUBROUTINE calculate_sqc_absorption
 
   ! Allocate arrays for spectroscopy calculation
   CALL initialize_spectroscopy
-  print*, 'for here'
 
   ! Get initially occupied coherences for calculation
   ! of linear spectroscopy assuming originally in
