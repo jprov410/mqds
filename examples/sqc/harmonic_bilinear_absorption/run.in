@@ -1,0 +1,16 @@
+!~~GENERAL VARIABLES~~!
+method		    sqc		! dynamics method to use
+bath	  	    harmonic 	! bath model
+calculation	    absorption	! type of calculation
+basis		    diabatic 	! system basis
+nstate		    3	 	! number of system states
+initstate	    1	 	! initial forward propagation state
+initstatet	    1	 	! initial backward propagation state
+temperature	    300.0	! temperature of bath in simulation
+runtime		    500.0 	! calculation time in femtoseconds
+nbstep		    500		! number of bath timesteps in runtime
+nlit		    20	 	! number of system timesteps per bath step
+dump		    1	 	! number of bath steps per observation
+ntraj		    50000	! Number of trajectories
+zpe 		    0.366	! zero point energy of mapping oscillators
+window		    0.366	! defined width of window in action space
