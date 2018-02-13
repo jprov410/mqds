@@ -12,14 +12,14 @@ MODULE random_numbers
     SUBROUTINE initialize_rn(my_pe)
       ! Initialize the random number generator
       IMPLICIT NONE
-      INTEGER :: time(12), seedsize
-      INTEGER, ALLOCATABLE :: seed(:)
+      INTEGER :: seedsize
+      INTEGER, ALLOCATABLE :: seed(:), time(:)
       INTEGER, OPTIONAL, INTENT(in) :: my_pe
       time = 0 ; seed = 0 
       
       CALL RANDOM_SEED(SIZE=seedsize)
 
-      ALLOCATE( seed(seedsize) )
+      ALLOCATE( seed(seedsize), time(seedsize) )
 
       CALL DATE_AND_TIME(VALUES=time)
 
