@@ -9,6 +9,8 @@ SUBROUTINE calculate_pldm_absorption
   USE unit_conversions
   USE hamiltonians
   USE mapping_variables
+  USE focusing
+  USE parameters
   USE harmonic_bath
   USE input_output
   IMPLICIT NONE
@@ -66,7 +68,7 @@ SUBROUTINE calculate_pldm_absorption
 
                   ! Sample the initial conditions for system mapping and bath DOFs
                   CALL sample_thermal_wigner(x_bath, p_bath, beta)
-                  CALL sample_pldm_map(x_map, p_map, xt_map, pt_map)
+                  CALL focus_pldm_map(x_map, p_map, xt_map, pt_map)
 
                   ! Calculate the t=0 redmat weighted by initial dipole
                   redmat(:, :, itime) = redmat(:, :, itime) &
@@ -81,7 +83,6 @@ SUBROUTINE calculate_pldm_absorption
                       ! First half of the verlet
                       x_bath = x_bath + p_bath * dt_bath + bath_force * 0.5_dp * dt_bath ** 2
                       p_bath = p_bath + bath_force * 0.5_dp * dt_bath
-
 
                       ! Update the full hamiltonian
                       ham = diabatic_bilinear_coupling_hamiltonian(x_bath, c)
@@ -120,7 +121,7 @@ SUBROUTINE calculate_pldm_absorption
       redmat(:, :, itime) = dipole_operator( redmat(:, :, itime) )
   END DO
   ! calculate trace at all times
-  resp_func = linear_response( redmat )
+  resp_func = eye * system_trace( redmat )
 
   ! Write the response function
   CALL write_linear_response(method, resp_func, printstep)

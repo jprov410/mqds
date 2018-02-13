@@ -17,7 +17,9 @@ set(MQDS_GENERAL_LIB
         sqc_master.f90
         calculate_twa_redmat.f90
         calculate_sqc_redmat.f90
-        sqc_master.f90)
+        sqc_master.f90
+        calculate_sqc_absorption.f90
+        focusing.f90)
 
 
 add_library(generallib ${MQDS_GENERAL_LIB})

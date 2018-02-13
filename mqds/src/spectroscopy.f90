@@ -67,7 +67,7 @@ CONTAINS
 
     ! Function to find the linear response function for
     ! the absorption spectrum
-    FUNCTION linear_response( redmat ) RESULT( res )
+    FUNCTION system_trace( redmat ) RESULT( res )
         IMPLICIT NONE
         COMPLEX(dp) :: redmat(nstate, nstate, 0 : nbstep / dump)
         COMPLEX(dp) :: res(0 : nbstep / dump)
@@ -80,7 +80,7 @@ CONTAINS
             END DO
         END DO
 
-    END FUNCTION linear_response
+    END FUNCTION system_trace
 
     ! Subroutine to write the linear response function
     SUBROUTINE write_linear_response(method, resp_func, printstep)
@@ -88,12 +88,11 @@ CONTAINS
         IMPLICIT NONE
         INTEGER :: i, j, itime
         INTEGER :: tdim, namesize
-        COMPLEX(dp), INTENT(in) :: resp_func(:)
+        COMPLEX(dp), INTENT(in) :: resp_func( 0 : nbstep / dump )
         REAL(dp), INTENT(in) :: printstep
         CHARACTER(20) :: method
         CHARACTER(17) :: writeformat
         CHARACTER(50) :: filename
-        tdim = SIZE(resp_func(:))
 
         ! Figure out how long the name is going to be
         namesize=LEN_TRIM(method)+16
@@ -102,8 +101,8 @@ CONTAINS
         ! create file for each redmat element and write
         WRITE(filename, writeformat) TRIM(method),'_linrespfunc.out'
         OPEN(UNIT=10, FILE=filename)
-        DO itime=1, tdim
-            WRITE(10,'(3(E13.6,2X))') printstep * (itime-1), resp_func(itime)
+        DO itime=0, ( nbstep / dump )
+            WRITE(10,'(3(E13.6,2X))') printstep * (itime), -resp_func(itime)
         END DO
         CLOSE(10)
 

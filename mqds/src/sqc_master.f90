@@ -31,6 +31,8 @@ SUBROUTINE sqc_master
 
         IF ( calculation == 'redmat' ) CALL calculate_sqc_redmat
 
+        IF ( calculation == 'absorption' ) CALL calculate_sqc_absorption
+
         CALL finalize_hel
 
      END IF

@@ -3,7 +3,7 @@
 
 # MQDS
 
-> A modular quantum dynamics and spectroscopy package
+__*A modular quantum dynamics and spectroscopy package*__
 
 This package is currently capable of the following calculations:
 ----

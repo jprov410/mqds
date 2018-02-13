@@ -52,24 +52,24 @@ CONTAINS
 
     ! Sample the initial distribution of mapping variables for PLDM
     SUBROUTINE sample_pldm_map(x_init, p_init, xt_init, pt_init)
-    USE random_numbers
-    USE parameters
-    USE input_output
-    USE kinds
-    IMPLICIT NONE
-    REAL(dp), INTENT(out) :: x_init(nstate), p_init(nstate)
-    REAL(dp), INTENT(out) :: xt_init(nstate), pt_init(nstate)
-    
-    prod = (0.0_dp, 0.0_dp)
-    
-    x_init(:) = gaussian_rn(x_init)
-    p_init(:) = gaussian_rn(p_init)
-    xt_init(:) = gaussian_rn(xt_init)
-    pt_init(:) = gaussian_rn(pt_init)
-    
-    prod = 0.5_dp * ( x_init(initstate) - eye * p_init(initstate) ) &
-         * ( xt_init(initstatet) + eye * pt_init(initstatet) )
-  END SUBROUTINE sample_pldm_map
+        USE random_numbers
+        USE parameters
+        USE input_output
+        USE kinds
+        IMPLICIT NONE
+        REAL(dp), INTENT(out) :: x_init(nstate), p_init(nstate)
+        REAL(dp), INTENT(out) :: xt_init(nstate), pt_init(nstate)
+
+        prod = (0.0_dp, 0.0_dp)
+
+        x_init(:) = gaussian_rn(x_init)
+        p_init(:) = gaussian_rn(p_init)
+        xt_init(:) = gaussian_rn(xt_init)
+        pt_init(:) = gaussian_rn(pt_init)
+
+        prod = 0.5_dp * ( x_init(initstate) - eye * p_init(initstate) ) &
+                * ( xt_init(initstatet) + eye * pt_init(initstatet) )
+    END SUBROUTINE sample_pldm_map
 
     ! Sample the initial distribution of mapping variables for
     ! truncated wigner approximation in action-angle variables
