@@ -12,19 +12,19 @@ MODULE random_numbers
     SUBROUTINE initialize_rn(my_pe)
       ! Initialize the random number generator
       IMPLICIT NONE
-      INTEGER :: seedsize
-      INTEGER, ALLOCATABLE :: seed(:), time(:)
+      INTEGER :: seedsize, time(12)
+      INTEGER, ALLOCATABLE :: seed(:)
       INTEGER, OPTIONAL, INTENT(in) :: my_pe
       time = 0 ; seed = 0 
       
       CALL RANDOM_SEED(SIZE=seedsize)
 
-      ALLOCATE( seed(seedsize), time(seedsize) )
+      ALLOCATE( seed(seedsize) )
 
       CALL DATE_AND_TIME(VALUES=time)
 
-      seed( 1 : SIZE(time) ) = time(:)
-      IF ( PRESENT(my_pe) ) seed( 1 : SIZE(time) ) = my_pe + time(:)
+      seed( : ) = time( 1 : seedsize )
+      IF ( PRESENT(my_pe) ) seed(:) = my_pe + time( 1 : seedsize )
       
       CALL RANDOM_SEED(PUT=seed)
 
