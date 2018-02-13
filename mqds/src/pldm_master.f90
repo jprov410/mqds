@@ -10,7 +10,6 @@ SUBROUTINE pldm_master
   USE random_numbers
   IMPLICIT NONE
 
-  print*, 'got into pldm master'
   ! Initialize random seed (with mype argument for MPI)
   CALL initialize_rn
 

@@ -15,21 +15,21 @@ MODULE random_numbers
       INTEGER :: time(12), seedsize
       INTEGER, ALLOCATABLE :: seed(:)
       INTEGER, OPTIONAL, INTENT(in) :: my_pe
-      time = 0 ; seed = 0 
-      
+      time = 0
+
       CALL RANDOM_SEED(SIZE=seedsize)
 
       ALLOCATE( seed(seedsize) )
+      seed(:) = 0
 
       CALL DATE_AND_TIME(VALUES=time)
 
-      seed( 1 : SIZE(time) ) = time(:)
       IF ( PRESENT(my_pe) ) seed( 1 : SIZE(time) ) = my_pe + time(:)
-      
+
       CALL RANDOM_SEED(PUT=seed)
 
       DEALLOCATE( seed )
-      
+
     END SUBROUTINE initialize_rn
 !~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~!
     FUNCTION uniform_rn(input) RESULT(res)
