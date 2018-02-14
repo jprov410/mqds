@@ -81,23 +81,16 @@ CONTAINS
         IMPLICIT NONE
         REAL(dp), INTENT(out) :: x_init(nstate), p_init(nstate)
         REAL(dp) :: n(nstate), q(nstate)
-        !n = 0.0_dp ; q = 0.0_dp
         prod = (0.0_dp, 0.0_dp)
 
-        !n(initstate) = n(initstate) + 0.5_dp
-        !n(initstatet) = n(initstatet) + 0.5_dp
+        p_init = gaussian_rn(p_init) / 2.0_dp
+        x_init = gaussian_rn(x_init) / 2.0_dp
 
-        !q(:) = 2.0_dp * pi * uniform_rn(q)
-
-        !prod = DSQRT( n( initstate ) + zpe ) * DSQRT( n( initstatet ) + zpe ) &
-        !        * EXP( eye * ( q(initstate) - q(initstatet) ) )
-
-        !p_init = -DSQRT( 2.0_dp * ( n + zpe ) ) * DSIN( q )
-        !x_init = DSQRT( 2.0_dp * ( n + zpe ) ) * DCOS( q )
-        p_init = gaussian_rn(p_init)
-        x_init = gaussian_rn(x_init)
-        prod = 0.5_dp * ( x_init(initstate) - eye * p_init(initstate) ) &
+        prod = (2.0_dp)**(nstate + 1) &
+                * ( x_init(initstate) - eye * p_init(initstate) ) &
                 * ( x_init(initstatet) + eye * p_init(initstatet) )
+
+        IF (initstate == initstatet) prod = prod - 0.5_dp * (2.0_dp)**(nstate + 1)
 
     END SUBROUTINE sample_twa_map
 
@@ -129,16 +122,12 @@ CONTAINS
         IMPLICIT NONE
         INTEGER :: i, j
         REAL(dp), INTENT(in) :: x(nstate), p(nstate)
-        !REAL(dp) :: n(nstate), q(nstate)
         COMPLEX(dp) :: res( nstate, nstate )
-        !n = 0.5_dp * ( p**2 + x**2 ) - zpe
-        !q = -DATAN2( p, x )
 
         DO i=1, nstate
             DO j=1, nstate
-                !res(j,i) = DSQRT( n(i) + zpe ) * DSQRT( n(j) + zpe ) &
-                !        EXP( eye * ( q(j) - q(i) ) ) * prod
-                          res(j,i) = 0.5_dp * ( x(j) + eye * p(j) ) * ( x(i) - eye * p(i) ) * prod
+                res(j,i) = 0.5_dp * ( x(j) + eye * p(j) ) * ( x(i) - eye * p(i) ) * prod
+                IF (i == j) res(j,i) = res(j,i) - 0.5_dp * prod
             END DO
         END DO
 
