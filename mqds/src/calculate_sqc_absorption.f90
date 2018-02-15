@@ -8,6 +8,7 @@ SUBROUTINE calculate_sqc_absorption
   USE spectroscopy
   USE unit_conversions
   USE hamiltonians
+  USE parameters
   USE mapping_variables
   USE harmonic_bath
   USE input_output
@@ -121,7 +122,7 @@ SUBROUTINE calculate_sqc_absorption
   END DO
 
   ! calculate trace at all times
-  resp_func = system_trace( redmat )
+  resp_func = eye * system_trace( redmat )
 
   ! Write the response function
   CALL write_linear_response(method, resp_func, printstep)
