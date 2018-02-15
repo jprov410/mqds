@@ -11,8 +11,8 @@ SUBROUTINE calculate_twa_redmat
   USE harmonic_bath
   USE input_output
   IMPLICIT NONE
-  INTEGER :: i, j, k
-  INTEGER :: istep, itraj, itime
+  INTEGER  :: i, j, k
+  INTEGER  :: istep, itraj, itime
   REAL(dp) :: beta
   REAL(dp) :: ham( nstate, nstate )
   REAL(dp) :: bath_force( nosc * nbath )

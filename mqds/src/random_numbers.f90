@@ -24,7 +24,13 @@ MODULE random_numbers
 
       CALL DATE_AND_TIME(VALUES=time)
 
-      IF ( PRESENT(my_pe) ) seed( 1 : SIZE(time) ) = my_pe + time(:)
+      IF ( seedsize >= size(time) ) THEN
+          seed( 1 : size(time) ) = seed( 1 : size(time) ) + time(:)
+      ELSE
+          seed(:) = seed(:) + time( 1 : seedsize )
+      END IF
+
+      IF ( PRESENT(my_pe) ) seed(:) = seed(:) + my_pe
 
       CALL RANDOM_SEED(PUT=seed)
 
@@ -50,7 +56,7 @@ MODULE random_numbers
       IMPLICIT NONE
       REAL(dp) :: input(:)
       REAL(dp) :: res(SIZE(input))
-      real(dp) :: make_grn(2,SIZE(input))
+      real(dp) :: make_grn(2, SIZE(input))
 
       CALL RANDOM_NUMBER(HARVEST=make_grn)
       res(:) = DSQRT( -2.0_dp * DLOG(make_grn(1,:)) ) * DCOS( 2.0_dp * pi * make_grn(2,:))

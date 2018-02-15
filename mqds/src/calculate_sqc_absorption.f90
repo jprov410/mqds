@@ -119,6 +119,7 @@ SUBROUTINE calculate_sqc_absorption
   DO itime=0, ( nbstep / dump )
       redmat(:, :, itime) = dipole_operator( redmat(:, :, itime) )
   END DO
+
   ! calculate trace at all times
   resp_func = system_trace( redmat )
 
