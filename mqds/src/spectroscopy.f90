@@ -102,7 +102,7 @@ CONTAINS
         WRITE(filename, writeformat) TRIM(method),'_linrespfunc.out'
         OPEN(UNIT=10, FILE=filename)
         DO itime=0, ( nbstep / dump )
-            WRITE(10,'(3(E13.6,2X))') printstep * (itime), -resp_func(itime)
+            WRITE(10,'(3(E13.6,2X))') printstep * (itime), resp_func(itime)
         END DO
         CLOSE(10)
 

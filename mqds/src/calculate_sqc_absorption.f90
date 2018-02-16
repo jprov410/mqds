@@ -48,11 +48,12 @@ SUBROUTINE calculate_sqc_absorption
 
   ! Get initially occupied coherences for calculation
   ! of linear spectroscopy assuming originally in
-  ! system state (1,1) (initialized above)
-  dipcom_gstate = dipole_commutator( dipcom_gstate )
+  ! system state (1,1) (initialized above) only
+  ! intialized from lower corner of perturbed redmat
+  dipcom_gstate = dipole_operator( dipcom_gstate )
 
   DO istate=1, nstate
-      DO istatet=1, nstate
+      DO istatet=1, istate
           ! check if dynamics from this state are necessary
           IF ( dipcom_gstate(istate, istatet) /= 0.0_dp ) THEN
 
@@ -83,7 +84,6 @@ SUBROUTINE calculate_sqc_absorption
                       ! First half of the verlet
                       x_bath = x_bath + p_bath * dt_bath + bath_force * 0.5_dp * dt_bath ** 2
                       p_bath = p_bath + bath_force * 0.5_dp * dt_bath
-
 
                       ! Update the full hamiltonian
                       ham = diabatic_bilinear_coupling_hamiltonian(x_bath, c)

@@ -21,8 +21,21 @@ set(MQDS_GENERAL_LIB
         calculate_sqc_absorption.f90
         focusing.f90)
 
-
+### add a library containing all of the source other than main.f90
 add_library(generallib ${MQDS_GENERAL_LIB})
 
+### If MPI was found, link the general library with MPI
+if(MPI_FOUND)
+    target_link_libraries(generallib MPI::MPI_Fortran)
+endif()
+
 add_executable(mqds.exe main.f90)
-target_link_libraries(mqds.exe generallib)
+
+### If MPI was found, link the executable with generallib and MPI
+if(MPI_FOUND)
+    target_link_libraries(mqds.exe generallib MPI::MPI_Fortran)
+    message(STATUS "MPI has been linked to executable")
+### Otherwise, just link it with generallib
+else()
+    target_link_libraries(mqds.exe generallib)
+endif()

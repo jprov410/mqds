@@ -48,15 +48,15 @@ SUBROUTINE calculate_pldm_absorption
 
   ! Get initially occupied coherences for calculation
   ! of linear spectroscopy assuming originally in
-  ! system state (1,1) (initialized above)
-  dipcom_gstate = dipole_commutator( dipcom_gstate )
+  ! system state (1,1) (initialized above) only
+  ! initialized from lower corner of perturbed redmat
+  dipcom_gstate = dipole_operator( dipcom_gstate )
 
   DO istate=1, nstate
-      DO istatet=1, nstate
+      DO istatet=1, istate
           ! check if dynamics from this state are necessary
           IF ( dipcom_gstate(istate, istatet) /= 0.0_dp ) THEN
-
-              ! Set initial staties
+              ! Set initial states
               initstate = istate ; initstatet = istatet
 
               ! Set weight from transition dipole
@@ -92,7 +92,7 @@ SUBROUTINE calculate_pldm_absorption
                       CALL verlet_mapping_variables(xt_map, pt_map, ham, dt_map)
 
                       ! If the step is divisible by dump, compute the redmat weighted by initial dipolt
-                      IF ( MOD( istep, dump) == 0 ) THEN
+                      IF ( MOD(istep, dump) == 0 ) THEN
                           itime = itime + 1
                           redmat(:, :, itime) = redmat(:, :, itime) &
                                   + weight * pldm_redmat(x_map, p_map, xt_map, pt_map)
