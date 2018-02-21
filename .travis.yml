@@ -48,7 +48,7 @@ matrix:
         - FC=gfortran-6
 
     # works on Precise and Trusty
-    - os: linux
+
       addons:
         apt:
           sources:
@@ -69,8 +69,3 @@ script:
   - mkdir build && cd build
   - cmake ../
   - make
-
-#after_success:
-# - bash <(curl -s https://codecov.io/bash)
-# - codecov
-
