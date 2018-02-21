@@ -1,10 +1,21 @@
 language: c
+
 sudo: required
+
+
 before_install:
   - sudo apt-get install gfortran
   - sudo apt-get install cmake
+#  - sudo apt-get install codecov
+
+
 
 script:
   - mkdir build && cd build
   - cmake ../
   - make
+
+#after_success:
+# - bash <(curl -s https://codecov.io/bash)
+# - codecov
+

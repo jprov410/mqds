@@ -17,27 +17,27 @@ CONTAINS
     REAL(dp) :: res
     
     ! Femtoseconds converted to atomic units of time
-    IF ( a .EQ. 'fs' .AND. b .EQ. 'au_time' ) THEN
+    IF ( a == 'fs' .AND. b == 'au_time' ) THEN
        res = fs2s * s2autime
-    ELSE IF ( a .EQ. 'au_time' .AND. b .EQ. 'fs' ) THEN
+    ELSE IF ( a == 'au_time' .AND. b == 'fs' ) THEN
        res = 1.0_dp / ( fs2s * s2autime )
 
     ! Kelvin converted to atomic units of energy
-    ELSE IF ( a .EQ. 'kelvin' .AND. b .EQ. 'au_energy' ) THEN
+    ELSE IF ( a == 'kelvin' .AND. b == 'au_energy' ) THEN
        res = kb * joules2au
-    ELSE IF ( a .EQ. 'au_energy' .AND. b .EQ. 'kelvin' ) THEN
+    ELSE IF ( a == 'au_energy' .AND. b == 'kelvin' ) THEN
        res = 1.0_dp / ( kb * joules2au )
 
     ! Wavenumbers converted to atomic units of angular frequency
-    ELSE IF ( a .EQ. 'wvnbr' .AND. b .EQ. 'au_ang_freq' ) THEN
+    ELSE IF ( a == 'wvnbr' .AND. b == 'au_ang_freq' ) THEN
        res = wvnbr2Hz/s2autime*2.0_dp*pi
-    ELSE IF ( a .EQ. 'au_ang_freq' .AND. b .EQ. 'wvnbr' ) THEN
+    ELSE IF ( a == 'au_ang_freq' .AND. b == 'wvnbr' ) THEN
        res = 1.0_dp/(wvnbr2Hz/s2autime*2.0_dp*pi)
 
     ! Wavenumbers converted to atomic units of energy
-    ELSE IF ( a .EQ. 'wvnbr' .AND. b .EQ. 'au_energy' ) THEN
+    ELSE IF ( a == 'wvnbr' .AND. b == 'au_energy' ) THEN
        res = wvnbr2joules*joules2au
-    ELSE IF ( a .EQ. 'au_energy' .AND. b .EQ. 'wvnbr' ) THEN
+    ELSE IF ( a == 'au_energy' .AND. b == 'wvnbr' ) THEN
        res = 1.0_dp/(wvnbr2joules*joules2au)
     
     ELSE
