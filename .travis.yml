@@ -63,8 +63,7 @@ matrix:
         - FC=gfortran-7
 
 before_install:
-    - eval "${MATRIX_EVAL}"
-    - printenv
+    - printenv  # just for debug info that could be helpful
 
 script:
   - mkdir build && cd build
