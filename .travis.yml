@@ -58,6 +58,7 @@ matrix:
 
 before_install:
     - eval "${MATRIX_EVAL}"
+    - printenv
 
 #before_install:
 #  - sudo apt-get install gfortran
