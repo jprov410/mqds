@@ -48,22 +48,37 @@ matrix:
         - FC=gfortran-6
 
     # works on Precise and Trusty
+    - os: linux
+          addons:
+            apt:
+              sources:
+                - ubuntu-toolchain-r-test
+              packages:
+                - g++-7
+                - gfortran-7
+                - cmake
+          env:
+            - CC=gcc-7
+            - CXX=g++-7
+            - FC=gfortran-7
 
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-          packages:
-            - g++-7
-            - gfortran-7
-            - cmake
-      env:
-        - CC=gcc-7
-        - CXX=g++-7
-        - FC=gfortran-7
+    # works on Precise and Trusty
+    - os: linux
+          addons:
+            apt:
+              sources:
+                - ubuntu-toolchain-r-test
+              packages:
+                - cmake
+          env:
+            - FC=pgf90
 
 before_install:
     - printenv  # just for debug info that could be helpful
+    - if [[ "$FC" == "pgf90" ]]; then ;
+    wget -q -O /dev/stdout \
+     'https://raw.githubusercontent.com/nemequ/pgi-travis/master/install-pgi.sh' | \
+      /bin/sh ; fi
 
 script:
   - mkdir build && cd build
