@@ -1,16 +1,18 @@
-# mqds
+## Travis
+[![Build Status](https://travis-ci.org/jprov410/mqds.svg?branch=master)](https://travis-ci.org/jprov410/mqds)
 
-## the modular quantum dynamics and spectroscopy package
+# MQDS
 
-This program will use explicitly defined data types given in:
+__*A modular quantum dynamics and spectroscopy package*__
 
-     kinds.f90
+This package is currently capable of the following calculations:
+----
 
-double precision numbers will be initialized as:
+* PLDM (Partially Linearized Density Matrix) calculation of the reduced density matrix of a system-bath model where the bath consists of a set of harmonic oscillators.
 
-       e.g.)  variable = 1.e10_dp
+* PLDM (Partially Linearized Density Matrix) calculation of the linear optical response function for a system-bath model where the bath consists of a set of harmonic oscillators.
 
-single precision numbers will be initialized as:
-       
-       e.g.) variable = 1.e10_sp
+* TWA (Truncated Wigner Approximation) calculation of the reduced density matrix of a system-bath model where the bath consists of a set of harmonic oscillators. (__currently under construction__)
+
+* SQC (Symmetrical Quasi-Classical) calculation of the reduced density  matrix of a system-bath model where the bath consists of a set of harmonic oscillators. 
 

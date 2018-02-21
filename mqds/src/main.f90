@@ -15,7 +15,12 @@ PROGRAM mqds
      STOP
   END IF
 
-  IF ( method .EQ. 'pldm' ) CALL pldm_master
+  ! mapping variable methods
+  IF ( method == 'pldm' ) CALL pldm_master
   
+  IF ( method == 'twa' ) CALL twa_master
+
+  IF ( method == 'sqc' ) CALL sqc_master
 
 END PROGRAM mqds
+
