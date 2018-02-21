@@ -16,6 +16,8 @@ matrix:
             - cmake
       env:
          - MATRIX_EVAL="CC=gcc-4.9 && CXX=g++-4.9 && FC=$(which gfortran-4.9)"
+         - CXX=g++-4.9
+         - FC=gfortran-4.9
 
     # works on Precise and Trusty
     - os: linux
@@ -29,6 +31,8 @@ matrix:
             - cmake
       env:
          - MATRIX_EVAL="CC=gcc-5 && CXX=g++-5 && FC=$(which gfortran-5)"
+         - CXX=g++-5
+         - FC=gfortran-5
 
     # works on Precise and Trusty
     - os: linux
@@ -42,6 +46,8 @@ matrix:
             - cmake
       env:
         - MATRIX_EVAL="CC=gcc-6 && CXX=g++-6 && FC=$(which gfortran-6)"
+         - CXX=g++-6
+         - FC=gfortran-6
 
     # works on Precise and Trusty
     - os: linux
@@ -55,6 +61,8 @@ matrix:
             - cmake
       env:
         - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7 && FC=$(which gfortran-7)"
+         - CXX=g++-7
+         - FC=gfortran-7
 
 before_install:
     - eval "${MATRIX_EVAL}"
