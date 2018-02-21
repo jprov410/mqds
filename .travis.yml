@@ -75,12 +75,7 @@ matrix:
 
 before_install:
     - printenv  # just for debug info that could be helpful
-    - if [[ "$FC" == "pgf90" ]]
-          then
-              wget -q -O /dev/stdout \
-              'https://raw.githubusercontent.com/nemequ/pgi-travis/master/install-pgi.sh' | \
-              /bin/sh
-      fi
+    - ./.travis.sh
 
 script:
   - mkdir build && cd build
