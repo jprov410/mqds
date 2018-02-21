@@ -49,18 +49,18 @@ matrix:
 
     # works on Precise and Trusty
     - os: linux
-          addons:
-            apt:
-              sources:
-                - ubuntu-toolchain-r-test
-              packages:
-                - g++-7
-                - gfortran-7
-                - cmake
-          env:
-            - CC=gcc-7
-            - CXX=g++-7
-            - FC=gfortran-7
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-7
+            - gfortran-7
+            - cmake
+      env:
+        - CC=gcc-7
+        - CXX=g++-7
+        - FC=gfortran-7
 
     # works on Precise and Trusty
  #   - os: linux
