@@ -63,19 +63,19 @@ matrix:
         - FC=gfortran-7
 
     # works on Precise and Trusty
- #   - os: linux
- #         addons:
- #           apt:
- #             sources:
- #               - ubuntu-toolchain-r-test
- #             packages:
- #               - cmake
- #         env:
- #           - FC=pgf90
+    - os: linux
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - cmake
+      env:
+        - FC=pgf90
 
 before_install:
     - printenv  # just for debug info that could be helpful
- #   - ./.travis.sh
+    - ./.travis.sh
 
 script:
   - mkdir build && cd build
