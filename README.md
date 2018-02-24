@@ -1,5 +1,6 @@
-## Travis
 [![Build Status](https://travis-ci.org/jprov410/mqds.svg?branch=master)](https://travis-ci.org/jprov410/mqds)
+[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
+
 
 # MQDS
 
@@ -16,3 +17,4 @@ This package is currently capable of the following calculations:
 
 * SQC (Symmetrical Quasi-Classical) calculation of the reduced density  matrix of a system-bath model where the bath consists of a set of harmonic oscillators. 
 
+## Travis: gfortran - 4.9, 5, 6, 7 & pgf90 [![Build Status](https://travis-ci.org/jprov410/mqds.svg?branch=master)](https://travis-ci.org/jprov410/mqds)
