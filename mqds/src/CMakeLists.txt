@@ -1,41 +1,34 @@
-set(MQDS_GENERAL_LIB
-        general_src/input_output.f90
-        general_src/unit_conversions.f90
-        general_src/random_numbers.f90
-        general_src/harmonic_bath.f90
-        general_src/mapping_variables.f90
-        pldm_src/pldm_master.f90
-        general_src/hamiltonians.f90
-        pldm_src/calculate_pldm_redmat.f90
-        twa_src/twa_master.f90
-        twa_src/calculate_twa_redmat.f90
-        general_src/kinds.f90
-        pldm_src/windows.f90
-        general_src/parameters.f90
-        general_src/spectroscopy.f90
-        pldm_src/calculate_pldm_absorption.f90
-        sqc_src/sqc_master.f90
-        twa_src/calculate_twa_redmat.f90
-        sqc_src/calculate_sqc_redmat.f90
-        sqc_src/sqc_master.f90
-        sqc_src/calculate_sqc_absorption.f90
-        general_src/focusing.f90)
+add_subdirectory(general_src)
+add_subdirectory(pldm_src)
+add_subdirectory(sqc_src)
+add_subdirectory(twa_src)
 
-### add a library containing all of the source other than main.f90
-add_library(generallib ${MQDS_GENERAL_LIB})
-
-### If MPI was found, link the general library with MPI
-if(MPI_FOUND)
-    target_link_libraries(generallib MPI::MPI_Fortran)
-endif()
+### Include the dircectories that contain libraries
+include_directories(
+        ${MQDS_BINARY_DIR}/mqds/src/general_src
+        ${MQDS_BINARY_DIR}/mqds/src/pldm_src
+        ${MQDS_BINARY_DIR}/mqds/src/sqc_src
+        ${MQDS_BINARY_DIR}/mqds/src/twa_src
+)
+set(MQDS_LIBRARIES
+        generallib
+        pldmlib
+        sqclib
+        twalib)
 
 add_executable(mqds.exe main.f90)
 
 ### If MPI was found, link the executable with generallib and MPI
 if(MPI_FOUND)
-    target_link_libraries(mqds.exe generallib MPI::MPI_Fortran)
+    target_link_libraries(mqds.exe
+            ${MQDS_LIBRARIES}
+            MPI::MPI_Fortran
+            )
     message(STATUS "MPI has been linked to executable")
-### Otherwise, just link it with generallib
+
+    ### Otherwise, just link it with generallib
 else()
-    target_link_libraries(mqds.exe generallib)
+    target_link_libraries(mqds.exe
+            ${ALL_LIBRARIES}
+            )
 endif()

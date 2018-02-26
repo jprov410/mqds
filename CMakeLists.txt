@@ -17,3 +17,6 @@ endif()
 message(STATUS "Fortran Flags: ${CMAKE_Fortran_FLAGS}")
 
 add_subdirectory(mqds)
+
+enable_testing()
+add_subdirectory(test)
