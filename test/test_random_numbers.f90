@@ -21,12 +21,4 @@ PROGRAM test_random_numbers
         STOP 1
     END IF
 
-    call initialize_rn
-    unif2 = uniform_rn(unif2)
-    IF ( unif1(1) == unif2(1) ) THEN
-        WRITE(*,*) 'subsequent seeds are identical!'
-        STOP 1
-    END IF
-
-
 END PROGRAM test_random_numbers
