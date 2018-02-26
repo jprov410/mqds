@@ -25,9 +25,10 @@ MODULE random_numbers
       CALL DATE_AND_TIME(VALUES=time)
 
       IF ( seedsize >= size(time) ) THEN
-          seed( 1 : size(time) ) = seed( 1 : size(time) ) + time(:)
+        seed = seed + time(8)
+        seed( 1 : size(time) ) = seed( 1 : size(time) ) + time(:)
       ELSE
-          seed(:) = seed(:) + time( 1 : seedsize )
+        seed(:) = seed(:) + time( 1 : seedsize )
       END IF
 
       IF ( PRESENT(my_pe) ) seed(:) = seed(:) + my_pe

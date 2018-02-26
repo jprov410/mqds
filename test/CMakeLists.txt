@@ -10,3 +10,7 @@ INCLUDE_DIRECTORIES(
 add_executable(test_unit_conversions test_unit_conversions.f90)
 target_link_libraries(test_unit_conversions generallib)
 add_test(UNIT_CONVERSIONS test_unit_conversions)
+
+add_executable(test_random_numbers test_random_numbers.f90)
+target_link_libraries(test_random_numbers generallib)
+add_test(RANDOM_NUMBERS test_random_numbers)
