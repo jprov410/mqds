@@ -29,6 +29,6 @@ if(MPI_FOUND)
     ### Otherwise, just link it with generallib
 else()
     target_link_libraries(mqds.exe
-            ${ALL_LIBRARIES}
+            ${MQDS_LIBRARIES}
             )
 endif()
