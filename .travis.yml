@@ -12,7 +12,8 @@ matrix:
             - gfortran-4.9
             - cmake
       env:
-         - FC=gfortran-4.9
+        - FC=gfortran-4.9
+        - COV=
 
     # works on Precise and Trusty
     - os: linux
@@ -24,7 +25,8 @@ matrix:
             - gfortran-5
             - cmake
       env:
-         - FC=gfortran-5
+        - FC=gfortran-5
+        - COV=
 
     # works on Precise and Trusty
     - os: linux
@@ -37,6 +39,7 @@ matrix:
             - cmake
       env:
         - FC=gfortran-6
+        - COV=--coverage
 
     # works on Precise and Trusty
     - os: linux
@@ -49,6 +52,7 @@ matrix:
             - cmake
       env:
         - FC=gfortran-7
+        - COV=
 
     # works on Precise and Trusty
     - os: linux
@@ -58,6 +62,7 @@ matrix:
             - cmake
       env:
         - FC=pgf90
+        - COV=
 
 before_install:
     - printenv  # just for debug info that could be helpful
@@ -65,7 +70,7 @@ before_install:
 
 script:
   - mkdir build && cd build
-  - cmake ../
+  - cmake -DCMAKE_Fortran_FLAGS=COV ../
   - make
   - ctest
 
