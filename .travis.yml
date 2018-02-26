@@ -69,6 +69,9 @@ script:
   - make
   - make test
 
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+
 notifications:
   slack:
     secure: m29ZdRgnXPV+hH+BO62DavSHbTb8UDSIPOOEJ4dOJ2G7JZmO/2+JiWI3Q75lnjmcIHHEYva8b6UmqaXo9zV9sN9FqlVPERl2wD0kIGWQUFYd7kEckcNq5KAQ2WBrmUvQlvo8n039vZELgIwN/xasxWvWZs3aE7upkJe/3HkTU1LRzkF+2xjpXtFEZHioRKPuiDiStlCd9OdGDJI7huSVgl0ZqhdgPhRPstQOWn41dGWCx6AcomAuBFfHK9Q85ytpBd/2XT0wYkRFlJmBXR7eDXXMJsIL2TxWMDNhFYvAKs7gHE/Y3mqwVn0llPuLtu1CJlhGaqCBvcHH0F7yvNd/p50++ljElIs4w69XWqDrQSd3NqAn6NXA4NcDFHToqgYl4ln09/8KcTtLl97+/Of/bUAj7KDud9tuhbncJWqCilXuQqEwstFGcac03vy8WwnljFvarT621cJTRUQKb910TIlw8mv+8nfvKgSFTaZE5JEF/75Ed2GceclWcl2HDblJpNskRWuTGm8/i4ZJqQ7JHDMGpFdRnRoBdBuAD+r74EtKg91ucmSsDO3ouSOGfEyX/Zvp6oUm4ciHVGgRmDTMfT8aYgtq8d2HEFmewML94ByzxegLPxFuLG5Hv8IxIW3pvnF9yHvLWZXSzonSv5GVPkpy8MurlWpsUK9r7ipUDX8=
