@@ -67,7 +67,7 @@ script:
   - mkdir build && cd build
   - cmake ../
   - make
-  - make test
+  - ctest
 
 after_success:
   - bash <(curl -s https://codecov.io/bash) -t da849d9c-4777-4c92-9e8a-480dff630ccb
