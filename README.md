@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/jprov410/mqds.svg?branch=master)](https://travis-ci.org/jprov410/mqds)
 [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
-
+[![codecov](https://codecov.io/gh/jprov410/mqds/branch/master/graph/badge.svg)](https://codecov.io/gh/jprov410/mqds)
 
 
 # MQDS
