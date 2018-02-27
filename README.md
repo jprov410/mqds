@@ -4,7 +4,7 @@
 
 ![alt text][logo]
 
-[logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"
+[logo]: https://github.com/jprov410/mqds/tree/master/misc/mqds.pdf "Logo Title Text 2"
 
 # MQDS
 
