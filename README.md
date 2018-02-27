@@ -4,9 +4,6 @@
 
 ![alt text](https://github.com/jprov410/mqds/blob/master/misc/logo.jpg)
 
-
-# MQDS
-
 __*A modular quantum dynamics and spectroscopy package*__
 
 #### This package is currently capable of the following calculations:
