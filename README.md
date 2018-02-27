@@ -2,10 +2,6 @@
 [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
 [![codecov](https://codecov.io/gh/jprov410/mqds/branch/master/graph/badge.svg)](https://codecov.io/gh/jprov410/mqds)
 
-![alt text][logo]
-
-[logo]: https://github.com/jprov410/mqds/blob/master/misc/mqds.png "Logo Title Text 2"
-
 # MQDS
 
 __*A modular quantum dynamics and spectroscopy package*__
