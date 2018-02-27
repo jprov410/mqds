@@ -25,4 +25,9 @@ PROGRAM test_unit_conversions
         STOP 1
     END IF
 
+    time = time * convert('au_time','fs')
+    beta = 1.0_dp / ( temp * convert('au_energy','kelvin') )
+    freq = freq * convert('au_ang_freq','wvnbr')
+    energy = energy * convert('au_energy','wvnbr')
+
 END PROGRAM test_unit_conversions
