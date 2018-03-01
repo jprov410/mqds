@@ -53,7 +53,7 @@ CONTAINS
     REAL(dp) :: res(nstate, nstate)
 
     res = hel
-    DO i= 1, nstate
+    DO i=1, nstate
        DO j=1, nbath*nosc
           res(i, i) = res(i, i) + coupling_matrix(j,i) * x_bath(j)
        END DO
