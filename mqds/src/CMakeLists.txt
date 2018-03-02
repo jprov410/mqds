@@ -32,3 +32,10 @@ else()
             ${MQDS_LIBRARIES}
             )
 endif()
+
+# Copy executable to directory with submission/analysis scripts
+set(MQDS_RUN_PATH ${CMAKE_HOME_DIRECTORY}/run/mqds_run/.)
+add_custom_command(TARGET mqds.exe
+        POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:mqds.exe> ${MQDS_RUN_PATH})
+MESSAGE(STATUS "executable has been copied to ${MQDS_RUN_PATH}")

@@ -10,6 +10,7 @@
 *.o
 build/
 mqds.exe
+cmake-build-debug/
 
 #-- Python files --#
 *.pyc
