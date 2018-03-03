@@ -18,7 +18,7 @@ add_library(generallib
         )
 
 ### If MPI was found, link the general library with MPI
-if(MPI_FOUND)
+if(MPI_Fortran_FOUND)
     target_link_libraries(generallib
             MPI::MPI_Fortran
             )

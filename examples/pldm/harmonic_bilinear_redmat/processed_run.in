@@ -15,7 +15,7 @@ nstate	2
 nstep1	500
 nstep2	0
 nstep3	500
-ntraj	20000
+ntraj	10000
 runtime	1000.0
 tdelay1	500.0
 tdelay2	0.0
