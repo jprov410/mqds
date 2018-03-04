@@ -1,7 +1,5 @@
-!
-! This is the main program that interprets the input file
-! and decides which methods to execute
-!
+!> This is the main program that interprets the input file
+!! and decides which methods to execute
 PROGRAM mqds
   USE input_output
   IMPLICIT NONE
