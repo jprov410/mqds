@@ -17,9 +17,12 @@ PROGRAM test_hamiltonians
     CALL initialize_hel
     hel = 0.0_dp
 
+    CALL read_hel
+
     ham = diabatic_bilinear_coupling_hamiltonian(x,c)
-    IF ( ham(1,1) /= 0.0_dp ) THEN
-        WRITE(*,*) 'diabatic_bilinear_coupling_hamiltonian not working correctly'
+    IF ( ham(1,1) /= hel(1,1) ) THEN
+        WRITE(*,*) 'diabatic_bilinear_coupling_hamiltonian not working correctly, &
+                expected', hel(1,1), 'but got', ham(1,1)
         STOP 1
     END IF
 
