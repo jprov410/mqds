@@ -31,6 +31,10 @@ add_executable(test_harmonic_bath test_harmonic_bath.f90)
 target_link_libraries(test_harmonic_bath generallib)
 add_test(HARMONIC_BATH test_harmonic_bath)
 
+add_executable(test_mapping_variables test_mapping_variables.f90)
+target_link_libraries(test_mapping_variables generallib)
+add_test(MAPPING_VARIABLES test_mapping_variables)
+
 
 file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/hel.in
         DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
