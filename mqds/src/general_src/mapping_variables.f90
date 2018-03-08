@@ -123,13 +123,14 @@ CONTAINS
         INTEGER :: i, j
         REAL(dp), INTENT(in) :: x(nstate), p(nstate)
         COMPLEX(dp) :: res( nstate, nstate )
+        res = 1.0_dp
 
-        DO i=1, nstate
-            DO j=1, nstate
-                res(j,i) = 0.5_dp * ( x(j) + eye * p(j) ) * ( x(i) - eye * p(i) ) * prod
-                IF (i == j) res(j,i) = res(j,i) - 0.5_dp * prod
-            END DO
-        END DO
+        !DO i=1, nstate
+        !    DO j=1, nstate
+        !        res(j,i) = 0.5_dp * ( x(j) + eye * p(j) ) * ( x(i) - eye * p(i) ) * prod
+        !        IF (i == j) res(j,i) = res(j,i) - 0.5_dp * prod
+        !    END DO
+        !END DO
 
     END FUNCTION twa_redmat
 
@@ -146,7 +147,6 @@ CONTAINS
         REAL(dp), INTENT(in) :: dt
         REAL(dp) :: dxdt(nstate), d2xdt2(nstate)
         REAL(dp) :: dpdt(nstate)
-
 
         DO istep=1, nlit
 

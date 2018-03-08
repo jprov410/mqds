@@ -8,6 +8,7 @@ PROGRAM test_mapping_variables
     nstate = 2
     nlit=10
 
+
     ALLOCATE( test(nstate,nstate) )
     test = 0.0_dp
 
@@ -24,7 +25,7 @@ PROGRAM test_mapping_variables
 
     test = 1.0_dp ; test(nstate,nstate) = 0.0_dp
     prop_check = x_map(1)
-    CALL verlet_mapping_variables( x_map, p_map, test, 1.0_dp )
+    CALL verlet_mapping_variables( x_map, p_map, test, 10.0_dp )
     IF ( x_map(1) == prop_check ) THEN
         WRITE(*,*) 'verlet mapping propagation not working correctly!'
         STOP 1
