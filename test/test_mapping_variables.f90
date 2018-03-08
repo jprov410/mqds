@@ -7,7 +7,8 @@ PROGRAM test_mapping_variables
     REAL(dp) :: prop_check
     nstate = 2
     nlit=10
-
+    initstate = 1
+    initstatet = 1
 
     ALLOCATE( test(nstate,nstate) )
     test = 0.0_dp
