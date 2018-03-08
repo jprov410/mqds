@@ -27,6 +27,11 @@ add_executable(test_kinds test_kinds.f90)
 target_link_libraries(test_kinds generallib)
 add_test(KINDS test_kinds)
 
+add_executable(test_harmonic_bath test_harmonic_bath.f90)
+target_link_libraries(test_harmonic_bath generallib)
+add_test(HARMONIC_BATH test_harmonic_bath)
+
+
 file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/hel.in
         DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/couplings.in
