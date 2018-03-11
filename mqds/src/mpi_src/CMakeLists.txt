@@ -32,6 +32,6 @@ add_executable(mqds_mpi.exe main_mpi.f90)
     set(MQDS_RUN_PATH ${CMAKE_HOME_DIRECTORY}/run/mqds_run/.)
     add_custom_command(TARGET mqds_mpi.exe
             POST_BUILD
-            COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:mqds.exe> ${MQDS_RUN_PATH})
+            COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:mqds_mpi.exe> ${MQDS_RUN_PATH})
     MESSAGE(STATUS "MPI executable has been copied to ${MQDS_RUN_PATH}")
 endif()

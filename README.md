@@ -37,5 +37,4 @@ More Information
 
 Compilation of this program requires CMake minimum version 3.2. 
 To compile this program (from this directory) execute `mkdir build && cd build` 
-followed by `cmake ../ && make`. To run tests execute `make test`. The executable will be in the `src` directory 
-and will be called `mqds.exe`.
+followed by `cmake ../ && make`. To run tests execute `make test`. The executables will be in the `run` directory.

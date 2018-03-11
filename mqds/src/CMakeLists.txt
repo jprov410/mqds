@@ -7,6 +7,7 @@ add_subdirectory(pldm_src)
 add_subdirectory(sqc_src)
 add_subdirectory(twa_src)
 add_subdirectory(mpi_src)
+add_subdirectory(analysis_src)
 
 ### Include the dircectories that contain libraries
 include_directories(
@@ -29,8 +30,8 @@ if(MPI_Fortran_FOUND)
             ${MQDS_LIBRARIES}
             MPI::MPI_Fortran
             )
-    message(STATUS "MPI has been linked to executable")
-    message(STATUS "MPI Fortran Compiler is ${CMAKE_Fortran_COMPILER}")
+    #message(STATUS "MPI has been linked to executable")
+    #message(STATUS "MPI Fortran Compiler is ${CMAKE_Fortran_COMPILER}")
     ### Otherwise, just link it with generallib
 else()
     target_link_libraries(mqds.exe
