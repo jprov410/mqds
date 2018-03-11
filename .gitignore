@@ -9,8 +9,9 @@
 *.mod
 *.o
 build/
-mqds.exe
+*.exe
 cmake-build-debug/
+spectra.c
 
 #-- Python files --#
 *.pyc

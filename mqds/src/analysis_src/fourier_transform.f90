@@ -13,10 +13,10 @@ PROGRAM fourier_transform
     INTEGER :: nw1,nw2,nw3
     CHARACTER(30) :: filename,junk
     CHARACTER(33) :: outfile
-    COMPLEX(KIND=16), ALLOCATABLE :: lin_resp(:)
-    COMPLEX(KIND=16), ALLOCATABLE :: ft_lin_resp(:)
-    COMPLEX(KIND=16), ALLOCATABLE :: nonlin_resp(:,:,:)
-    COMPLEX(KIND=16), ALLOCATABLE :: ft_nonlin_resp(:)
+    COMPLEX(16), ALLOCATABLE :: lin_resp(:)
+    COMPLEX(16), ALLOCATABLE :: ft_lin_resp(:)
+    COMPLEX(16), ALLOCATABLE :: nonlin_resp(:,:,:)
+    COMPLEX(16), ALLOCATABLE :: ft_nonlin_resp(:)
     ntime1 = 0 ; ntime2 = 0 ; ntime3 = 0
 
 
@@ -101,9 +101,9 @@ CONTAINS
         IMPLICIT NONE
         INTEGER :: t
         DOUBLE PRECISION, INTENT(IN) :: w, dt
-        COMPLEX(KIND=16) :: res
-        COMPLEX(KIND=16), PARAMETER :: eye = (0.d0, 1.d0)
-        COMPLEX(KIND=16), INTENT(IN) :: response(:)
+        COMPLEX(16) :: res
+        COMPLEX(16), PARAMETER :: eye = (0.d0, 1.d0)
+        COMPLEX(16), INTENT(IN) :: response(:)
         res = 0.d0
 
         DO t = 1, SIZE(response)
