@@ -1,0 +1,5 @@
+2 baths 100 oscillators each
+format: nbath (horizontal) by nstate (vertical)
+0.0 0.0
+1.0	0.0
+0.0	1.0
