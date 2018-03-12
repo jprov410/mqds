@@ -35,6 +35,10 @@ add_executable(test_mapping_variables test_mapping_variables.f90)
 target_link_libraries(test_mapping_variables generallib)
 add_test(MAPPING_VARIABLES test_mapping_variables)
 
+add_executable(test_windows test_windows.f90)
+target_link_libraries(test_windows generallib)
+add_test(WINDOWS test_windows)
+
 
 file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/hel.in
         DESTINATION ${CMAKE_CURRENT_BINARY_DIR})

@@ -56,7 +56,7 @@ CONTAINS
     p_init = -DSQRT( 2.0_dp * ( n + zpe ) ) * DSIN( q )
     x_init = DSQRT( 2.0_dp * ( n + zpe ) ) * DCOS( q )
 
-END SUBROUTINE sample_sqc_map
+    END SUBROUTINE sample_sqc_map
 
     ! Calculate the reduced density matrix using SQC
     FUNCTION sqc_redmat(x, p, itime) RESULT( res )
