@@ -39,10 +39,16 @@ add_executable(test_windows test_windows.f90)
 target_link_libraries(test_windows generallib)
 add_test(WINDOWS test_windows)
 
+add_executable(test_spectroscopy test_spectroscopy.f90)
+target_link_libraries(test_spectroscopy generallib)
+add_test(SPECTROSCOPY test_spectroscopy)
+
 
 file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/hel.in
         DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/couplings.in
         DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/continuumsd.in
+        DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/dipole.in
         DESTINATION ${CMAKE_CURRENT_BINARY_DIR})

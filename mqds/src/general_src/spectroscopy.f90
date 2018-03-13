@@ -9,7 +9,7 @@ MODULE spectroscopy
     IMPLICIT NONE
     REAL(dp), ALLOCATABLE, PRIVATE :: dipole(:,:)
 
-    !strange that wont compile if I USE  input_output in the
+    !strange that wont compile if use input_output in the
     ! dipole operator and dipole commutator functions defined below
 
 

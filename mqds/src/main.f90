@@ -9,9 +9,8 @@
 !
 ! DESCRIPTION:
 !> Brief description of module.
-!
+!! DD Mmm YYYY - Initial Version
 ! REVISION HISTORY:
-! DD Mmm YYYY - Initial Version
 ! TODO_dd_mmm_yyyy - TODO_describe_appropriate_changes - TODO_name
 !------------------------------------------------------------------------------
 PROGRAM mqds
