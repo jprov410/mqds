@@ -30,7 +30,7 @@ SUBROUTINE pldm_master_mpi
 
         IF (calculation == 'absorption' ) CALL calculate_pldm_absorption_mpi
 
-        !IF (calculation == 'nonlinear') CALL calculate_pldm_nonlinear
+        !IF (calculation == 'nonlinear') CALL calculate_pldm_nonlinear_mpi
 
         CALL finalize_hel
 

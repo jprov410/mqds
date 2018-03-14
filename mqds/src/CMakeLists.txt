@@ -33,9 +33,6 @@ if(MPI_Fortran_FOUND)
             ${MQDS_LIBRARIES}
             MPI::MPI_Fortran
             )
-    #message(STATUS "MPI has been linked to executable")
-    #message(STATUS "MPI Fortran Compiler is ${CMAKE_Fortran_COMPILER}")
-    ### Otherwise, just link it with generallib
 else()
     target_link_libraries(mqds.exe
             ${MQDS_LIBRARIES}
@@ -47,4 +44,4 @@ set(MQDS_RUN_PATH ${CMAKE_HOME_DIRECTORY}/run/mqds_run/.)
 add_custom_command(TARGET mqds.exe
         POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:mqds.exe> ${MQDS_RUN_PATH})
-message(STATUS "executable has been copied to ${MQDS_RUN_PATH}")
+message(STATUS "mqds.exe (SERIAL) executable will be copied to ${MQDS_RUN_PATH}")

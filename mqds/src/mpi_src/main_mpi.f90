@@ -25,13 +25,17 @@ PROGRAM mqds_mpi
   IF ( method == 'pldm' ) THEN
       CALL pldm_master_mpi
   END IF
-  
+
   IF ( method == 'twa' ) THEN
       CALL twa_master_mpi
   END IF
 
   IF ( method == 'sqc' ) THEN
       CALL sqc_master_mpi
+  END IF
+
+  IF ( method == 'ipldm' ) THEN
+      CALL ipldm_master_mpi
   END IF
 
   CALL MPI_FINALIZE(ierr)

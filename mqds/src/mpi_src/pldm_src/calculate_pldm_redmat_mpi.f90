@@ -77,7 +77,7 @@ SUBROUTINE calculate_pldm_redmat_mpi
      END DO
      
   END DO
-  
+
   redmat = redmat / INT( ntraj/npes )
   result_size = 2 * SIZE(redmat)
 

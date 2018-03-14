@@ -25,17 +25,16 @@ if(DOXYGEN_FOUND)
 
     # request to configure the file
     configure_file(${DOXYGEN_IN} ${DOXYGEN_OUT} @ONLY)
-    message(STATUS "Doxygen build started")
 
     # Build the docs with the application
-    add_custom_target( doc_doxygen ALL
+    add_custom_target( doc
             COMMAND ${DOXYGEN_EXECUTABLE} ${DOXYGEN_OUT}
             WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
             COMMENT "Generating API documentation with Doxygen"
             VERBATIM )
 else()
     message(STATUS "Doxygen needs to be installed to generate the doxygen documentation")
-endif()
+endif(DOXYGEN_FOUND)
 
 
 if(MPI_FOUND)
