@@ -3,7 +3,7 @@
 ! using truncated wigner approximation with a harmonic bath model 
 ! in the diabatic basis with bilinear coupling
 !
-SUBROUTINE calculate_twa_redmat
+SUBROUTINE calculate_twa_redmat_mpi
   USE kinds
   USE unit_conversions
   USE hamiltonians
@@ -78,4 +78,4 @@ SUBROUTINE calculate_twa_redmat
   CALL write_redmat(method, redmat, printstep)
 
 
-END SUBROUTINE calculate_twa_redmat
+END SUBROUTINE calculate_twa_redmat_mpi

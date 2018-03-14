@@ -2,7 +2,7 @@
 ! This is the PLDM master subroutine that determines
 !      which PLDM-based calculation to perform
 !
-SUBROUTINE ipldm_master
+SUBROUTINE ipldm_master_mpi
   USE input_output
   USE harmonic_bath
   USE mapping_variables
@@ -44,4 +44,4 @@ SUBROUTINE ipldm_master
   ! Deallocate mapping variables
   CALL finalize_pldm_map
 
-END SUBROUTINE ipldm_master
+END SUBROUTINE ipldm_master_mpi
