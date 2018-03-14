@@ -9,10 +9,11 @@ SUBROUTINE sqc_master_mpi
   USE hamiltonians
   USE random_numbers
   USE windows
+  USE mpi_variables
   IMPLICIT NONE
 
   ! Initialize random seed (with mype argument for MPI)
-  CALL initialize_rn
+  CALL initialize_rn(mype)
 
   ! Allocate arrays and initialize mapping variables
   ! sqc and twa use the same initialization of mapping

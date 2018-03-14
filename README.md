@@ -17,6 +17,10 @@ __*A modular quantum dynamics and spectroscopy package*__
 optical response function__ for a system-bath model where the bath consists 
 of a set of harmonic oscillators.
 
+* __IPLDM__ (Iterative Partially Linearized Density Matrix) calculation of the __reduced density
+ matrix__ of a system-bath model where the bath consists of a set of harmonic 
+ oscillators. This calculation employs the "focusing" procedure, outlined in the IPLDM example directory.
+
 * __TWA__ (Truncated Wigner Approximation) calculation of the __reduced density matrix__ 
 of a system-bath model where the bath consists of a set of harmonic oscillators.
 (__currently under construction__)

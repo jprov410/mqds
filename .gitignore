@@ -23,5 +23,6 @@ processed_run.in
 pldm.*
 twa.*
 sqc.*
+ipldm.*
 *.log
 *.out

@@ -26,12 +26,17 @@ PROGRAM mqds
      STOP
   END IF
 
-  ! mapping variable methods
+  ! Mapping Variable Dynamics methods
   IF ( method == 'pldm' ) CALL pldm_master
   
   IF ( method == 'twa' ) CALL twa_master
 
   IF ( method == 'sqc' ) CALL sqc_master
+
+  IF ( method == 'ipldm' ) CALL ipldm_master
+
+  ! Equilibrium Reduced Density Matrix method
+
 
 END PROGRAM mqds
 

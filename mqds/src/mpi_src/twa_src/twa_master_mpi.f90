@@ -8,10 +8,11 @@ SUBROUTINE twa_master_mpi
   USE mapping_variables
   USE hamiltonians
   USE random_numbers
+  USE mpi_variables
   IMPLICIT NONE
 
   ! Initialize random seed (with mype argument for MPI)
-  CALL initialize_rn
+  CALL initialize_rn(mype)
 
   ! Allocate arrays and initialize mapping variables
   CALL initialize_twa_map

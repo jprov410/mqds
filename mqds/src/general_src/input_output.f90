@@ -16,10 +16,10 @@ MODULE input_output
 
   ! General variables from input file
   INTEGER :: ntraj, nbstep, nlit, dump, nstate, initstate, initstatet
-  INTEGER :: ndof, tdim, ndisc, slicestep
+  INTEGER :: ndof, tdim, ndisc, nslice
   INTEGER :: nbath, nosc
   REAL(dp) :: runtime, temperature
-  REAL(dp) :: zpe, window, nslice
+  REAL(dp) :: zpe, window
   
   ! Spectroscopy variables from input file
   INTEGER :: nstep1, nstep2, nstep3, tdim1, tdim2, tdim3

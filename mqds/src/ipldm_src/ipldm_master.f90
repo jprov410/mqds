@@ -2,17 +2,16 @@
 ! This is the PLDM master subroutine that determines
 !      which PLDM-based calculation to perform
 !
-SUBROUTINE pldm_master_mpi
+SUBROUTINE ipldm_master
   USE input_output
   USE harmonic_bath
   USE mapping_variables
   USE hamiltonians
   USE random_numbers
-  USE mpi_variables
   IMPLICIT NONE
 
   ! Initialize random seed (with mype argument for MPI)
-  CALL initialize_rn(mype)
+  CALL initialize_rn
 
   ! Allocate arrays and initialize mapping variables
   CALL initialize_pldm_map
@@ -26,9 +25,9 @@ SUBROUTINE pldm_master_mpi
 
         CALL initialize_hel
 
-        IF ( calculation == 'redmat' ) CALL calculate_pldm_redmat_mpi
+        IF ( calculation == 'redmat' ) CALL calculate_ipldm_redmat
 
-        IF (calculation == 'absorption' ) CALL calculate_pldm_absorption_mpi
+        !IF (calculation == 'absorption' ) CALL calculate_ipldm_absorption
 
         !IF (calculation == 'nonlinear') CALL calculate_pldm_nonlinear
 
@@ -44,4 +43,4 @@ SUBROUTINE pldm_master_mpi
   ! Deallocate mapping variables
   CALL finalize_pldm_map
 
-END SUBROUTINE pldm_master_mpi
+END SUBROUTINE ipldm_master

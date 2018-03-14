@@ -8,6 +8,7 @@ add_subdirectory(sqc_src)
 add_subdirectory(twa_src)
 add_subdirectory(mpi_src)
 add_subdirectory(analysis_src)
+add_subdirectory(ipldm_src)
 
 ### Include the dircectories that contain libraries
 include_directories(
@@ -15,12 +16,14 @@ include_directories(
         ${MQDS_BINARY_DIR}/mqds/src/pldm_src
         ${MQDS_BINARY_DIR}/mqds/src/sqc_src
         ${MQDS_BINARY_DIR}/mqds/src/twa_src
+        ${MQDS_BINARY_DIR}/mqds/src/ipldm_src
 )
 set(MQDS_LIBRARIES
         generallib
         pldmlib
         sqclib
-        twalib)
+        twalib
+        ipldmlib)
 
 add_executable(mqds.exe main.f90)
 
