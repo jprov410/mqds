@@ -1,6 +1,5 @@
-!
-! Module for the monte carlo "focusing" procedure defined in
-!
+!> This is a module for the monte carlo "focusing" procedures described in
+!! detail in J. Chem. Theory Comput., 2018, 14 (2), pp 856–866
 MODULE focusing
     USE kinds
     USE input_output
@@ -8,6 +7,10 @@ MODULE focusing
     USE mapping_variables
 CONTAINS
 
+    !> Applies a "steepest descent" analysis to integrals over
+    !! mapping variables be setting the value the mapping variables
+    !! for all initially-occupied states to 1.0 while all others
+    !! are set to 0.
     SUBROUTINE focus_pldm_map(x_init, p_init, xt_init, pt_init)
         IMPLICIT NONE
         REAL(dp), INTENT(out) :: x_init(nstate), p_init(nstate)
@@ -26,6 +29,12 @@ CONTAINS
                 * ( xt_init(initstatet) + eye * pt_init(initstatet) )
     END SUBROUTINE focus_pldm_map
 
+    !> Evaluates an intermediate sum over system basis states using a
+    !! Monte-Carlo importance sampling procedure by building a probability
+    !! density function based on the magnitude of all of the density
+    !! matrix elements and uniformly sampling the cumulative distribution
+    !! function to select out the "most important" reduced density matrix
+    !! element as the initially-occupied state for subsequent propagation.
     SUBROUTINE focus_redmat( input_redmat, weight )
         USE random_numbers
         IMPLICIT NONE
