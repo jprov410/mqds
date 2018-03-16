@@ -1,16 +1,15 @@
+!> Module to handle a harmonic-oscillator model for the
+!! bath in quantum dynamics simulations
 MODULE harmonic_bath
   USE kinds
   IMPLICIT NONE
-  REAL(dp), ALLOCATABLE :: x_bath(:), p_bath(:) ! bath DOFs
+  REAL(dp), ALLOCATABLE :: x_bath(:), p_bath(:) ! bath phase space DOFs
   REAL(dp), ALLOCATABLE :: omega(:), c(:,:) ! bath frequencies and coupling matrix elements
-  ! harmonic force
-  ! harmonic velocity
-  ! etc
-  !
-  
+
 CONTAINS
 
-  ! Build initial distribution based on spectral density and allocate arrays
+    !> Allocates the necessary arrays to describe the bath and system-bath interactions. Also, the
+    !! spectral density is uniformly sampled according to frequency-dependent reorganization energy.
   SUBROUTINE initialize_bath
     USE kinds
     USE input_output
@@ -21,18 +20,16 @@ CONTAINS
     INTEGER :: npts ! Number of points in spectral density file
     INTEGER :: smode ! Sampled mode index
     CHARACTER :: junk ! Dummy character used to navigate input files
-    REAL(dp) :: dw ! Discrete frequency element i.e.) freq(2) - freq(1) 
+    REAL(dp) :: dw ! Discrete frequency element i.e.) freq(2) - freq(1)
     REAL(dp), ALLOCATABLE :: freq(:) ! Frequencies from continuumsd.in file
-    REAL(dp), ALLOCATABLE :: sd(:,:), lambda(:,:) ! Spectral density from continuumsd.in, reorg engy 
+    REAL(dp), ALLOCATABLE :: sd(:,:), lambda(:,:) ! Spectral density from continuumsd.in, reorg engy
     REAL(dp), ALLOCATABLE :: norm(:) ! Normalization factor for each bath
     REAL(dp), ALLOCATABLE :: cfactor(:,:) ! Factor to turn on/off site<->bath coupling
     REAL(dp), ALLOCATABLE :: sampledw(:,:), sampledc(:,:), sampledj(:,:) ! Samplings from continuumsd.in
     dw = 0.0_dp
-    !
-    ! Note: This is restricted to a single range and discretization
-    !        of frequencies (defined by a single dw).
-    !
-    
+    !> Note: This is restricted to a single range and discretization
+    !!       of frequencies (defined by a single dw)
+
     ! Figure out how many lines in spectral density file
     npts = 0
     OPEN(UNIT=10, FILE=SPECTRALIN)
@@ -61,7 +58,7 @@ CONTAINS
 
     freq = 0.0_dp ; sd = 0.0_dp ; lambda = 0.0_dp ; cfactor = 0.0_dp
     sampledw = 0.0_dp ; sampledc = 0.0_dp ; sampledj = 0.0_dp ; norm = 0.0_dp
-    
+
     ! Read in the prefactor matrix to turn on/off site<->bath coupling
     DO i=1, nstate
        READ(30,*) ( cfactor(j,i), j=1, nbath )
@@ -81,8 +78,8 @@ CONTAINS
 
     dw = freq(2) - freq(1)
 
-    !~~ Sample bath according to the method described by ~~!
-    !~~         Wang et al JCP 110, 4828 (1999)          ~~!
+    !> Sample bath according to the method described by
+    !! Wang et al JCP 110, 4828 (1999)
     IF ( freq(1) /= 0.0_dp ) lambda(:,1) = dw * sd(:,1) / freq(1)
     DO i=1, nbath
        DO j=2, npts
@@ -91,7 +88,7 @@ CONTAINS
        norm(i) = DBLE(nosc) / lambda(i,npts)
        lambda(i,:) = lambda(i,:) * norm(i)
     END DO
-    
+
    ! Start Sampling
     DO i=1, nbath
        smode = 1
@@ -121,10 +118,10 @@ CONTAINS
             omega(k) = sampledw(l,j)
          END DO
       END DO
-   END DO
+    END DO
 
 
-   ! Write log of sampled modes
+   !> Writes a log of sampled modes into a file called "sampledbath.log"
    OPEN(unit=40,FILE=SPECTRALOUT)
    DO j=1, nosc
       WRITE(40,*) 'Freq', ( sampledw(i,j) * convert('au_ang_freq','wvnbr'), i = 1, nbath ) , &
@@ -136,7 +133,9 @@ CONTAINS
 
  END SUBROUTINE initialize_bath
 
- ! Sample the initial thermal distribution for harmonic bath
+    !> Sample the initial thermal distribution for harmonic bath from the
+    !! Wigner transform of the Boltzmann operator. This is under the assumption that
+    !! the full initil density operator can be written as \f$ \hat{\rho}_s\hat{\rho}_b^{eq} \f$.
  SUBROUTINE sample_thermal_wigner(x_init, p_init, beta)
    USE random_numbers
    USE unit_conversions
@@ -164,7 +163,7 @@ CONTAINS
 
  END SUBROUTINE finalize_bath
 
- ! Calculate bilinear coupling force for PLDM
+ !> Calculate bilinear coupling force for PLDM
  FUNCTION bilinear_harmonic_force_pldm(x, x_map, p_map, xt_map, pt_map) RESULT(res)
    USE kinds
    USE input_output
@@ -173,7 +172,6 @@ CONTAINS
    REAL(dp) :: res(nbath*nosc)
    REAL(dp), INTENT(in) :: x(nbath*nosc)
    REAL(dp), INTENT(in) :: x_map(nstate), p_map(nstate), xt_map(nstate), pt_map(nstate)
-   
    res(:) = - omega(:) ** 2 * x(:)
    DO i=1, nstate
       res(:) = res(:) - c(:,i) * 0.25_dp * ( x_map(i)**2 + p_map(i)**2 + xt_map(i)**2 + pt_map(i)**2 )
@@ -182,6 +180,7 @@ CONTAINS
  
  END FUNCTION bilinear_harmonic_force_pldm
 
+    !> Calculate the bilinear coupling force for TWA and SQC calculations
  FUNCTION bilinear_harmonic_force_twa(x, x_map, p_map) RESULT(res)
    USE kinds
    USE input_output

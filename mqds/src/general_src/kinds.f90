@@ -1,3 +1,5 @@
+!> Module that defines the double precision and single
+!! precision kinds.
 MODULE kinds
   SAVE
 

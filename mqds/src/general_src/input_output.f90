@@ -1,10 +1,8 @@
+!> This is a module that contains input/output
+!! filenames, variables, and subroutines for the mqds package
 MODULE input_output
   USE kinds
   IMPLICIT NONE
-!
-! This is a module that contains input/output
-! filenames, variables, and subroutines for the mqds package
-!
   ! Filenames
   CHARACTER(20), PARAMETER :: INPUT='processed_run.in'
   CHARACTER(20), PARAMETER :: INPHEL='hel.in'
@@ -44,9 +42,8 @@ MODULE input_output
 CONTAINS
    
   SUBROUTINE read_input
-    !
-    ! Directly reads input from variables in alphabetical order
-    !
+    !> Directly reads input from variables in alphabetical order
+    !! from the "processed_run.in" file
     USE kinds
     IMPLICIT NONE
     
@@ -79,9 +76,9 @@ CONTAINS
     CLOSE(10)
     
   END SUBROUTINE read_input
-  
-  ! Writes the reduced density matrix using the method
-  ! redmat and size of timestep between prints (fs)
+
+  !> Writes the reduced density matrix using the method,
+  !! redmat, and size of timestep between prints (fs)
   SUBROUTINE write_redmat(method, redmat, printstep)
     USE kinds
     IMPLICIT NONE
@@ -119,5 +116,33 @@ CONTAINS
     
     
   END SUBROUTINE write_redmat
-  
+
+  !> Writes the linear response function using the method,
+  !! response function, and size of timestep between prints (fs)
+  SUBROUTINE write_linear_response(method, resp_func, printstep)
+    USE kinds
+    IMPLICIT NONE
+    INTEGER :: i, j, itime
+    INTEGER :: tdim, namesize
+    COMPLEX(dp), INTENT(in) :: resp_func( 0 : nbstep / dump )
+    REAL(dp), INTENT(in) :: printstep
+    CHARACTER(20) :: method
+    CHARACTER(17) :: writeformat
+    CHARACTER(50) :: filename
+
+    ! Figure out how long the name is going to be
+    namesize=LEN_TRIM(method)+16
+    writeformat='(A,A)'
+
+    ! create file for each redmat element and write
+    WRITE(filename, writeformat) TRIM(method),'_linrespfunc.out'
+    OPEN(UNIT=10, FILE=filename)
+    DO itime=0, ( nbstep / dump )
+      WRITE(10,'(3(E13.6,2X))') printstep * (itime), REAL(resp_func(itime)), AIMAG(resp_func(itime))
+    END DO
+    CLOSE(10)
+
+  END SUBROUTINE write_linear_response
+
+
 END MODULE input_output

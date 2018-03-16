@@ -11,4 +11,4 @@ runtime		    300.0 	! calculation time in femtoseconds
 nbstep		    300		! number of bath timesteps in runtime
 nlit		    20	 	! number of system timesteps per bath step
 dump		    1	 	! number of bath steps per observation
-ntraj		    1000	! Number of trajectories
+ntraj		    5000	! Number of trajectories

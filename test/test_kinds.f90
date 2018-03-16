@@ -1,3 +1,4 @@
+!> Tests the defined single- and double-precision kinds.
 PROGRAM test_kinds
     USE kinds
     IMPLICIT NONE

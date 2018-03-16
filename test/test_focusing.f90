@@ -1,3 +1,4 @@
+!> Tests the focusing procedure.
 PROGRAM test_focusing
     USE kinds
     USE focusing

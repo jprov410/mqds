@@ -1,7 +1,5 @@
-!
-! This is the PLDM master subroutine that determines
-!      which PLDM-based calculation to perform
-!
+!> This is the PLDM master subroutine that determines
+!! which PLDM-based calculation to perform
 SUBROUTINE ipldm_master
   USE input_output
   USE harmonic_bath

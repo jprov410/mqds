@@ -1,8 +1,7 @@
-!
-! This module contains the necessary subroutines
-! and functions to deal with the diabatic basis set
-! and will be extended to deal with adiabatic basis
-!
+!> This module contains the necessary subroutines
+!! and functions to deal with Hamiltonians in the diabatic basis
+!! and will be extended in a future version to deal with adiabatic
+!! basis
 MODULE hamiltonians
   USE kinds
   IMPLICIT NONE
@@ -10,7 +9,8 @@ MODULE hamiltonians
   
 CONTAINS
   
-  ! Allocate the electronic Hamiltonian
+  !> Allocates the electronic (system) Hamiltonian to
+  !! be a matrix of size nstate X nstate
   SUBROUTINE initialize_hel
     USE input_output
     IMPLICIT NONE
@@ -19,7 +19,8 @@ CONTAINS
     
   END SUBROUTINE initialize_hel
   
-  ! Read the input electronic Hamiltonian
+  !> Reads the input electronic (or system) Hamiltonian
+  !! from a file called "hel.in"
   SUBROUTINE read_hel
     USE input_output
     IMPLICIT NONE
@@ -33,7 +34,7 @@ CONTAINS
     
   END SUBROUTINE read_hel
   
-  ! Deallocate the electronic Hamiltonian
+  !> Deallocates the electronic (system) Hamiltonian
   SUBROUTINE finalize_hel
     USE input_output
     IMPLICIT NONE
@@ -42,8 +43,9 @@ CONTAINS
     
   END SUBROUTINE finalize_hel
 
-  ! Takes the bath position and uses electronic hamiltonian to calculate hel + V(x_bath)
-  ! leaves out the 1/2 m w^2 x^2 term because constant on diagonal
+  !> Takes the bath position and uses electronic hamiltonian to calculate hel + V(x_bath)
+  !! leaves out the \f$ \frac{1}{2} m \omega^2 x^2 \f$ term because it is
+  !! constant on diagonal elements of the diabatic Hamiltonian.
   FUNCTION diabatic_bilinear_coupling_hamiltonian(x_bath, coupling_matrix) RESULT(res)
     USE kinds
     USE input_output

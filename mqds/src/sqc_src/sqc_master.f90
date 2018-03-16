@@ -1,7 +1,5 @@
-!
-! This is the TWA master subroutine that determines
-!      which TWA-based calculation to perform
-!
+!> This is the TWA master subroutine that determines
+!! which TWA-based calculation to perform.
 SUBROUTINE sqc_master
   USE input_output
   USE harmonic_bath

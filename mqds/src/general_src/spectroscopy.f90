@@ -1,22 +1,17 @@
-!
-! This is a module that contains the necessary variables,
-! subroutines and functions to perform linear and nonlinear
-! spectroscopy calculations.
-!
+!> This is a module that contains the necessary variables,
+!! subroutines and functions to perform linear (and soon nonlinear)
+!! spectroscopy calculations.
 MODULE spectroscopy
     USE kinds
     USE input_output
     IMPLICIT NONE
     REAL(dp), ALLOCATABLE, PRIVATE :: dipole(:,:)
 
-    !strange that wont compile if use input_output in the
-    ! dipole operator and dipole commutator functions defined below
-
-
 CONTAINS
 
-    ! Allocate the necessary arrays for performing
-    ! a spectroscopy calculation and read input
+    !> Allocate the necessary arrays for performing
+    !! a spectroscopy calculation and read input from
+    !! dipole.in
     SUBROUTINE initialize_spectroscopy
         USE input_output
         IMPLICIT NONE
@@ -33,7 +28,7 @@ CONTAINS
 
     END SUBROUTINE initialize_spectroscopy
 
-    ! Deallocate the arrays from spectroscopy calculation
+    !> Deallocate the arrays from spectroscopy calculation
     SUBROUTINE finalize_spectroscopy
         IMPLICIT NONE
 
@@ -41,10 +36,9 @@ CONTAINS
 
     END SUBROUTINE finalize_spectroscopy
 
-    ! Function to act dipole operator on the reduced
-    ! density matrix
+    !> Function to act dipole operator on the reduced
+    !! density matrix from the left
     FUNCTION dipole_operator( redmat ) RESULT( res )
-!        USE input_output
         IMPLICIT NONE
         COMPLEX(dp) :: redmat(nstate, nstate)
         COMPLEX(dp) :: res(nstate, nstate)
@@ -53,10 +47,9 @@ CONTAINS
 
     END FUNCTION dipole_operator
 
-    ! Function to act dipole commutator on the reduced
-    ! density matrix
+    !> Function to act dipole commutator on the reduced
+    !! density matrix from the left
     FUNCTION dipole_commutator( redmat ) RESULT( res )
-!        USE input_output
         IMPLICIT NONE
         COMPLEX(dp) :: redmat(nstate, nstate)
         COMPLEX(dp) :: res(nstate, nstate)
@@ -65,8 +58,8 @@ CONTAINS
 
     END FUNCTION dipole_commutator
 
-    ! Function to find the linear response function for
-    ! the absorption spectrum
+    !> Function to find the linear response function for
+    !! calculation of the absorption spectrum
     FUNCTION system_trace( redmat ) RESULT( res )
         IMPLICIT NONE
         COMPLEX(dp) :: redmat(nstate, nstate, 0 : nbstep / dump)
@@ -81,33 +74,6 @@ CONTAINS
         END DO
 
     END FUNCTION system_trace
-
-    ! Subroutine to write the linear response function
-    SUBROUTINE write_linear_response(method, resp_func, printstep)
-        USE kinds
-        IMPLICIT NONE
-        INTEGER :: i, j, itime
-        INTEGER :: tdim, namesize
-        COMPLEX(dp), INTENT(in) :: resp_func( 0 : nbstep / dump )
-        REAL(dp), INTENT(in) :: printstep
-        CHARACTER(20) :: method
-        CHARACTER(17) :: writeformat
-        CHARACTER(50) :: filename
-
-        ! Figure out how long the name is going to be
-        namesize=LEN_TRIM(method)+16
-        writeformat='(A,A)'
-
-        ! create file for each redmat element and write
-        WRITE(filename, writeformat) TRIM(method),'_linrespfunc.out'
-        OPEN(UNIT=10, FILE=filename)
-        DO itime=0, ( nbstep / dump )
-            WRITE(10,'(3(E13.6,2X))') printstep * (itime), resp_func(itime)
-        END DO
-        CLOSE(10)
-
-    END SUBROUTINE write_linear_response
-
 
 
 END MODULE spectroscopy

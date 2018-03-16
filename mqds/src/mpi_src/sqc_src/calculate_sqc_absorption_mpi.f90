@@ -1,8 +1,6 @@
-!
-! This subroutine calculates the reduced density matrix
-! using SQC with a harmonic bath model in the diabatic basis
-! with bilinear coupling
-!
+!> This subroutine calculates the reduced density matrix
+!! using SQC with a harmonic bath model in the diabatic basis
+!! with bilinear coupling.
 SUBROUTINE calculate_sqc_absorption_mpi
   USE kinds
   USE spectroscopy

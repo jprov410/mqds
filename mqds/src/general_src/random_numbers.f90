@@ -1,7 +1,5 @@
-!
-! This module contains the necessary functions
+!> This module contains the necessary functions
 ! for random number generation
-!
 MODULE random_numbers
   IMPLICIT NONE
 
@@ -9,6 +7,12 @@ MODULE random_numbers
   PUBLIC uniform_rn, gaussian_rn, initialize_rn
 
   CONTAINS
+
+      !> Inserts the random number generation seed based
+      !! upon the current time. If the calculation is being
+      !! done with MPI-parallelization, this subroutine takes
+      !! the processing element ID number as an argument to ensure
+      !! that the seeds are unique.
     SUBROUTINE initialize_rn(my_pe)
       ! Initialize the random number generator
       IMPLICIT NONE
@@ -31,28 +35,29 @@ MODULE random_numbers
         seed(:) = seed(:) + time( 1 : seedsize )
       END IF
 
-      IF ( PRESENT(my_pe) ) seed(:) = seed(:) + my_pe
+      IF ( PRESENT(my_pe) ) seed(:) = seed(:) + 5 * my_pe
 
       CALL RANDOM_SEED(PUT=seed)
 
       DEALLOCATE( seed )
 
     END SUBROUTINE initialize_rn
-!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~!
-    FUNCTION uniform_rn(input) RESULT(res)
-      ! Uniform (0,1] random number generation
-      USE parameters
-      IMPLICIT NONE
+
+      !> sample a uniform [0,1) random number
+      FUNCTION uniform_rn(input) RESULT(res)
+          USE parameters
+          IMPLICIT NONE
       REAL(dp) :: input(:)
       REAL(dp) :: res(SIZE(input))
       
       CALL RANDOM_NUMBER(HARVEST=res)
       
     END FUNCTION uniform_rn
-!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~!
-    FUNCTION gaussian_rn(input) RESULT(res)
-      ! Gaussian random number generation using
-      ! the Box-Mueller process
+
+      !> Gaussian random number generation using
+      !! the Box-Mueller process with two uniform
+      !! [0,1) random number
+      FUNCTION gaussian_rn(input) RESULT(res)
       USE parameters
       IMPLICIT NONE
       REAL(dp) :: input(:)

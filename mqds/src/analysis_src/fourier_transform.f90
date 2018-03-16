@@ -1,3 +1,6 @@
+!> Program to perform the Fourier Transform of the
+!! linear response function (will be extended for nonlinear
+!! response in the future).
 PROGRAM fourier_transform
     IMPLICIT NONE
     DOUBLE PRECISION, PARAMETER :: fs2wvnbr = 33356.41
@@ -66,7 +69,7 @@ PROGRAM fourier_transform
         ALLOCATE( ft_lin_resp( 0 : nw1 ) )
         ft_lin_resp = 0.d0
 
-        ! DO FOURIER TRANSFORM AT EACH FREQUENCY
+        ! DO FOURIER TRANSFORM AT EACH FREQ UENCY
         DO iw1=0, nw1
             w1 = w1_min + DBLE(iw1) * dw1
             ft_lin_resp( iw1 ) = ft( lin_resp, w1, dt1 )
@@ -97,6 +100,7 @@ PROGRAM fourier_transform
     END IF
 
 CONTAINS
+    !> FT function at frequency \f$omega \f$
     FUNCTION ft( response, w, dt ) RESULT( res )
         IMPLICIT NONE
         INTEGER :: t
@@ -107,7 +111,7 @@ CONTAINS
         res = 0.d0
 
         DO t = 1, SIZE(response)
-            res = res + dt * exp( eye * w * (t-1) * dt ) * response(t)
+            res = res + dt * exp( -eye * w * (t-1) * dt ) * response(t)
         END DO
 
     END FUNCTION ft

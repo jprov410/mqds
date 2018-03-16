@@ -1,8 +1,6 @@
-!
-! This subroutine calculates the reduced density matrix
-! using PLDM with a harmonic bath model in the diabatic basis
-! with bilinear coupling
-!
+!> This subroutine calculates the reduced density matrix
+!! using PLDM with a harmonic bath model in the diabatic basis
+!! with bilinear coupling.
 SUBROUTINE calculate_pldm_absorption
   USE kinds
   USE spectroscopy
@@ -48,12 +46,11 @@ SUBROUTINE calculate_pldm_absorption
 
   ! Get initially occupied coherences for calculation
   ! of linear spectroscopy assuming originally in
-  ! system state (1,1) (initialized above) only
-  ! initialized from lower corner of perturbed redmat
-  dipcom_gstate = dipole_operator( dipcom_gstate )
+  ! system state (1,1)
+  dipcom_gstate = dipole_commutator( dipcom_gstate )
 
   DO istate=1, nstate
-      DO istatet=1, istate
+      DO istatet=1, nstate
           ! check if dynamics from this state are necessary
           IF ( dipcom_gstate(istate, istatet) /= 0.0_dp ) THEN
               ! Set initial states

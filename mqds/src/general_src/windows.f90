@@ -1,3 +1,5 @@
+!> Module that contains the subroutines and functions
+!! to perform SQC windowing calculations.
 MODULE windows
     USE kinds
     USE input_output
@@ -9,7 +11,8 @@ MODULE windows
 
 CONTAINS
 
-    ! Allocate the windowing arrays and set initial tolls to 0
+    !> Allocate the windowing arrays and set initial tolls
+    !! (for normalizing the density matrix) to 0.
     SUBROUTINE initialize_windows
         IMPLICIT NONE
 
@@ -18,7 +21,7 @@ CONTAINS
 
     END SUBROUTINE initialize_windows
 
-    ! Deallocate the windowing arrays
+    !> Deallocate the windowing arrays.
     SUBROUTINE finalize_windows
         IMPLICIT NONE
 
@@ -26,8 +29,9 @@ CONTAINS
 
     END SUBROUTINE finalize_windows
 
-    ! Sample the initial distribution of mapping variables for
-    ! truncated wigner approximation in action-angle variables
+    !> Sample the initial distribution of mapping variables for
+    !! truncated wigner approximation in action-angle variables
+    !! with broadened windows.
     SUBROUTINE sample_sqc_map(x_init, p_init)
     USE random_numbers
     USE parameters
@@ -58,7 +62,7 @@ CONTAINS
 
     END SUBROUTINE sample_sqc_map
 
-    ! Calculate the reduced density matrix using SQC
+    !> Calculate the reduced density matrix using SQC
     FUNCTION sqc_redmat(x, p, itime) RESULT( res )
         USE kinds
         USE parameters
@@ -111,7 +115,7 @@ CONTAINS
         END DO
     END FUNCTION sqc_redmat
 
-    ! Normalize the reduced density matrix using toll/od_toll from sqc_redmat
+    !> Normalize the reduced density matrix using toll/od_toll from sqc_redmat
     SUBROUTINE normalize_sqc_redmat( redmat )
         IMPLICIT NONE
         COMPLEX(dp) :: redmat( nstate, nstate, 0 : nbstep / dump )

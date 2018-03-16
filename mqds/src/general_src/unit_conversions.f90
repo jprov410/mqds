@@ -1,16 +1,14 @@
-!  
-! This module contains a function to perform unit conversions
-!
+!> This module contains a function to perform unit conversions
 MODULE unit_conversions
   IMPLICIT NONE
   PRIVATE
   PUBLIC convert
 
 CONTAINS
-  
+
+    !> Function that converts units from "a" to "b"
   FUNCTION convert(a,b) RESULT(res)
-    ! Function that converts units from "a" to "b"
-    USE parameters
+      USE parameters
     USE input_output
     IMPLICIT NONE
     CHARACTER(len=*), INTENT(in) :: a,b

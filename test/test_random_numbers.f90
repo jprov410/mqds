@@ -1,3 +1,4 @@
+!> Tests the random numbers module.
 PROGRAM test_random_numbers
     USE random_numbers
     USE kinds

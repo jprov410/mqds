@@ -1,3 +1,5 @@
+!> Parameters to be used during calculations
+!! such as conversion factors, imaginary number, \f$ \pi \f$....
 MODULE parameters
   USE kinds
   IMPLICIT NONE
@@ -5,15 +7,15 @@ MODULE parameters
   REAL(dp), PARAMETER :: pi=4.0_dp*DATAN(1.0_dp),    & !4.0d0*atan(1.d0),
        kb=1.3806488e-23_dp,                      & ! Boltzmann constant J/K
        planck=6.626068e-34_dp,                   & ! Planck's constant in Js
-       hbar=planck/2.e0_dp/pi,                   & ! hbar in Js
+       hbar=planck/2.0_dp/pi,                   & ! hbar in Js
        avog = 6.0221415e23_dp,                   & ! Avogadro's number
        light = 2.99792458e10_dp,                 & ! Speed of light (SI) in cm/s
        ! *************** ENERGY *************** !
-       joules2wvnbr = 1.e0_dp/planck/light,      & ! Joules (SI) to wavenumber
-       wvnbr2joules = 1.e0_dp/joules2wvnbr,      & ! wavenumber to Joules
+       joules2wvnbr = 1.0_dp/planck/light,      & ! Joules (SI) to wavenumber
+       wvnbr2joules = 1.0_dp/joules2wvnbr,      & ! wavenumber to Joules
        ! **************** LENGTH ************** !
        m2ang = 1.e10_dp,                         & ! meter to Angstrom
-       ang2m = 1.e0_dp/m2ang,                    & ! Angstrom to meter
+       ang2m = 1.0_dp/m2ang,                    & ! Angstrom to meter
        ! ***************** RMASS *************** !
        amu2kg = 1.66053892e-27_dp,               & ! atomic rmass unit to kg
        ! ************** TIME ****************** !
@@ -23,7 +25,7 @@ MODULE parameters
        fs2s = 1.0_dp/s2fs,                      & ! femtoseconds to seconds
        ! ************** FREQUENCY ************* !
        wvnbr2Hz = light,                      & ! wavenumbers to Hertz
-       Hz2wvnbr = 1.e0_dp/wvnbr2Hz,              & ! Hertz to wavenumbers
+       Hz2wvnbr = 1.0_dp/wvnbr2Hz,              & ! Hertz to wavenumbers
        ! ***************** 2 a.u. ************* !
        au2joules = 4.35974417e-18_dp,            & ! a.u. energy to Joules
        joules2au = 1.0_dp/au2joules,            & ! Joules to a.u. energy

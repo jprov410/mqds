@@ -1,3 +1,4 @@
+!> Tests the Harmonic Bath module.
 PROGRAM test_harmonic_bath
     USE harmonic_bath
     USE kinds

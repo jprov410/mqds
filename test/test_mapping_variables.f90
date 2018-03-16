@@ -1,3 +1,4 @@
+!> Tests the mapping variable module
 PROGRAM test_mapping_variables
     USE mapping_variables
     USE kinds

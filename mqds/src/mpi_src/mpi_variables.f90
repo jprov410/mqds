@@ -1,3 +1,5 @@
+!> Module that contains the variables that
+!! are necessary for MPI-based calculations.
 MODULE mpi_variables
     IMPLICIT NONE
     INCLUDE 'mpif.h'

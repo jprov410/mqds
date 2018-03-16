@@ -1,7 +1,5 @@
-!
-! This is the main program that interprets the input file
-! and decides which methods to execute with mpi implemented
-!
+!> This is the MPI version of the main program that interprets the
+!! input file and decides which methods to execute with mpi implemented.
 PROGRAM mqds_mpi
   USE input_output
   USE mpi_variables

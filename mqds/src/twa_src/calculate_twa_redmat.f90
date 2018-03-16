@@ -1,8 +1,6 @@
-!
-! This subroutine calculates the reduced density matrix
-! using truncated wigner approximation with a harmonic bath model 
-! in the diabatic basis with bilinear coupling
-!
+!> This subroutine calculates the reduced density matrix
+!! using truncated wigner approximation with a harmonic bath model
+!! in the diabatic basis with bilinear coupling
 SUBROUTINE calculate_twa_redmat
   USE kinds
   USE unit_conversions

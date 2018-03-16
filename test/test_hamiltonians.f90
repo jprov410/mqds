@@ -1,3 +1,4 @@
+!> Tests the Hamiltonians module
 PROGRAM test_hamiltonians
     USE kinds
     USE input_output

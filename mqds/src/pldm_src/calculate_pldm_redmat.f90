@@ -1,8 +1,6 @@
-!
-! This subroutine calculates the reduced density matrix
-! using PLDM with a harmonic bath model in the diabatic basis
-! with bilinear coupling
-!
+!> This subroutine calculates the reduced density matrix
+!! using PLDM with a harmonic bath model in the diabatic basis
+!! with bilinear coupling.
 SUBROUTINE calculate_pldm_redmat
   USE kinds
   USE unit_conversions
@@ -49,10 +47,9 @@ SUBROUTINE calculate_pldm_redmat
 
      DO istep=1, nbstep
 
-        ! First half of the verlet
+         ! First half of the verlet
         x_bath = x_bath + p_bath * dt_bath + bath_force * 0.5_dp * dt_bath ** 2
         p_bath = p_bath + bath_force * 0.5_dp * dt_bath
-
 
         ! Update the full hamiltonian
         ham = diabatic_bilinear_coupling_hamiltonian(x_bath, c)
@@ -70,7 +67,7 @@ SUBROUTINE calculate_pldm_redmat
         ! Update the force and finish the verlet
         bath_force = bilinear_harmonic_force_pldm(x_bath, x_map, p_map, xt_map, pt_map)
         p_bath = p_bath + bath_force * 0.5_dp * dt_bath
-        
+
      END DO
      
   END DO

@@ -1,8 +1,7 @@
-!
-! This module contains the necessary functions and
-! subroutines to use the meyer-miller mapping model
-! within PLDM and TWA (with pldm initial conditions)
-!
+!> This module contains the necessary functions and
+!! subroutines to use the Meyer-Miller mapping model
+!! which maps \f$|\alpha\rangle \rightarrow \hat{a}_\alpha^\dagger =
+!! \frac{1}{\sqrt{2}}(\hat{x}_\alpha - i\hat{p}_\alpha) \f$
 MODULE mapping_variables
   USE kinds
   IMPLICIT NONE
@@ -14,7 +13,7 @@ CONTAINS
 
     !----------------allocate and deallocate mapping variables----------------!
 
-    ! Allocate the mapping variable arrays for PLDM calculation
+    !> Allocate the mapping variable arrays for PLDM calculation
     SUBROUTINE initialize_pldm_map
         USE input_output
         IMPLICIT NONE
@@ -23,7 +22,7 @@ CONTAINS
 
     END SUBROUTINE initialize_pldm_map
   
-    ! Deallocate the mapping variable arrays for PLDM calculation
+    !> Deallocate the mapping variable arrays for PLDM calculation
     SUBROUTINE finalize_pldm_map
     IMPLICIT NONE
     
@@ -31,7 +30,7 @@ CONTAINS
     
   END SUBROUTINE finalize_pldm_map
 
-    ! Allocate the mapping variable arrays for TWA calculation
+    !> Allocate the mapping variable arrays for TWA or SQC calculation
     SUBROUTINE initialize_twa_map
     USE input_output
     IMPLICIT NONE
@@ -40,7 +39,7 @@ CONTAINS
     
   END SUBROUTINE initialize_twa_map
   
-    ! Deallocate the mapping variable arrays for TWA calculation
+    !> Deallocate the mapping variable arrays for TWA or SQC calculation
     SUBROUTINE finalize_twa_map
     IMPLICIT NONE
     
@@ -50,7 +49,8 @@ CONTAINS
 
     !----------sample the initial distributions of mapping variables----------!
 
-    ! Sample the initial distribution of mapping variables for PLDM
+    !> Sample the initial distribution of mapping variables for PLDM from
+    !! gaussian distributions
     SUBROUTINE sample_pldm_map(x_init, p_init, xt_init, pt_init)
         USE random_numbers
         USE parameters
@@ -71,8 +71,8 @@ CONTAINS
                 * ( xt_init(initstatet) + eye * pt_init(initstatet) )
     END SUBROUTINE sample_pldm_map
 
-    ! Sample the initial distribution of mapping variables for
-    ! truncated wigner approximation in action-angle variables
+    !> Sample the initial distribution of mapping variables for
+    !! truncated wigner approximation in action-angle variables
     SUBROUTINE sample_twa_map(x_init, p_init)
         USE random_numbers
         USE parameters
@@ -96,7 +96,8 @@ CONTAINS
 
     !-----------------calculate the reduced density matrix------------------!
 
-    ! Calculate the reduced density matrix using PLDM with the mapping variables
+    !> Calculate the reduced density matrix using PLDM with the mapping variables
+    !! from the product of "Hermite polynomials"
     FUNCTION pldm_redmat(x, p, xt, pt) RESULT( res )
         USE kinds
         USE parameters
@@ -114,7 +115,7 @@ CONTAINS
 
     END FUNCTION pldm_redmat
 
-    ! Calculate the reduced density matrix using TWA with the mapping variables
+    !> Calculate the reduced density matrix using TWA with the mapping variables
     FUNCTION twa_redmat(x, p) RESULT( res )
         USE kinds
         USE parameters
@@ -136,7 +137,8 @@ CONTAINS
 
     !-------------------propagators for mapping variables-------------------!
 
-    ! propagates x and p mapping variables using the Hamiltonian (H)
+    !> propagates x and p mapping variables using the Hamiltonian by
+    !! integrating Hamilton's equations with the Verlet integrator.
     SUBROUTINE verlet_mapping_variables(x, p, H, dt)
         USE kinds
         USE input_output

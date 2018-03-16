@@ -1,3 +1,4 @@
+!> Tests the windows module for SQC calculations.
 PROGRAM test_windows
     USE windows
     USE random_numbers

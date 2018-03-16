@@ -1,18 +1,6 @@
-!------------------------------------------------------------------------------
-! NASA/GSFC, Software Integration & Visualization Office, Code 610.3
-!------------------------------------------------------------------------------
-!
-! MODULE: Module Name
-!
-!> @author
-!> Module Author Name and Affiliation
-!
-! DESCRIPTION:
-!> Brief description of module.
-!! DD Mmm YYYY - Initial Version
-! REVISION HISTORY:
-! TODO_dd_mmm_yyyy - TODO_describe_appropriate_changes - TODO_name
-!------------------------------------------------------------------------------
+!> Main executable for the Modular Quantum Dynamics and Spectroscopy
+!! package that reads the input file called "processed_run.in" and
+!! calls the necessary based on the specified dynamics method.
 PROGRAM mqds
   USE input_output
   IMPLICIT NONE

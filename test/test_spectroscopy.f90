@@ -1,3 +1,4 @@
+!> Tests the spectroscopy module.
 PROGRAM test_spectroscopy
     USE kinds
     USE spectroscopy
