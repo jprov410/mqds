@@ -14,8 +14,8 @@ find_package(Latex)
 
 if(DOXYGEN_FOUND)
     # Set input and output Doxygen files
-    set(DOXYGEN_IN ${CMAKE_CURRENT_SOURCE_DIR}/docs/Doxyfile.in)
-    set(DOXYGEN_OUT ${CMAKE_CURRENT_BINARY_DIR}/docs/Doxyfile)
+    set(DOXYGEN_IN ${CMAKE_CURRENT_SOURCE_DIR}/dox/Doxyfile.in)
+    set(DOXYGEN_OUT ${CMAKE_CURRENT_BINARY_DIR}/dox/Doxyfile)
 
     #make sure this matches the version number above (for documentation)
     set(VERSION_MAJOR 0 CACHE STRING "Project major version number.")
