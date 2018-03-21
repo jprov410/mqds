@@ -1,0 +1,1268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="true">
+    <generated>
+      <config projectName="MQDS" targetName="fourier_transform.exe" />
+      <config projectName="MQDS" targetName="test_focusing" />
+      <config projectName="MQDS" targetName="sqclib" />
+      <config projectName="MQDS" targetName="test_kinds" />
+      <config projectName="MQDS" targetName="test_mapping_variables" />
+      <config projectName="MQDS" targetName="ipldmlib_mpi" />
+      <config projectName="MQDS" targetName="test_hamiltonians" />
+      <config projectName="MQDS" targetName="mqds_mpi.exe" />
+      <config projectName="MQDS" targetName="twalib_mpi" />
+      <config projectName="MQDS" targetName="pldmlib" />
+      <config projectName="MQDS" targetName="test_unit_conversions" />
+      <config projectName="MQDS" targetName="mpilib" />
+      <config projectName="MQDS" targetName="test_random_numbers" />
+      <config projectName="MQDS" targetName="test_spectroscopy" />
+      <config projectName="MQDS" targetName="mqds.exe" />
+      <config projectName="MQDS" targetName="test_harmonic_bath" />
+      <config projectName="MQDS" targetName="test_windows" />
+      <config projectName="MQDS" targetName="docs" />
+      <config projectName="MQDS" targetName="twalib" />
+      <config projectName="MQDS" targetName="ipldmlib" />
+      <config projectName="MQDS" targetName="pldmlib_mpi" />
+      <config projectName="MQDS" targetName="generallib" />
+      <config projectName="MQDS" targetName="sqclib_mpi" />
+    </generated>
+  </component>
+  <component name="CMakeSettings" AUTO_RELOAD="true">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1ab7ba8a-2469-4abb-bcdf-a8e28105bffc" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" afterPath="$PROJECT_DIR$/CMakeLists.txt" />
+      <change beforePath="$PROJECT_DIR$/docs/Doxyfile.in" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/docs/README.md" afterPath="" />
+    </list>
+    <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="FavoritesManager">
+    <favorites_list name="MQDS" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="calculate_pldm_redmat.f90" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mqds/src/pldm_src/calculate_pldm_redmat.f90">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="986">
+              <caret line="69" column="0" lean-forward="false" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mqds/CMakeLists.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="735">
+              <caret line="49" column="0" lean-forward="true" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="Fortran File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>pldm</find>
+      <find>print</find>
+      <find>ref</find>
+      <find>latex</find>
+      <find>LOGO</find>
+      <find>optimi</find>
+      <find>optimize_for_for</find>
+      <find>input</find>
+      <find>extrac</find>
+      <find>kind</find>
+      <find>image</find>
+      <find>image_</find>
+      <find>generate_html</find>
+      <find>input</find>
+      <find>USE_MD</find>
+      <find>INPUT</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/mqds/src/mpi_src/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/mqds/src/mpi_src/ipldm_src/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/mqds/src/general_src/focusing.f90" />
+        <option value="$PROJECT_DIR$/mqds/src/general_src/hamiltonians.f90" />
+        <option value="$PROJECT_DIR$/mqds/src/general_src/kinds.f90" />
+        <option value="$PROJECT_DIR$/mqds/src/main.f90" />
+        <option value="$PROJECT_DIR$/mqds/src/general_src/parameters.f90" />
+        <option value="$PROJECT_DIR$/mqds/src/general_src/random_numbers.f90" />
+        <option value="$PROJECT_DIR$/mqds/src/general_src/unit_conversions.f90" />
+        <option value="$PROJECT_DIR$/mqds/src/general_src/windows.f90" />
+        <option value="$PROJECT_DIR$/mqds/src/ipldm_src/calculate_ipldm_redmat.f90" />
+        <option value="$PROJECT_DIR$/mqds/src/ipldm_src/ipldm_master.f90" />
+        <option value="$PROJECT_DIR$/mqds/src/mpi_src/mpi_variables.f90" />
+        <option value="$PROJECT_DIR$/mqds/src/mpi_src/main_mpi.f90" />
+        <option value="$PROJECT_DIR$/mqds/src/mpi_src/ipldm_src/calculate_ipldm_redmat_mpi.f90" />
+        <option value="$PROJECT_DIR$/mqds/src/mpi_src/ipldm_src/ipldm_master_mpi.f90" />
+        <option value="$PROJECT_DIR$/mqds/src/mpi_src/pldm_src/calculate_pldm_absorption_mpi.f90" />
+        <option value="$PROJECT_DIR$/mqds/src/mpi_src/pldm_src/calculate_pldm_redmat_mpi.f90" />
+        <option value="$PROJECT_DIR$/mqds/src/mpi_src/pldm_src/pldm_master_mpi.f90" />
+        <option value="$PROJECT_DIR$/mqds/src/mpi_src/sqc_src/calculate_sqc_absorption_mpi.f90" />
+        <option value="$PROJECT_DIR$/mqds/src/mpi_src/sqc_src/calculate_sqc_redmat_mpi.f90" />
+        <option value="$PROJECT_DIR$/mqds/src/mpi_src/sqc_src/sqc_master_mpi.f90" />
+        <option value="$PROJECT_DIR$/mqds/src/mpi_src/twa_src/calculate_twa_redmat_mpi.f90" />
+        <option value="$PROJECT_DIR$/mqds/src/mpi_src/twa_src/twa_master_mpi.f90" />
+        <option value="$PROJECT_DIR$/mqds/src/pldm_src/pldm_master.f90" />
+        <option value="$PROJECT_DIR$/mqds/src/sqc_src/sqc_master.f90" />
+        <option value="$PROJECT_DIR$/mqds/src/sqc_src/calculate_sqc_redmat.f90" />
+        <option value="$PROJECT_DIR$/mqds/src/twa_src/calculate_twa_redmat.f90" />
+        <option value="$PROJECT_DIR$/mqds/src/twa_src/twa_master.f90" />
+        <option value="$PROJECT_DIR$/test/test_focusing.f90" />
+        <option value="$PROJECT_DIR$/test/test_hamiltonians.f90" />
+        <option value="$PROJECT_DIR$/test/test_harmonic_bath.f90" />
+        <option value="$PROJECT_DIR$/test/test_kinds.f90" />
+        <option value="$PROJECT_DIR$/test/test_mapping_variables.f90" />
+        <option value="$PROJECT_DIR$/test/test_random_numbers.f90" />
+        <option value="$PROJECT_DIR$/test/test_spectroscopy.f90" />
+        <option value="$PROJECT_DIR$/test/test_unit_conversions.f90" />
+        <option value="$PROJECT_DIR$/test/test_windows.f90" />
+        <option value="$PROJECT_DIR$/docs/Doxyfile.in" />
+        <option value="$PROJECT_DIR$/docs/README.md" />
+        <option value="$PROJECT_DIR$/mqds/src/pldm_src/calculate_pldm_redmat.f90" />
+        <option value="$PROJECT_DIR$/mqds/src/general_src/harmonic_bath.f90" />
+        <option value="$PROJECT_DIR$/mqds/src/pldm_src/calculate_pldm_absorption.f90" />
+        <option value="$PROJECT_DIR$/mqds/src/sqc_src/calculate_sqc_absorption.f90" />
+        <option value="$PROJECT_DIR$/mqds/src/analysis_src/fourier_transform.f90" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/mqds/src/general_src/spectroscopy.f90" />
+        <option value="$PROJECT_DIR$/mqds/src/general_src/mapping_variables.f90" />
+        <option value="$PROJECT_DIR$/mqds/src/general_src/input_output.f90" />
+        <option value="$PROJECT_DIR$/mqds/src/pldm_src/calculate_pldm_nonlinear.f90" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+    <option name="x" value="1280" />
+    <option name="y" value="-391" />
+    <option name="width" value="1680" />
+    <option name="height" value="1050" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="MQDS" type="dad4c3:CidrFilesViewHelper$MyProjectTreeStructure$1" />
+              <item name="mqds" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="settings.editor.selected.configurable" value="web.server" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/justinprovazza/Desktop/MolSSI/mqds_project/mqds/.travis.yml" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/mqds/src/pldm_src" />
+      <recent name="$PROJECT_DIR$/examples/pldm/harmonic_bilinear_absorption" />
+      <recent name="$PROJECT_DIR$/docs" />
+      <recent name="$PROJECT_DIR$/images" />
+      <recent name="$PROJECT_DIR$/mqds/src/mpi_src/ipldm_src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/mqds/src/ipldm_src" />
+      <recent name="$PROJECT_DIR$/mqds/src" />
+      <recent name="$PROJECT_DIR$/mqds/src/analysis_src" />
+      <recent name="$PROJECT_DIR$/mqds/src/mpi_src" />
+      <recent name="$PROJECT_DIR$/analysis/mqds_run" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.Build All">
+    <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" EXPLICIT_BUILD_TARGET_NAME="all">
+      <envs />
+    </configuration>
+    <configuration name="docs" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MQDS" TARGET_NAME="docs" CONFIG_NAME="Debug">
+      <envs />
+    </configuration>
+    <configuration name="fourier_transform.exe" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MQDS" TARGET_NAME="fourier_transform.exe" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="MQDS" RUN_TARGET_NAME="fourier_transform.exe">
+      <envs />
+    </configuration>
+    <configuration name="generallib" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MQDS" TARGET_NAME="generallib" CONFIG_NAME="Debug">
+      <envs />
+    </configuration>
+    <configuration name="ipldmlib" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MQDS" TARGET_NAME="ipldmlib" CONFIG_NAME="Debug">
+      <envs />
+    </configuration>
+    <configuration name="ipldmlib_mpi" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MQDS" TARGET_NAME="ipldmlib_mpi" CONFIG_NAME="Debug">
+      <envs />
+    </configuration>
+    <configuration name="mpilib" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MQDS" TARGET_NAME="mpilib" CONFIG_NAME="Debug">
+      <envs />
+    </configuration>
+    <configuration name="mqds.exe" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MQDS" TARGET_NAME="mqds.exe" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="MQDS" RUN_TARGET_NAME="mqds.exe">
+      <envs />
+    </configuration>
+    <configuration name="mqds_mpi.exe" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MQDS" TARGET_NAME="mqds_mpi.exe" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="MQDS" RUN_TARGET_NAME="mqds_mpi.exe">
+      <envs />
+    </configuration>
+    <configuration name="pldmlib" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MQDS" TARGET_NAME="pldmlib" CONFIG_NAME="Debug">
+      <envs />
+    </configuration>
+    <configuration name="pldmlib_mpi" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MQDS" TARGET_NAME="pldmlib_mpi" CONFIG_NAME="Debug">
+      <envs />
+    </configuration>
+    <configuration name="sqclib" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MQDS" TARGET_NAME="sqclib" CONFIG_NAME="Debug">
+      <envs />
+    </configuration>
+    <configuration name="sqclib_mpi" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MQDS" TARGET_NAME="sqclib_mpi" CONFIG_NAME="Debug">
+      <envs />
+    </configuration>
+    <configuration name="test_focusing" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MQDS" TARGET_NAME="test_focusing" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="MQDS" RUN_TARGET_NAME="test_focusing">
+      <envs />
+    </configuration>
+    <configuration name="test_hamiltonians" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MQDS" TARGET_NAME="test_hamiltonians" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="MQDS" RUN_TARGET_NAME="test_hamiltonians">
+      <envs />
+    </configuration>
+    <configuration name="test_harmonic_bath" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MQDS" TARGET_NAME="test_harmonic_bath" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="MQDS" RUN_TARGET_NAME="test_harmonic_bath">
+      <envs />
+    </configuration>
+    <configuration name="test_kinds" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MQDS" TARGET_NAME="test_kinds" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="MQDS" RUN_TARGET_NAME="test_kinds">
+      <envs />
+    </configuration>
+    <configuration name="test_mapping_variables" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MQDS" TARGET_NAME="test_mapping_variables" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="MQDS" RUN_TARGET_NAME="test_mapping_variables">
+      <envs />
+    </configuration>
+    <configuration name="test_random_numbers" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MQDS" TARGET_NAME="test_random_numbers" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="MQDS" RUN_TARGET_NAME="test_random_numbers">
+      <envs />
+    </configuration>
+    <configuration name="test_spectroscopy" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MQDS" TARGET_NAME="test_spectroscopy" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="MQDS" RUN_TARGET_NAME="test_spectroscopy">
+      <envs />
+    </configuration>
+    <configuration name="test_unit_conversions" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MQDS" TARGET_NAME="test_unit_conversions" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="MQDS" RUN_TARGET_NAME="test_unit_conversions">
+      <envs />
+    </configuration>
+    <configuration name="test_windows" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MQDS" TARGET_NAME="test_windows" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="MQDS" RUN_TARGET_NAME="test_windows">
+      <envs />
+    </configuration>
+    <configuration name="twalib" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MQDS" TARGET_NAME="twalib" CONFIG_NAME="Debug">
+      <envs />
+    </configuration>
+    <configuration name="twalib_mpi" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="MQDS" TARGET_NAME="twalib_mpi" CONFIG_NAME="Debug">
+      <envs />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Nosetests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="mqds" />
+      <option name="_new_regexPattern" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Twisted Trial">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="mqds" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Unittests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="mqds" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="py.test">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="mqds" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+    </configuration>
+    <list size="24">
+      <item index="0" class="java.lang.String" itemvalue="Application.Build All" />
+      <item index="1" class="java.lang.String" itemvalue="Application.docs" />
+      <item index="2" class="java.lang.String" itemvalue="Application.mqds.exe" />
+      <item index="3" class="java.lang.String" itemvalue="Application.fourier_transform.exe" />
+      <item index="4" class="java.lang.String" itemvalue="Application.generallib" />
+      <item index="5" class="java.lang.String" itemvalue="Application.ipldmlib" />
+      <item index="6" class="java.lang.String" itemvalue="Application.mpilib" />
+      <item index="7" class="java.lang.String" itemvalue="Application.mqds_mpi.exe" />
+      <item index="8" class="java.lang.String" itemvalue="Application.ipldmlib_mpi" />
+      <item index="9" class="java.lang.String" itemvalue="Application.pldmlib_mpi" />
+      <item index="10" class="java.lang.String" itemvalue="Application.sqclib_mpi" />
+      <item index="11" class="java.lang.String" itemvalue="Application.twalib_mpi" />
+      <item index="12" class="java.lang.String" itemvalue="Application.pldmlib" />
+      <item index="13" class="java.lang.String" itemvalue="Application.sqclib" />
+      <item index="14" class="java.lang.String" itemvalue="Application.twalib" />
+      <item index="15" class="java.lang.String" itemvalue="Application.test_focusing" />
+      <item index="16" class="java.lang.String" itemvalue="Application.test_hamiltonians" />
+      <item index="17" class="java.lang.String" itemvalue="Application.test_harmonic_bath" />
+      <item index="18" class="java.lang.String" itemvalue="Application.test_kinds" />
+      <item index="19" class="java.lang.String" itemvalue="Application.test_mapping_variables" />
+      <item index="20" class="java.lang.String" itemvalue="Application.test_random_numbers" />
+      <item index="21" class="java.lang.String" itemvalue="Application.test_spectroscopy" />
+      <item index="22" class="java.lang.String" itemvalue="Application.test_unit_conversions" />
+      <item index="23" class="java.lang.String" itemvalue="Application.test_windows" />
+    </list>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1ab7ba8a-2469-4abb-bcdf-a8e28105bffc" name="Default" comment="" />
+      <created>1518212978484</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1518212978484</updated>
+      <workItem from="1518212979626" duration="19000" />
+      <workItem from="1518213001146" duration="511000" />
+      <workItem from="1518214366390" duration="82803000" />
+      <workItem from="1519244534790" duration="5389000" />
+      <workItem from="1519399053258" duration="167413000" />
+    </task>
+    <task id="LOCAL-00036" summary="testing travis.yml">
+      <created>1519244945872</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1519244945872</updated>
+    </task>
+    <task id="LOCAL-00037" summary="testing travis.yml">
+      <created>1519245083955</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1519245083955</updated>
+    </task>
+    <task id="LOCAL-00038" summary="test slack integration">
+      <created>1519317811554</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1519317811554</updated>
+    </task>
+    <task id="LOCAL-00039" summary="updated the focusing module to include focusing within manifolds of states for absorption spectrum calculations">
+      <created>1519338519912</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1519338519912</updated>
+    </task>
+    <task id="LOCAL-00040" summary="added license badge to markdown file">
+      <created>1519487748832</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1519487748832</updated>
+    </task>
+    <task id="LOCAL-00041" summary="update README markdown formatting">
+      <created>1519595274630</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1519595274630</updated>
+    </task>
+    <task id="LOCAL-00042" summary="added directory structure to mqds/src and updated CMakeLists.txt files accordingly">
+      <created>1519614939733</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1519614939733</updated>
+    </task>
+    <task id="LOCAL-00043" summary="fixed link libraries if MPI not found">
+      <created>1519616557439</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1519616557439</updated>
+    </task>
+    <task id="LOCAL-00044" summary="added first test (unit_conversions) and updated the travis file to perform the test">
+      <created>1519655217060</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1519655217060</updated>
+    </task>
+    <task id="LOCAL-00045" summary="added first test (unit_conversions) and updated the travis file to perform the test">
+      <created>1519656909388</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1519656909388</updated>
+    </task>
+    <task id="LOCAL-00046" summary="turned off email notifications in travis">
+      <created>1519658132674</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1519658132674</updated>
+    </task>
+    <task id="LOCAL-00047" summary="added codecov">
+      <created>1519658352283</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1519658352283</updated>
+    </task>
+    <task id="LOCAL-00048" summary="added coverage badge to readme file">
+      <created>1519659148273</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1519659148273</updated>
+    </task>
+    <task id="LOCAL-00049" summary="added token for codecov">
+      <created>1519659772599</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1519659772599</updated>
+    </task>
+    <task id="LOCAL-00050" summary="added token for codecov">
+      <created>1519660673494</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1519660673494</updated>
+    </task>
+    <task id="LOCAL-00051" summary="added tests for random numbers">
+      <created>1519673629368</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1519673629369</updated>
+    </task>
+    <task id="LOCAL-00052" summary="added tests for random numbers">
+      <created>1519674392538</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1519674392538</updated>
+    </task>
+    <task id="LOCAL-00053" summary="add coverage flag">
+      <created>1519677094579</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1519677094579</updated>
+    </task>
+    <task id="LOCAL-00054" summary="attempt 2 at coverage">
+      <created>1519677458681</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1519677458681</updated>
+    </task>
+    <task id="LOCAL-00055" summary="attempt 2 at coverage">
+      <created>1519677604449</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1519677604449</updated>
+    </task>
+    <task id="LOCAL-00056" summary="logo addition">
+      <created>1519750057666</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1519750057666</updated>
+    </task>
+    <task id="LOCAL-00057" summary="logo addition">
+      <created>1519750244922</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1519750244923</updated>
+    </task>
+    <task id="LOCAL-00058" summary="logo addition">
+      <created>1519750446112</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1519750446112</updated>
+    </task>
+    <task id="LOCAL-00059" summary="logo removal">
+      <created>1519750585997</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1519750585997</updated>
+    </task>
+    <task id="LOCAL-00060" summary="Logo uploaded">
+      <created>1519765929214</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1519765929215</updated>
+    </task>
+    <task id="LOCAL-00061" summary="Logo uploaded">
+      <created>1519766312114</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1519766312114</updated>
+    </task>
+    <task id="LOCAL-00062" summary="update readme and logo">
+      <created>1519766806355</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1519766806355</updated>
+    </task>
+    <task id="LOCAL-00063" summary="added focusing and hamiltonian tests">
+      <created>1519932155160</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1519932155160</updated>
+    </task>
+    <task id="LOCAL-00064" summary="start analysis scripts in python (run directory)">
+      <created>1520008196032</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1520008196032</updated>
+    </task>
+    <task id="LOCAL-00065" summary="add mpi compatibility">
+      <created>1520038059077</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1520038059077</updated>
+    </task>
+    <task id="LOCAL-00066" summary="beginning implementation of doxygen documentation">
+      <created>1520197453636</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1520197453636</updated>
+    </task>
+    <task id="LOCAL-00067" summary="beginning implementation of doxygen documentation">
+      <created>1520197514976</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1520197514976</updated>
+    </task>
+    <task id="LOCAL-00068" summary="fixed hamiltonian testing. Cmake now copies input electronic hamiltonian to testing bin dir.">
+      <created>1520282761003</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1520282761003</updated>
+    </task>
+    <task id="LOCAL-00069" summary="add test for kinds module">
+      <created>1520517025433</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1520517025433</updated>
+    </task>
+    <task id="LOCAL-00070" summary="add harmonic bath testing">
+      <created>1520534869284</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1520534869284</updated>
+    </task>
+    <task id="LOCAL-00071" summary="add mapping_variable testing">
+      <created>1520537885745</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1520537885746</updated>
+    </task>
+    <task id="LOCAL-00072" summary="fixed mapping propagation section of mapping_variable testing">
+      <created>1520539885704</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1520539885704</updated>
+    </task>
+    <task id="LOCAL-00073" summary="fixed mapping propagation section of mapping_variable testing attempt 2">
+      <created>1520542533591</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1520542533591</updated>
+    </task>
+    <task id="LOCAL-00074" summary="added Fourier Transform code for analysis of linear response calculations">
+      <created>1520810280803</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1520810280804</updated>
+    </task>
+    <task id="LOCAL-00075" summary="update fourier transform code for compatibility with pgf90 compiler">
+      <created>1520811258604</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1520811258604</updated>
+    </task>
+    <task id="LOCAL-00076" summary="update fourier transform code for compatibility with pgf90 compiler attempt 2">
+      <created>1520811812058</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1520811812058</updated>
+    </task>
+    <task id="LOCAL-00077" summary="recovered pldm example directory">
+      <created>1520812203047</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1520812203047</updated>
+    </task>
+    <task id="LOCAL-00078" summary="add test for window module for SQC calculations">
+      <created>1520870319433</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1520870319434</updated>
+    </task>
+    <task id="LOCAL-00079" summary="add spectroscopy module testing">
+      <created>1520952214966</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1520952214966</updated>
+    </task>
+    <task id="LOCAL-00080" summary="Add iterative pldm capability for the calculation of reduced density matrix dynamics">
+      <created>1521039034276</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1521039034276</updated>
+    </task>
+    <task id="LOCAL-00081" summary="add ipldm capability to the MPI-PARALLELIZED executable and general &#10;maintenance of cmake files (edited messages and added necessary&#10;directory structure to include mpi_src/ipldm_src">
+      <created>1521056978664</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1521056978665</updated>
+    </task>
+    <task id="LOCAL-00082" summary="fixed some inconsistent naming of subroutines for compilation">
+      <created>1521057118646</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1521057118646</updated>
+    </task>
+    <task id="LOCAL-00083" summary="change directory name from misc to images">
+      <created>1521136792852</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1521136792852</updated>
+    </task>
+    <task id="LOCAL-00084" summary="Doxygen comments updated in source files">
+      <created>1521231013509</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1521231013510</updated>
+    </task>
+    <option name="localTasksCounter" value="85" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="256135000" />
+  </component>
+  <component name="TodoView" selected-index="2">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="1280" y="-391" width="1680" height="1050" extended-state="6" />
+    <layout>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38789546" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28060523" sideWeight="0.4951535" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5527124" sideWeight="0.49427754" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28473178" sideWeight="0.503231" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14022517" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287483" sideWeight="0.49676898" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3285568" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21596725" sideWeight="0.4911147" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31929183" sideWeight="0.4942029" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287483" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959612" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20695971" sideWeight="0.5057971" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="logo addition" />
+    <MESSAGE value="logo removal" />
+    <MESSAGE value="Logo uploaded" />
+    <MESSAGE value="update readme and logo" />
+    <MESSAGE value="added focusing and hamiltonian tests" />
+    <MESSAGE value="start analysis scripts in python (run directory)" />
+    <MESSAGE value="add mpi compatibility" />
+    <MESSAGE value="beginning implementation of doxygen documentation" />
+    <MESSAGE value="fixed hamiltonian testing. Cmake now copies input electronic hamiltonian to testing bin dir." />
+    <MESSAGE value="add test for kinds module" />
+    <MESSAGE value="add harmonic bath testing" />
+    <MESSAGE value="add mapping_variable testing" />
+    <MESSAGE value="fixed mapping propagation section of mapping_variable testing" />
+    <MESSAGE value="fixed mapping propagation section of mapping_variable testing attempt 2" />
+    <MESSAGE value="added Fourier Transform code for analysis of linear response calculations" />
+    <MESSAGE value="update fourier transform code for compatibility with pgf90 compiler" />
+    <MESSAGE value="update fourier transform code for compatibility with pgf90 compiler attempt 2" />
+    <MESSAGE value="recovered pldm example directory" />
+    <MESSAGE value="add test for window module for SQC calculations" />
+    <MESSAGE value="add spectroscopy module testing" />
+    <MESSAGE value="Add iterative pldm capability for the calculation of reduced density matrix dynamics" />
+    <MESSAGE value="add ipldm capability to the MPI-PARALLELIZED executable and general &#10;maintenance of cmake files (edited messages and added necessary&#10;directory structure to include mpi_src/ipldm_src" />
+    <MESSAGE value="fixed some inconsistent naming of subroutines for compilation" />
+    <MESSAGE value="change directory name from misc to images" />
+    <MESSAGE value="Doxygen comments updated in source files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Doxygen comments updated in source files" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="27" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/mqds/src/general_src/unit_conversions.f90">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="51" lean-forward="true" selection-start-line="8" selection-start-column="51" selection-end-line="8" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mqds/src/general_src/windows.f90">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-40">
+          <caret line="117" column="6" lean-forward="false" selection-start-line="117" selection-start-column="6" selection-end-line="117" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mqds/src/ipldm_src/calculate_ipldm_redmat.f90">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="45" lean-forward="true" selection-start-line="2" selection-start-column="45" selection-end-line="2" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mqds/src/ipldm_src/ipldm_master.f90">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="42" lean-forward="false" selection-start-line="1" selection-start-column="42" selection-end-line="1" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mqds/src/mpi_src/mpi_variables.f90">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="44" lean-forward="false" selection-start-line="1" selection-start-column="44" selection-end-line="1" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mqds/src/mpi_src/main_mpi.f90">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="72" lean-forward="false" selection-start-line="1" selection-start-column="72" selection-end-line="1" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mqds/src/mpi_src/ipldm_src/ipldm_master_mpi.f90">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="25" lean-forward="false" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mqds/src/mpi_src/ipldm_src/calculate_ipldm_redmat_mpi.f90">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="45" lean-forward="false" selection-start-line="2" selection-start-column="45" selection-end-line="2" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mqds/src/mpi_src/pldm_src/calculate_pldm_absorption_mpi.f90">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="26" lean-forward="false" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mqds/src/mpi_src/pldm_src/pldm_master_mpi.f90">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="43" lean-forward="false" selection-start-line="1" selection-start-column="43" selection-end-line="1" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mqds/src/mpi_src/pldm_src/calculate_pldm_redmat_mpi.f90">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="26" lean-forward="false" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mqds/src/mpi_src/sqc_src/calculate_sqc_absorption_mpi.f90">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="26" lean-forward="false" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mqds/src/mpi_src/sqc_src/calculate_sqc_redmat_mpi.f90">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="48" lean-forward="false" selection-start-line="2" selection-start-column="48" selection-end-line="2" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mqds/src/mpi_src/sqc_src/sqc_master_mpi.f90">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="42" lean-forward="false" selection-start-line="1" selection-start-column="42" selection-end-line="1" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mqds/src/mpi_src/twa_src/calculate_twa_redmat_mpi.f90">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="48" lean-forward="false" selection-start-line="2" selection-start-column="48" selection-end-line="2" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mqds/src/mpi_src/twa_src/twa_master_mpi.f90">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mqds/src/pldm_src/pldm_master.f90">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="43" lean-forward="false" selection-start-line="1" selection-start-column="43" selection-end-line="1" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mqds/src/sqc_src/sqc_master.f90">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="42" lean-forward="false" selection-start-line="1" selection-start-column="42" selection-end-line="1" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mqds/src/sqc_src/calculate_sqc_redmat.f90">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mqds/src/twa_src/calculate_twa_redmat.f90">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mqds/src/twa_src/twa_master.f90">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="16" lean-forward="false" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/test_focusing.f90">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="32" lean-forward="false" selection-start-line="0" selection-start-column="32" selection-end-line="0" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/test_hamiltonians.f90">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="32" lean-forward="false" selection-start-line="0" selection-start-column="32" selection-end-line="0" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/test_harmonic_bath.f90">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="34" lean-forward="false" selection-start-line="0" selection-start-column="34" selection-end-line="0" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/test_kinds.f90">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="56" lean-forward="false" selection-start-line="0" selection-start-column="56" selection-end-line="0" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/test_mapping_variables.f90">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="36" lean-forward="false" selection-start-line="0" selection-start-column="36" selection-end-line="0" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/test_random_numbers.f90">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="35" lean-forward="false" selection-start-line="0" selection-start-column="35" selection-end-line="0" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/test_spectroscopy.f90">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="33" lean-forward="false" selection-start-line="0" selection-start-column="33" selection-end-line="0" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/test_unit_conversions.f90">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="37" lean-forward="false" selection-start-line="0" selection-start-column="37" selection-end-line="0" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/test_windows.f90">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="49" lean-forward="false" selection-start-line="0" selection-start-column="49" selection-end-line="0" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/Doxyfile.in">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="801" column="0" lean-forward="true" selection-start-line="801" selection-start-column="0" selection-end-line="801" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="204">
+            <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/pldm/harmonic_bilinear_absorption/sqc_linrespfunc.out">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mqds/src/general_src/harmonic_bath.f90">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="178" column="9" lean-forward="false" selection-start-line="178" selection-start-column="9" selection-end-line="178" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mqds/src/general_src/random_numbers.f90">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="16" column="15" lean-forward="false" selection-start-line="16" selection-start-column="15" selection-end-line="16" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mqds/src/analysis_src/fourier_transform.f90">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="469">
+          <caret line="69" column="26" lean-forward="true" selection-start-line="69" selection-start-column="26" selection-end-line="69" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/docs/Doxyfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="622" column="76" lean-forward="false" selection-start-line="622" selection-start-column="76" selection-end-line="622" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mqds/src/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mqds/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="0">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="180">
+            <caret line="12" column="15" lean-forward="true" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="15" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mqds/src/pldm_src/calculate_pldm_absorption.f90">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="48" column="22" lean-forward="false" selection-start-line="48" selection-start-column="22" selection-end-line="48" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mqds/src/sqc_src/calculate_sqc_absorption.f90">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="359">
+          <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mqds/src/general_src/parameters.f90">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="60" lean-forward="false" selection-start-line="1" selection-start-column="60" selection-end-line="1" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mqds/src/general_src/mapping_variables.f90">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="74" column="63" lean-forward="true" selection-start-line="74" selection-start-column="63" selection-end-line="74" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mqds/src/general_src/input_output.f90">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="501">
+          <caret line="53" column="28" lean-forward="false" selection-start-line="53" selection-start-column="28" selection-end-line="53" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mqds/src/general_src/focusing.f90">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-466">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mqds/src/general_src/spectroscopy.f90">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="13" lean-forward="false" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mqds/src/pldm_src/calculate_pldm_nonlinear.f90">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="17" column="51" lean-forward="false" selection-start-line="17" selection-start-column="51" selection-end-line="17" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mqds/src/pldm_src/calculate_pldm_redmat.f90">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="986">
+          <caret line="69" column="0" lean-forward="false" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mqds/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="735">
+          <caret line="49" column="0" lean-forward="true" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
