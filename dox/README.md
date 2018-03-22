@@ -1,4 +1,4 @@
-__*A modular quantum dynamics and spectroscopy package*__
+__*A molecular quantum dynamics and spectroscopy package*__
 
 #### This package is currently capable of the following calculations:
 

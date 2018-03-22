@@ -4,7 +4,7 @@
 
 ![alt text](https://github.com/jprov410/mqds/blob/master/images/logo.jpg)
 
-__*A modular quantum dynamics and spectroscopy package*__
+__*A molecular quantum dynamics and spectroscopy package*__
 
 #### This package is currently capable of the following calculations:
 
@@ -36,6 +36,7 @@ More Information
 * __Codecov report:__ coverage reported by gfortran-6 build on Travis 
 [![codecov](https://codecov.io/gh/jprov410/mqds/branch/master/graph/badge.svg)](https://codecov.io/gh/jprov410/mqds)
 
+* __Documentation:__ Documentation can be found at ( https://jprov410.github.io/mqds ) 
 
 ## Compilation
 

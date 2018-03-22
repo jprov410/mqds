@@ -10,7 +10,7 @@ include(GNUInstallDirs)
 find_package(LAPACK)
 find_package(MPI)
 find_package(Doxygen)
-find_package(Latex)
+#find_package(Latex)
 
 if(DOXYGEN_FOUND)
     # Set input and output Doxygen files
