@@ -33,7 +33,7 @@ add_executable(mqds.exe main.f90)
 ### If MPI was found, link the executable with generallib and MPI
 if(MPI_Fortran_FOUND)
     target_link_libraries(mqds.exe
-            ${MQDS_LIBRARIES}
+            #${MQDS_LIBRARIES}
             MPI::MPI_Fortran
             )
 else()
