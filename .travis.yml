@@ -65,7 +65,7 @@ matrix:
           packages:
            - cmake
            - liblapack-dev
-     env:
+      env:
         - FC=pgf90
         - COV=""
 
