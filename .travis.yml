@@ -67,7 +67,8 @@ matrix:
             - liblapack-dev
       env:
         - FC=pgf90
-        - COV="-llapack"
+        - LP=lblas
+        - COV=""
 
 before_install:
     - printenv  # just for debug info that could be helpful
