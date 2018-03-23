@@ -34,16 +34,16 @@ CONTAINS
     npts = 0
     OPEN(UNIT=10, FILE=SPECTRALIN)
     DO
-       READ(10, *, ERR=11, END=11) junk
-       npts=npts+1
+        READ(10, *, ERR=11, END=11) junk
+        npts=npts+1
     END DO
-11  CONTINUE ; CLOSE(10)
+    11  CONTINUE ; CLOSE(10)
 
     ! Warn if there was no continuum spectral density provided
     IF (npts==0) THEN
-       OPEN(unit=20,file=ERRORLOG)
-       WRITE(20,*) 'No continuum spectral density file found!'
-       CLOSE(20)
+        OPEN(unit=20,file=ERRORLOG)
+        WRITE(20,*) 'No continuum spectral density file found!'
+        CLOSE(20)
     END IF
 
     ! Figure out how many baths and how many oscillators per bath

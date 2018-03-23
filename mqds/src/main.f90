@@ -15,6 +15,7 @@ PROGRAM mqds
   END IF
 
   ! Mapping Variable Dynamics methods
+
   IF ( method == 'pldm' ) CALL pldm_master
   
   IF ( method == 'twa' ) CALL twa_master
@@ -24,6 +25,8 @@ PROGRAM mqds
   IF ( method == 'ipldm' ) CALL ipldm_master
 
   ! Equilibrium Reduced Density Matrix method
+
+  IF ( method == 'equilibrium' ) CALL equilibrium_master
 
 
 END PROGRAM mqds

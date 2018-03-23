@@ -6,6 +6,8 @@ __*A molecular quantum dynamics and spectroscopy package*__
 * __PLDM__ (Partially Linearized Density Matrix) calculation of the __reduced density
  matrix__ of a system-bath model where the bath consists of a set of harmonic 
  oscillators.
+ 
+
 
 * __PLDM__ (Partially Linearized Density Matrix) calculation of the __linear 
 optical response function__ for a system-bath model where the bath consists 

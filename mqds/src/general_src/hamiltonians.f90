@@ -49,6 +49,7 @@ CONTAINS
   FUNCTION diabatic_bilinear_coupling_hamiltonian(x_bath, coupling_matrix) RESULT(res)
     USE kinds
     USE input_output
+    IMPLICIT NONE
     INTEGER :: i,j
     REAL(dp), INTENT(in) :: x_bath(:)
     REAL(dp), INTENT(in) :: coupling_matrix(:,:)
