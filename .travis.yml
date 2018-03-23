@@ -64,7 +64,7 @@ matrix:
         apt:
           packages:
             - cmake
-            - liblapack-dev
+            - libblas3
       env:
         - FC=pgf90
         - COV=""
