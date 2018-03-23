@@ -64,10 +64,10 @@ matrix:
         apt:
           packages:
             - cmake
-            - libblas3
+            - liblapack-dev
       env:
         - FC=pgf90
-        - COV=""
+        - COV="-llapack"
 
 before_install:
     - printenv  # just for debug info that could be helpful
