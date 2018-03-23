@@ -11,7 +11,7 @@ matrix:
           packages:
             - gfortran-4.9
             - cmake
-            - lapack
+            - liblapack-dev
       env:
         - FC=gfortran-4.9
         - COV=""
@@ -25,7 +25,7 @@ matrix:
           packages:
             - gfortran-5
             - cmake
-            - lapack
+            - liblapack-dev
       env:
         - FC=gfortran-5
         - COV=""
@@ -39,7 +39,7 @@ matrix:
           packages:
             - gfortran-6
             - cmake
-            - lapack
+            - liblapack-dev
       env:
         - FC=gfortran-6
         - COV=--coverage
@@ -53,7 +53,7 @@ matrix:
           packages:
             - gfortran-7
             - cmake
-            - lapack
+            - liblapack-dev
       env:
         - FC=gfortran-7
         - COV=""
@@ -64,7 +64,7 @@ matrix:
         apt:
           packages:
             - cmake
-            - lapack
+            - liblapack-dev
       env:
         - FC=pgf90
         - COV=""
