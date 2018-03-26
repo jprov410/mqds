@@ -7,3 +7,6 @@
 * __continuumsd.in:__ Contains the spectral density that defines the frequency-dependent system-bath coupling strength. Format: First column is frequency, remaining are J(w).
 * __couplings.in:__ Determines the number of baths and which states are coupled to each bath.
 
+METHODOLOGY DETAILED IN:
+---
+* The Journal of Chemical Physics 145, 081102 (2016)

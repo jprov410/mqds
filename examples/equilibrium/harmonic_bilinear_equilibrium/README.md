@@ -1,4 +1,4 @@
-# PLDM examples
+# EQUILIBRIUM examples
 
 The current examples consist of:
 ---------------------------------------
@@ -10,3 +10,6 @@ NOTES
 ---
 * The input file __must__ be processed using `python process_input.py` before running a calculation.
 
+METHODOLOGY DETAILED IN
+---
+* PHYSICAL REVIEW B 85, 115412 (2012)

@@ -11,6 +11,7 @@ MODULE input_output
   CHARACTER(20), PARAMETER :: SPECTRALOUT='sampledbath.log'
   CHARACTER(20), PARAMETER :: DIPOLEIN='dipole.in'
   CHARACTER(20), PARAMETER :: ERRORLOG='error.log'
+  CHARACTER(20), PARAMETER :: EQUILIBRIUM='equilibrium_site.out'
 
   ! General variables from input file
   INTEGER :: ntraj, nbstep, nlit, dump, nstate, initstate, initstatet
@@ -91,30 +92,30 @@ CONTAINS
     CHARACTER(50) :: filename
     tdim = SIZE(redmat(1,1,:))
     nstate = SIZE(redmat(:,1,1))
-    
+
     ! Figure out how long the name is going to be
     namesize=LEN_TRIM(method)+2*(INT(LOG10(REAL(nstate)))+1)+1
-    
+
     ! filename format based on the number of states
     if(nstate >= 1 .AND. nstate < 10) writeformat='(A,A,I1.1,A,I1.1)'
     if(nstate >= 10 .AND. nstate < 100) writeformat='(A,A,I2.2,A,I2.2)'
     if(nstate >= 100 .AND. nstate < 1000) writeformat='(A,A,I3.3,A,I3.3)'
     if(nstate >= 1000 .AND. nstate < 10000) writeformat='(A,A,I4.4,A,I4.4)'
     if(nstate >= 10000 .AND. nstate < 100000) writeformat='(A,A,I5.5,A,I5.5)'
-    
+
     ! create file for each redmat element and write
     DO i=1, nstate
-       DO j=1, nstate
-          WRITE(filename, writeformat) TRIM(method),'.',i,'-',j
-          OPEN(UNIT=10, FILE=filename)
-          DO itime=1, tdim
-             WRITE(10,'(3(E13.6,2X))') printstep * (itime-1), redmat(i, j, itime)
-          END DO
-          CLOSE(10)
-       END DO
+      DO j=1, nstate
+        WRITE(filename, writeformat) TRIM(method),'.',i,'-',j
+        OPEN(UNIT=10, FILE=filename)
+        DO itime=1, tdim
+          WRITE(10,'(3(E13.6,2X))') printstep * (itime-1), redmat(i, j, itime)
+        END DO
+        CLOSE(10)
+      END DO
     END DO
-    
-    
+
+
   END SUBROUTINE write_redmat
 
   !> Writes the linear response function using the method,
@@ -144,5 +145,19 @@ CONTAINS
 
   END SUBROUTINE write_linear_response
 
+  SUBROUTINE write_equilibrium_site_populations( populations )
+    USE kinds
+    IMPLICIT NONE
+    INTEGER :: istate
+    REAL(dp), INTENT(in) :: populations(:)
+
+
+    OPEN(UNIT=10, FILE=EQUILIBRIUM)
+    DO istate = 1, nstate
+      WRITE(10, '(E13.6)') populations(istate)
+    END DO
+    CLOSE(10)
+
+  END SUBROUTINE write_equilibrium_site_populations
 
 END MODULE input_output

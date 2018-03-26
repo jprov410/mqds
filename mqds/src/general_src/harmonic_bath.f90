@@ -68,7 +68,7 @@ CONTAINS
     ! Read in the frequency and spectral density for each bath
     OPEN(UNIT=10,FILE=SPECTRALIN)
     DO i=1, npts
-       READ(10, *) freq(i), ( sd(j,i), j=1, nbath )
+        READ(10, *) freq(i), ( sd(j,i), j=1, nbath )
     END DO
     CLOSE(10)
 

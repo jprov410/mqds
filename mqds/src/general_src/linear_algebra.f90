@@ -32,13 +32,4 @@ CONTAINS
 
     END SUBROUTINE diagonalize_real_symmetric
 
-    SUBROUTINE invert_real_symmetric
-        USE kinds
-        IMPLICIT NONE
-
-
-
-    END SUBROUTINE invert_real_symmetric
-
-
 END MODULE linear_algebra

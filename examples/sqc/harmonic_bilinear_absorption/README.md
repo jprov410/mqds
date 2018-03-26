@@ -14,3 +14,7 @@ NOTES
 * Be sure to include the number of states `nstates` in the input file to reflect the fact that there is now a ground electronic state included in the calculation.
 * The input hamiltonian __must__ have elements for the ground electronic state which is not coupled to the excited state manifold.
 * The `dipole.in` file should only have nonzero elements that correspond to transitions between the ground and excited state manifold (assuming that there is no permanent dipole).
+
+METHODOLOGY DETAILED IN:
+---
+* __IN SUBMISSION. 2018__ 

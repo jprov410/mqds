@@ -35,6 +35,7 @@ if(MPI_Fortran_FOUND)
     target_link_libraries(mqds.exe
             ${MQDS_LIBRARIES}
             MPI::MPI_Fortran
+            ${LAPACK_LIBRARIES}
             )
 else()
     target_link_libraries(mqds.exe
