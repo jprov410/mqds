@@ -22,5 +22,12 @@ add_library(generallib
 if(MPI_Fortran_FOUND)
     target_link_libraries(generallib
             MPI::MPI_Fortran
+            ${LAPACK_LIBRARIES}
+            ${BLAS_LIBRARIES}
+            )
+else()
+    target_link_libraries(generallib
+            ${LAPACK_LIBRARIES}
+            ${BLAS_LIBRARIES}
             )
 endif()
