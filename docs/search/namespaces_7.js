@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['spectroscopy',['spectroscopy',['../namespacespectroscopy.html',1,'']]]
+  ['random_5fnumbers',['random_numbers',['../namespacerandom__numbers.html',1,'']]]
 ];

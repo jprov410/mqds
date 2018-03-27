@@ -1,6 +1,8 @@
 var searchData=
 [
   ['ierr',['ierr',['../namespacempi__variables.html#a5dba40c9cf3a9f969934f49db7ef21e0',1,'mpi_variables']]],
+  ['imaginary_5ftime',['imaginary_time',['../namespaceimaginary__time.html',1,'']]],
+  ['imaginary_5ftime_2ef90',['imaginary_time.f90',['../imaginary__time_8f90.html',1,'']]],
   ['initialize_5fbath',['initialize_bath',['../namespaceharmonic__bath.html#a41101d75ccfabb2e9f27f11decb6ef37',1,'harmonic_bath']]],
   ['initialize_5fhel',['initialize_hel',['../namespacehamiltonians.html#acadd99074439519c4d484e78f458ba17',1,'hamiltonians']]],
   ['initialize_5fpldm_5fmap',['initialize_pldm_map',['../namespacemapping__variables.html#ae7799d8a45a24783f4e02b5955f98405',1,'mapping_variables']]],
