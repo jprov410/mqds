@@ -27,10 +27,13 @@ MODULE input_output
   
   ! Calculation type i.e.) redmat, nonlinear spectra ...
   CHARACTER(20) :: calculation
-  
+
   ! Dynamics method
   CHARACTER(20) :: method
-  
+
+  ! SQC window shape
+  CHARACTER(20) :: windowshape
+
   ! Basis set for system dynamics
   CHARACTER(20) :: basis
   
@@ -73,6 +76,7 @@ CONTAINS
     READ(10,*) cdum, tdelay3
     READ(10,*) cdum, temperature
     READ(10,*) cdum, window
+    READ(10,*) cdum, windowshape
     READ(10,*) cdum, zpe
     CLOSE(10)
     

@@ -38,15 +38,39 @@ CONTAINS
     USE input_output
     USE kinds
     IMPLICIT NONE
+    INTEGER :: istate
     REAL(dp), INTENT(out) :: x_init(nstate), p_init(nstate)
-    REAL(dp) :: n(nstate), q(nstate)
-    n = 0.0_dp ; q = 0.0_dp
+    REAL(dp) :: n(nstate), q(nstate), sum_action
+    n = 0.0_dp ; q = 0.0_dp ; sum_action = 0.0_dp
     prod = (1.0_dp, 0.0_dp)
 
-    ! Sample rectangular windows
-    n = ( 1.0_dp - 2.0_dp * uniform_rn(n) ) * window
-    n(initstate) = n(initstate) + 0.5_dp
-    n(initstatet) = n(initstatet) + 0.5_dp
+    IF ( windowshape /= 'square' .AND. windowshape /= 'trangle' ) THEN
+        OPEN(UNIT=10, FILE=ERRORLOG)
+        WRITE(10,*) 'You have selected a nonexistent window shape, the &
+                input should read e.g.) "windowshape square"'
+        CLOSE(10)
+    END IF
+
+
+    IF ( windowshape == 'square' ) THEN
+        ! Sample rectangular windows
+        n = ( 1.0_dp - 2.0_dp * uniform_rn(n) ) * window
+        n(initstate) = n(initstate) + 0.5_dp
+        n(initstatet) = n(initstatet) + 0.5_dp
+    ELSE IF ( windowshape == 'triangle' ) THEN
+        window = 1.0_dp / 3.0_dp ; zpe = 1.0_dp / 3.0_dp
+        ! Sample triangular windows
+        100 continue
+        n = uniform_rn( n )
+        sum_action = SUM( n )
+        IF ( sum_action > 1.0_dp ) THEN
+            GO TO 100
+        END IF
+        n = n - window
+        n(initstate) = n(initstate) + 0.5_dp
+        n(initstatet) = n(initstatet) + 0.5_dp
+    END IF
+
 
     ! Sample uniform angle from 0 to 2pi
     q(:) = 2.0_dp * pi * uniform_rn(q)
@@ -54,7 +78,6 @@ CONTAINS
     IF ( initstate /= initstatet ) THEN
         prod =  EXP( eye * ( q(initstate) - q(initstatet) ) )
     END IF
-
     ! treat the zero-point energy and window as two different parameters
     ! that are set in the input file
     p_init = -DSQRT( 2.0_dp * ( n + zpe ) ) * DSIN( q )
@@ -71,14 +94,16 @@ CONTAINS
         INTEGER :: i, j, k, itime, icount
         REAL(dp), INTENT(in) :: x(nstate), p(nstate)
         REAL(dp) :: n(nstate), q(nstate)
+        REAL(dp) :: sum_action
         COMPLEX(dp) :: res( nstate, nstate )
-        res = (0.0_dp, 0.0_dp)
+        res = (0.0_dp, 0.0_dp) ; sum_action = 0.0_dp
         n = 0.5_dp * ( p**2 + x**2 ) - zpe
         q = -ATAN2( p, x )
         icount = 0
 
         ! loop over states to check for populations and coherences
-        DO i=1, nstate
+        IF ( windowshape == 'square' ) THEN
+            DO i=1, nstate
             !~~~~POPULATIONS~~~~!
             ! Check if state i is close enough to action = 1
             IF ( n(i) < 1.0_dp + window .AND. n(i) >= 1.0_dp - window ) THEN
@@ -113,6 +138,47 @@ CONTAINS
                 END DO
             END IF
         END DO
+        END IF
+
+        IF ( windowshape == 'triangle' ) THEN
+            sum_action = SUM( n )
+            IF( sum_action <= 2.0_dp - nstate * window ) THEN
+                DO i = 1, nstate
+                    ! Check for populations
+                    IF ( n(i) > 1.0_dp - window ) THEN
+                        DO j = 1, nstate
+                            IF ( j /= i ) THEN
+                                IF ( n(j) <= -window ) THEN
+                                    EXIT
+                                END IF
+                            END IF
+                        END DO
+                        res(i,i) = 1.0_dp * prod
+                        toll(itime) = toll(itime) + 1.0_dp
+                    END IF
+
+                    ! Check for coherences
+                    IF ( n(i) > 0.5_dp - window) THEN
+                        DO j = 1, nstate
+                            IF ( j /= i ) THEN
+                                IF ( n(j) <= 0.5_dp - window ) CYCLE
+                                DO k = 1, nstate
+                                    IF ( k /= i .AND. k /= j ) THEN
+                                        IF ( n(k) <= - window ) GO TO 88
+                                    END IF
+                                END DO
+                                res(i,j) = EXP( eye * ( q(j) - q(i) ) ) * prod
+                                icount = icount + 1
+                                IF ( icount == 1 ) od_toll(itime) = od_toll(itime) + 2.0_dp
+                                88 CONTINUE
+                            END IF
+                        END DO
+                    END IF
+                END DO
+            END IF
+        END IF
+
+
     END FUNCTION sqc_redmat
 
     !> Normalize the reduced density matrix using toll/od_toll from sqc_redmat
