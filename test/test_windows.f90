@@ -12,7 +12,7 @@ PROGRAM test_windows
     window = 0.5_dp ; nstate = 2
     initstate = 1 ; initstatet = 1
     zpe = 0.5_dp ; test = 0.0_dp
-    windowshape = square
+    windowshape = 'square'
     CALL initialize_windows
 
     CALL sample_sqc_map(x,p)
