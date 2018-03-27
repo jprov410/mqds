@@ -44,11 +44,12 @@ CONTAINS
     n = 0.0_dp ; q = 0.0_dp ; sum_action = 0.0_dp
     prod = (1.0_dp, 0.0_dp)
 
-    IF ( windowshape /= 'square' .AND. windowshape /= 'trangle' ) THEN
+    IF ( windowshape /= 'square' .AND. windowshape /= 'triangle' ) THEN
         OPEN(UNIT=10, FILE=ERRORLOG)
         WRITE(10,*) 'You have selected a nonexistent window shape, the &
                 input should read e.g.) "windowshape square"'
         CLOSE(10)
+        STOP
     END IF
 
 
