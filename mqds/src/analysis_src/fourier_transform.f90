@@ -24,15 +24,18 @@ PROGRAM fourier_transform
     nw1 = 0 ; nw2 = 0 ; nw3 = 0
 
     ! FIGURE OUT WHICH KIND OF RESPONSE TO ANALYZE
+    WRITE(*,*) '----------------------------------------------------'
     WRITE(*,*) 'WELCOME, PLEASE CHOOSE ONE OF THE FOLLOWING OPTIONS:'
     WRITE(*,*) 'LINEAR ABSORPTION SPECTRUM:                       1 '
     WRITE(*,*) '3rd ORDER NONLINEAR SPECTRUM:                     2 '
+    WRITE(*,*) '----------------------------------------------------'
     READ(*,*) calc_type
 
     ! COMPUTE 1D FOURIER TRANSFORM
     IF ( calc_type == 1 ) THEN
         WRITE(*,*) 'INSERT LINEAR RESPONSE FILE NAME'
         WRITE(*,*) 'EXPECTING FORMAT time(fs), Re(resp), Im(resp)'
+        WRITE(*,*) '----------------------------------------------------'
         READ(*,*) filename
         ! CHOOSE OUTPUT FILE NAME
         WRITE( outfile, '(A,A)') 'FT_',filename
@@ -62,6 +65,7 @@ PROGRAM fourier_transform
         END DO
 
         ! CHOOSE FREQUENCY RANGE AND NUMBER OF POINTS
+        WRITE(*,*) '----------------------------------------------------'
         WRITE(*,*) 'INSERT FREQUENCY RANGE IN WAVENUMBERS (w_min, w_max, nw)'
         READ(*,*) w1_min, w1_max, nw1
         w1_min = w1_min * 2.d0 * pi / fs2wvnbr ; w1_max = w1_max * 2.d0 * pi / fs2wvnbr
