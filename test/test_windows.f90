@@ -53,6 +53,10 @@ PROGRAM test_windows
         STOP 1
     END IF
 
+    test(:,:,0) = sqc_redmat(x,p,0) + sqc_redmat(x,p,0)
+    test(:,:,1) = sqc_redmat(x,p,1)
+
+
 
     CALL finalize_windows
 
