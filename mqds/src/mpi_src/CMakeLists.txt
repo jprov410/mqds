@@ -1,9 +1,11 @@
 if(MPI_Fortran_FOUND)
     MESSAGE(STATUS "MPI was found and will be linked to executable mqds_mpi.exe")
+    set(CMAKE_Fortran_COMPILER  mpif90)
     add_subdirectory(pldm_src)
     add_subdirectory(sqc_src)
     add_subdirectory(twa_src)
     add_subdirectory(ipldm_src)
+    add_subdirectory(equilibrium_src)
 
 ### Include the dircectories that contain libraries
     include_directories(
@@ -12,6 +14,7 @@ if(MPI_Fortran_FOUND)
             ${MQDS_BINARY_DIR}/mqds/src/mpi_src/sqc_src
             ${MQDS_BINARY_DIR}/mqds/src/mpi_src/twa_src
             ${MQDS_BINARY_DIR}/mqds/src/mpi_src/ipldm_src
+            ${MQDS_BINARY_DIR}/mqds/src/mpi_src/equilibrium_src
     )
     add_library(mpilib mpi_variables.f90)
 
@@ -21,6 +24,7 @@ if(MPI_Fortran_FOUND)
             sqclib_mpi
             twalib_mpi
             ipldmlib_mpi
+            equilibriumlib_mpi
             mpilib)
 
     add_executable(mqds_mpi.exe main_mpi.f90)
@@ -28,6 +32,8 @@ if(MPI_Fortran_FOUND)
     target_link_libraries(mqds_mpi.exe
             ${MQDS_LIBRARIES_MPI}
             MPI::MPI_Fortran
+            ${LAPACK_LIBRARIES}
+            ${BLAS_LIBRARIES}
             )
 
     # Copy executable to directory with submission/analysis scripts

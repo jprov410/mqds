@@ -26,7 +26,11 @@ of a system-bath model where the bath consists of a set of harmonic oscillators.
 (__currently under construction__)
 
 * __SQC__ (Symmetrical Quasi-Classical) calculation of the __reduced density matrix__ 
-of a system-bath model where the bath consists of a set of harmonic oscillators. 
+of a system-bath model where the bath consists of a set of harmonic oscillators.
+
+* __EQUILIBRIUM__ Imaginary time path integral calculation of the exact equilibrium 
+__reduced density matrix__ in the site basis for a system that has populations bi-linearly
+coupled to a bath of harmonic oscillators.
 
 More Information
 ----

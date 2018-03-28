@@ -36,6 +36,10 @@ PROGRAM mqds_mpi
       CALL ipldm_master_mpi
   END IF
 
+  IF ( method == 'equilibrium' ) THEN
+      CALL equilibrium_master_mpi
+  END IF
+
   CALL MPI_FINALIZE(ierr)
 
 END PROGRAM mqds_mpi

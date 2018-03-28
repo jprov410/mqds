@@ -1,15 +1,15 @@
-if(MPI_Fortran_FOUND)
-    set(CMAKE_Fortran_COMPILER  mpif90)
-endif()
+#if(MPI_Fortran_FOUND)
+#    set(CMAKE_Fortran_COMPILER  mpif90)
+#endif()
 
 add_subdirectory(general_src)
 add_subdirectory(pldm_src)
 add_subdirectory(sqc_src)
 add_subdirectory(twa_src)
-add_subdirectory(mpi_src)
 add_subdirectory(analysis_src)
 add_subdirectory(ipldm_src)
 add_subdirectory(equilibrium_src)
+add_subdirectory(mpi_src)
 
 ### Include the dircectories that contain libraries
 include_directories(
