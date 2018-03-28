@@ -11,6 +11,7 @@ SUBROUTINE calculate_equilibrium_site_mpi
     USE unit_conversions
     USE imaginary_time
     USE input_output
+    USE mpi_variables
     IMPLICIT NONE
     INTEGER :: istate, itraj, istep
     REAL(dp) :: beta, dt, trace
@@ -21,6 +22,7 @@ SUBROUTINE calculate_equilibrium_site_mpi
     REAL(dp) :: covariance_eigenvalues( 0 : nbstep, nstate )
     REAL(dp) :: temporary( 0 : nbstep, 0 : nbstep )
     REAL(dp) :: equilibrium_site_populations( nstate )
+    REAL(dp) :: sum_equilibrium_site_populations( nstate )
     REAL(dp) :: redmat( nstate, nstate )
     REAL(dp) :: redmat_init( nstate, nstate )
     REAL(dp) :: system_propagator( nstate, nstate ), bath_propagator( nstate, nstate )
@@ -66,7 +68,7 @@ SUBROUTINE calculate_equilibrium_site_mpi
     END DO
 
     ! Run Imaginary time trajectories
-    DO itraj = 1, ntraj
+    DO itraj = 1, INT( ntraj / npes )
         redmat = redmat_init
 
 
@@ -100,6 +102,22 @@ SUBROUTINE calculate_equilibrium_site_mpi
     trace = SUM( equilibrium_site_populations )
     equilibrium_site_populations = equilibrium_site_populations / trace
 
-    CALL write_equilibrium_site_populations( equilibrium_site_populations )
+    result_size = SIZE( equilibrium_site_populations )
+
+    CALL MPI_Barrier(MPI_COMM_WORLD, ierr)
+    IF ( mype /= 0 ) THEN
+        CALL MPI_Send(equilibrium_site_populations, result_size, MPI_DOUBLE, &
+                0, tag, MPI_COMM_WORLD, ierr)
+    ELSE
+        sum_equilibrium_site_populations = equilibrium_site_populations
+        DO ipe=1, npes-1
+            CALL MPI_recv(equilibrium_site_populations, result_size, MPI_DOUBLE,&
+                    ipe, tag, MPI_COMM_WORLD, status,ierr)
+            sum_equilibrium_site_populations = &
+                    sum_equilibrium_site_populations + equilibrium_site_populations
+        END DO
+        sum_equilibrium_site_populations = sum_equilibrium_site_populations / DBLE(npes)
+        CALL write_equilibrium_site_populations( sum_equilibrium_site_populations )
+    END IF
 
 END SUBROUTINE calculate_equilibrium_site_mpi
