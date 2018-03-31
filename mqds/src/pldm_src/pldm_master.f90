@@ -27,7 +27,7 @@ SUBROUTINE pldm_master
 
         IF (calculation == 'absorption' ) CALL calculate_pldm_absorption
 
-        !IF (calculation == 'nonlinear') CALL calculate_pldm_nonlinear
+        IF (calculation == 'nonlinear') CALL calculate_pldm_nonlinear
 
         CALL finalize_hel
 

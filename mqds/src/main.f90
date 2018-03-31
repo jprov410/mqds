@@ -7,11 +7,15 @@ PROGRAM mqds
   
   CALL read_input
   
-  IF ( MOD( nbstep, dump ) /= 0 ) THEN
-     OPEN(UNIT=10, FILE=ERRORLOG)
-     WRITE(10,*) 'Error: nbstep must be divisible by dump!'
-     CLOSE(10)
-     STOP
+  IF ( MOD( nbstep, dump ) /= 0 .OR. &
+          MOD( nbstep1, branch1 ) /= 0 .OR. &
+          MOD( nbstep2, branch2 ) /= 0 .OR. &
+          MOD( nbstep3, branch3 ) /= 0 &
+          ) THEN
+      OPEN(UNIT=10, FILE=ERRORLOG)
+      WRITE(10,*) 'Error: nbstep must be divisible by dump/branch!'
+      CLOSE(10)
+      STOP
   END IF
 
   ! Mapping Variable Dynamics methods

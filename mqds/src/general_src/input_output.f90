@@ -21,7 +21,7 @@ MODULE input_output
   REAL(dp) :: zpe, window
   
   ! Spectroscopy variables from input file
-  INTEGER :: nstep1, nstep2, nstep3, tdim1, tdim2, tdim3
+  INTEGER :: nbstep1, nbstep2, nbstep3
   INTEGER :: branch1, branch2, branch3
   REAL(dp) :: tdelay1, tdelay2, tdelay3
   
@@ -66,9 +66,9 @@ CONTAINS
     READ(10,*) cdum, nlit
     READ(10,*) cdum, nslice
     READ(10,*) cdum, nstate
-    READ(10,*) cdum, nstep1
-    READ(10,*) cdum, nstep2
-    READ(10,*) cdum, nstep3
+    READ(10,*) cdum, nbstep1
+    READ(10,*) cdum, nbstep2
+    READ(10,*) cdum, nbstep3
     READ(10,*) cdum, ntraj
     READ(10,*) cdum, runtime
     READ(10,*) cdum, tdelay1
@@ -163,5 +163,116 @@ CONTAINS
     CLOSE(10)
 
   END SUBROUTINE write_equilibrium_site_populations
+
+
+  SUBROUTINE write_nonlinear_response( method, response, dt1, dt2, dt3 )
+    USE kinds
+    IMPLICIT NONE
+    INTEGER :: it1, it2, it3
+    INTEGER :: namesize
+    REAL(dp), INTENT(in) :: dt1, dt2, dt3
+    COMPLEX(dp), INTENT(in) :: response( 8, 0 : INT(nbstep1/branch1),&
+            0 : INT(nbstep2/branch2), 0 : INT(nbstep3/branch3) )
+    CHARACTER(20) :: method
+    CHARACTER(17) :: writeformat
+    CHARACTER(50) :: filename
+    ! Figure out how long the name is going to be
+    namesize=LEN_TRIM(method)+14
+    writeformat='(A,A)'
+
+
+    !dimension 1,2 --> K1(-++),K1(+--)
+    WRITE(filename, writeformat) TRIM(method),'_nonlin-++.out'
+    OPEN(UNIT=10, FILE=filename)
+    DO it2 = 0, INT(nbstep2/branch2)
+      DO it1 = 0, INT(nbstep1/branch1)
+        DO it3 = 0, INT(nbstep3/branch3)
+          WRITE(10,'(5(E13.6,2X))') it2 * dt1, it2 * dt2, it3 * dt3, REAL(response(1,it1,it2,it3)), AIMAG(response(1,it1,it2,it3))
+        END DO
+      END DO
+    END DO
+    CLOSE(10)
+
+    WRITE(filename, writeformat) TRIM(method),'_nonlin+--.out'
+    OPEN(UNIT=10, FILE=filename)
+    DO it2 = 0, INT(nbstep2/branch2)
+      DO it1 = 0, INT(nbstep1/branch1)
+        DO it3 = 0, INT(nbstep3/branch3)
+          WRITE(10,'(5(E13.6,2X))') it2 * dt1, it2 * dt2, it3 * dt3, REAL(response(2,it1,it2,it3)), AIMAG(response(2,it1,it2,it3))
+        END DO
+      END DO
+    END DO
+    CLOSE(10)
+
+    !dimension 3,4 --> K2(+-+),K2(-+-)
+    WRITE(filename, writeformat) TRIM(method),'_nonlin+-+.out'
+    OPEN(UNIT=10, FILE=filename)
+    DO it2 = 0, INT(nbstep2/branch2)
+      DO it1 = 0, INT(nbstep1/branch1)
+        DO it3 = 0, INT(nbstep3/branch3)
+          WRITE(10,'(5(E13.6,2X))') it2 * dt1, it2 * dt2, it3 * dt3, REAL(response(3,it1,it2,it3)), AIMAG(response(3,it1,it2,it3))
+        END DO
+      END DO
+    END DO
+    CLOSE(10)
+
+    WRITE(filename, writeformat) TRIM(method),'_nonlin-+-.out'
+    OPEN(UNIT=10, FILE=filename)
+    DO it2 = 0, INT(nbstep2/branch2)
+      DO it1 = 0, INT(nbstep1/branch1)
+        DO it3 = 0, INT(nbstep3/branch3)
+          WRITE(10,'(5(E13.6,2X))') it2 * dt1, it2 * dt2, it3 * dt3, REAL(response(4,it1,it2,it3)), AIMAG(response(4,it1,it2,it3))
+        END DO
+      END DO
+    END DO
+    CLOSE(10)
+
+    !dimension 5,6 --> K3(++-),K3(--+)
+    WRITE(filename, writeformat) TRIM(method),'_nonlin++-.out'
+    OPEN(UNIT=10, FILE=filename)
+    DO it2 = 0, INT(nbstep2/branch2)
+      DO it1 = 0, INT(nbstep1/branch1)
+        DO it3 = 0, INT(nbstep3/branch3)
+          WRITE(10,'(5(E13.6,2X))') it2 * dt1, it2 * dt2, it3 * dt3, REAL(response(5,it1,it2,it3)), AIMAG(response(5,it1,it2,it3))
+        END DO
+      END DO
+    END DO
+    CLOSE(10)
+
+    WRITE(filename, writeformat) TRIM(method),'_nonlin--+.out'
+    OPEN(UNIT=10, FILE=filename)
+    DO it2 = 0, INT(nbstep2/branch2)
+      DO it1 = 0, INT(nbstep1/branch1)
+        DO it3 = 0, INT(nbstep3/branch3)
+          WRITE(10,'(5(E13.6,2X))') it2 * dt1, it2 * dt2, it3 * dt3, REAL(response(6,it1,it2,it3)), AIMAG(response(6,it1,it2,it3))
+        END DO
+      END DO
+    END DO
+    CLOSE(10)
+
+    !dimension 7,8 --> K4(+++),K4(---)
+    WRITE(filename, writeformat) TRIM(method),'_nonlin+++.out'
+    OPEN(UNIT=10, FILE=filename)
+    DO it2 = 0, INT(nbstep2/branch2)
+      DO it1 = 0, INT(nbstep1/branch1)
+        DO it3 = 0, INT(nbstep3/branch3)
+          WRITE(10,'(5(E13.6,2X))') it2 * dt1, it2 * dt2, it3 * dt3, REAL(response(7,it1,it2,it3)), AIMAG(response(7,it1,it2,it3))
+        END DO
+      END DO
+    END DO
+    CLOSE(10)
+
+    WRITE(filename, writeformat) TRIM(method),'_nonlin---.out'
+    OPEN(UNIT=10, FILE=filename)
+    DO it2 = 0, INT(nbstep2/branch2)
+      DO it1 = 0, INT(nbstep1/branch1)
+        DO it3 = 0, INT(nbstep3/branch3)
+          WRITE(10,'(5(E13.6,2X))') it2 * dt1, it2 * dt2, it3 * dt3, REAL(response(8,it1,it2,it3)), AIMAG(response(8,it1,it2,it3))
+        END DO
+      END DO
+    END DO
+    CLOSE(10)
+
+  END SUBROUTINE write_nonlinear_response
 
 END MODULE input_output

@@ -75,5 +75,126 @@ CONTAINS
 
     END FUNCTION system_trace
 
+    SUBROUTINE dipole_focus( x, p, xt, pt, weight, k_sign )
+        USE focusing
+        USE mapping_variables
+        IMPLICIT NONE
+        INTEGER :: i, j, minf, maxf, minb, maxb
+        INTEGER, INTENT(out) :: k_sign
+        REAL(dp), INTENT(in) :: x(nstate), p(nstate)
+        REAL(dp), INTENT(in) :: xt(nstate), pt(nstate)
+        COMPLEX(dp), INTENT(inout) :: weight
+        COMPLEX(dp) :: matrix( nstate, nstate )
+
+        matrix = pldm_redmat( x, p, xt, pt )
+        matrix = dipole_commutator( matrix )
+
+        ! Focus and assign new values to initstate
+        ! and initstatet
+        CALL focus_redmat( matrix, weight )
+
+
+        !FIND MIN AND MAX STATE FORWARD STATE BEFORE t=t1 DIPOLE
+        DO minf = 1, nstate, 1
+            IF ( x(minf) /= 0.0_dp .OR. p(minf) /= 0.0_dp ) THEN
+                EXIT
+            END IF
+        END DO
+
+        DO maxf = nstate, 1, -1
+            IF ( x(maxf) /= 0.0_dp .OR. p(maxf) /= 0.0_dp ) THEN
+                EXIT
+            END IF
+        END DO
+
+        !FIND MIN AND MAX STATE BACKWARD BEFORE t=t1 DIPOLE
+        DO minb = 1, nstate
+            IF ( xt(minb) /= 0.0_dp .OR. pt(minb) /= 0.0_dp ) THEN
+                EXIT
+            END IF
+        END DO
+
+        DO maxb = nstate, 1, -1
+            IF ( xt(maxb) /= 0.0_dp .OR. pt(maxb) /= 0.d0 ) THEN
+                EXIT
+            END IF
+        END DO
+
+        !CHECK PLUS OR MINUS k2
+        IF ( initstate > maxf .OR. initstatet < minb ) THEN
+            k_sign = 1
+        END IF
+
+        IF ( initstate < minf .OR. initstatet > maxb ) THEN
+            k_sign = -1
+        END IF
+
+    END SUBROUTINE dipole_focus
+
+    FUNCTION nonlinear_response( x, p, xt, pt, wt, k1, k2, k3 ) RESULT( res )
+        USE mapping_variables
+        USE parameters
+        IMPLICIT NONE
+        INTEGER :: k1, k2, k3, diagram, i, j
+        REAL(dp) :: x( nstate ), p( nstate )
+        REAL(dp) :: xt( nstate ), pt( nstate )
+        COMPLEX(dp) :: wt
+        COMPLEX(dp) :: res( 8 )
+        COMPLEX(dp) :: rhotilde( nstate, nstate )
+        res = 0.0_dp ; diagram = 1
+
+        ! Figure out which of the responses we are recording
+        ! ( K1 = -1,+1,+1 ; +1,-1,-1 ) REPHASING
+        ! ( K2 = +1,-1,+1 ; -1,+1,-1 ) NONREPHASING
+        ! ( K3 = +1,+1,-1 ; -1,-1,+1 ) DOUBLE QUANTUM
+        ! ( K4 = +1,+1,+1 ; -1,-1,-1 ) NOT SURE WHAT THIS IS CALLED
+
+        ! REPHASING SIGNALS
+        IF ( k1 == -1 .AND. k2 == +1 .AND. k3 == +1 ) THEN
+            diagram = 1
+        END IF
+        IF ( k1 == +1 .AND. k2 == -1 .AND. k3 == -1 ) THEN
+            diagram = 2
+        END IF
+
+        ! NONREPHASING SIGNALS
+        IF ( k1 == +1 .AND. k2 == -1 .AND. k3 == +1 ) THEN
+            diagram = 3
+        END IF
+        IF ( k1 == -1 .AND. k2 == +1 .AND. k3 == -1 ) THEN
+            diagram = 4
+        END IF
+
+        ! DOUBLE QUANTUM SIGNALS
+        IF ( k1 == +1 .AND. k2 == +1 .AND. k3 == -1 ) THEN
+            diagram = 5
+        END IF
+        IF ( k1 == -1 .AND. k2 == -1 .AND. k3 == +1 ) THEN
+            diagram = 6
+        END IF
+
+        ! OTHER SIGNALS (K4)
+        IF ( k1 == +1 .AND. k2 == +1 .AND. k3 == +1 ) THEN
+            diagram = 7
+        END IF
+        IF ( k1 == -1 .AND. k2 == -1 .AND. k3 == -1 ) THEN
+            diagram = 8
+        END IF
+
+        ! Get matrix
+        rhotilde = pldm_redmat( x, p, xt, pt )
+
+        ! Dipole operate on matrix and assign Monte-Carlo weight
+        rhotilde = wt * dipole_operator( rhotilde )
+
+        ! Find response function at (t1, t2, t3)
+        DO i = 1, nstate
+            res( diagram ) = res( diagram ) + rhotilde( i, i )
+        END DO
+
+        ! Multiply by (i / hbar)^3
+        res = - eye * res
+
+    END FUNCTION nonlinear_response
 
 END MODULE spectroscopy

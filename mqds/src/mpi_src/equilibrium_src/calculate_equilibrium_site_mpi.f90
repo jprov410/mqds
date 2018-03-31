@@ -73,7 +73,7 @@ SUBROUTINE calculate_equilibrium_site_mpi
 
 
         DO istate = 1, nstate
-            xi( :, istate ) = gaussian_rn( xi( :, istate ) ) * DSQRT( covariance_eigenvalues( :, istate ) ) !/ dt
+            xi( :, istate ) = gaussian_rn( xi( :, istate ) ) * DSQRT( covariance_eigenvalues( :, istate ) ) / dt
             xi( :, istate ) = MATMUL( covariance_eigenvectors_inverse( :, :, istate ), xi( :, istate ) )
         END DO
 
