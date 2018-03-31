@@ -48,3 +48,7 @@ Compilation of this program requires CMake minimum version 3.2.
 To compile this program (from the current directory), execute `mkdir build && cd build` 
 followed by `cmake ../ && make`. To run tests, execute `make test`. The executables 
 will be in the `run` directory. To build the documentation, execute `make docs`.
+
+__The development of the MQDS package is funded by the Molecular Sciences Software Institute__
+
+![alt text](https://github.com/jprov410/mqds/blob/master/images/MolSSI-Logo-2.jpg)
