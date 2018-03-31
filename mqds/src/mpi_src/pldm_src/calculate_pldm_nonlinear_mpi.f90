@@ -1,7 +1,7 @@
 !> This subroutine calculates the reduced density matrix
 !! using PLDM with a harmonic bath model in the diabatic basis
 !! with bilinear coupling.
-SUBROUTINE calculate_pldm_nonlinear
+SUBROUTINE calculate_pldm_nonlinear_mpi
   USE kinds
   USE spectroscopy
   USE unit_conversions
@@ -11,6 +11,7 @@ SUBROUTINE calculate_pldm_nonlinear
   USE parameters
   USE harmonic_bath
   USE input_output
+  USE mpi_variables
   IMPLICIT NONE
   INTEGER :: i, j, k
   INTEGER :: istep, itraj
@@ -32,6 +33,7 @@ SUBROUTINE calculate_pldm_nonlinear
   COMPLEX(dp) :: dipcom_gstate(nstate, nstate) ! dictates initial states for prop
   COMPLEX(dp), ALLOCATABLE :: monte_carlo_weight( :, : )
   COMPLEX(dp), ALLOCATABLE :: resp_func( :, :, :, : )
+  COMPLEX(dp), ALLOCATABLE :: sum_resp_func( :, :, :, : )
   ham = 0.0_dp ; bath_force = 0.0_dp
   beta = 0.0_dp ; dipcom_gstate = (0.0_dp, 0.0_dp) ; dipcom_gstate(1,1) = (1.0_dp, 0.0_dp)
   weight = 0.0_dp ; tdim1 = INT( nbstep1 / branch1 ) ; tdim2 = INT( nbstep2 / branch2 )
@@ -65,6 +67,7 @@ SUBROUTINE calculate_pldm_nonlinear
 
   ALLOCATE( monte_carlo_weight( 0 : tdim1, 0 : tdim2 ), &
           resp_func( 8, 0 : tdim1, 0 : tdim2, 0 : tdim3 ), &
+          sum_resp_func( 8, 0 : tdim1, 0 : tdim2, 0 : tdim3 ), &
           x_bath_save( 0 : tdim1, 0 : tdim2, nosc * nbath ), &
           p_bath_save( 0 : tdim1, 0 : tdim2, nosc * nbath ), &
           istate_save( 0 : tdim1, 0 : tdim2 ), &
@@ -72,7 +75,8 @@ SUBROUTINE calculate_pldm_nonlinear
           k2_sign( 0 : tdim1 ), &
           k3_sign( 0 : tdim1, 0 : tdim2 ) )
 
-  monte_carlo_weight = 0.0_dp ; resp_func = 0.0_dp
+  monte_carlo_weight = 0.0_dp
+  resp_func = ( 0.0_dp, 0.0_dp ) ; sum_resp_func = ( 0.0_dp, 0.0_dp )
   x_bath_save = 0.0_dp ; p_bath_save = 0.0_dp
   istate_save = 0 ; istatet_save = 0
   k1_sign = 0 ; k2_sign = 0 ; k3_sign = 0
@@ -109,7 +113,7 @@ SUBROUTINE calculate_pldm_nonlinear
               END IF
 
               ! Do the Dynamics
-              DO itraj=1, ntraj
+              DO itraj=1, INT( ntraj / npes )
 
                   ! Set the monte carlo weight to be the dipole transition weight
                   monte_carlo_weight = weight
@@ -295,19 +299,36 @@ SUBROUTINE calculate_pldm_nonlinear
 
   END DO
 
-  resp_func = resp_func / ntraj
 
-  ! Write the response function give time increments in fs
-  dt_bath_1 = dt_bath_1 * convert('au_time','fs')
-  dt_bath_2 = dt_bath_2 * convert('au_time','fs')
-  dt_bath_3 = dt_bath_3 * convert('au_time','fs')
-  CALL write_nonlinear_response( method, resp_func, dt_bath_1 * branch1, &
-          dt_bath_2 * branch2, dt_bath_3 * branch3 )
+  resp_func = resp_func / INT( ntraj/npes )
+  result_size = 2 * SIZE(resp_func)
+
+  CALL MPI_Barrier(MPI_COMM_WORLD, ierr)
+  IF ( mype /= 0 ) THEN
+      CALL MPI_Send(resp_func, result_size, MPI_Complex, &
+              0, tag, MPI_COMM_WORLD, ierr)
+  ELSE
+      sum_resp_func = resp_func
+      DO ipe=1, npes-1
+          CALL MPI_recv(resp_func, result_size, MPI_Complex,&
+                  ipe, tag, MPI_COMM_WORLD, status,ierr)
+          sum_resp_func = sum_resp_func + resp_func
+      END DO
+      ! Write the response function give time increments in fs
+      resp_func = resp_func / npes
+      dt_bath_1 = dt_bath_1 * convert('au_time','fs')
+      dt_bath_2 = dt_bath_2 * convert('au_time','fs')
+      dt_bath_3 = dt_bath_3 * convert('au_time','fs')
+      CALL write_nonlinear_response( method, sum_resp_func, dt_bath_1 * branch1, &
+              dt_bath_2 * branch2, dt_bath_3 * branch3 )
+
+  END IF
+
 
 
   ! Deallocate spectroscopy arrays
   CALL finalize_spectroscopy
   DEALLOCATE( monte_carlo_weight, resp_func, x_bath_save, p_bath_save, &
-          istate_save, istatet_save, k2_sign, k3_sign )
+          istate_save, istatet_save, k2_sign, k3_sign, sum_resp_func )
 
-END SUBROUTINE calculate_pldm_nonlinear
+END SUBROUTINE calculate_pldm_nonlinear_mpi

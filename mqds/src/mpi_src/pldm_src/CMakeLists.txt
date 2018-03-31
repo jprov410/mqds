@@ -2,6 +2,7 @@ set(MQDS_PLDM_LIB_MPI
         pldm_master_mpi.f90
         calculate_pldm_redmat_mpi.f90
         calculate_pldm_absorption_mpi.f90
+        calculate_pldm_nonlinear_mpi.f90
         )
 
 
