@@ -17,6 +17,10 @@ __*A molecular quantum dynamics and spectroscopy package*__
 optical response function__ for a system-bath model where the bath consists 
 of a set of harmonic oscillators.
 
+* __PLDM__ (Partially Linearized Density Matrix) calculation of the __third order 
+optical response function__ for a system-bath model where the bath consists 
+of a set of harmonic oscillators. (__currently under construction__)
+
 * __IPLDM__ (Iterative Partially Linearized Density Matrix) calculation of the __reduced density
  matrix__ of a system-bath model where the bath consists of a set of harmonic 
  oscillators. This calculation employs the "focusing" procedure, outlined in the IPLDM example directory.
@@ -27,6 +31,9 @@ of a system-bath model where the bath consists of a set of harmonic oscillators.
 
 * __SQC__ (Symmetrical Quasi-Classical) calculation of the __reduced density matrix__ 
 of a system-bath model where the bath consists of a set of harmonic oscillators.
+
+#* __SQC__ (Symmetrical Quasi-Classical) calculation of the __linear optical response function__ 
+#of a system-bath model where the bath consists of a set of harmonic oscillators.
 
 * __EQUILIBRIUM__ Imaginary time path integral calculation of the exact equilibrium 
 __reduced density matrix__ in the site basis for a system that has populations bi-linearly
@@ -49,6 +56,6 @@ To compile this program (from the current directory), execute `mkdir build && cd
 followed by `cmake ../ && make`. To run tests, execute `make test`. The executables 
 will be in the `run` directory. To build the documentation, execute `make docs`.
 
-__The development of the MQDS package is funded by the Molecular Sciences Software Institute__
+__JP gratefully acknowledges the Molecular Sciences Software Institute for funding the development of the MQDS package__
 
 [![alt text](https://github.com/jprov410/mqds/blob/master/images/MolSSI-Logo-2.jpg)](http://molssi.org)
