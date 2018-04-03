@@ -71,6 +71,38 @@ CONTAINS
                 * ( xt_init(initstatet) + eye * pt_init(initstatet) )
     END SUBROUTINE sample_pldm_map
 
+    SUBROUTINE pldm_map_hop( x, p, xt, pt )
+        USE input_output
+        USE parameters
+        USE random_numbers
+        IMPLICIT NONE
+        INTEGER :: i, j
+        REAL(dp), INTENT(inout) :: x( nstate ), p( nstate )
+        REAL(dp), INTENT(inout) :: xt( nstate ), pt( nstate )
+        COMPLEX(dp) :: coefficient( nstate, nstate )
+        COMPLEX(dp) :: xi_fwd( nstate ), xi_bkwd( nstate )
+        coefficient = pldm_redmat( x, p, xt, pt )
+
+        ! Sample new initial conditions for mapping variables
+        x = gaussian_rn( x )
+        p = gaussian_rn( p )
+        xt = gaussian_rn( xt )
+        pt = gaussian_rn( pt )
+
+        ! Make new initial product for subsequent propagation
+        DO i = 1, nstate
+            xi_fwd( i ) = x( i ) - eye * p( i )
+            xi_bkwd( i ) = xt( i ) + eye * pt( i )
+        END DO
+        prod = 0.0_dp
+        DO i = 1, nstate
+            DO j = 1, nstate
+                prod = prod + 0.5_dp * coefficient( i, j ) * xi_fwd( i ) * xi_bkwd( j )
+            END DO
+        END DO
+
+    END SUBROUTINE pldm_map_hop
+
     !> Sample the initial distribution of mapping variables for
     !! truncated wigner approximation in action-angle variables
     SUBROUTINE sample_twa_map(x_init, p_init)

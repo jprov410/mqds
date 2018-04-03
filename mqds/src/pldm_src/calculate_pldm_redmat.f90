@@ -54,14 +54,14 @@ SUBROUTINE calculate_pldm_redmat
         ! Update the full hamiltonian
         ham = diabatic_bilinear_coupling_hamiltonian(x_bath, c)
         
-        ! Propagate the mapping variable
+        ! Propagate the mapping variables
         CALL verlet_mapping_variables(x_map, p_map, ham, dt_map)
         CALL verlet_mapping_variables(xt_map, pt_map, ham, dt_map)
 
         ! If the step is divisible by dump, compute the redmat
         IF ( MOD( istep, dump) == 0 ) THEN
-           itime = itime + 1           
-           redmat(:, :, itime) = redmat(:, :, itime) + pldm_redmat(x_map, p_map, xt_map, pt_map)
+            itime = itime + 1
+            redmat(:, :, itime) = redmat(:, :, itime) + pldm_redmat(x_map, p_map, xt_map, pt_map)
         END IF
 
         ! Update the force and finish the verlet

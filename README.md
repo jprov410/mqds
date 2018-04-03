@@ -32,8 +32,8 @@ of a system-bath model where the bath consists of a set of harmonic oscillators.
 * __SQC__ (Symmetrical Quasi-Classical) calculation of the __reduced density matrix__ 
 of a system-bath model where the bath consists of a set of harmonic oscillators.
 
-#* __SQC__ (Symmetrical Quasi-Classical) calculation of the __linear optical response function__ 
-#of a system-bath model where the bath consists of a set of harmonic oscillators.
+<!-- * __SQC__ (Symmetrical Quasi-Classical) calculation of the __linear optical response function__ 
+of a system-bath model where the bath consists of a set of harmonic oscillators. -->
 
 * __EQUILIBRIUM__ Imaginary time path integral calculation of the exact equilibrium 
 __reduced density matrix__ in the site basis for a system that has populations bi-linearly
