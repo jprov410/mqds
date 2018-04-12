@@ -97,6 +97,12 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a16bbb75720fcb2382b5b1dd68d97ffa0"><td class="memItemLeft" align="right" valign="top">complex(dp) function, dimension(0 :nbstep/dump)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacespectroscopy.html#a16bbb75720fcb2382b5b1dd68d97ffa0">system_trace</a> (redmat)</td></tr>
 <tr class="memdesc:a16bbb75720fcb2382b5b1dd68d97ffa0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to find the linear response function for calculation of the absorption spectrum.  <a href="#a16bbb75720fcb2382b5b1dd68d97ffa0">More...</a><br /></td></tr>
 <tr class="separator:a16bbb75720fcb2382b5b1dd68d97ffa0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f25c6ef5261e00b20abd603b08e5f10"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacespectroscopy.html#a9f25c6ef5261e00b20abd603b08e5f10">dipole_focus</a> (x, p, xt, pt, weight, k_sign)</td></tr>
+<tr class="memdesc:a9f25c6ef5261e00b20abd603b08e5f10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subroutine that applies the dipole commutator the current reduced density matrix and then performs the focusing procedure on the resulting matrix to use as the sole initially-occupied states for subsequent propagation.  <a href="#a9f25c6ef5261e00b20abd603b08e5f10">More...</a><br /></td></tr>
+<tr class="separator:a9f25c6ef5261e00b20abd603b08e5f10"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af85ab2635e495dadabb6b4a9861b1d52"><td class="memItemLeft" align="right" valign="top">complex(dp) function, dimension(8)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacespectroscopy.html#af85ab2635e495dadabb6b4a9861b1d52">nonlinear_response</a> (x, p, xt, pt, wt, k1, k2, k3)</td></tr>
+<tr class="memdesc:af85ab2635e495dadabb6b4a9861b1d52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that uses the sign of incoming wavevectors along with the current mapping variable values to calculate the different contributions to the total 3rd order nonlinear response function.  <a href="#af85ab2635e495dadabb6b4a9861b1d52">More...</a><br /></td></tr>
+<tr class="separator:af85ab2635e495dadabb6b4a9861b1d52"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This is a module that contains the necessary variables, subroutines and functions to perform linear (and soon nonlinear) spectroscopy calculations. </p>
@@ -118,6 +124,60 @@ Functions/Subroutines</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Function to act dipole commutator on the reduced density matrix from the left. </p>
+
+</div>
+</div>
+<a id="a9f25c6ef5261e00b20abd603b08e5f10"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f25c6ef5261e00b20abd603b08e5f10">&#9670;&nbsp;</a></span>dipole_focus()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine spectroscopy::dipole_focus </td>
+          <td>(</td>
+          <td class="paramtype">real(dp), dimension(nstate), intent(in)&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(dp), dimension(nstate), intent(in)&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(dp), dimension(nstate), intent(in)&#160;</td>
+          <td class="paramname"><em>xt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(dp), dimension(nstate), intent(in)&#160;</td>
+          <td class="paramname"><em>pt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">complex(dp), intent(inout)&#160;</td>
+          <td class="paramname"><em>weight</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(out)&#160;</td>
+          <td class="paramname"><em>k_sign</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Subroutine that applies the dipole commutator the current reduced density matrix and then performs the focusing procedure on the resulting matrix to use as the sole initially-occupied states for subsequent propagation. </p>
 
 </div>
 </div>
@@ -176,6 +236,72 @@ Functions/Subroutines</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Allocate the necessary arrays for performing a spectroscopy calculation and read input from dipole.in. </p>
+
+</div>
+</div>
+<a id="af85ab2635e495dadabb6b4a9861b1d52"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af85ab2635e495dadabb6b4a9861b1d52">&#9670;&nbsp;</a></span>nonlinear_response()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">complex(dp) function, dimension( 8 ) spectroscopy::nonlinear_response </td>
+          <td>(</td>
+          <td class="paramtype">real(dp), dimension( nstate )&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(dp), dimension( nstate )&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(dp), dimension( nstate )&#160;</td>
+          <td class="paramname"><em>xt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(dp), dimension( nstate )&#160;</td>
+          <td class="paramname"><em>pt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">complex(dp)&#160;</td>
+          <td class="paramname"><em>wt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer&#160;</td>
+          <td class="paramname"><em>k1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer&#160;</td>
+          <td class="paramname"><em>k2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer&#160;</td>
+          <td class="paramname"><em>k3</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function that uses the sign of incoming wavevectors along with the current mapping variable values to calculate the different contributions to the total 3rd order nonlinear response function. </p>
 
 </div>
 </div>

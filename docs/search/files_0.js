@@ -6,6 +6,8 @@ var searchData=
   ['calculate_5fipldm_5fredmat_5fmpi_2ef90',['calculate_ipldm_redmat_mpi.f90',['../calculate__ipldm__redmat__mpi_8f90.html',1,'']]],
   ['calculate_5fpldm_5fabsorption_2ef90',['calculate_pldm_absorption.f90',['../calculate__pldm__absorption_8f90.html',1,'']]],
   ['calculate_5fpldm_5fabsorption_5fmpi_2ef90',['calculate_pldm_absorption_mpi.f90',['../calculate__pldm__absorption__mpi_8f90.html',1,'']]],
+  ['calculate_5fpldm_5fnonlinear_2ef90',['calculate_pldm_nonlinear.f90',['../calculate__pldm__nonlinear_8f90.html',1,'']]],
+  ['calculate_5fpldm_5fnonlinear_5fmpi_2ef90',['calculate_pldm_nonlinear_mpi.f90',['../calculate__pldm__nonlinear__mpi_8f90.html',1,'']]],
   ['calculate_5fpldm_5fredmat_2ef90',['calculate_pldm_redmat.f90',['../calculate__pldm__redmat_8f90.html',1,'']]],
   ['calculate_5fpldm_5fredmat_5fmpi_2ef90',['calculate_pldm_redmat_mpi.f90',['../calculate__pldm__redmat__mpi_8f90.html',1,'']]],
   ['calculate_5fsqc_5fabsorption_2ef90',['calculate_sqc_absorption.f90',['../calculate__sqc__absorption_8f90.html',1,'']]],

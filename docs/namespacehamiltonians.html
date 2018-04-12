@@ -92,9 +92,9 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:aa1a534c7f150fcd3a2405e649089901c"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehamiltonians.html#aa1a534c7f150fcd3a2405e649089901c">finalize_hel</a></td></tr>
 <tr class="memdesc:aa1a534c7f150fcd3a2405e649089901c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocates the electronic (system) Hamiltonian.  <a href="#aa1a534c7f150fcd3a2405e649089901c">More...</a><br /></td></tr>
 <tr class="separator:aa1a534c7f150fcd3a2405e649089901c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad6d5844d8b0823623b7b8e4a36f2390"><td class="memItemLeft" align="right" valign="top">real(dp) function, dimension(nstate, nstate)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehamiltonians.html#aad6d5844d8b0823623b7b8e4a36f2390">diabatic_bilinear_coupling_hamiltonian</a> (x_bath, coupling_matrix)</td></tr>
-<tr class="memdesc:aad6d5844d8b0823623b7b8e4a36f2390"><td class="mdescLeft">&#160;</td><td class="mdescRight">Takes the bath position and uses electronic hamiltonian to calculate hel + V(x_bath) leaves out the \( \frac{1}{2} m \omega^2 x^2 \) term because it is constant on diagonal elements of the diabatic Hamiltonian.  <a href="#aad6d5844d8b0823623b7b8e4a36f2390">More...</a><br /></td></tr>
-<tr class="separator:aad6d5844d8b0823623b7b8e4a36f2390"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6b9b90054c0b0bd451d53d221338cd7"><td class="memItemLeft" align="right" valign="top">real(dp) function, dimension(nstate, nstate)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehamiltonians.html#ab6b9b90054c0b0bd451d53d221338cd7">diabatic_bilinear_coupling_hamiltonian</a> (x_b, coupling_matrix)</td></tr>
+<tr class="memdesc:ab6b9b90054c0b0bd451d53d221338cd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Takes the bath position and uses electronic hamiltonian to calculate hel + V(x_bath) including the harmonic potential energy of the bath.  <a href="#ab6b9b90054c0b0bd451d53d221338cd7">More...</a><br /></td></tr>
+<tr class="separator:ab6b9b90054c0b0bd451d53d221338cd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -104,8 +104,8 @@ Variables</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This module contains the necessary subroutines and functions to deal with Hamiltonians in the diabatic basis and will be extended in a future version to deal with adiabatic basis. </p>
 </div><h2 class="groupheader">Function/Subroutine Documentation</h2>
-<a id="aad6d5844d8b0823623b7b8e4a36f2390"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aad6d5844d8b0823623b7b8e4a36f2390">&#9670;&nbsp;</a></span>diabatic_bilinear_coupling_hamiltonian()</h2>
+<a id="ab6b9b90054c0b0bd451d53d221338cd7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6b9b90054c0b0bd451d53d221338cd7">&#9670;&nbsp;</a></span>diabatic_bilinear_coupling_hamiltonian()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -114,7 +114,7 @@ Variables</h2></td></tr>
           <td class="memname">real(dp) function, dimension(nstate, nstate) hamiltonians::diabatic_bilinear_coupling_hamiltonian </td>
           <td>(</td>
           <td class="paramtype">real(dp), dimension(:), intent(in)&#160;</td>
-          <td class="paramname"><em>x_bath</em>, </td>
+          <td class="paramname"><em>x_b</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -130,7 +130,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Takes the bath position and uses electronic hamiltonian to calculate hel + V(x_bath) leaves out the \( \frac{1}{2} m \omega^2 x^2 \) term because it is constant on diagonal elements of the diabatic Hamiltonian. </p>
+<p>Takes the bath position and uses electronic hamiltonian to calculate hel + V(x_bath) including the harmonic potential energy of the bath. </p>
 
 </div>
 </div>
