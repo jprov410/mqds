@@ -44,21 +44,21 @@ CONTAINS
   END SUBROUTINE finalize_hel
 
   !> Takes the bath position and uses electronic hamiltonian to calculate hel + V(x_bath)
-  !! leaves out the \f$ \frac{1}{2} m \omega^2 x^2 \f$ term because it is
-  !! constant on diagonal elements of the diabatic Hamiltonian.
-  FUNCTION diabatic_bilinear_coupling_hamiltonian(x_bath, coupling_matrix) RESULT(res)
+  !! including the harmonic potential energy of the bath.
+  FUNCTION diabatic_bilinear_coupling_hamiltonian(x_b,coupling_matrix) RESULT(res)
     USE kinds
     USE input_output
+    USE harmonic_bath
     IMPLICIT NONE
     INTEGER :: i,j
-    REAL(dp), INTENT(in) :: x_bath(:)
+    REAL(dp), INTENT(in) :: x_b(:)
     REAL(dp), INTENT(in) :: coupling_matrix(:,:)
     REAL(dp) :: res(nstate, nstate)
 
     res = hel
     DO i=1, nstate
        DO j=1, nbath*nosc
-          res(i, i) = res(i, i) + coupling_matrix(j,i) * x_bath(j)
+          res(i, i) = res(i, i) + coupling_matrix(j,i) * x_b(j) + 0.5_dp * omega(j)**2 * x_b(j)**2
        END DO
     END DO
     

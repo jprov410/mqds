@@ -1,4 +1,4 @@
-!> This subroutine calculates the reduced density matrix
+!> This subroutine calculates the 3rd order nonlinear response function
 !! using PLDM with a harmonic bath model in the diabatic basis
 !! with bilinear coupling.
 SUBROUTINE calculate_pldm_nonlinear_mpi

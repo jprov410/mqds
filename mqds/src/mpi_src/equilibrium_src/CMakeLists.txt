@@ -14,4 +14,6 @@ target_link_libraries(equilibriumlib_mpi
         mpilib
         generallib
         MPI::MPI_Fortran
+        ${LAPACK_LIBRARIES}
+        ${BLAS_LIBRARIES}
         )

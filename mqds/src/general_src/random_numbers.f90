@@ -44,9 +44,9 @@ MODULE random_numbers
     END SUBROUTINE initialize_rn
 
       !> sample a uniform [0,1) random number
-      FUNCTION uniform_rn(input) RESULT(res)
-          USE parameters
-          IMPLICIT NONE
+    FUNCTION uniform_rn(input) RESULT(res)
+      USE parameters
+      IMPLICIT NONE
       REAL(dp) :: input(:)
       REAL(dp) :: res(SIZE(input))
       
@@ -57,16 +57,15 @@ MODULE random_numbers
       !> Gaussian random number generation using
       !! the Box-Mueller process with two uniform
       !! [0,1) random number
-      FUNCTION gaussian_rn(input) RESULT(res)
+    FUNCTION gaussian_rn(input) RESULT(res)
       USE parameters
       IMPLICIT NONE
       REAL(dp) :: input(:)
       REAL(dp) :: res(SIZE(input))
-      real(dp) :: make_grn(2, SIZE(input))
+      REAL(dp) :: make_grn(2, SIZE(input))
 
       CALL RANDOM_NUMBER(HARVEST=make_grn)
       res(:) = DSQRT( -2.0_dp * DLOG(make_grn(1,:)) ) * DCOS( 2.0_dp * pi * make_grn(2,:))
-
     END FUNCTION gaussian_rn
 
 END MODULE random_numbers

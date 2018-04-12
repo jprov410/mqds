@@ -75,6 +75,10 @@ CONTAINS
 
     END FUNCTION system_trace
 
+    !> Subroutine that applies the dipole commutator the current reduced
+    !! density matrix and then performs the focusing procedure on the
+    !! resulting matrix to use as the sole initially-occupied states
+    !! for subsequent propagation
     SUBROUTINE dipole_focus( x, p, xt, pt, weight, k_sign )
         USE focusing
         USE mapping_variables
@@ -86,6 +90,7 @@ CONTAINS
         COMPLEX(dp), INTENT(inout) :: weight
         COMPLEX(dp) :: matrix( nstate, nstate )
 
+        ! Calculate \mu^{\times} \rho
         matrix = pldm_redmat( x, p, xt, pt )
         matrix = dipole_commutator( matrix )
 
@@ -131,6 +136,9 @@ CONTAINS
 
     END SUBROUTINE dipole_focus
 
+    !> Function that uses the sign of incoming wavevectors along with the current
+    !! mapping variable values to calculate the different contributions to the
+    !! total 3rd order nonlinear response function
     FUNCTION nonlinear_response( x, p, xt, pt, wt, k1, k2, k3 ) RESULT( res )
         USE mapping_variables
         USE parameters
