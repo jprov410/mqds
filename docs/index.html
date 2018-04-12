@@ -75,20 +75,29 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><b><em>A molecular quantum dynamics and spectroscopy package</em></b></p>
-<h4>This package is currently capable of the following calculations:</h4>
+<h1>This package is currently capable of the following calculations:</h1>
+<h2><a href="pldm__master_8f90.html"><b>PLDM</b></a> (Partially Linearized Density Matrix) </h2>
 <ul>
-<li><b>PLDM</b> (Partially Linearized Density Matrix) calculation of the <b>reduced density matrix</b> of a system-bath model where the bath consists of a set of harmonic oscillators.</li>
-<li><b>PLDM</b> (Partially Linearized Density Matrix) calculation of the <b>linear optical response function</b> for a system-bath model where the bath consists of a set of harmonic oscillators.</li>
-<li><b>PLDM</b> (Partially Linearized Density Matrix) calculation of the <b>third order optical response function</b> for a system-bath model where the bath consists of a set of harmonic oscillators. (<b>currently under construction</b>)</li>
-<li><b>IPLDM</b> (Iterative Partially Linearized Density Matrix) calculation of the <b>reduced density matrix</b> of a system-bath model where the bath consists of a set of harmonic oscillators. This calculation employs the "focusing" procedure, outlined in the IPLDM example directory.</li>
-<li><b>TWA</b> (Truncated Wigner Approximation) calculation of the <b>reduced density matrix</b> of a system-bath model where the bath consists of a set of harmonic oscillators. (<b>currently under construction</b>)</li>
-<li><b>SQC</b> (Symmetrical Quasi-Classical) calculation of the <b>reduced density matrix</b> of a system-bath model where the bath consists of a set of harmonic oscillators.</li>
-<li><b>EQUILIBRIUM</b> Imaginary time path integral calculation of the exact equilibrium <b>reduced density matrix</b> in the site basis for a system that has populations bi-linearly coupled to a bath of harmonic oscillators.</li>
+<li><a href="calculate__pldm__redmat_8f90.html"><b> Reduced density matrix</b></a> dynamics of a system-bath model where the bath consists of a set of harmonic oscillators.</li>
+<li><a href="calculate__pldm__absorption_8f90.html"><b> Linear optical response function</b></a> for a system-bath model where the bath consists of a set of harmonic oscillators.</li>
+<li><a href="calculate__pldm__nonlinear_8f90.html"><b> Third order optical response function</b></a> for a system-bath model where the bath consists of a set of harmonic oscillators. (<b>currently under construction</b>)</li>
+<li><a href="calculate__ipldm__redmat_8f90.html"><b> Iterative reduced density matrix (IPLDM)</b></a> dynamics of a system-bath model where the bath consists of a set of harmonic oscillators. This calculation employs the "focusing" procedure, outlined in the IPLDM example directory.</li>
 </ul>
-<h2>Compilation</h2>
+<h2>TWA (Truncated Wigner Approximation) </h2>
+<ul>
+<li><a href="calculate__twa__redmat_8f90.html"><b> Reduced density matrix</b></a> dynamics of a system-bath model where the bath consists of a set of harmonic oscillators. (<b>currently under construction</b>)</li>
+</ul>
+<h2>SQC/MM (Symmetrical Quasi-Classical / Meyer-Miller) </h2>
+<ul>
+<li><a href="calculate__sqc__redmat_8f90.html"><b> Reduced density matrix</b></a> dynamics of a system-bath model where the bath consists of a set of harmonic oscillators. Calculation can be performed with the original <em>square</em> windowing scheme or the <em>triangular</em> windowing scheme.</li>
+</ul>
+<h2>EQUILIBRIUM REDUCED DENSITY MATRIX </h2>
+<ul>
+<li><a href="calculate__equilibrium__site_8f90.html"><b> Equilibrium </b></a> Imaginary time path integral calculation of the exact equilibrium <b>reduced density matrix</b> in the site basis for a system that has populations bi-linearly coupled to a bath of harmonic oscillators.</li>
+</ul>
+<h1>Compilation</h1>
 <p>Compilation of this program requires CMake minimum version 3.2. To compile this program (from the current directory), execute <code>mkdir build &amp;&amp; cd build</code> followed by <code>cmake ../ &amp;&amp; make</code>. To run tests, execute <code>make test</code>. The executables will be in the <code>run</code> directory. To build the documentation, execute <code>make docs</code>.</p>
-<p><b>JP gratefully acknowledges the Molecular Sciences Software Institute for funding the development of the MQDS package</b></p>
-<p> 
+<p><b>JP gratefully acknowledges the Molecular Sciences Software Institute for funding the development of the MQDS package, as well as the mentorship of Dr. Benjamin Pritchard.</b>  
 <div><a href="http://www.molssi.org"><img src="MolSSI-Logo-2.jpg"/></a></div> 
  </p>
 </div></div><!-- contents -->
