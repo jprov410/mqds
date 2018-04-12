@@ -58,7 +58,7 @@ CONTAINS
     res = hel
     DO i=1, nstate
        DO j=1, nbath*nosc
-          res(i, i) = res(i, i) + coupling_matrix(j,i) * x_b(j) + 0.5_dp * omega(j)**2 * x_b(j)**2
+          res(i, i) = res(i, i) + coupling_matrix(j,i) * x_b(j) !+ 0.5_dp * omega(j)**2 * x_b(j)**2
        END DO
     END DO
     
