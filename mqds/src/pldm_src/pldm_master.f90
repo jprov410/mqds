@@ -1,5 +1,14 @@
 !> This is the PLDM master subroutine that determines
 !! which PLDM-based calculation to perform.
+
+!> The Partially Linearized Density Matrix Method is a
+!! mixed quantum-classical method, although the "quantum"
+!! aspect comes at the cost of a semiclassical treatment.
+!! See ( The Journal of Chemical Physics 135, 201101 (2011) )
+!! for more information.
+
+!> @image html pldm_schematic.pdf
+!! @image latex pldm_schematic.pdf "Importance sampling scheme" width=0.5/linewidth
 SUBROUTINE pldm_master
   USE input_output
   USE harmonic_bath
