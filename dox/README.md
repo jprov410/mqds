@@ -29,10 +29,10 @@ SQC/MM (Symmetrical Quasi-Classical / Meyer-Miller)
 consists of a set of harmonic oscillators. Calculation
 can be performed with the original *square* windowing scheme or the *triangular* windowing scheme.
 
-<!-- * <a href="calculate__sqc__absorption_8f90.html"><b> Linear optical response function</b></a> for a system-bath 
+* <a href="calculate__sqc__absorption_8f90.html"><b> Linear optical response function</b></a> for a system-bath 
 model where the bath consists of a set of harmonic oscillators. Calculation can be performed with the original *square*
 windowing scheme or the *triangular* windowing scheme.
-(__in submission!!!__) -->
+(__Currently in submission to the Journal of Chemical Physics__)
 
 
 EQUILIBRIUM REDUCED DENSITY MATRIX

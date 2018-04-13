@@ -4,8 +4,12 @@
 !> The Partially Linearized Density Matrix Method is a
 !! mixed quantum-classical method, although the "quantum"
 !! aspect comes at the cost of a semiclassical treatment.
-!! See ( The Journal of Chemical Physics 135, 201101 (2011) )
-!! for more information.
+
+!> See the following for more information:
+!!
+
+!> The Journal of Chemical Physics 135, 201101 (2011)
+!!
 
 !> @image html pldm_schematic.pdf
 !! @image latex pldm_schematic.pdf "Importance sampling scheme" width=0.5/linewidth
