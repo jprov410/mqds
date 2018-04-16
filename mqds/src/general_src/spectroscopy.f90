@@ -125,7 +125,7 @@ CONTAINS
             END IF
         END DO
 
-        !CHECK PLUS OR MINUS k2
+        !CHECK PLUS OR MINUS k
         IF ( initstate > maxf .OR. initstatet < minb ) THEN
             k_sign = 1
         END IF
