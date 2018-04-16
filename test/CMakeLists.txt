@@ -43,6 +43,10 @@ add_executable(test_spectroscopy test_spectroscopy.f90)
 target_link_libraries(test_spectroscopy generallib)
 add_test(SPECTROSCOPY test_spectroscopy)
 
+add_executable(test_input_output test_input_output.f90)
+target_link_libraries(test_input_output generallib)
+add_test(INPUT_OUTPUT test_input_output)
+
 
 file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/hel.in
         DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
@@ -51,4 +55,6 @@ file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/couplings.in
 file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/continuumsd.in
         DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/dipole.in
+        DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/processed_run.in
         DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
