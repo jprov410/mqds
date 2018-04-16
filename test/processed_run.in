@@ -1,0 +1,27 @@
+basis	diabatic
+bath	harmonic
+branch1	1
+branch2	1
+branch3	1
+calculation	redmat
+dump	1
+initstate	1
+initstatet	1
+method	pldm
+nbstep	10
+nlit	40
+nslice	10
+nstate	2
+nstep1	500
+nstep2	0
+nstep3	500
+ntraj	10
+runtime	1000.0
+tdelay1	500.0
+tdelay2	0.0
+tdelay3	500.0
+temperature	77.0
+window	0.5
+windowshape	square
+zpe	0.5
+
