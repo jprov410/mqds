@@ -5,5 +5,4 @@ PROGRAM test_input_output
 
     CALL read_input
 
-
 END PROGRAM test_input_output

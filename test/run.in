@@ -12,9 +12,9 @@ nbstep	10
 nlit	40
 nslice	10
 nstate	2
-nstep1	500
-nstep2	0
-nstep3	500
+nbstep1	500
+nbstep2	0
+nbstep3	500
 ntraj	10
 runtime	1000.0
 tdelay1	500.0

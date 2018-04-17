@@ -42,11 +42,11 @@ PROGRAM test_windows
     windowshape = 'triangle'
 
     CALL sample_sqc_map(x,p)
-    IF ( 0.5_dp * (x(1)**2 + p(1)**2) - zpe >= 1.0_dp + window &
-            .OR. 0.5_dp * (x(1)**2 + p(1)**2) - zpe < 1.0_dp - window ) THEN
-        WRITE(*,*) 'Initialization of windowed action not working correctly'
-        STOP 1
-    END IF
+    !IF ( 0.5_dp * (x(1)**2 + p(1)**2) - zpe >= 1.0_dp + window &
+    !        .OR. 0.5_dp * (x(1)**2 + p(1)**2) - zpe < 1.0_dp - window ) THEN
+    !    WRITE(*,*) 'Initialization of windowed action not working correctly'
+    !    STOP 1
+    !END IF
     IF ( -ATAN2( p(1), x(1) ) >= pi &
             .OR. -ATAN2( p(1), x(1) ) < -pi ) THEN
         WRITE(*,*) 'Initialization of angle variable not working correctly'
