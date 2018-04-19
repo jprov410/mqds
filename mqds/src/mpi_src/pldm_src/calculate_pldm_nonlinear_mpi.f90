@@ -47,6 +47,7 @@ SUBROUTINE calculate_pldm_nonlinear_mpi
   dt_bath_2 = tdelay2 / DBLE( nbstep2 ) ; dt_map_2 = dt_bath_2 / DBLE( nlit )
   dt_bath_3 = tdelay3 / DBLE( nbstep3 ) ; dt_map_3 = dt_bath_3 / DBLE( nlit )
 
+
   ! Calculate Beta for thermal sampling
   beta = 1.0_dp / ( temperature * convert('kelvin','au_energy') )
 
@@ -57,12 +58,21 @@ SUBROUTINE calculate_pldm_nonlinear_mpi
   ! If the number of steps is 0, set time interval dimension bound to 0
   IF ( nbstep1 == 0 ) THEN
       tdim1 = 0
+      tdelay1 = 0.0_dp
+      dt_bath_1 = 0.0_dp
+      dt_map_1 = 0.0_dp
   END IF
   IF ( nbstep2 == 0 ) THEN
       tdim2 = 0
+      tdelay2 = 0.0_dp
+      dt_bath_2 = 0.0_dp
+      dt_map_2 = 0.0_dp
   END IF
   IF ( nbstep3 == 0 ) THEN
       tdim3 = 0
+      tdelay3 = 0.0_dp
+      dt_bath_3 = 0.0_dp
+      dt_map_3 = 0.0_dp
   END IF
 
   ALLOCATE( monte_carlo_weight( 0 : tdim1, 0 : tdim2 ), &
@@ -89,12 +99,6 @@ SUBROUTINE calculate_pldm_nonlinear_mpi
   ! of linear spectroscopy assuming originally in
   ! system state (1,1)
   dipcom_gstate = dipole_commutator( dipcom_gstate )
-
-  ! Setup the necessary timings
-!  printstep = runtime * REAL( dump ) / REAL( nbstep )
-!  runtime = runtime * convert('fs','au_time')
-!  dt_bath = runtime / REAL(nbstep)
-!  dt_map = dt_bath / REAL(nlit)
 
   DO istate=1, nstate
       DO istatet=1, nstate
@@ -321,7 +325,6 @@ SUBROUTINE calculate_pldm_nonlinear_mpi
       dt_bath_3 = dt_bath_3 * convert('au_time','fs')
       CALL write_nonlinear_response( method, sum_resp_func, dt_bath_1 * branch1, &
               dt_bath_2 * branch2, dt_bath_3 * branch3 )
-
   END IF
 
 

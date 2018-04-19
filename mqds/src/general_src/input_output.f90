@@ -26,7 +26,7 @@ MODULE input_output
   REAL(dp) :: tdelay1, tdelay2, tdelay3
   
   ! Calculation type i.e.) redmat, nonlinear spectra ...
-  CHARACTER(20) :: calculation
+  CHARACTER(10) :: calculation
 
   ! Dynamics method
   CHARACTER(20) :: method
@@ -179,14 +179,13 @@ CONTAINS
     namesize=LEN_TRIM(method)+14
     writeformat='(A,A)'
 
-
     !dimension 1,2 --> K1(-++),K1(+--)
     WRITE(filename, writeformat) TRIM(method),'_nonlin-++.out'
     OPEN(UNIT=10, FILE=filename)
     DO it2 = 0, INT(nbstep2/branch2)
       DO it1 = 0, INT(nbstep1/branch1)
         DO it3 = 0, INT(nbstep3/branch3)
-          WRITE(10,'(5(E13.6,2X))') it2 * dt1, it2 * dt2, it3 * dt3, REAL(response(1,it1,it2,it3)), AIMAG(response(1,it1,it2,it3))
+          WRITE(10,'(5(E13.6,2X))') it1 * dt1, it2 * dt2, it3 * dt3, REAL(response(1,it1,it2,it3)), AIMAG(response(1,it1,it2,it3))
         END DO
       END DO
     END DO
@@ -197,7 +196,7 @@ CONTAINS
     DO it2 = 0, INT(nbstep2/branch2)
       DO it1 = 0, INT(nbstep1/branch1)
         DO it3 = 0, INT(nbstep3/branch3)
-          WRITE(10,'(5(E13.6,2X))') it2 * dt1, it2 * dt2, it3 * dt3, REAL(response(2,it1,it2,it3)), AIMAG(response(2,it1,it2,it3))
+          WRITE(10,'(5(E13.6,2X))') it1 * dt1, it2 * dt2, it3 * dt3, REAL(response(2,it1,it2,it3)), AIMAG(response(2,it1,it2,it3))
         END DO
       END DO
     END DO
@@ -209,7 +208,7 @@ CONTAINS
     DO it2 = 0, INT(nbstep2/branch2)
       DO it1 = 0, INT(nbstep1/branch1)
         DO it3 = 0, INT(nbstep3/branch3)
-          WRITE(10,'(5(E13.6,2X))') it2 * dt1, it2 * dt2, it3 * dt3, REAL(response(3,it1,it2,it3)), AIMAG(response(3,it1,it2,it3))
+          WRITE(10,'(5(E13.6,2X))') it1 * dt1, it2 * dt2, it3 * dt3, REAL(response(3,it1,it2,it3)), AIMAG(response(3,it1,it2,it3))
         END DO
       END DO
     END DO
@@ -220,7 +219,7 @@ CONTAINS
     DO it2 = 0, INT(nbstep2/branch2)
       DO it1 = 0, INT(nbstep1/branch1)
         DO it3 = 0, INT(nbstep3/branch3)
-          WRITE(10,'(5(E13.6,2X))') it2 * dt1, it2 * dt2, it3 * dt3, REAL(response(4,it1,it2,it3)), AIMAG(response(4,it1,it2,it3))
+          WRITE(10,'(5(E13.6,2X))') it1 * dt1, it2 * dt2, it3 * dt3, REAL(response(4,it1,it2,it3)), AIMAG(response(4,it1,it2,it3))
         END DO
       END DO
     END DO
@@ -232,7 +231,7 @@ CONTAINS
     DO it2 = 0, INT(nbstep2/branch2)
       DO it1 = 0, INT(nbstep1/branch1)
         DO it3 = 0, INT(nbstep3/branch3)
-          WRITE(10,'(5(E13.6,2X))') it2 * dt1, it2 * dt2, it3 * dt3, REAL(response(5,it1,it2,it3)), AIMAG(response(5,it1,it2,it3))
+          WRITE(10,'(5(E13.6,2X))') it1 * dt1, it2 * dt2, it3 * dt3, REAL(response(5,it1,it2,it3)), AIMAG(response(5,it1,it2,it3))
         END DO
       END DO
     END DO
@@ -243,7 +242,7 @@ CONTAINS
     DO it2 = 0, INT(nbstep2/branch2)
       DO it1 = 0, INT(nbstep1/branch1)
         DO it3 = 0, INT(nbstep3/branch3)
-          WRITE(10,'(5(E13.6,2X))') it2 * dt1, it2 * dt2, it3 * dt3, REAL(response(6,it1,it2,it3)), AIMAG(response(6,it1,it2,it3))
+          WRITE(10,'(5(E13.6,2X))') it1 * dt1, it2 * dt2, it3 * dt3, REAL(response(6,it1,it2,it3)), AIMAG(response(6,it1,it2,it3))
         END DO
       END DO
     END DO
@@ -255,7 +254,7 @@ CONTAINS
     DO it2 = 0, INT(nbstep2/branch2)
       DO it1 = 0, INT(nbstep1/branch1)
         DO it3 = 0, INT(nbstep3/branch3)
-          WRITE(10,'(5(E13.6,2X))') it2 * dt1, it2 * dt2, it3 * dt3, REAL(response(7,it1,it2,it3)), AIMAG(response(7,it1,it2,it3))
+          WRITE(10,'(5(E13.6,2X))') it1 * dt1, it2 * dt2, it3 * dt3, REAL(response(7,it1,it2,it3)), AIMAG(response(7,it1,it2,it3))
         END DO
       END DO
     END DO
@@ -266,7 +265,7 @@ CONTAINS
     DO it2 = 0, INT(nbstep2/branch2)
       DO it1 = 0, INT(nbstep1/branch1)
         DO it3 = 0, INT(nbstep3/branch3)
-          WRITE(10,'(5(E13.6,2X))') it2 * dt1, it2 * dt2, it3 * dt3, REAL(response(8,it1,it2,it3)), AIMAG(response(8,it1,it2,it3))
+          WRITE(10,'(5(E13.6,2X))') it1 * dt1, it2 * dt2, it3 * dt3, REAL(response(8,it1,it2,it3)), AIMAG(response(8,it1,it2,it3))
         END DO
       END DO
     END DO
@@ -453,7 +452,7 @@ CONTAINS
       DO i=1,location(6)-1
         READ(10,*) cdum
       END DO
-      read(10,*) cdum, calculation
+      READ(10,*) cdum, calculation
     END IF
     !============================================!
 

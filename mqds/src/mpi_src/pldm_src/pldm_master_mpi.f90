@@ -27,23 +27,29 @@ SUBROUTINE pldm_master_mpi
   ! Do calculations ins the diabatic basis with harmonic bath
   IF ( bath == 'harmonic' ) THEN
 
-     CALL initialize_bath
+      CALL initialize_bath
 
-     IF ( basis == 'diabatic' ) THEN
+      IF ( basis == 'diabatic' ) THEN
 
-        CALL initialize_hel
+          CALL initialize_hel
 
-        IF ( calculation == 'redmat' ) CALL calculate_pldm_redmat_mpi
+          IF ( calculation == 'redmat' ) THEN
+              CALL calculate_pldm_redmat_mpi
+          END IF
 
-        IF (calculation == 'absorption' ) CALL calculate_pldm_absorption_mpi
+          IF ( calculation == 'absorption' ) THEN
+              CALL calculate_pldm_absorption_mpi
+          END IF
 
-        IF (calculation == 'nonlinear') CALL calculate_pldm_nonlinear_mpi
+          IF ( calculation == 'nonlinear') THEN
+              CALL calculate_pldm_nonlinear_mpi
+          END IF
 
-        CALL finalize_hel
+          CALL finalize_hel
 
-     END IF
+      END IF
 
-     CALL finalize_bath
+      CALL finalize_bath
 
   END IF
 
