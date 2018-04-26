@@ -1,5 +1,5 @@
 !> Main executable for the Modular Quantum Dynamics and Spectroscopy
-!! package that reads the input file called "processed_run.in" and
+!! package that reads the input file called "run.in" and
 !! calls the necessary based on the specified dynamics method.
 PROGRAM mqds
   USE input_output

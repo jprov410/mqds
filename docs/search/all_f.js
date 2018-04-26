@@ -6,6 +6,7 @@ var searchData=
   ['parameters_2ef90',['parameters.f90',['../parameters_8f90.html',1,'']]],
   ['pi',['pi',['../namespaceparameters.html#aa08e5ec8fb6453fc72c9291a5a8b73fd',1,'parameters']]],
   ['planck',['planck',['../namespaceparameters.html#a60f14c6e0fa7ffd05349cf49324e278a',1,'parameters']]],
+  ['pldm_2edox',['pldm.dox',['../pldm_8dox.html',1,'']]],
   ['pldm_5fmap_5fhop',['pldm_map_hop',['../namespacemapping__variables.html#a6179b0bbcc08f584d009b16bcee938d1',1,'mapping_variables']]],
   ['pldm_5fmaster',['pldm_master',['../pldm__master_8f90.html#ae04c726d5c8f64ed9c811b5ddf0b9db8',1,'pldm_master.f90']]],
   ['pldm_5fmaster_2ef90',['pldm_master.f90',['../pldm__master_8f90.html',1,'']]],
