@@ -52,6 +52,6 @@ will be in the `run` directory. To build the documentation, execute `make docs`.
 __JP gratefully acknowledges the Molecular Sciences Software Institute for funding the development of the MQDS package,
  as well as the mentorship of Dr. Benjamin Pritchard.__
 \htmlonly 
-<div><a href="http://www.molssi.org"><img src="MolSSI-Logo-2.png"/></a></div> 
+<div><a href="http://www.molssi.org"><img src="MolSSI-Logo-2.jpg"/></a></div> 
 \endhtmlonly
 
