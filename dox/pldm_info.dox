@@ -1,0 +1,42 @@
+/*! \page pldm Description of the PLDM propagation method
+
+The Partially Linearized Density Matrix (PLDM) propagation scheme is based off of a semiclassical path integral approximation to
+the propagator within the Meyer-Miller mapping model, which exactly maps discrete quantum states onto a fictitious set of
+harmonic oscillator raising and lowering operators.
+
+\f[
+    | \alpha \rangle \rightarrow \hat{a}^\dagger_\alpha = \frac{1}{\sqrt{2}}(\hat{x}_\alpha - i \hat{p}_\alpha)
+\f]
+
+where we have set \f$ \hbar \f$ and the arbitrary mass and frequency to 1.
+
+
+<b> Reference List: </b>
+   *  <ul>
+   *  <li>  <span class="Title">A classical analog for electronic degrees of freedom in nonadiabatic collision processes</span><br />
+            <span class="Author">H.-D. Meyer and W. H. Miller</span><br />
+            <span class="Journal">The Journal of Chemical Physics</span>&nbsp;
+            <span class="Volume">70</span>&nbsp;
+            <span class="Pages"></span>&nbsp;
+            (<span class="Date">1979</span>)<br />
+   *  <li>  <span class="Title">Communication: Partial linearized density matrix dynamics for dissipative, non- adiabatic quantum evolution</span><br />
+           	<span class="Author">P. Huo and D. F. Coker</span><br />
+           	<span class="Journal">The Journal of Chemical Physics</span>&nbsp;
+           	<span class="Volume">135</span>&nbsp;
+           	<span class="Pages"></span>&nbsp;
+           	(<span class="Date">2011</span>)<br />
+   *  <li> 	<span class="Title">Semi-classical path integral dynamics: Photosynthetic energy transfer with realistic environment interactions</span><br />
+           	<span class="Author">M. K. Lee and P. Huo and D. F. Coker</span><br />
+           	<span class="Journal">Annual Reviews</span>&nbsp;
+           	<span class="Volume"></span>&nbsp;
+           	<span class="Pages"></span>&nbsp;
+           	(<span class="Date">2016</span>)<br />
+   *  <li> 	<span class="Title">Semiclassical Path Integral Calculation of Nonlinear Optical Spectroscopy</span><br />
+           	<span class="Author">J. Provazza and F. Segatta and M. Garavelli and D. F. Coker</span><br />
+           	<span class="Journal">Journal of Chemical Theory and Computation</span>&nbsp;
+           	<span class="Volume">14</span>&nbsp;
+           	<span class="Pages">856--866</span>&nbsp;
+           	(<span class="Date">2018</span>)<br />
+   *  </ul>
+
+*/
