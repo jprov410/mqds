@@ -1,7 +1,7 @@
 /*! \page pldm_info Description of the PLDM propagation method
 
 The Partially Linearized Density Matrix (PLDM) propagation scheme is based off of a semiclassical path integral approximation to
-the propagator within the <a href="mapping_info.html">< Meyer-Miller mapping model /></a>, which exactly maps discrete quantum states onto a fictitious set of
+the propagator within the <a href="mapping_info.html" > Meyer-Miller mapping model </a>, which exactly maps discrete quantum states onto a fictitious set of
 harmonic oscillator raising and lowering operators.
 
 

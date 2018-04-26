@@ -12,6 +12,7 @@ var searchData=
   ['spectralout',['spectralout',['../namespaceinput__output.html#ad2d31b2582e2cc72afb2cd2cce9b90fd',1,'input_output']]],
   ['spectroscopy',['spectroscopy',['../namespacespectroscopy.html',1,'']]],
   ['spectroscopy_2ef90',['spectroscopy.f90',['../spectroscopy_8f90.html',1,'']]],
+  ['sqc_5finfo_2edox',['sqc_info.dox',['../sqc__info_8dox.html',1,'']]],
   ['sqc_5fmaster',['sqc_master',['../sqc__master_8f90.html#aea165b4a2420ba9275cd6bc83c6f1320',1,'sqc_master.f90']]],
   ['sqc_5fmaster_2ef90',['sqc_master.f90',['../sqc__master_8f90.html',1,'']]],
   ['sqc_5fmaster_5fmpi',['sqc_master_mpi',['../sqc__master__mpi_8f90.html#af930d425ac4e4f95c70e84d9bd919002',1,'sqc_master_mpi.f90']]],
