@@ -35,8 +35,8 @@ CONTAINS
     !! matrix elements and uniformly sampling the cumulative distribution
     !! function to select out the "most important" reduced density matrix
     !! element as the initially-occupied state for subsequent propagation.
-    !! @image html sampling.pdf
-    !! @image latex sampling.pdf "Importance sampling scheme" width=0.5/linewidth
+    !! @image html sampling.png
+    !! @image latex sampling.png "Importance sampling scheme" width=0.5/linewidth
     !! Where \f$ m_{n_t n'_t} = \frac{r_{n_t n'_t}}{\sum_{n_tn'_t} r_{n_t n'_t} }\f$ and
     !! \f$ \xi \f$  is a uniform [0,1) random number. Performing this accumulates a
     !! Monte-Carlo weight of \f$ e^{i(\theta_{n_t^o} - \theta_{n_t^{'o}})} \sum_{n_tn'_t} r_{n_t n'_t} \f$

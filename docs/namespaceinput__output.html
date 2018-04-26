@@ -83,8 +83,6 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
-<tr class="memitem:a88222d3aa5edc90565cc57c0b67ccd0d"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceinput__output.html#a88222d3aa5edc90565cc57c0b67ccd0d">read_input</a></td></tr>
-<tr class="separator:a88222d3aa5edc90565cc57c0b67ccd0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace54de434f165da51ebbb2fa4706a1dc"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceinput__output.html#ace54de434f165da51ebbb2fa4706a1dc">write_redmat</a> (<a class="el" href="namespaceinput__output.html#a371f06d521c4bc27d1891474cdd096ca">method</a>, redmat, printstep)</td></tr>
 <tr class="memdesc:ace54de434f165da51ebbb2fa4706a1dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes the reduced density matrix using the method, redmat, and size of timestep between prints (fs)  <a href="#ace54de434f165da51ebbb2fa4706a1dc">More...</a><br /></td></tr>
 <tr class="separator:ace54de434f165da51ebbb2fa4706a1dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -95,10 +93,12 @@ Functions/Subroutines</h2></td></tr>
 <tr class="separator:ab5c0650064eb41f77071aee5cd4a2149"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6d3bf6be2f29ef1e0032ba9edd2d53ac"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceinput__output.html#a6d3bf6be2f29ef1e0032ba9edd2d53ac">write_nonlinear_response</a> (<a class="el" href="namespaceinput__output.html#a371f06d521c4bc27d1891474cdd096ca">method</a>, response, dt1, dt2, dt3)</td></tr>
 <tr class="separator:a6d3bf6be2f29ef1e0032ba9edd2d53ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88222d3aa5edc90565cc57c0b67ccd0d"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceinput__output.html#a88222d3aa5edc90565cc57c0b67ccd0d">read_input</a></td></tr>
+<tr class="separator:a88222d3aa5edc90565cc57c0b67ccd0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a405246868e00af629e02d65e55476069"><td class="memItemLeft" align="right" valign="top">character(20), parameter&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceinput__output.html#a405246868e00af629e02d65e55476069">input</a> ='processed_run.in'</td></tr>
+<tr class="memitem:a405246868e00af629e02d65e55476069"><td class="memItemLeft" align="right" valign="top">character(20), parameter&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceinput__output.html#a405246868e00af629e02d65e55476069">input</a> ='run.in'</td></tr>
 <tr class="separator:a405246868e00af629e02d65e55476069"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e59ee4c643ddcd23cde1a5865b08958"><td class="memItemLeft" align="right" valign="top">character(20), parameter&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceinput__output.html#a0e59ee4c643ddcd23cde1a5865b08958">inphel</a> ='hel.in'</td></tr>
 <tr class="separator:a0e59ee4c643ddcd23cde1a5865b08958"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -166,8 +166,8 @@ Variables</h2></td></tr>
 <tr class="separator:ad7d576e19dc4b97a38408f92fc330960"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adce359b2a2ba4ec645b580d1a2fc0172"><td class="memItemLeft" align="right" valign="top">real(dp)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceinput__output.html#adce359b2a2ba4ec645b580d1a2fc0172">tdelay3</a></td></tr>
 <tr class="separator:adce359b2a2ba4ec645b580d1a2fc0172"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad71886021b653fad015a1c50b1b75d3b"><td class="memItemLeft" align="right" valign="top">character(20)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceinput__output.html#ad71886021b653fad015a1c50b1b75d3b">calculation</a></td></tr>
-<tr class="separator:ad71886021b653fad015a1c50b1b75d3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe8e0485b796728ff22a2fd783d42b2d"><td class="memItemLeft" align="right" valign="top">character(10)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceinput__output.html#abe8e0485b796728ff22a2fd783d42b2d">calculation</a></td></tr>
+<tr class="separator:abe8e0485b796728ff22a2fd783d42b2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a371f06d521c4bc27d1891474cdd096ca"><td class="memItemLeft" align="right" valign="top">character(20)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceinput__output.html#a371f06d521c4bc27d1891474cdd096ca">method</a></td></tr>
 <tr class="separator:a371f06d521c4bc27d1891474cdd096ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae579160e76f2cd45a18c1b53e3ca4525"><td class="memItemLeft" align="right" valign="top">character(20)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceinput__output.html#ae579160e76f2cd45a18c1b53e3ca4525">windowshape</a></td></tr>
@@ -196,7 +196,6 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Directly reads input from variables in alphabetical order from the "processed_run.in" file </p>
 
 </div>
 </div>
@@ -407,14 +406,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="ad71886021b653fad015a1c50b1b75d3b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad71886021b653fad015a1c50b1b75d3b">&#9670;&nbsp;</a></span>calculation</h2>
+<a id="abe8e0485b796728ff22a2fd783d42b2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe8e0485b796728ff22a2fd783d42b2d">&#9670;&nbsp;</a></span>calculation</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">character(20) input_output::calculation</td>
+          <td class="memname">character(10) input_output::calculation</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -554,7 +553,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">character(20), parameter input_output::input ='processed_run.in'</td>
+          <td class="memname">character(20), parameter input_output::input ='run.in'</td>
         </tr>
       </table>
 </div><div class="memdoc">

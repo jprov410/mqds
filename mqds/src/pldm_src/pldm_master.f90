@@ -11,8 +11,8 @@
 !> The Journal of Chemical Physics 135, 201101 (2011)
 !!
 
-!> @image html pldm_schematic.pdf
-!! @image latex pldm_schematic.pdf "Importance sampling scheme" width=0.5/linewidth
+!> @image html pldm_schematic.png
+!! @image latex pldm_schematic.png "Importance sampling scheme" width=0.5/linewidth
 SUBROUTINE pldm_master
   USE input_output
   USE harmonic_bath
