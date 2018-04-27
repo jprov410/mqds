@@ -2,7 +2,7 @@ __*A molecular quantum dynamics and spectroscopy package*__
 
 # This package is currently capable of the following calculations:
 
-<a href="pldm__master_8f90.html"><b>PLDM</b></a> (Partially Linearized Density Matrix)
+<a href="pldm_info.html"><b>PLDM</b></a> (Partially Linearized Density Matrix)
 ---
 * <a href="calculate__pldm__redmat_8f90.html"><b> Reduced density matrix</b></a> dynamics of a system-bath model where the bath consists of a set of harmonic 
  oscillators.
@@ -16,14 +16,14 @@ of a set of harmonic oscillators. (__currently under construction__)
 * <a href="calculate__ipldm__redmat_8f90.html"><b> Iterative reduced density matrix (IPLDM)</b></a> dynamics of a system-bath model where the bath consists of a set of harmonic 
  oscillators. This calculation employs the "focusing" procedure, outlined in the IPLDM example directory.
 
-TWA (Truncated Wigner Approximation)
+<a href="twa_info.html"><b>TWA</b></a> (Truncated Wigner Approximation)
 ---
 
 * <a href="calculate__twa__redmat_8f90.html"><b> Reduced density matrix</b></a> dynamics
 of a system-bath model where the bath consists of a set of harmonic oscillators.
 (__currently under construction__)
 
-SQC/MM (Symmetrical Quasi-Classical / Meyer-Miller)
+<a href="sqc_info.html"><b>SQC/MM</b></a> (Symmetrical Quasi-Classical / Meyer-Miller)
 ---
 * <a href="calculate__sqc__redmat_8f90.html"><b> Reduced density matrix</b></a> dynamics of a system-bath model where the bath 
 consists of a set of harmonic oscillators. Calculation
@@ -35,7 +35,7 @@ windowing scheme or the *triangular* windowing scheme.
 (__Currently in submission to the Journal of Chemical Physics__)
 
 
-EQUILIBRIUM REDUCED DENSITY MATRIX
+<a href="equilibrium_info.html"><b>EQUILIBRIUM REDUCED DENSITY MATRIX</b></a>
 ---
 * <a href="calculate__equilibrium__site_8f90.html"><b> Equilibrium </b></a> Imaginary time path integral calculation of the exact equilibrium 
 __reduced density matrix__ in the site basis for a system that has populations bi-linearly
