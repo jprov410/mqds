@@ -94,10 +94,9 @@ CONTAINS
         theta = 2.0_dp * pi * uniform_rn( theta )
         thetat = 2.0_dp * pi * uniform_rn( thetat )
 
-        !DO i = 1, nstate
-            xi_f = xi_f + c_f(initstate) * EXP( -eye * theta(initstate) )
-            xi_b = xi_b + c_b(initstatet) * EXP( eye * thetat(initstatet) )
-        !END DO
+        xi_f = xi_f + c_f(initstate) * EXP( -eye * theta(initstate) )
+        xi_b = xi_b + c_b(initstatet) * EXP( eye * thetat(initstatet) )
+
         prod = 0.5_dp * pi * 0.5_dp * xi_f * xi_b
 
         DO i = 1, nstate
@@ -116,11 +115,6 @@ CONTAINS
         xt( : ) = rt( : ) * DCOS( thetat )
         p( : ) = r( : ) * DSIN( theta )
         pt( : ) = rt( : ) * DSIN( thetat )
-
-        !write(99,*) x(1)
-        !write(88,*) x(2)
-        !write(77,*) p(1)
-        !write(66,*) p(2)
 
     END SUBROUTINE pldm_map_hop
 
