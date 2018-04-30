@@ -37,6 +37,10 @@ SUBROUTINE pldm_master_mpi
               CALL calculate_pldm_redmat_mpi
           END IF
 
+          IF ( calculation == 'maphop' ) THEN
+              CALL calculate_pldm_redmat_maphop_mpi
+          END IF
+
           IF ( calculation == 'absorption' ) THEN
               CALL calculate_pldm_absorption_mpi
           END IF

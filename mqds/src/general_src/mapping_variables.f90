@@ -8,7 +8,7 @@ MODULE mapping_variables
   REAL(dp), ALLOCATABLE :: x_map(:), p_map(:)
   REAL(dp), ALLOCATABLE :: xt_map(:), pt_map(:)
   COMPLEX(dp) :: prod
-  
+
 CONTAINS
 
     !----------------allocate and deallocate mapping variables----------------!
@@ -26,7 +26,7 @@ CONTAINS
     SUBROUTINE finalize_pldm_map
     IMPLICIT NONE
     
-    DEALLOCATE(x_map,xt_map,p_map,pt_map)
+    DEALLOCATE( x_map, xt_map, p_map, pt_map )
     
   END SUBROUTINE finalize_pldm_map
 
@@ -35,14 +35,14 @@ CONTAINS
     USE input_output
     IMPLICIT NONE
     
-    ALLOCATE( x_map(nstate) ,p_map(nstate) )
+    ALLOCATE( x_map(nstate), p_map(nstate) )
     
   END SUBROUTINE initialize_twa_map
   
     !> Deallocate the mapping variable arrays for TWA or SQC calculation
     SUBROUTINE finalize_twa_map
     IMPLICIT NONE
-    
+
     DEALLOCATE( x_map, p_map )
     
   END SUBROUTINE finalize_twa_map
@@ -74,39 +74,53 @@ CONTAINS
     !> Subroutine that takes the current density matrix and uses it
     !! for coefficients in a linear combination of new initial Hermite
     !! polynomials
-    SUBROUTINE pldm_map_hop( coefficient, x, p, xt, pt )
+    SUBROUTINE pldm_map_hop( c_f, c_b, x, p, xt, pt )
         USE input_output
         USE parameters
         USE random_numbers
         IMPLICIT NONE
         INTEGER :: i, j
-        REAL(dp), INTENT(inout) :: x( nstate ), p( nstate )
-        REAL(dp), INTENT(inout) :: xt( nstate ), pt( nstate )
-        COMPLEX(dp), INTENT(in) :: coefficient( nstate, nstate )
-        COMPLEX(dp) :: xi_fwd( nstate ), xi_bkwd( nstate )
+        REAL(dp) :: r( nstate ), theta( nstate )
+        REAL(dp) :: rt( nstate ), thetat( nstate )
+        REAL(dp), INTENT(out) :: x( nstate ), p( nstate )
+        REAL(dp), INTENT(out) :: xt( nstate ), pt( nstate )
+        COMPLEX(dp) :: c_f( nstate ), c_b( nstate )
+        COMPLEX(dp) :: xi_f, xi_b
+        xi_f = 0.0_dp ; xi_b = 0.0_dp
+        r = 0.0_dp ; rt = 0.0_dp
+        theta = 0.0_dp ; thetat = 0.0_dp
+!        print*, c_f, c_b
 
-        ! Sample new initial conditions for mapping variables
-        x = gaussian_rn( x )
-        p = gaussian_rn( p )
-        xt = gaussian_rn( xt )
-        pt = gaussian_rn( pt )
-        ! Make new initial product for subsequent propagation
+        theta = 2.0_dp * pi * uniform_rn( theta )
+        thetat = 2.0_dp * pi * uniform_rn( thetat )
+
+        !DO i = 1, nstate
+            xi_f = xi_f + c_f(initstate) * EXP( -eye * theta(initstate) )
+            xi_b = xi_b + c_b(initstatet) * EXP( eye * thetat(initstatet) )
+        !END DO
+        prod = 0.5_dp * pi * 0.5_dp * xi_f * xi_b
+
         DO i = 1, nstate
-            xi_fwd( i ) = x( i ) - eye * p( i )
-            xi_bkwd( i ) = xt( i ) + eye * pt( i )
-        END DO
-
-        !THIS IS WRONG NEED TO GET COEFFICIENTS FROM
-        !OLD PROPAGATIONS LIKE XI_0 XI_T^{ALPHA} AND THE NEW PROD
-        !NEEDS TO HAVE SUM OF EACH WAVEFUNCTION MULTIPLIED BY EACH OTHER
-        ! LIKE SUM OF XI FWD TIMES SUM OF XI BKWD
-
-        prod = 0.0_dp
-        DO i = 1, nstate
+            r( i ) = r( i ) + c_f( i ) * excited_rn()
+            rt( i ) = rt( i ) + c_b( i ) * excited_rn()
             DO j = 1, nstate
-                prod = prod + 0.5_dp * coefficient( i, j ) * xi_fwd( i ) * xi_bkwd( j )
+                IF ( j /= i ) THEN
+                    r( j ) = r( j ) + c_f( i ) * ground_rn()
+                    rt( j ) = rt( j ) + c_b( i ) * ground_rn()
+                END IF
             END DO
         END DO
+
+
+        x( : ) = r( : ) * DCOS( theta )
+        xt( : ) = rt( : ) * DCOS( thetat )
+        p( : ) = r( : ) * DSIN( theta )
+        pt( : ) = rt( : ) * DSIN( thetat )
+
+        !write(99,*) x(1)
+        !write(88,*) x(2)
+        !write(77,*) p(1)
+        !write(66,*) p(2)
 
     END SUBROUTINE pldm_map_hop
 

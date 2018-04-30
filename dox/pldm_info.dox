@@ -4,6 +4,14 @@ The Partially Linearized Density Matrix (PLDM) propagation scheme is based off o
 the propagator within the <a href="mapping_info.html" > Meyer-Miller mapping model </a>, which exactly maps discrete quantum states onto a fictitious set of
 harmonic oscillator raising and lowering operators.
 
+\f[
+    \begin{split}
+    \bigg\langle & n_t , \bar{R}_N + \frac{Z_N}{2} \bigg{|}  \hat{O}(t) \bigg{|}  n^\prime_t , \bar{R}_N - \frac{Z_N}{2} \bigg\rangle   = \sum_{n_0,n_0^\prime} \int d\bar{R}_0 dx_0 dp_0 dx_0^\prime dp_0^\prime\ G_0 G_0' \\
+     & \times \frac{1}{2} ( x_{n_t} + ip_{n_t})(x_{n_0} - ip_{n_0}) \frac{1}{2} ( x^\prime_{n^\prime_t} - ip^\prime_{n^\prime_t} )( x^\prime_{n^\prime_0} + ip^\prime_{n^\prime_0} ) \left( \prod_{k=1}^{N-1} \int d\bar{R}_k \frac{d\bar{P}_k}{2\pi}\right) \int \frac{d\bar{P}_N}{2\pi} \\
+     & \times O_W^{n_0 n_0^\prime}(\bar{R}_0,\bar{P}_1) \ e^{i \bar{P}_NZ_N} \prod_{k=1}^{N-1}\delta\left( \frac{\bar{P}_{k+1}-\bar{P}_k}{\epsilon} - F_k \right) \prod_{k=1}^{N}\delta\left(  \frac{\bar{R}_{k}-\bar{R}_{k-1}}{\epsilon} - \frac{\bar{P}_k}{M} \right)
+    \end{split}
+\f]
+
 
 <b> Reference List: </b>
    *  <ul>

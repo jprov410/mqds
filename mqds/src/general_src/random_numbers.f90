@@ -1,10 +1,9 @@
 !> This module contains the necessary functions
 ! for random number generation
 MODULE random_numbers
+  USE kinds
   IMPLICIT NONE
-
-  PRIVATE
-  PUBLIC uniform_rn, gaussian_rn, initialize_rn
+  REAL(dp), PRIVATE :: cdf_g(0:40000), cdf_e(0:40000)
 
   CONTAINS
 
@@ -67,5 +66,56 @@ MODULE random_numbers
       CALL RANDOM_NUMBER(HARVEST=make_grn)
       res(:) = DSQRT( -2.0_dp * DLOG(make_grn(1,:)) ) * DCOS( 2.0_dp * pi * make_grn(2,:))
     END FUNCTION gaussian_rn
+
+    !> This is a subroutine that builds the normalized cumulative
+    !! distribution functions for the radial portion of
+    !! the ground and first excited state harmonic states
+    !! in polar coordinates (\f$ (x - i p) \rightarrow r e^{-i \theta} \f$)
+    SUBROUTINE build_ge_cdfs
+      IMPLICIT NONE
+      INTEGER :: i
+      REAL(dp) :: dr = 0.0001_dp
+      cdf_g = 0.0_dp ; cdf_e = 0.0_dp
+
+      ! Build and normalize the cdfs
+      DO i = 1, 40000
+        cdf_g(i) = cdf_g(i-1) + ( ( i * dr ) * EXP( - (i * dr)**2 / 2.0_dp ) )
+        cdf_e(i) = cdf_e(i-1) + ( ( i * dr )**2 * EXP( - (i * dr)**2 / 2.0_dp ) )
+      END DO
+      cdf_g = cdf_g / cdf_g(40000)
+      cdf_e = cdf_e / cdf_e(40000)
+    END SUBROUTINE build_ge_cdfs
+
+    !> This function assigns a random number distributed according to the
+    !! radial portion of the ground harmonic oscillator state in polar coordinates
+    FUNCTION ground_rn() RESULT( res )
+      IMPLICIT NONE
+      REAL(dp) :: res
+      REAL(dp) :: dr = 0.0001_dp
+      INTEGER :: sval
+
+      CALL RANDOM_NUMBER( HARVEST = res )
+
+      sval = MINLOC( ABS( cdf_g - res ), 1 )
+
+      res = sval * dr
+
+    END FUNCTION ground_rn
+
+    !> This function assigns a random number distributed according to the
+    !! radial portion of the first excited harmonic oscillator state in polar coordinates
+    FUNCTION excited_rn() RESULT( res )
+      IMPLICIT NONE
+      REAL(dp) :: res
+      REAL(dp) :: dr = 0.0001_dp
+      INTEGER :: sval
+
+      CALL RANDOM_NUMBER( HARVEST = res )
+
+      sval = MINLOC( ABS( cdf_e - res ), 1 )
+
+      res = sval * dr
+
+    END FUNCTION excited_rn
 
 END MODULE random_numbers

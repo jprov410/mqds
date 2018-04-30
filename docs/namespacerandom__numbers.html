@@ -82,27 +82,74 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
-<tr class="memitem:ad8e9c9f571a7db633c03bcd4ada58ffd"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerandom__numbers.html#ad8e9c9f571a7db633c03bcd4ada58ffd">initialize_rn</a> (my_pe)</td></tr>
-<tr class="memdesc:ad8e9c9f571a7db633c03bcd4ada58ffd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts the random number generation seed based upon the current time. If the calculation is being done with MPI-parallelization, this subroutine takes the processing element ID number as an argument to ensure that the seeds are unique.  <a href="#ad8e9c9f571a7db633c03bcd4ada58ffd">More...</a><br /></td></tr>
-<tr class="separator:ad8e9c9f571a7db633c03bcd4ada58ffd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a31224b595e8b6e25de5e861d07eb7de5"><td class="memItemLeft" align="right" valign="top">real(dp) function, dimension(size(input)), public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerandom__numbers.html#a31224b595e8b6e25de5e861d07eb7de5">uniform_rn</a> (input)</td></tr>
-<tr class="memdesc:a31224b595e8b6e25de5e861d07eb7de5"><td class="mdescLeft">&#160;</td><td class="mdescRight">sample a uniform [0,1) random number  <a href="#a31224b595e8b6e25de5e861d07eb7de5">More...</a><br /></td></tr>
-<tr class="separator:a31224b595e8b6e25de5e861d07eb7de5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c8544cf00a07e074040ecdef58a690a"><td class="memItemLeft" align="right" valign="top">real(dp) function, dimension(size(input)), public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerandom__numbers.html#a4c8544cf00a07e074040ecdef58a690a">gaussian_rn</a> (input)</td></tr>
-<tr class="memdesc:a4c8544cf00a07e074040ecdef58a690a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gaussian random number generation using the Box-Mueller process with two uniform [0,1) random number.  <a href="#a4c8544cf00a07e074040ecdef58a690a">More...</a><br /></td></tr>
-<tr class="separator:a4c8544cf00a07e074040ecdef58a690a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14f1514f148c5493d484c7b72b8ed474"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerandom__numbers.html#a14f1514f148c5493d484c7b72b8ed474">initialize_rn</a> (my_pe)</td></tr>
+<tr class="memdesc:a14f1514f148c5493d484c7b72b8ed474"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts the random number generation seed based upon the current time. If the calculation is being done with MPI-parallelization, this subroutine takes the processing element ID number as an argument to ensure that the seeds are unique.  <a href="#a14f1514f148c5493d484c7b72b8ed474">More...</a><br /></td></tr>
+<tr class="separator:a14f1514f148c5493d484c7b72b8ed474"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a5343e2f888ee451c41bb7915dab643"><td class="memItemLeft" align="right" valign="top">real(dp) function, dimension(size(input))&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerandom__numbers.html#a3a5343e2f888ee451c41bb7915dab643">uniform_rn</a> (input)</td></tr>
+<tr class="memdesc:a3a5343e2f888ee451c41bb7915dab643"><td class="mdescLeft">&#160;</td><td class="mdescRight">sample a uniform [0,1) random number  <a href="#a3a5343e2f888ee451c41bb7915dab643">More...</a><br /></td></tr>
+<tr class="separator:a3a5343e2f888ee451c41bb7915dab643"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d653fc79153e6e928a231b247f02f6f"><td class="memItemLeft" align="right" valign="top">real(dp) function, dimension(size(input))&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerandom__numbers.html#a4d653fc79153e6e928a231b247f02f6f">gaussian_rn</a> (input)</td></tr>
+<tr class="memdesc:a4d653fc79153e6e928a231b247f02f6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gaussian random number generation using the Box-Mueller process with two uniform [0,1) random number.  <a href="#a4d653fc79153e6e928a231b247f02f6f">More...</a><br /></td></tr>
+<tr class="separator:a4d653fc79153e6e928a231b247f02f6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af875c87624abfd6836e9dc8d6e4a600a"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerandom__numbers.html#af875c87624abfd6836e9dc8d6e4a600a">build_ge_cdfs</a></td></tr>
+<tr class="memdesc:af875c87624abfd6836e9dc8d6e4a600a"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is a subroutine that builds the normalized cumulative distribution functions for the radial portion of the ground and first excited state harmonic states in polar coordinates ( \( (x - i p) \rightarrow r e^{-i \theta} \))  <a href="#af875c87624abfd6836e9dc8d6e4a600a">More...</a><br /></td></tr>
+<tr class="separator:af875c87624abfd6836e9dc8d6e4a600a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a1bd94001a80f095b5e8bfa500c7b51"><td class="memItemLeft" align="right" valign="top">real(dp) function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerandom__numbers.html#a3a1bd94001a80f095b5e8bfa500c7b51">ground_rn</a> ()</td></tr>
+<tr class="memdesc:a3a1bd94001a80f095b5e8bfa500c7b51"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function assigns a random number distributed according to the radial portion of the ground harmonic oscillator state in polar coordinates.  <a href="#a3a1bd94001a80f095b5e8bfa500c7b51">More...</a><br /></td></tr>
+<tr class="separator:a3a1bd94001a80f095b5e8bfa500c7b51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7cdd100c0f501c6500939db17fa673fe"><td class="memItemLeft" align="right" valign="top">real(dp) function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerandom__numbers.html#a7cdd100c0f501c6500939db17fa673fe">excited_rn</a> ()</td></tr>
+<tr class="memdesc:a7cdd100c0f501c6500939db17fa673fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function assigns a random number distributed according to the radial portion of the first excited harmonic oscillator state in polar coordinates.  <a href="#a7cdd100c0f501c6500939db17fa673fe">More...</a><br /></td></tr>
+<tr class="separator:a7cdd100c0f501c6500939db17fa673fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This module contains the necessary functions. </p>
 </div><h2 class="groupheader">Function/Subroutine Documentation</h2>
-<a id="a4c8544cf00a07e074040ecdef58a690a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4c8544cf00a07e074040ecdef58a690a">&#9670;&nbsp;</a></span>gaussian_rn()</h2>
+<a id="af875c87624abfd6836e9dc8d6e4a600a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af875c87624abfd6836e9dc8d6e4a600a">&#9670;&nbsp;</a></span>build_ge_cdfs()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">real(dp) function, dimension(size(input)), public random_numbers::gaussian_rn </td>
+          <td class="memname">subroutine random_numbers::build_ge_cdfs </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This is a subroutine that builds the normalized cumulative distribution functions for the radial portion of the ground and first excited state harmonic states in polar coordinates ( \( (x - i p) \rightarrow r e^{-i \theta} \)) </p>
+
+</div>
+</div>
+<a id="a7cdd100c0f501c6500939db17fa673fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7cdd100c0f501c6500939db17fa673fe">&#9670;&nbsp;</a></span>excited_rn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(dp) function random_numbers::excited_rn </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This function assigns a random number distributed according to the radial portion of the first excited harmonic oscillator state in polar coordinates. </p>
+
+</div>
+</div>
+<a id="a4d653fc79153e6e928a231b247f02f6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d653fc79153e6e928a231b247f02f6f">&#9670;&nbsp;</a></span>gaussian_rn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(dp) function, dimension(size(input)) random_numbers::gaussian_rn </td>
           <td>(</td>
           <td class="paramtype">real(dp), dimension(:)&#160;</td>
           <td class="paramname"><em>input</em></td><td>)</td>
@@ -115,14 +162,33 @@ Functions/Subroutines</h2></td></tr>
 
 </div>
 </div>
-<a id="ad8e9c9f571a7db633c03bcd4ada58ffd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad8e9c9f571a7db633c03bcd4ada58ffd">&#9670;&nbsp;</a></span>initialize_rn()</h2>
+<a id="a3a1bd94001a80f095b5e8bfa500c7b51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a1bd94001a80f095b5e8bfa500c7b51">&#9670;&nbsp;</a></span>ground_rn()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">subroutine, public random_numbers::initialize_rn </td>
+          <td class="memname">real(dp) function random_numbers::ground_rn </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This function assigns a random number distributed according to the radial portion of the ground harmonic oscillator state in polar coordinates. </p>
+
+</div>
+</div>
+<a id="a14f1514f148c5493d484c7b72b8ed474"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14f1514f148c5493d484c7b72b8ed474">&#9670;&nbsp;</a></span>initialize_rn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine random_numbers::initialize_rn </td>
           <td>(</td>
           <td class="paramtype">integer, intent(in), optional&#160;</td>
           <td class="paramname"><em>my_pe</em></td><td>)</td>
@@ -135,14 +201,14 @@ Functions/Subroutines</h2></td></tr>
 
 </div>
 </div>
-<a id="a31224b595e8b6e25de5e861d07eb7de5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a31224b595e8b6e25de5e861d07eb7de5">&#9670;&nbsp;</a></span>uniform_rn()</h2>
+<a id="a3a5343e2f888ee451c41bb7915dab643"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a5343e2f888ee451c41bb7915dab643">&#9670;&nbsp;</a></span>uniform_rn()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">real(dp) function, dimension(size(input)), public random_numbers::uniform_rn </td>
+          <td class="memname">real(dp) function, dimension(size(input)) random_numbers::uniform_rn </td>
           <td>(</td>
           <td class="paramtype">real(dp), dimension(:)&#160;</td>
           <td class="paramname"><em>input</em></td><td>)</td>

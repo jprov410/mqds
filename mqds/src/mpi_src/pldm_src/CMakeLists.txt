@@ -3,6 +3,7 @@ set(MQDS_PLDM_LIB_MPI
         calculate_pldm_redmat_mpi.f90
         calculate_pldm_absorption_mpi.f90
         calculate_pldm_nonlinear_mpi.f90
+        calculate_pldm_redmat_maphop_mpi.f90
         )
 
 
