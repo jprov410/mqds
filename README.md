@@ -7,6 +7,8 @@
 
 __*A high-performance molecular quantum dynamics and spectroscopy package*__
 
+* Documentation can be found at ( https://jprov410.github.io/mqds ) 
+
 #### This package is currently capable of the following calculations:
 
 
