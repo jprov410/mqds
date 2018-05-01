@@ -1,10 +1,11 @@
 [![Build Status](https://travis-ci.org/jprov410/mqds.svg?branch=master)](https://travis-ci.org/jprov410/mqds)
 [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
 [![codecov](https://codecov.io/gh/jprov410/mqds/branch/master/graph/badge.svg)](https://codecov.io/gh/jprov410/mqds)
+[![DOI](https://zenodo.org/badge/120659217.svg)](https://zenodo.org/badge/latestdoi/120659217)
 
 ![alt text](https://github.com/jprov410/mqds/blob/master/images/logo.jpg)
 
-__*A molecular quantum dynamics and spectroscopy package*__
+__*A high-performance molecular quantum dynamics and spectroscopy package*__
 
 #### This package is currently capable of the following calculations:
 
