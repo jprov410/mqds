@@ -57,7 +57,7 @@ in the limit of infinite time slices, converges to exact quantum mechanical resu
 We can also use the PLDM propagator in conjunction with the <a href="focusing_8f90.html" > focusing </a> procedure to compute nonlinear
 electronic spectra!
 
-@image html pldm_nonlinear.png
+@image html nonlinear_pldm.png
 
 
 <b> Reference List: </b>
