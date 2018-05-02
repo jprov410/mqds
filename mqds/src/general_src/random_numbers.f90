@@ -1,9 +1,18 @@
 !> This module contains the necessary functions
-! for random number generation
+!! for random number generation.
 MODULE random_numbers
   USE kinds
   IMPLICIT NONE
-  REAL(dp), PRIVATE :: cdf_g(0:40000), cdf_e(0:40000)
+  REAL(dp), PRIVATE :: cdf_g(0:60000), cdf_e(0:60000)
+  REAL(dp), PRIVATE, ALLOCATABLE :: radial_f(:,:), radial_b(:,:)
+  !> cdf_g, cdf_e are radial cumulative distribution functions
+  !! for the ground and first excited harmonic oscillator states
+
+  !> radial_f, radial_b are the full radial CDFs for forward
+  !! and backward mapping variables based on linear combinations of
+  !! cdf_g, cdf_e where coefficients come from final mapping variable
+  !! values from previous propagation. These are what the mapping variables
+  !! are sampled from
 
   CONTAINS
 
@@ -71,20 +80,85 @@ MODULE random_numbers
     !! distribution functions for the radial portion of
     !! the ground and first excited state harmonic states
     !! in polar coordinates (\f$ (x - i p) \rightarrow r e^{-i \theta} \f$)
-    SUBROUTINE build_ge_cdfs
+    SUBROUTINE build_current_cdfs(c_f,c_b)
+      USE input_output
       IMPLICIT NONE
-      INTEGER :: i
-      REAL(dp) :: dr = 0.0001_dp
+      INTEGER :: i, j
+      REAL(dp) :: dr = 0.0001_dp, a_f, a_b, norm_f, norm_b
+      COMPLEX(dp) :: c_f( nstate ), c_b( nstate )
       cdf_g = 0.0_dp ; cdf_e = 0.0_dp
+      norm_f = 0.0_dp ; norm_b = 0.0_dp
 
-      ! Build and normalize the cdfs
-      DO i = 1, 40000
-        cdf_g(i) = cdf_g(i-1) + ( ( i * dr ) * EXP( - (i * dr)**2 / 2.0_dp ) )
-        cdf_e(i) = cdf_e(i-1) + ( ( i * dr )**2 * EXP( - (i * dr)**2 / 2.0_dp ) )
+      ! allocate memory for radial distributions
+      IF ( ALLOCATED( radial_f ) .EQV. .FALSE. ) THEN
+        ALLOCATE( radial_f( nstate, 0 : SIZE(cdf_e) -1 ) )
+      END IF
+      IF ( ALLOCATED( radial_b ) .EQV. .FALSE. ) THEN
+        ALLOCATE( radial_b( nstate, 0 : SIZE(cdf_e) -1 ) )
+      END IF
+      radial_f = 0.0_dp ; radial_b = 0.0_dp
+
+      DO i = 1, SIZE(cdf_e)
+        cdf_g(i) = cdf_g(i-1) + dr * ( ( i * dr ) * EXP( - (i * dr)**2 / 2.0_dp ) )
+        cdf_e(i) = cdf_e(i-1) + dr * ( ( i * dr )**2 * EXP( - (i * dr)**2 / 2.0_dp ) )
       END DO
-      cdf_g = cdf_g / cdf_g(40000)
-      cdf_e = cdf_e / cdf_e(40000)
-    END SUBROUTINE build_ge_cdfs
+
+      norm_f = SQRT( DOT_PRODUCT( c_f, CONJG(c_f) ) )
+      norm_b = SQRT( DOT_PRODUCT( c_b, CONJG(c_b) ) )
+
+      ! Build the current radial CDF based on linear combination of
+      ! ground and first excited state radial harmonic oscillator CDFs
+      DO i = 1, nstate
+        ! prepare normalized coefficients for current term
+        a_f = SQRT( c_f(i) * CONJG(c_f(i)) ) / norm_f
+        a_b = SQRT( c_b(i) * CONJG(c_b(i)) ) / norm_b
+
+        ! add component of excited state for current term
+        radial_f(i,:) = radial_f(i,:) + a_f * cdf_e(:)
+        radial_b(i,:) = radial_b(i,:) + a_b * cdf_e(:)
+        DO j=1,nstate
+          IF ( j /= i ) THEN
+            ! add component of ground state for current term
+            radial_f(j,:) = radial_f(j,:) + a_f * cdf_g(:)
+            radial_b(j,:) = radial_b(j,:) + a_b * cdf_g(:)
+          END IF
+        END DO
+      END DO
+
+
+      !print*, 'actual fwd norm  =  ',radial_f(1,SIZE(radial_f(i,:)) - 1)
+      !print*, 'actual bkwd norm  =  ',radial_b(1,SIZE(radial_f(i,:)) - 1)
+
+      !normalize
+      DO i = 1, nstate
+        radial_f(i,:) = radial_f(i,:) / radial_f(i, SIZE(radial_f(i,:)) - 1)
+        radial_b(i,:) = radial_b(i,:) / radial_b(i, SIZE(radial_b(i,:)) - 1)
+      END DO
+
+    END SUBROUTINE build_current_cdfs
+
+    !> subroutine to sample the current cumulative distribution
+    !! functions for the radial portion of the harmonic oscillator
+    !! states
+    SUBROUTINE sample_current_cdfs( r, rt )
+      USE input_output
+      IMPLICIT NONE
+      REAL(dp), INTENT(out) :: r(nstate), rt(nstate)
+      REAL(dp) :: dr = 0.0001_dp
+      INTEGER :: sval,svalt, i ! sampled index values
+
+      CALL RANDOM_NUMBER( HARVEST = r )
+      CALL RANDOM_NUMBER( HARVEST = rt )
+
+
+      DO i = 1, nstate
+        sval = MINLOC( ABS( radial_f(i,:) - r(i) ), 1 )
+        svalt = MINLOC( ABS( radial_b(i,:) - rt(i) ), 1 )
+        r(i) = sval * dr
+        rt(i) = svalt * dr
+      END DO
+
+    END SUBROUTINE sample_current_cdfs
 
     !> This function assigns a random number distributed according to the
     !! radial portion of the ground harmonic oscillator state in polar coordinates

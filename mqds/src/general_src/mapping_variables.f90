@@ -7,7 +7,7 @@ MODULE mapping_variables
   IMPLICIT NONE
   REAL(dp), ALLOCATABLE :: x_map(:), p_map(:)
   REAL(dp), ALLOCATABLE :: xt_map(:), pt_map(:)
-  COMPLEX(dp) :: prod
+  COMPLEX(dp) :: prod, weight_f, weight_b
 
 CONTAINS
 
@@ -80,36 +80,33 @@ CONTAINS
         USE random_numbers
         IMPLICIT NONE
         INTEGER :: i, j
-        REAL(dp) :: r( nstate ), theta( nstate )
+        REAL(dp) :: r( nstate ), theta( nstate ), A_f, A_b
         REAL(dp) :: rt( nstate ), thetat( nstate )
         REAL(dp), INTENT(out) :: x( nstate ), p( nstate )
         REAL(dp), INTENT(out) :: xt( nstate ), pt( nstate )
         COMPLEX(dp) :: c_f( nstate ), c_b( nstate )
         COMPLEX(dp) :: xi_f, xi_b
-        xi_f = 0.0_dp ; xi_b = 0.0_dp
-        r = 0.0_dp ; rt = 0.0_dp
+        xi_f = 0.0_dp ; xi_b = 0.0_dp ; A_f = 0.0_dp
+        r = 0.0_dp ; rt = 0.0_dp ; A_b = 0.0_dp
         theta = 0.0_dp ; thetat = 0.0_dp
-!        print*, c_f, c_b
 
+        ! Sample angle variables
         theta = 2.0_dp * pi * uniform_rn( theta )
         thetat = 2.0_dp * pi * uniform_rn( thetat )
 
-        xi_f = xi_f + c_f(initstate) * EXP( -eye * theta(initstate) )
-        xi_b = xi_b + c_b(initstatet) * EXP( eye * thetat(initstatet) )
-
-        prod = 0.5_dp * pi * 0.5_dp * xi_f * xi_b
-
+        A_f = SQRT( DOT_PRODUCT( c_f, CONJG(c_f) ) )
+        A_b = SQRT( DOT_PRODUCT( c_b, CONJG(c_b) ) )
         DO i = 1, nstate
-            r( i ) = r( i ) + c_f( i ) * excited_rn()
-            rt( i ) = rt( i ) + c_b( i ) * excited_rn()
-            DO j = 1, nstate
-                IF ( j /= i ) THEN
-                    r( j ) = r( j ) + c_f( i ) * ground_rn()
-                    rt( j ) = rt( j ) + c_b( i ) * ground_rn()
-                END IF
-            END DO
+            xi_f = xi_f + c_f(i) * EXP( -eye * theta(i) )
+            xi_b = xi_b + c_b(i) * EXP( eye * thetat(i) )
         END DO
 
+        weight_f = A_f * 0.5_dp * SQRT(pi) * xi_f
+        weight_b = A_b * 0.5_dp * SQRT(pi) * xi_b
+
+        prod = weight_f * weight_b
+
+        CALL sample_current_cdfs( r, rt )
 
         x( : ) = r( : ) * DCOS( theta )
         xt( : ) = rt( : ) * DCOS( thetat )

@@ -59,15 +59,15 @@ matrix:
         - COV=""
 
     # works on Precise and Trusty
-    - os: linux
-      addons:
-        apt:
-          packages:
-           - cmake
-           - liblapack-dev
-      env:
-        - FC=pgf90
-        - COV=""
+    #- os: linux
+    #  addons:
+    #    apt:
+    #      packages:
+    #       - cmake
+    #       - liblapack-dev
+    #  env:
+    #    - FC=pgf90
+    #    - COV=""
 
 before_install:
     - printenv  # just for debug info that could be helpful

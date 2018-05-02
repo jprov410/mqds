@@ -54,7 +54,7 @@ in considerable noise in computed averages at longer times requiring larger ense
 treating this algorithm as a short-time propagator where the linearization approximation is valid introduces quantum interference effects in the bath and,
 in the limit of infinite time slices, converges to exact quantum mechanical results.
 
-We can also use the PLDM propagator in conjunction with the <a href="focusing_8f90.html" > focusing </a> procedure to compute nonlinear
+We can also use the PLDM propagator in conjunction with the <a href="namespacefocusing.html" > focusing </a> procedure to compute nonlinear
 electronic spectra!
 
 @image html nonlinear_pldm.png
