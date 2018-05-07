@@ -1,8 +1,7 @@
 /*! \page pldm_info Description of the PLDM propagation method
 
 The Partially Linearized Density Matrix (PLDM) propagation scheme is based off of a semiclassical path integral approximation to
-the propagator within the , which exactly maps discrete quantum states onto a fictitious set of
-harmonic oscillator raising and lowering operators.
+the propagator.
 
 The time evolution of the expectation value of a general operator \f$ \langle \hat{O} \rangle(t) = \langle \Psi| e^{i H t} \hat{O} e^{-i H t} |\Psi \rangle \f$, where \f$ H \f$ is a general system-bath
  Hamiltonian and the system and bath are prepared in some initial state \f$ |\Psi\rangle \f$, can be accurately described using a semiclassical path integral formalism for the forward ( \f$ e^{-i H t} \f$)

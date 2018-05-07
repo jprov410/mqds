@@ -32,4 +32,40 @@ CONTAINS
 
     END SUBROUTINE diagonalize_real_symmetric
 
+    !> Function to perform the trace of a real square matrix
+    FUNCTION trace_real_matrix( matrix ) RESULT( res )
+        USE kinds
+        IMPLICIT NONE
+        REAL(dp) :: matrix(:,:), res
+        INTEGER :: i
+        res = 0.0_dp
+        IF ( SIZE( matrix( : ,1 ) ) /= SIZE( matrix( 1 ,: ) ) ) THEN
+            WRITE(*,*) 'matrix sent to trace function is not square'
+            STOP 1
+        END IF
+
+        DO i = 1 , SIZE( matrix(:,1) )
+            res = res + matrix(i,i)
+        END DO
+
+    END FUNCTION trace_real_matrix
+
+    !> Function to perform the trace of a real square matrix
+    FUNCTION trace_complex_matrix( matrix ) RESULT( res )
+        USE kinds
+        IMPLICIT NONE
+        COMPLEX(dp) :: matrix(:,:), res
+        INTEGER :: i
+        res = 0.0_dp
+        IF ( SIZE( matrix( : ,1 ) ) /= SIZE( matrix( 1 ,: ) ) ) THEN
+            WRITE(*,*) 'matrix sent to trace function is not square'
+            STOP 1
+        END IF
+
+        DO i = 1 , SIZE( matrix(:,1) )
+            res = res + matrix(i,i)
+        END DO
+
+    END FUNCTION trace_complex_matrix
+
 END MODULE linear_algebra

@@ -10,6 +10,7 @@ add_subdirectory(analysis_src)
 add_subdirectory(ipldm_src)
 add_subdirectory(equilibrium_src)
 add_subdirectory(mpi_src)
+add_subdirectory(surface_hopping_src)
 
 ### Include the dircectories that contain libraries
 include_directories(
@@ -19,6 +20,7 @@ include_directories(
         ${MQDS_BINARY_DIR}/mqds/src/twa_src
         ${MQDS_BINARY_DIR}/mqds/src/ipldm_src
         ${MQDS_BINARY_DIR}/mqds/src/equilibrium_src
+        ${MQDS_BINARY_DIR}/mqds/src/surface_hopping_src
 )
 set(MQDS_LIBRARIES
         generallib
@@ -26,7 +28,8 @@ set(MQDS_LIBRARIES
         sqclib
         twalib
         ipldmlib
-        equilibriumlib)
+        equilibriumlib
+        surfacehoppinglib)
 
 add_executable(mqds.exe main.f90)
 

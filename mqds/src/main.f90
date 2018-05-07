@@ -28,9 +28,12 @@ PROGRAM mqds
 
   IF ( method == 'ipldm' ) CALL ipldm_master
 
+  IF ( method == 'surface_hopping') CALL surface_hopping_master
+
   ! Equilibrium Reduced Density Matrix method
 
   IF ( method == 'equilibrium' ) CALL equilibrium_master
+
 
 
 END PROGRAM mqds
