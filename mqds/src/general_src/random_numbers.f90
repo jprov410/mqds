@@ -3,8 +3,8 @@
 MODULE random_numbers
   USE kinds
   IMPLICIT NONE
-  REAL(dp), PRIVATE :: cdf_g(0:60000), cdf_e(0:60000)
-  REAL(dp), PRIVATE, ALLOCATABLE :: radial_f(:,:), radial_b(:,:)
+  REAL(dp), PRIVATE :: cdf_g(0:50000), cdf_e(0:50000)
+  REAL(dp), ALLOCATABLE :: radial_f(:,:), radial_b(:,:)
   !> cdf_g, cdf_e are radial cumulative distribution functions
   !! for the ground and first excited harmonic oscillator states
 
@@ -98,20 +98,22 @@ MODULE random_numbers
       END IF
       radial_f = 0.0_dp ; radial_b = 0.0_dp
 
-      DO i = 1, SIZE(cdf_e)
+      DO i = 1, SIZE(cdf_e)-1
         cdf_g(i) = cdf_g(i-1) + dr * ( ( i * dr ) * EXP( - (i * dr)**2 / 2.0_dp ) )
         cdf_e(i) = cdf_e(i-1) + dr * ( ( i * dr )**2 * EXP( - (i * dr)**2 / 2.0_dp ) )
       END DO
 
-      norm_f = SQRT( DOT_PRODUCT( c_f, CONJG(c_f) ) )
-      norm_b = SQRT( DOT_PRODUCT( c_b, CONJG(c_b) ) )
+      !norm_f = SQRT( DOT_PRODUCT( c_f, CONJG(c_f) ) )
+      !norm_b = SQRT( DOT_PRODUCT( c_b, CONJG(c_b) ) )
 
       ! Build the current radial CDF based on linear combination of
       ! ground and first excited state radial harmonic oscillator CDFs
       DO i = 1, nstate
         ! prepare normalized coefficients for current term
-        a_f = SQRT( c_f(i) * CONJG(c_f(i)) ) / norm_f
-        a_b = SQRT( c_b(i) * CONJG(c_b(i)) ) / norm_b
+
+        !!! Change this back if didnt work !!!!
+        a_f = SQRT( c_f(i) * CONJG(c_f(i)) ) !/ norm_f
+        a_b = SQRT( c_b(i) * CONJG(c_b(i)) ) !/ norm_b
 
         ! add component of excited state for current term
         radial_f(i,:) = radial_f(i,:) + a_f * cdf_e(:)
@@ -124,10 +126,8 @@ MODULE random_numbers
           END IF
         END DO
       END DO
-
-
-      !print*, 'actual fwd norm  =  ',radial_f(1,SIZE(radial_f(i,:)) - 1)
-      !print*, 'actual bkwd norm  =  ',radial_b(1,SIZE(radial_f(i,:)) - 1)
+      !print*, 'unoccupied state =  ',radial_f(5,SIZE(radial_f(i,:)) - 1)
+      !print*, 'occupied state  =  ',radial_b(1,SIZE(radial_f(i,:)) - 1)
 
       !normalize
       DO i = 1, nstate

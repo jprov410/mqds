@@ -85,26 +85,51 @@ CONTAINS
         REAL(dp), INTENT(out) :: x( nstate ), p( nstate )
         REAL(dp), INTENT(out) :: xt( nstate ), pt( nstate )
         COMPLEX(dp) :: c_f( nstate ), c_b( nstate )
+        !COMPLEX(dp) :: xi_f( nstate ), xi_b( nstate )
+        COMPLEX(dp) :: prod_f, prod_b
         COMPLEX(dp) :: xi_f, xi_b
+
         xi_f = 0.0_dp ; xi_b = 0.0_dp ; A_f = 0.0_dp
         r = 0.0_dp ; rt = 0.0_dp ; A_b = 0.0_dp
         theta = 0.0_dp ; thetat = 0.0_dp
+        prod_f = 1.0_dp ; prod_b = 1.0_dp
+
 
         ! Sample angle variables
         theta = 2.0_dp * pi * uniform_rn( theta )
         thetat = 2.0_dp * pi * uniform_rn( thetat )
+        !print*, theta, thetat
 
-        A_f = SQRT( DOT_PRODUCT( c_f, CONJG(c_f) ) )
-        A_b = SQRT( DOT_PRODUCT( c_b, CONJG(c_b) ) )
+        ! change this back it didnt work!
+        !!!!below
+
+        A_b = 1.0_dp
+        A_f = 1.0_dp
+        !A_f = SQRT( DOT_PRODUCT( c_f, CONJG(c_f) ) )
+        !A_b = SQRT( DOT_PRODUCT( c_b, CONJG(c_b) ) )
+
+        !!! Maybe devided by radius???
         DO i = 1, nstate
+        !    A_f = A_f + SQRT( c_f(i) * CONJG( c_f(i) ) )
+        !    A_b = A_f + SQRT( c_b(i) * CONJG( c_b(i) ) )
+        !!
+        !
             xi_f = xi_f + c_f(i) * EXP( -eye * theta(i) )
             xi_b = xi_b + c_b(i) * EXP( eye * thetat(i) )
+            prod_f = prod_f * radial_f(i, SIZE(radial_f(i,:)) - 1)
+            prod_b = prod_b * radial_b(i, SIZE(radial_b(i,:)) - 1)
         END DO
 
-        weight_f = A_f * 0.5_dp * SQRT(pi) * xi_f
-        weight_b = A_b * 0.5_dp * SQRT(pi) * xi_b
+        !weight_f =  0.5_dp * SQRT(pi) * xi_f
+        !weight_b =  0.5_dp * SQRT(pi) * xi_b
 
-        prod = weight_f * weight_b
+        weight_f = A_f * prod_f * SQRT( pi ) * 0.5_dp * xi_f
+        weight_b = A_b * prod_b * SQRT( pi ) * 0.5_dp * xi_b
+        !print*, A_f, prod_f, xi_f
+        !print*, A_b, prod_b, xi_b
+        !print*, weight_f, weight_b
+
+        prod = weight_f * weight_b * SQRT( 0.5_dp * pi )
 
         CALL sample_current_cdfs( r, rt )
 
