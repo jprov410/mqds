@@ -22,7 +22,6 @@ SUBROUTINE calculate_pldm_redmat_maphop_mpi
   REAL(dp) :: p_bath_save( nosc * nbath, INT( ntraj / npes ) )
   REAL(dp) :: bath_force_save( nosc * nbath, INT( ntraj / npes ) )
   COMPLEX(dp) :: redmat( nstate, nstate, 0 : nbstep / dump )
-  COMPLEX(dp) :: redmat_save( nstate, nstate )
   COMPLEX(dp) :: coeff_fwd_save( nstate ), coeff_bkwd_save( nstate )
   COMPLEX(dp) :: coeff_fwd( nstate ), coeff_bkwd( nstate )
   COMPLEX(dp) :: sumredmat( nstate, nstate, 0 : nbstep / dump )
@@ -30,6 +29,7 @@ SUBROUTINE calculate_pldm_redmat_maphop_mpi
   redmat = ( 0.0_dp , 0.0_dp ) ; beta = 0.0_dp ; x_bath_save = 0.0_dp
   p_bath_save = 0.0_dp ; coeff_fwd = 0.0_dp ; coeff_bkwd = 0.0_dp
   coeff_fwd_save = 0.0_dp ; coeff_bkwd_save = 0.0_dp
+
   ! Calculate Beta for thermal sampling
   beta = 1.0_dp / ( temperature * convert('kelvin','au_energy') )
 
@@ -43,24 +43,24 @@ SUBROUTINE calculate_pldm_redmat_maphop_mpi
   CALL read_hel
   hel = hel * convert('wvnbr','au_energy')
 
-
   DO islice = 1, nslice
       IF (islice == 1 ) THEN
-          coeff_fwd( : ) = (0.0_dp,0.0_dp)
-          coeff_fwd( 1 ) = (0.7071067812,0.0_dp)
-          coeff_fwd( 2 ) = (0.7071067812,0.0_dp)
-          coeff_bkwd( : ) = (0.0_dp,0.0_dp)
-          coeff_bkwd( 1 ) = (0.7071067812,0.0_dp)
-          coeff_bkwd( 2 ) = (0.7071067812,0.0_dp)
-          !coeff_fwd( : ) = (0.0_dp,0.0_dp) ; coeff_fwd( initstate ) = (1.0_dp,0.0_dp)
-          !coeff_bkwd( : ) = (0.0_dp,0.0_dp) ; coeff_bkwd( initstatet ) = (1.0_dp,0.0_dp)
-
+          !coeff_fwd( : ) = (0.0_dp,0.0_dp)
+          !coeff_fwd( 1 ) = (0.7071067812,0.0_dp)
+          !coeff_fwd( 2 ) = (0.7071067812,0.0_dp)
+          !coeff_bkwd( : ) = (0.0_dp,0.0_dp)
+          !coeff_bkwd( 1 ) = (0.7071067812,0.0_dp)
+          !coeff_bkwd( 2 ) = (0.7071067812,0.0_dp)
+          coeff_fwd( : ) = (0.0_dp,0.0_dp) ; coeff_fwd( initstate ) = (1.0_dp,0.0_dp)
+          coeff_bkwd( : ) = (0.0_dp,0.0_dp) ; coeff_bkwd( initstatet ) = (1.0_dp,0.0_dp)
       ELSE
           coeff_fwd( : ) = coeff_fwd_save(:)
           coeff_bkwd( : ) = coeff_bkwd_save(:)
+          coeff_fwd_save = 0.0_dp
+          coeff_bkwd_save = 0.0_dp
       END IF
-
-      CALL build_current_cdfs(coeff_fwd, coeff_bkwd)
+      !print*, coeff_fwd, coeff_bkwd
+      CALL build_current_cdfs(coeff_fwd, coeff_bkwd, islice)
 
       DO itraj=1, INT( ntraj / npes )
           itime = (islice - 1) * ( nbstep / nslice ) / dump
@@ -80,12 +80,21 @@ SUBROUTINE calculate_pldm_redmat_maphop_mpi
               CALL pldm_map_hop( coeff_fwd, coeff_bkwd , &
                       x_map, p_map, xt_map, pt_map)
 
+              ! Take old bath conditions to be new ones
               x_bath( : ) = x_bath_save( :, itraj )
               p_bath( : ) = p_bath_save( :, itraj )
               bath_force( : ) = bath_force_save( :, itraj )
-              !print*, p_bath(:)
-              !bath_force = bilinear_harmonic_force_pldm( x_bath, x_map, p_map, xt_map, pt_map )
           END IF
+
+          !write(100+islice,*), x_map(1)
+          !write(100+islice,*), xt_map(1)
+          !write(100+islice,*), p_map(1)
+          !write(100+islice,*), pt_map(1)
+
+          !write(200+islice,*), x_map(2)
+          !write(200+islice,*), xt_map(2)
+          !write(200+islice,*), p_map(2)
+          !write(200+islice,*), pt_map(2)
 
           DO istep = 1, INT( nbstep / nslice )
 
@@ -120,8 +129,8 @@ SUBROUTINE calculate_pldm_redmat_maphop_mpi
           p_bath_save( :, itraj ) = p_bath( : )
           bath_force_save( :, itraj ) = bath_force( : )
       END DO
-      redmat( :, :, (islice - 1) * nbstep / nslice + 1 : islice * nbstep / nslice ) =  &
-              redmat( :, :, (islice - 1) * nbstep / nslice + 1 : islice * nbstep / nslice ) / INT( ntraj / npes )
+      redmat( :, :, (islice - 1) * (nbstep / nslice) / dump + 1 : islice * (nbstep / nslice) / dump ) =  &
+              redmat( :, :, (islice - 1) * (nbstep / nslice) / dump + 1 : islice * (nbstep / nslice) / dump ) / INT( ntraj / npes )
       !redmat_save( :, : ) = redmat( :, :, itime )
       coeff_fwd_save = coeff_fwd_save /  INT( ntraj / npes )
       coeff_bkwd_save = coeff_bkwd_save /  INT( ntraj / npes )
@@ -146,7 +155,7 @@ SUBROUTINE calculate_pldm_redmat_maphop_mpi
       CALL write_redmat(method, sumredmat, printstep)
   END IF
 
-  DEALLOCATE( radial_f, radial_b)
+  DEALLOCATE(radial_f, radial_b)
 
   CALL write_redmat(method, redmat, printstep)
 

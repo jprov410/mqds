@@ -80,14 +80,13 @@ MODULE random_numbers
     !! distribution functions for the radial portion of
     !! the ground and first excited state harmonic states
     !! in polar coordinates (\f$ (x - i p) \rightarrow r e^{-i \theta} \f$)
-    SUBROUTINE build_current_cdfs(c_f,c_b)
+    SUBROUTINE build_current_cdfs(c_f,c_b, islice)
       USE input_output
       IMPLICIT NONE
       INTEGER :: i, j
-      REAL(dp) :: dr = 0.0001_dp, a_f, a_b, norm_f, norm_b
-      COMPLEX(dp) :: c_f( nstate ), c_b( nstate )
-      cdf_g = 0.0_dp ; cdf_e = 0.0_dp
-      norm_f = 0.0_dp ; norm_b = 0.0_dp
+      INTEGER, INTENT(in) :: islice
+      REAL(dp) :: dr = 0.0001_dp, a_f, a_b
+      COMPLEX(dp), INTENT(in) :: c_f( nstate ), c_b( nstate )
 
       ! allocate memory for radial distributions
       IF ( ALLOCATED( radial_f ) .EQV. .FALSE. ) THEN
@@ -98,23 +97,21 @@ MODULE random_numbers
       END IF
       radial_f = 0.0_dp ; radial_b = 0.0_dp
 
-      DO i = 1, SIZE(cdf_e)-1
-        cdf_g(i) = cdf_g(i-1) + dr * ( ( i * dr ) * EXP( - (i * dr)**2 / 2.0_dp ) )
-        cdf_e(i) = cdf_e(i-1) + dr * ( ( i * dr )**2 * EXP( - (i * dr)**2 / 2.0_dp ) )
-      END DO
-
-      !norm_f = SQRT( DOT_PRODUCT( c_f, CONJG(c_f) ) )
-      !norm_b = SQRT( DOT_PRODUCT( c_b, CONJG(c_b) ) )
+      IF ( islice == 1 ) THEN
+        cdf_g = 0.0_dp ; cdf_e = 0.0_dp
+        DO i = 1, SIZE(cdf_e)-1
+          cdf_g(i) = cdf_g(i-1) + dr * ( ( i * dr ) * EXP( - (i * dr)**2 / 2.0_dp ) )
+          cdf_e(i) = cdf_e(i-1) + dr * ( ( i * dr )**2 * EXP( - (i * dr)**2 / 2.0_dp ) )
+        END DO
+      END IF
 
       ! Build the current radial CDF based on linear combination of
       ! ground and first excited state radial harmonic oscillator CDFs
       DO i = 1, nstate
         ! prepare normalized coefficients for current term
-
         !!! Change this back if didnt work !!!!
-        a_f = SQRT( c_f(i) * CONJG(c_f(i)) ) !/ norm_f
-        a_b = SQRT( c_b(i) * CONJG(c_b(i)) ) !/ norm_b
-
+        a_f = SQRT( c_f(i) * CONJG(c_f(i)) )
+        a_b = SQRT( c_b(i) * CONJG(c_b(i)) )
         ! add component of excited state for current term
         radial_f(i,:) = radial_f(i,:) + a_f * cdf_e(:)
         radial_b(i,:) = radial_b(i,:) + a_b * cdf_e(:)
@@ -126,8 +123,6 @@ MODULE random_numbers
           END IF
         END DO
       END DO
-      !print*, 'unoccupied state =  ',radial_f(5,SIZE(radial_f(i,:)) - 1)
-      !print*, 'occupied state  =  ',radial_b(1,SIZE(radial_f(i,:)) - 1)
 
       !normalize
       DO i = 1, nstate
@@ -149,7 +144,6 @@ MODULE random_numbers
 
       CALL RANDOM_NUMBER( HARVEST = r )
       CALL RANDOM_NUMBER( HARVEST = rt )
-
 
       DO i = 1, nstate
         sval = MINLOC( ABS( radial_f(i,:) - r(i) ), 1 )
