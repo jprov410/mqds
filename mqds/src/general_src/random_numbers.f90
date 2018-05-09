@@ -3,7 +3,7 @@
 MODULE random_numbers
   USE kinds
   IMPLICIT NONE
-  REAL(dp), PRIVATE :: cdf_g(0:50000), cdf_e(0:50000)
+  REAL(dp), PRIVATE :: cdf_g(0:10000), cdf_e(0:10000)
   REAL(dp), ALLOCATABLE :: radial_f(:,:), radial_b(:,:)
   !> cdf_g, cdf_e are radial cumulative distribution functions
   !! for the ground and first excited harmonic oscillator states
@@ -80,13 +80,17 @@ MODULE random_numbers
     !! distribution functions for the radial portion of
     !! the ground and first excited state harmonic states
     !! in polar coordinates (\f$ (x - i p) \rightarrow r e^{-i \theta} \f$)
-    SUBROUTINE build_current_cdfs(c_f,c_b, islice)
+
+    !SUBROUTINE build_current_cdfs(c_f,c_b, islice)
+    SUBROUTINE build_current_cdfs(c, islice)
       USE input_output
       IMPLICIT NONE
-      INTEGER :: i, j
+      INTEGER :: i, j, k, l
       INTEGER, INTENT(in) :: islice
-      REAL(dp) :: dr = 0.0001_dp, a_f, a_b
-      COMPLEX(dp), INTENT(in) :: c_f( nstate ), c_b( nstate )
+      REAL(dp) :: dr = 0.001_dp !, a_f, a_b
+      REAL(dp) :: a
+      !COMPLEX(dp), INTENT(in) :: c_f( nstate ), c_b( nstate )
+      COMPLEX(dp), INTENT(in) :: c( nstate, nstate )
 
       ! allocate memory for radial distributions
       IF ( ALLOCATED( radial_f ) .EQV. .FALSE. ) THEN
@@ -107,20 +111,45 @@ MODULE random_numbers
 
       ! Build the current radial CDF based on linear combination of
       ! ground and first excited state radial harmonic oscillator CDFs
+!      DO i = 1, nstate
+!        ! prepare normalized coefficients for current term
+!        a_f = SQRT( c_f(i) * CONJG(c_f(i)) )
+!        a_b = SQRT( c_b(i) * CONJG(c_b(i)) )
+!        ! add component of excited state for current term
+!        radial_f(i,:) = radial_f(i,:) + a_f * cdf_e(:)
+!        radial_b(i,:) = radial_b(i,:) + a_b * cdf_e(:)
+!        DO j=1,nstate
+!          IF ( j /= i ) THEN
+!            ! add component of ground state for current term
+!            radial_f(j,:) = radial_f(j,:) + a_f * cdf_g(:)
+!            radial_b(j,:) = radial_b(j,:) + a_b * cdf_g(:)
+!          END IF
+!        END DO
+!      END DO
+
       DO i = 1, nstate
-        ! prepare normalized coefficients for current term
-        !!! Change this back if didnt work !!!!
-        a_f = SQRT( c_f(i) * CONJG(c_f(i)) )
-        a_b = SQRT( c_b(i) * CONJG(c_b(i)) )
-        ! add component of excited state for current term
-        radial_f(i,:) = radial_f(i,:) + a_f * cdf_e(:)
-        radial_b(i,:) = radial_b(i,:) + a_b * cdf_e(:)
-        DO j=1,nstate
-          IF ( j /= i ) THEN
-            ! add component of ground state for current term
-            radial_f(j,:) = radial_f(j,:) + a_f * cdf_g(:)
-            radial_b(j,:) = radial_b(j,:) + a_b * cdf_g(:)
-          END IF
+        DO j = 1, nstate
+          ! prepare normalized coefficients for current term
+
+
+          ! TRY SQRT(A) ALSOOOOO
+          a = SQRT( c(i,j) * CONJG(c(i,j)) )
+
+          a = SQRT( a )
+
+          ! add component of excited state for current term
+          radial_f(i,:) = radial_f(i,:) + a * cdf_e(:)
+          radial_b(j,:) = radial_b(j,:) + a * cdf_e(:)
+          DO k=1,nstate
+            IF ( k /= i ) THEN
+              ! add component of ground state for current term
+              radial_f(k,:) = radial_f(k,:) + a * cdf_g(:)
+            END IF
+            IF ( k /= j ) THEN
+              ! add component of ground state for current term
+              radial_b(k,:) = radial_b(k,:) + a * cdf_g(:)
+            END IF
+          END DO
         END DO
       END DO
 
@@ -139,7 +168,7 @@ MODULE random_numbers
       USE input_output
       IMPLICIT NONE
       REAL(dp), INTENT(out) :: r(nstate), rt(nstate)
-      REAL(dp) :: dr = 0.0001_dp
+      REAL(dp) :: dr = 0.001_dp
       INTEGER :: sval,svalt, i ! sampled index values
 
       CALL RANDOM_NUMBER( HARVEST = r )

@@ -74,7 +74,9 @@ CONTAINS
     !> Subroutine that takes the current density matrix and uses it
     !! for coefficients in a linear combination of new initial Hermite
     !! polynomials
-    SUBROUTINE pldm_map_hop( c_f, c_b, x, p, xt, pt )
+
+    !SUBROUTINE pldm_map_hop( c_f, c_b, x, p, xt, pt )
+    SUBROUTINE pldm_map_hop( c, x, p, xt, pt )
         USE input_output
         USE parameters
         USE random_numbers
@@ -82,44 +84,55 @@ CONTAINS
         INTEGER :: i, j
         REAL(dp) :: r( nstate ), theta( nstate )
         REAL(dp) :: rt( nstate ), thetat( nstate )
-        REAL(dp) :: norm_f, norm_b
+        !REAL(dp) :: norm_f, norm_b
+        REAL(dp) :: norm
         REAL(dp), INTENT(out) :: x( nstate ), p( nstate )
         REAL(dp), INTENT(out) :: xt( nstate ), pt( nstate )
-        COMPLEX(dp) :: c_f( nstate ), c_b( nstate )
-        COMPLEX(dp) :: xi_f, xi_b, A_f, A_b
-        xi_f = 0.0_dp ; xi_b = 0.0_dp ; A_f = 0.0_dp
-        r = 0.0_dp ; rt = 0.0_dp ; A_b = 0.0_dp
-        theta = 0.0_dp ; thetat = 0.0_dp
-        norm_f = 0.0_dp ; norm_b = 0.0_dp
+        COMPLEX(dp), INTENT(in) :: c( nstate, nstate )
+        !COMPLEX(dp),INTENT(in) :: c_f( nstate ), c_b( nstate )
+        COMPLEX(dp) :: xi, A
+        !COMPLEX(dp) :: xi_f, xi_b, A_f, A_b
 
+        !xi_f = 0.0_dp ; xi_b = 0.0_dp ; A_f = 0.0_dp
+        r = 0.0_dp ; rt = 0.0_dp !; A_b = 0.0_dp
+        theta = 0.0_dp ; thetat = 0.0_dp ; xi = 0.0_dp ; A = 0.0_dp
+        !norm_f = 0.0_dp ; norm_b = 0.0_dp
+        norm = 0.0_dp
 
         ! Sample angle variables
         theta = 2.0_dp * pi * uniform_rn( theta )
         thetat = 2.0_dp * pi * uniform_rn( thetat )
 
-        ! change this back it didnt work!
-        !!!!below
-
         CALL sample_current_cdfs( r, rt )
 
         DO i = 1, nstate
+            DO j = 1, nstate
+                xi = xi + r(i) * rt(j) * c(i,j) * EXP( -eye * (theta(i) - thetat(j) ) )
+                A = A + r(i) * rt(j) * SQRT( c(i,j) * CONJG( c(i,j) ) )
+                norm = norm + SQRT( c(i,j) * CONJG( c(i,j) ) )
+            END DO
+
             ! Inintial forward boundary terms (xi_f/A_f)
-            xi_f = xi_f + r(i) * c_f(i) * EXP( -eye * theta(i) )
-            A_f = A_f + SQRT( c_f(i) * CONJG( c_f(i) ) ) * r(i)
-            norm_f = norm_f + SQRT( c_f(i) * CONJG( c_f(i) ) )
+            !xi_f = xi_f + r(i) * c_f(i) * EXP( -eye * theta(i) )
+            !A_f = A_f + SQRT( c_f(i) * CONJG( c_f(i) ) ) * r(i)
+            !norm_f = norm_f + SQRT( c_f(i) * CONJG( c_f(i) ) )
 
             ! Inintial backward boundary term (xi_b/A_b)
-            xi_b = xi_b + rt(i) * c_b(i) * EXP( eye * thetat(i) )
-            A_b = A_b + SQRT( c_b(i) * CONJG( c_b(i) ) ) * rt(i)
-            norm_b = norm_b + SQRT( c_b(i) * CONJG( c_b(i) ) )
+            !xi_b = xi_b + rt(i) * c_b(i) * EXP( eye * thetat(i) )
+            !A_b = A_b + SQRT( c_b(i) * CONJG( c_b(i) ) ) * rt(i)
+            !norm_b = norm_b + SQRT( c_b(i) * CONJG( c_b(i) ) )
         END DO
-        norm_f = norm_f * DSQRT(0.5_dp * pi)
-        norm_b = norm_b * DSQRT(0.5_dp * pi)
+        !norm_f = norm_f * DSQRT(0.5_dp * pi)
+        !norm_b = norm_b * DSQRT(0.5_dp * pi)
 
-        weight_f =  DSQRT(0.5_dp) * norm_f * xi_f / A_f
-        weight_b =  DSQRT(0.5_dp) * norm_b * xi_b / A_b
+        !weight_f = DSQRT(0.5_dp) * norm_f * xi_f / A_f
+        !weight_b = DSQRT(0.5_dp) * norm_b * xi_b / A_b
 
-        prod = weight_f * weight_b
+        !prod = weight_f * weight_b
+
+        norm = norm * pi / 2.0_dp
+
+        prod = 0.5_dp * norm * xi / A
 
         x( : ) = r( : ) * DCOS( theta )
         xt( : ) = rt( : ) * DCOS( thetat )
