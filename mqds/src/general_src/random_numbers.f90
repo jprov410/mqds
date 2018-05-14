@@ -128,9 +128,9 @@ MODULE random_numbers
 !      END DO
 
       DO i = 1, nstate
-        DO j = 1, nstate
+        !DO j = 1, nstate
           ! prepare normalized coefficients for current term
-
+        j=i
 
           ! TRY SQRT(A) ALSOOOOO
           a = SQRT( c(i,j) * CONJG(c(i,j)) )
@@ -150,7 +150,7 @@ MODULE random_numbers
               radial_b(k,:) = radial_b(k,:) + a * cdf_g(:)
             END IF
           END DO
-        END DO
+        !END DO
       END DO
 
       !normalize
