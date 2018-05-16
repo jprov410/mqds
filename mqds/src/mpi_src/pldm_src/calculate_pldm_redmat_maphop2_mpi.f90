@@ -40,7 +40,7 @@ SUBROUTINE calculate_pldm_redmat_maphop2_mpi
   CALL read_hel
   hel = hel * convert('wvnbr','au_energy')
 
-  CALL initialize_radial_distribution_functions
+
   DO itraj=1, INT(ntraj/npes)
      itime=0 ; count = 1
 
@@ -56,8 +56,8 @@ SUBROUTINE calculate_pldm_redmat_maphop2_mpi
      CALL sample_thermal_wigner(x_bath, p_bath, beta)
 
      ! build initial mapping radial distribution then sample
-     CALL build_current_cdfs(coeff_f, coeff_b)
-     CALL pldm_map_hop(coeff_f, coeff_b, x_map, p_map, xt_map, pt_map, count)
+     CALL build_current_cdfs(coeff_f, coeff_b, count)
+     CALL pldm_map_hop(coeff_f, coeff_b, x_map, p_map, xt_map, pt_map)
 
      ! Calculate the t=0 redmat
      redmat(:, :, itime) = redmat(:, :, itime) + pldm_redmat(x_map, p_map, xt_map, pt_map)
@@ -88,9 +88,9 @@ SUBROUTINE calculate_pldm_redmat_maphop2_mpi
                !coeff = pldm_redmat(x_map, p_map, xt_map, pt_map)
                coeff_f(:) = DSQRT(0.5_dp) * ( x_map(:) + eye * p_map(:) ) * weight_f
                coeff_b(:) = DSQRT(0.5_dp) * ( xt_map(:) - eye * pt_map(:) ) * weight_b
-               CALL build_current_cdfs(coeff_f, coeff_b)
+               CALL build_current_cdfs(coeff_f, coeff_b, count)
                CALL pldm_map_hop( coeff_f, coeff_b,&
-                       x_map, p_map, xt_map, pt_map, count )
+                       x_map, p_map, xt_map, pt_map )
            END IF
         END IF
 

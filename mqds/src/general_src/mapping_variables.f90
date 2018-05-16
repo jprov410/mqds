@@ -75,7 +75,7 @@ CONTAINS
     !! for coefficients in a linear combination of new initial Hermite
     !! polynomials
 
-    SUBROUTINE pldm_map_hop( c_f, c_b, x, p, xt, pt, islice )
+    SUBROUTINE pldm_map_hop( c_f, c_b, x, p, xt, pt)
     !SUBROUTINE pldm_map_hop( c, x, p, xt, pt, islice )
         USE input_output
         USE parameters
