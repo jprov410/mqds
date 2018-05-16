@@ -94,17 +94,13 @@ CONTAINS
         COMPLEX(dp) :: xi_f, xi_b ! fwd and bkwd lin comb of phases
         COMPLEX(dp) :: P_f, P_b ! sampled probability distributions
         REAL(dp) :: N_f, N_b ! normalizations
-        COMPLEX(dp), SAVE :: P_f_over_N_f_save, P_b_over_N_b_save
         xi_f = 0.0_dp ; xi_b = 0.0_dp !; N_f = 0.0_dp
         r = 0.0_dp ; rt = 0.0_dp !; N_b = 0.0_dp
         theta = 0.0_dp ; thetat = 0.0_dp !; xi = 0.0_dp ; A = 0.0_dp
         N_f = 0.0_dp ; N_b = 0.0_dp
         P_f = 0.0_dp ; P_b = 0.0_dp
 
-        IF (islice == 1) THEN
-            P_f_over_N_f_save = 1.0_dp
-            P_b_over_N_b_save = 1.0_dp
-        END IF
+
         ! Sample angle variables
         theta = 2.0_dp * pi * uniform_rn( theta )
         thetat = 2.0_dp * pi * uniform_rn( thetat )
@@ -140,11 +136,8 @@ CONTAINS
         N_f = N_f * DSQRT(0.5_dp * pi)
         N_b = N_b * DSQRT(0.5_dp * pi)
 
-        P_f_over_N_f_save = P_f_over_N_f_save * ( P_f / N_f )
-        P_b_over_N_b_save = P_b_over_N_b_save * ( P_b / N_b )
-
-        weight_f = DSQRT(0.5_dp) * xi_f / P_f_over_N_f_save
-        weight_b = DSQRT(0.5_dp) * xi_b / P_b_over_N_b_save
+        weight_f = DSQRT(0.5_dp) * xi_f / ( P_f / N_f )
+        weight_b = DSQRT(0.5_dp) * xi_b / ( P_b / N_b )
         !weight_f = weight_f * DSQRT(0.5_dp) * xi_f / ( P_f / N_f )
         !weight_b = weight_b * DSQRT(0.5_dp) * xi_b / ( P_b / N_b )
 
@@ -159,6 +152,8 @@ CONTAINS
         !A = A * A_f * A_b
         !prod = 0.5_dp * norm * xi / A
         !prod = 0.5_dp *  xi * (norm / A)!(A_f * A_b)
+
+
 
         x( : ) = r( : ) * DCOS( theta )
         xt( : ) = rt( : ) * DCOS( thetat )
