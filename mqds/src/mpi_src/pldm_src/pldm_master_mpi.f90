@@ -38,7 +38,7 @@ SUBROUTINE pldm_master_mpi
           END IF
 
           IF ( calculation == 'maphop' ) THEN
-              CALL calculate_pldm_redmat_maphop_mpi
+              CALL calculate_pldm_redmat_maphop2_mpi
           END IF
 
           IF ( calculation == 'absorption' ) THEN

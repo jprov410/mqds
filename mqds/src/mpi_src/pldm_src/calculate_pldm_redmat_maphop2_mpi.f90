@@ -9,19 +9,24 @@ SUBROUTINE calculate_pldm_redmat_maphop2_mpi
   USE harmonic_bath
   USE input_output
   USE mpi_variables
+  USE random_numbers
+  USE parameters
   IMPLICIT NONE
   INTEGER :: i, j, k
-  INTEGER :: istep, itraj, itime
+  INTEGER :: istep, itraj, itime, count
   REAL(dp) :: beta
   REAL(dp) :: ham( nstate, nstate )
   REAL(dp) :: bath_force( nosc * nbath )
   REAL(dp) :: dt_bath, dt_map, printstep
   COMPLEX(dp) :: redmat( nstate, nstate, 0 : nbstep / dump )
   COMPLEX(dp) :: sumredmat( nstate, nstate, 0 : nbstep / dump )
+  !COMPLEX(dp) :: init(nstate, nstate), coeff(nstate, nstate)
+  COMPLEX(dp) :: coeff_f(nstate), coeff_b(nstate)
   bath_force = 0.0_dp ; dt_bath = 0.0_dp ; dt_map = 0.0_dp
   beta = 0.0_dp ; ham = 0.0_dp
   redmat = ( 0.0_dp , 0.0_dp ) ; sumredmat = ( 0.0_dp , 0.0_dp )
-  
+  !init = 0.0_dp ; coeff = 0.0_dp
+
   ! Calculate Beta for thermal sampling
   beta = 1.0_dp / ( temperature * convert('kelvin','au_energy') )
 
@@ -35,12 +40,24 @@ SUBROUTINE calculate_pldm_redmat_maphop2_mpi
   CALL read_hel
   hel = hel * convert('wvnbr','au_energy')
 
+
   DO itraj=1, INT(ntraj/npes)
-     itime=0
-     
-     ! Sample the initial conditions for system mapping and bath DOFs
+     itime=0 ; count = 1
+
+     ! initial coefficients
+     coeff_f = 0.0_dp ; coeff_b = 0.0_dp
+     !coeff_f(1) = 0.7071067812 ; coeff_b(1) = 0.7071067812
+     !coeff_f(2) = 0.7071067812 ; coeff_b(2) = 0.7071067812
+     coeff_f(initstate) = 1.0_dp ; coeff_b(initstatet) = 1.0_dp
+     ! initial weights for trajectory
+     weight_f = 1.0_dp ; weight_b = 1.0_dp
+
+     ! Sample the initial conditions for bath DOFs
      CALL sample_thermal_wigner(x_bath, p_bath, beta)
-     CALL sample_pldm_map(x_map, p_map, xt_map, pt_map)
+
+     ! build initial mapping radial distribution then sample
+     CALL build_current_cdfs(coeff_f, coeff_b, count)
+     CALL pldm_map_hop(coeff_f, coeff_b, x_map, p_map, xt_map, pt_map)
 
      ! Calculate the t=0 redmat
      redmat(:, :, itime) = redmat(:, :, itime) + pldm_redmat(x_map, p_map, xt_map, pt_map)
@@ -66,8 +83,13 @@ SUBROUTINE calculate_pldm_redmat_maphop2_mpi
         IF ( MOD( istep, dump) == 0 ) THEN
            itime = itime + 1           
            redmat(:, :, itime) = redmat(:, :, itime) + pldm_redmat(x_map, p_map, xt_map, pt_map)
-           IF ( MOD( istep, nbstep / nslice ) == 0 ) THEN
-               CALL pldm_map_hop( pldm_redmat(x_map, p_map, xt_map, pt_map),&
+           IF ( MOD( istep, nbstep / dump / nslice ) == 0 ) THEN
+               count = count + 1
+               !coeff = pldm_redmat(x_map, p_map, xt_map, pt_map)
+               coeff_f(:) = DSQRT(0.5_dp) * ( x_map(:) + eye * p_map(:) ) * weight_f
+               coeff_b(:) = DSQRT(0.5_dp) * ( xt_map(:) - eye * pt_map(:) ) * weight_b
+               CALL build_current_cdfs(coeff_f, coeff_b, count)
+               CALL pldm_map_hop( coeff_f, coeff_b,&
                        x_map, p_map, xt_map, pt_map )
            END IF
         END IF
@@ -97,5 +119,6 @@ SUBROUTINE calculate_pldm_redmat_maphop2_mpi
       sumredmat = sumredmat / DBLE(npes)
       CALL write_redmat(method, sumredmat, printstep)
   END IF
+  DEALLOCATE( radial_b, radial_f)
 
 END SUBROUTINE calculate_pldm_redmat_maphop2_mpi
