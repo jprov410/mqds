@@ -75,7 +75,7 @@ CONTAINS
     !! for coefficients in a linear combination of new initial Hermite
     !! polynomials
 
-    SUBROUTINE pldm_map_hop( c_f, c_b, x, p, xt, pt)
+    SUBROUTINE pldm_map_hop( c_f, c_b, x, p, xt, pt, islice)
     !SUBROUTINE pldm_map_hop( c, x, p, xt, pt, islice )
         USE input_output
         USE parameters
@@ -94,12 +94,16 @@ CONTAINS
         COMPLEX(dp) :: xi_f, xi_b ! fwd and bkwd lin comb of phases
         COMPLEX(dp) :: P_f, P_b ! sampled probability distributions
         REAL(dp) :: N_f, N_b ! normalizations
+        COMPLEX(dp), SAVE :: fwd_save, bkwd_save
         xi_f = 0.0_dp ; xi_b = 0.0_dp !; N_f = 0.0_dp
         r = 0.0_dp ; rt = 0.0_dp !; N_b = 0.0_dp
         theta = 0.0_dp ; thetat = 0.0_dp !; xi = 0.0_dp ; A = 0.0_dp
         N_f = 0.0_dp ; N_b = 0.0_dp
         P_f = 0.0_dp ; P_b = 0.0_dp
-
+        IF ( islice == 1 ) THEN
+            fwd_save = 1.0_dp
+            bkwd_save = 1.0_dp
+        END IF
 
         ! Sample angle variables
         theta = 2.0_dp * pi * uniform_rn( theta )
@@ -136,8 +140,15 @@ CONTAINS
         N_f = N_f * DSQRT(0.5_dp * pi)
         N_b = N_b * DSQRT(0.5_dp * pi)
 
-        weight_f = DSQRT(0.5_dp) * xi_f / ( P_f / N_f )
-        weight_b = DSQRT(0.5_dp) * xi_b / ( P_b / N_b )
+        fwd_save = fwd_save * P_f / N_f
+        bkwd_save = bkwd_save * P_b / N_b
+
+        weight_f = DSQRT(0.5_dp) * xi_f / fwd_Save
+        weight_b = DSQRT(0.5_dp) * xi_b / bkwd_save
+
+!        weight_f = DSQRT(0.5_dp) * xi_f / ( P_f / N_f )
+!        weight_b = DSQRT(0.5_dp) * xi_b / ( P_b / N_b )
+
         !weight_f = weight_f * DSQRT(0.5_dp) * xi_f / ( P_f / N_f )
         !weight_b = weight_b * DSQRT(0.5_dp) * xi_b / ( P_b / N_b )
 

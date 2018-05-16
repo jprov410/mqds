@@ -57,7 +57,7 @@ SUBROUTINE calculate_pldm_redmat_maphop2_mpi
 
      ! build initial mapping radial distribution then sample
      CALL build_current_cdfs(coeff_f, coeff_b, count)
-     CALL pldm_map_hop(coeff_f, coeff_b, x_map, p_map, xt_map, pt_map)
+     CALL pldm_map_hop(coeff_f, coeff_b, x_map, p_map, xt_map, pt_map, count)
 
      ! Calculate the t=0 redmat
      redmat(:, :, itime) = redmat(:, :, itime) + pldm_redmat(x_map, p_map, xt_map, pt_map)
@@ -90,7 +90,7 @@ SUBROUTINE calculate_pldm_redmat_maphop2_mpi
                coeff_b(:) = DSQRT(0.5_dp) * ( xt_map(:) - eye * pt_map(:) ) * weight_b
                CALL build_current_cdfs(coeff_f, coeff_b, count)
                CALL pldm_map_hop( coeff_f, coeff_b,&
-                       x_map, p_map, xt_map, pt_map )
+                       x_map, p_map, xt_map, pt_map, count )
            END IF
         END IF
 
