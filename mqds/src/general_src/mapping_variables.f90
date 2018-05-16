@@ -141,8 +141,10 @@ CONTAINS
         N_f = N_f * DSQRT(0.5_dp * pi)
         N_b = N_b * DSQRT(0.5_dp * pi)
 
-        weight_f = DSQRT(0.5_dp) * xi_f / ( P_f / N_f )
-        weight_b = DSQRT(0.5_dp) * xi_b / ( P_b / N_b )
+        !weight_f = DSQRT(0.5_dp) * xi_f / ( P_f / N_f )
+        !weight_b = DSQRT(0.5_dp) * xi_b / ( P_b / N_b )
+        weight_f = weight_f * DSQRT(0.5_dp) * xi_f / ( P_f / N_f )
+        weight_b = weight_b * DSQRT(0.5_dp) * xi_b / ( P_b / N_b )
 
         prod = weight_f * weight_b
         !print*, norm_f, norm_b

@@ -80,34 +80,15 @@ MODULE random_numbers
     !! distribution functions for the radial portion of
     !! the ground and first excited state harmonic states
     !! in polar coordinates (\f$ (x - i p) \rightarrow r e^{-i \theta} \f$)
-
-    SUBROUTINE build_current_cdfs(c_f,c_b, islice)
+    SUBROUTINE build_current_cdfs(c_f,c_b)
     !SUBROUTINE build_current_cdfs(c, islice)
       USE input_output
       IMPLICIT NONE
       INTEGER :: i, j, k, l
-      INTEGER, INTENT(in) :: islice
-      REAL(dp) :: dr = 0.0005_dp, a_f, a_b
+      REAL(dp) ::  a_f, a_b
       REAL(dp) :: a
       COMPLEX(dp), INTENT(in) :: c_f( nstate ), c_b( nstate )
       !COMPLEX(dp), INTENT(in) :: c( nstate, nstate )
-
-      ! allocate memory for radial distributions
-      IF ( ALLOCATED( radial_f ) .EQV. .FALSE. ) THEN
-        ALLOCATE( radial_f( nstate, 0 : SIZE(cdf_e) -1 ) )
-      END IF
-      IF ( ALLOCATED( radial_b ) .EQV. .FALSE. ) THEN
-        ALLOCATE( radial_b( nstate, 0 : SIZE(cdf_e) -1 ) )
-      END IF
-      radial_f = 0.0_dp ; radial_b = 0.0_dp
-
-      IF ( islice == 1 ) THEN
-        cdf_g = 0.0_dp ; cdf_e = 0.0_dp
-        DO i = 1, SIZE(cdf_e)-1
-          cdf_g(i) = cdf_g(i-1) + dr * ( ( i * dr ) * EXP( - (i * dr)**2 / 2.0_dp ) )
-          cdf_e(i) = cdf_e(i-1) + dr * ( ( i * dr )**2 * EXP( - (i * dr)**2 / 2.0_dp ) )
-        END DO
-      END IF
 
       ! Build the current radial CDF based on linear combination of
       ! ground and first excited state radial harmonic oscillator CDFs
@@ -161,6 +142,28 @@ MODULE random_numbers
 
     END SUBROUTINE build_current_cdfs
 
+    SUBROUTINE initialize_radial_distribution_functions
+      USE input_output
+      IMPLICIT NONE
+      INTEGER :: i
+      REAL(dp) :: dr = 0.0005_dp
+
+      ! allocate memory for radial distributions
+      IF ( ALLOCATED( radial_f ) .EQV. .FALSE. ) THEN
+        ALLOCATE( radial_f( nstate, 0 : SIZE(cdf_e) -1 ) )
+      END IF
+      IF ( ALLOCATED( radial_b ) .EQV. .FALSE. ) THEN
+        ALLOCATE( radial_b( nstate, 0 : SIZE(cdf_e) -1 ) )
+      END IF
+      radial_f = 0.0_dp ; radial_b = 0.0_dp
+
+      cdf_g = 0.0_dp ; cdf_e = 0.0_dp
+        DO i = 1, SIZE(cdf_e)-1
+          cdf_g(i) = cdf_g(i-1) + dr * ( ( i * dr ) * EXP( - (i * dr)**2 / 2.0_dp ) )
+          cdf_e(i) = cdf_e(i-1) + dr * ( ( i * dr )**2 * EXP( - (i * dr)**2 / 2.0_dp ) )
+        END DO
+    END SUBROUTINE initialize_radial_distribution_functions
+
     !> subroutine to sample the current cumulative distribution
     !! functions for the radial portion of the harmonic oscillator
     !! states
@@ -188,7 +191,7 @@ MODULE random_numbers
     FUNCTION ground_rn() RESULT( res )
       IMPLICIT NONE
       REAL(dp) :: res
-      REAL(dp) :: dr = 0.0001_dp
+      REAL(dp) :: dr = 0.0005_dp
       INTEGER :: sval
 
       CALL RANDOM_NUMBER( HARVEST = res )
@@ -204,7 +207,7 @@ MODULE random_numbers
     FUNCTION excited_rn() RESULT( res )
       IMPLICIT NONE
       REAL(dp) :: res
-      REAL(dp) :: dr = 0.0001_dp
+      REAL(dp) :: dr = 0.0005_dp
       INTEGER :: sval
 
       CALL RANDOM_NUMBER( HARVEST = res )
