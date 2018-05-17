@@ -132,7 +132,7 @@ MODULE random_numbers
           ! prepare normalized coefficients for current term
       !  j=i
 
-          ! TRY SQRT(A) ALSO
+          ! TRY SQRT(A) ALSOOOOO
       !    a = SQRT( c(i,j) * CONJG(c(i,j)) )
 
       !    a = SQRT( a )
