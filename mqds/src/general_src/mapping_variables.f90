@@ -146,15 +146,15 @@ CONTAINS
         N_f = N_f * DSQRT(0.5_dp * pi)
         N_b = N_b * DSQRT(0.5_dp * pi)
 
-        fwd_save = fwd_save * P_f / N_f
-        bkwd_save = bkwd_save * P_b / N_b
+        !fwd_save = fwd_save * P_f / N_f
+        !bkwd_save = bkwd_save * P_b / N_b
 
-        weight_f = DSQRT(0.5_dp) * xi_f / fwd_Save
-        weight_b = DSQRT(0.5_dp) * xi_b / bkwd_save
+        !weight_f = DSQRT(0.5_dp) * xi_f / fwd_Save
+        !weight_b = DSQRT(0.5_dp) * xi_b / bkwd_save
 
         ! the good-ish one
-        !weight_f = DSQRT(0.5_dp) * xi_f / ( P_f / N_f )
-        !weight_b = DSQRT(0.5_dp) * xi_b / ( P_b / N_b )
+        weight_f = DSQRT(0.5_dp) * xi_f / ( P_f / N_f )
+        weight_b = DSQRT(0.5_dp) * xi_b / ( P_b / N_b )
 
 !        weight_f = weight_f * DSQRT(0.5_dp) * xi_f / ( P_f / N_f )
 !        weight_b = weight_b * DSQRT(0.5_dp) * xi_b / ( P_b / N_b )
