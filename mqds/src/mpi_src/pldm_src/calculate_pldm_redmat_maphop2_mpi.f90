@@ -13,7 +13,7 @@ SUBROUTINE calculate_pldm_redmat_maphop2_mpi
   USE parameters
   IMPLICIT NONE
   INTEGER :: i, j, k
-  INTEGER :: istep, itraj, itime, count
+  INTEGER :: istep, itraj, itime, islice
   REAL(dp) :: beta
   REAL(dp) :: ham( nstate, nstate )
   REAL(dp) :: bath_force( nosc * nbath )
@@ -42,7 +42,7 @@ SUBROUTINE calculate_pldm_redmat_maphop2_mpi
 
 
   DO itraj=1, INT(ntraj/npes)
-     itime=0 ; count = 1
+     itime=0 ; islice = 1
 
      ! initial coefficients
      coeff_f = 0.0_dp ; coeff_b = 0.0_dp
@@ -56,8 +56,8 @@ SUBROUTINE calculate_pldm_redmat_maphop2_mpi
      CALL sample_thermal_wigner(x_bath, p_bath, beta)
 
      ! build initial mapping radial distribution then sample
-     CALL build_current_cdfs(coeff_f, coeff_b, count)
-     CALL pldm_map_hop(coeff_f, coeff_b, x_map, p_map, xt_map, pt_map, count)
+     CALL build_current_cdfs(coeff_f, coeff_b, islice)
+     CALL pldm_map_hop(coeff_f, coeff_b, x_map, p_map, xt_map, pt_map, islice)
 
      ! Calculate the t=0 redmat
      redmat(:, :, itime) = redmat(:, :, itime) + pldm_redmat(x_map, p_map, xt_map, pt_map)
@@ -84,13 +84,13 @@ SUBROUTINE calculate_pldm_redmat_maphop2_mpi
            itime = itime + 1           
            redmat(:, :, itime) = redmat(:, :, itime) + pldm_redmat(x_map, p_map, xt_map, pt_map)
            IF ( MOD( istep, nbstep / dump / nslice ) == 0 ) THEN
-               count = count + 1
+               islice = islice + 1
                !coeff = pldm_redmat(x_map, p_map, xt_map, pt_map)
                coeff_f(:) = DSQRT(0.5_dp) * ( x_map(:) + eye * p_map(:) ) * weight_f
                coeff_b(:) = DSQRT(0.5_dp) * ( xt_map(:) - eye * pt_map(:) ) * weight_b
-               CALL build_current_cdfs(coeff_f, coeff_b, count)
+               CALL build_current_cdfs( coeff_f, coeff_b, islice )
                CALL pldm_map_hop( coeff_f, coeff_b,&
-                       x_map, p_map, xt_map, pt_map, count )
+                       x_map, p_map, xt_map, pt_map, islice )
            END IF
         END IF
 

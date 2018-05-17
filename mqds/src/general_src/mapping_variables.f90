@@ -123,8 +123,11 @@ CONTAINS
 
             ! Inintial forward boundary terms (xi_f/A_f)
             xi_f = xi_f + r(i) * c_f(i) * EXP( -eye * theta(i) )
-            P_f = P_f + SQRT( c_f(i) * CONJG( c_f(i) ) ) * r(i)
-            N_f = N_f + SQRT( c_f(i) * CONJG( c_f(i) ) )
+            !P_f = P_f + SQRT( c_f(i) * CONJG( c_f(i) ) ) * r(i)
+            !N_f = N_f + SQRT( c_f(i) * CONJG( c_f(i) ) )
+
+            P_f = P_f +  c_f(i) * CONJG( c_f(i) )  * r(i)
+            N_f = N_f +  c_f(i) * CONJG( c_f(i) )
 
             !A_f = A_f + SQRT(SQRT( c(i,i) * CONJG( c(i,i) ) ) ) * r(i)
             !norm_f = norm_f + SQRT(SQRT( c(i,i) * CONJG( c(i,i) ) ))
@@ -134,8 +137,11 @@ CONTAINS
 
             ! Inintial backward boundary term (xi_b/A_b)
             xi_b = xi_b + rt(i) * c_b(i) * EXP( eye * thetat(i) )
-            P_b = P_b + SQRT( c_b(i) * CONJG( c_b(i) ) ) * rt(i)
-            N_b = N_b + SQRT( c_b(i) * CONJG( c_b(i) ) )
+            !P_b = P_b + SQRT( c_b(i) * CONJG( c_b(i) ) ) * rt(i)
+            !N_b = N_b + SQRT( c_b(i) * CONJG( c_b(i) ) )
+
+            P_b = P_b + c_b(i) * CONJG( c_b(i) ) * rt(i)
+            N_b = N_b + c_b(i) * CONJG( c_b(i) )
         END DO
         N_f = N_f * DSQRT(0.5_dp * pi)
         N_b = N_b * DSQRT(0.5_dp * pi)
@@ -146,11 +152,12 @@ CONTAINS
         weight_f = DSQRT(0.5_dp) * xi_f / fwd_Save
         weight_b = DSQRT(0.5_dp) * xi_b / bkwd_save
 
-!        weight_f = DSQRT(0.5_dp) * xi_f / ( P_f / N_f )
-!        weight_b = DSQRT(0.5_dp) * xi_b / ( P_b / N_b )
+        ! the good-ish one
+        !weight_f = DSQRT(0.5_dp) * xi_f / ( P_f / N_f )
+        !weight_b = DSQRT(0.5_dp) * xi_b / ( P_b / N_b )
 
-        !weight_f = weight_f * DSQRT(0.5_dp) * xi_f / ( P_f / N_f )
-        !weight_b = weight_b * DSQRT(0.5_dp) * xi_b / ( P_b / N_b )
+!        weight_f = weight_f * DSQRT(0.5_dp) * xi_f / ( P_f / N_f )
+!        weight_b = weight_b * DSQRT(0.5_dp) * xi_b / ( P_b / N_b )
 
         prod = weight_f * weight_b
         !print*, norm_f, norm_b
@@ -163,8 +170,6 @@ CONTAINS
         !A = A * A_f * A_b
         !prod = 0.5_dp * norm * xi / A
         !prod = 0.5_dp *  xi * (norm / A)!(A_f * A_b)
-
-
 
         x( : ) = r( : ) * DCOS( theta )
         xt( : ) = rt( : ) * DCOS( thetat )

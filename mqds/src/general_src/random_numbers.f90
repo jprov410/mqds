@@ -80,6 +80,7 @@ MODULE random_numbers
     !! distribution functions for the radial portion of
     !! the ground and first excited state harmonic states
     !! in polar coordinates (\f$ (x - i p) \rightarrow r e^{-i \theta} \f$)
+
     SUBROUTINE build_current_cdfs(c_f,c_b, islice)
     !SUBROUTINE build_current_cdfs(c, islice)
       USE input_output
@@ -112,8 +113,8 @@ MODULE random_numbers
       ! ground and first excited state radial harmonic oscillator CDFs
       DO i = 1, nstate
         ! prepare normalized coefficients for current term
-        a_f = SQRT( c_f(i) * CONJG(c_f(i)) )
-        a_b = SQRT( c_b(i) * CONJG(c_b(i)) )
+        a_f =  c_f(i) * CONJG(c_f(i))
+        a_b =  c_b(i) * CONJG(c_b(i))
         ! add component of excited state for current term
         radial_f(i,:) = radial_f(i,:) + a_f * cdf_e(:)
         radial_b(i,:) = radial_b(i,:) + a_b * cdf_e(:)
@@ -131,7 +132,7 @@ MODULE random_numbers
           ! prepare normalized coefficients for current term
       !  j=i
 
-          ! TRY SQRT(A) ALSOOOOO
+          ! TRY SQRT(A) ALSO
       !    a = SQRT( c(i,j) * CONJG(c(i,j)) )
 
       !    a = SQRT( a )
