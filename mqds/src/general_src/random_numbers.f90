@@ -113,8 +113,8 @@ MODULE random_numbers
       ! ground and first excited state radial harmonic oscillator CDFs
       DO i = 1, nstate
         ! prepare normalized coefficients for current term
-        a_f =  c_f(i) * CONJG(c_f(i))
-        a_b =  c_b(i) * CONJG(c_b(i))
+        a_f =  SQRT( c_f(i) * CONJG( c_f(i) ) )
+        a_b =  SQRT( c_b(i) * CONJG( c_b(i) ) )
         ! add component of excited state for current term
         radial_f(i,:) = radial_f(i,:) + a_f * cdf_e(:)
         radial_b(i,:) = radial_b(i,:) + a_b * cdf_e(:)
