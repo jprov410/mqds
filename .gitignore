@@ -9,7 +9,6 @@
 *.mod
 *.o
 build/
-*.exe
 cmake-build-debug/
 spectra.c
 
