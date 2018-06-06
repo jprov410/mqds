@@ -17,6 +17,7 @@ spectra.c
 *.pyc
 __pycache__/
 processed_run.in
+*cpython*
 
 #-- Output files --#
 *linrespfunc.out

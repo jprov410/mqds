@@ -11,6 +11,5 @@ and spectroscopy program
 analysis:
 ---
 
-* __fourier_transform.exe :__ Currently computes the 1-d Fourier Transform 
-of a given input file. Will soon be generalized to handle higher-dimensional
-Fourier Transforms....
+* Contains f2py module (compilation instructions in file), mqds data classes, and example "analysis.py" script for
+producing linear absorption spectrum from the response function.
