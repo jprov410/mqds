@@ -87,7 +87,7 @@ MODULE random_numbers
       IMPLICIT NONE
       INTEGER :: i, j, k, l
       INTEGER, INTENT(in) :: islice
-      REAL(dp) :: dr = 0.0005_dp, a_f, a_b
+      REAL(dp) :: dr = 0.001_dp, a_f, a_b
       REAL(dp) :: a
       COMPLEX(dp), INTENT(in) :: c_f( nstate ), c_b( nstate )
       !COMPLEX(dp), INTENT(in) :: c( nstate, nstate )
@@ -102,10 +102,10 @@ MODULE random_numbers
       radial_f = 0.0_dp ; radial_b = 0.0_dp
 
       IF ( islice == 1 ) THEN
-        cdf_g = 0.0_dp ; cdf_e = 0.0_dp
+        cdf_g = 1.0_dp * dr ; cdf_e = 0.0_dp
         DO i = 1, SIZE(cdf_e)-1
-          cdf_g(i) = cdf_g(i-1) + dr * ( ( i * dr ) * EXP( - (i * dr)**2 / 2.0_dp ) )
-          cdf_e(i) = cdf_e(i-1) + dr * ( ( i * dr )**2 * EXP( - (i * dr)**2 / 2.0_dp ) )
+          cdf_g(i) = cdf_g(i-1) + dr * EXP( - (i * dr) / 2.0_dp )
+          cdf_e(i) = cdf_e(i-1) + dr * SQRT(( i * dr )) * EXP( - (i * dr) / 2.0_dp )
         END DO
       END IF
 
@@ -168,7 +168,7 @@ MODULE random_numbers
       USE input_output
       IMPLICIT NONE
       REAL(dp), INTENT(out) :: r(nstate), rt(nstate)
-      REAL(dp) :: dr = 0.0005_dp
+      REAL(dp) :: dr = 0.001_dp
       INTEGER :: sval,svalt, i ! sampled index values
 
       CALL RANDOM_NUMBER( HARVEST = r )
@@ -188,7 +188,7 @@ MODULE random_numbers
     FUNCTION ground_rn() RESULT( res )
       IMPLICIT NONE
       REAL(dp) :: res
-      REAL(dp) :: dr = 0.0001_dp
+      REAL(dp) :: dr = 0.001_dp
       INTEGER :: sval
 
       CALL RANDOM_NUMBER( HARVEST = res )
@@ -204,7 +204,7 @@ MODULE random_numbers
     FUNCTION excited_rn() RESULT( res )
       IMPLICIT NONE
       REAL(dp) :: res
-      REAL(dp) :: dr = 0.0001_dp
+      REAL(dp) :: dr = 0.001_dp
       INTEGER :: sval
 
       CALL RANDOM_NUMBER( HARVEST = res )

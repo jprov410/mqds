@@ -1,6 +1,6 @@
 add_executable(fourier_transform.exe fourier_transform.f90)
 
-# Copy executable to directory with submission/analysis scripts
+# Copy executable to directory with submimssion/analysis scripts
 set(MQDS_RUN_PATH ${CMAKE_HOME_DIRECTORY}/run/analysis/.)
 add_custom_command(TARGET fourier_transform.exe
         POST_BUILD

@@ -122,11 +122,11 @@ CONTAINS
             !norm = norm + SQRT( c(i,j) * CONJG( c(i,j) ) )
 
             ! Inintial forward boundary terms (xi_f/A_f)
-            xi_f = xi_f + r(i) * c_f(i) * EXP( -eye * theta(i) )
+            xi_f = xi_f + sqrt(r(i)) * c_f(i) * EXP( -eye * theta(i) )
             !P_f = P_f + SQRT( c_f(i) * CONJG( c_f(i) ) ) * r(i)
             !N_f = N_f + SQRT( c_f(i) * CONJG( c_f(i) ) )
 
-            P_f = P_f +  SQRT( c_f(i) * CONJG( c_f(i) ) )  * r(i)
+            P_f = P_f +  SQRT( c_f(i) * CONJG( c_f(i) ) )  * SQRT(r(i))
             N_f = N_f +  SQRT( c_f(i) * CONJG( c_f(i) ) )
 
             !A_f = A_f + SQRT(SQRT( c(i,i) * CONJG( c(i,i) ) ) ) * r(i)
@@ -136,15 +136,22 @@ CONTAINS
             !norm_b = norm_b + SQRT(SQRT( c(i,i) * CONJG( c(i,i) ) ))
 
             ! Inintial backward boundary term (xi_b/A_b)
-            xi_b = xi_b + rt(i) * c_b(i) * EXP( eye * thetat(i) )
+            xi_b = xi_b + SQRT(rt(i)) * c_b(i) * EXP( eye * thetat(i) )
             !P_b = P_b + SQRT( c_b(i) * CONJG( c_b(i) ) ) * rt(i)
             !N_b = N_b + SQRT( c_b(i) * CONJG( c_b(i) ) )
 
-            P_b = P_b + SQRT( c_b(i) * CONJG( c_b(i) ) ) * rt(i)
+            P_b = P_b + SQRT( c_b(i) * CONJG( c_b(i) ) ) * SQRT(rt(i))
             N_b = N_b + SQRT( c_b(i) * CONJG( c_b(i) ) )
         END DO
         N_f = N_f * DSQRT(0.5_dp * pi)
         N_b = N_b * DSQRT(0.5_dp * pi)
+
+        !N_f = N_f * 2.0_dp ** (nstate-1) * SQRT(2.0_dp * pi)
+        !N_b = N_b * 2.0_dp ** (nstate-1) * SQRT(2.0_dp * pi)
+
+        !N_f = N_f * sqrt(pi)
+        !N_b = N_b * sqrt(pi)
+
 
         !fwd_save = fwd_save * P_f / N_f
         !bkwd_save = bkwd_save * P_b / N_b
@@ -171,10 +178,10 @@ CONTAINS
         !prod = 0.5_dp * norm * xi / A
         !prod = 0.5_dp *  xi * (norm / A)!(A_f * A_b)
 
-        x( : ) = r( : ) * DCOS( theta )
-        xt( : ) = rt( : ) * DCOS( thetat )
-        p( : ) = r( : ) * DSIN( theta )
-        pt( : ) = rt( : ) * DSIN( thetat )
+        x( : ) = SQRT(r( : )) * DCOS( theta )
+        xt( : ) = SQRT(rt( : )) * DCOS( thetat )
+        p( : ) = SQRT(r( : )) * DSIN( theta )
+        pt( : ) = SQRT(rt( : )) * DSIN( thetat )
 
     END SUBROUTINE pldm_map_hop
 
