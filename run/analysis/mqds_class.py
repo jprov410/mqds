@@ -1,8 +1,8 @@
 import os
 import glob
-import pandas as pd
+#import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 
 __all__ = ['LinearResponse','ThirdOrderResponse','DensityMatrix']
 
@@ -53,15 +53,34 @@ class DensityMatrix(object):
     def __getitem__(self, i):
         return self.rho[i]
 
-class LinearResponse(object):
+class Response(object):
+    """
+    Superclass for response functions calculated with mqds
+    """
+    def ___init___(self):
+        self.type = 'Response Function'
+
+    def wrange(self, wmin=0.0, wmax=500.0, wpts=250):
+        """
+        defines frequency range over which to Fourier transform the
+        linear response function
+        """
+        w = []
+        for i in range(0, wpts+1):
+            w.append( float( i * (wmax - wmin) / wpts + wmin ) )
+        w = np.array( w )
+        return w
+
+class LinearResponse(Response):
     """
     class for mqds linear response function data
     """
-    def __init__(self, infile):
+    def __init__(self, method):
         """
-        takes filename that contains the response function 
-        as an agument
+        takes method used to compute the response function
+        as an argument
         """
+        infile = method + '_linrespfunc.out'
         self.time, self.real, self.imag = [], [], []
         with open(infile, 'r') as f:
             for line in f:
@@ -73,27 +92,17 @@ class LinearResponse(object):
         self.real = np.array( self.real )
         self.imag = np.array( self.imag )
 
-    def wrange(self, wmin=0.0, wmax=500.0, wpts=250):
-        """
-        defines frequency range over which to Fourier transform the 
-        linear response function
-        """
-        w = []
-        for i in range(0, wpts+1):
-            w.append( float( i * (wmax - wmin) / wpts + wmin ) )
-        w = np.array( w )
-        return w
-        
 
-class ThirdOrderResponse(object):
+class ThirdOrderResponse(Response):
     """
     class for mqds nonlinear response function data
     """
-    def __init__(self, infile):
+    def __init__(self, method):
         """
         takes filename that contains the response function 
         as an agument
         """
+        prefix = method + '_nonlin'
         self.time1, self.time2, self.time3 = [], [], [] 
         self.real, self.imag = [], []
         with open(infile, 'r') as f:

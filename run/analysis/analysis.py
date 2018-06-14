@@ -6,11 +6,10 @@ import analysis as anls
 import mqds_class as mqds
 import matplotlib.pyplot as plt
 
-infile = input( "Please insert the name of the file containing the linear \
+method = input( "Please insert method used to calculate the linear \
 response function formatted as t(fs), Re( R(t) ), Im( R(t) ) :  " )
-outfile = 'FT_' + infile
 
-data = mqds.LinearResponse(infile)
+data = mqds.LinearResponse(method)
 
 # retrieve the lower bound on frequency domain over which to ft
 wmin = input( "Please insert the lower bound on frequency domain (cm-1):  " ) 
