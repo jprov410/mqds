@@ -25,7 +25,7 @@ class DensityMatrix(object):
                         self.time = []
                         for line in f:
                             self.time.append( float( line.split()[0] ) )
-                    break    
+                    break
         self.time = np.array( self.time )
         self.rho = np.empty([size,size,len(self.time)], dtype=complex)
         for filename in os.listdir('.'):
@@ -97,12 +97,13 @@ class ThirdOrderResponse(Response):
     """
     class for mqds nonlinear response function data
     """
-    def __init__(self, method):
+    def __init__(self, method = 'pldm', signal = 'rephasing'):
         """
         takes filename that contains the response function 
         as an agument
         """
         prefix = method + '_nonlin'
+
         self.time1, self.time2, self.time3 = [], [], [] 
         self.real, self.imag = [], []
         with open(infile, 'r') as f:
