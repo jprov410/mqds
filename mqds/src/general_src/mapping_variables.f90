@@ -200,11 +200,8 @@ CONTAINS
         p_init = gaussian_rn(p_init) / 2.0_dp
         x_init = gaussian_rn(x_init) / 2.0_dp
 
-        prod = (2.0_dp)**(nstate + 1) &
-                * ( x_init(initstate) - eye * p_init(initstate) ) &
+        prod =  ( x_init(initstate) - eye * p_init(initstate) ) &
                 * ( x_init(initstatet) + eye * p_init(initstatet) )
-
-        IF (initstate == initstatet) prod = prod - 0.5_dp * (2.0_dp)**(nstate + 1)
 
     END SUBROUTINE sample_twa_map
 
@@ -240,12 +237,11 @@ CONTAINS
         COMPLEX(dp) :: res( nstate, nstate )
         res = 1.0_dp
 
-        !DO i=1, nstate
-        !    DO j=1, nstate
-        !        res(j,i) = 0.5_dp * ( x(j) + eye * p(j) ) * ( x(i) - eye * p(i) ) * prod
-        !        IF (i == j) res(j,i) = res(j,i) - 0.5_dp * prod
-        !    END DO
-        !END DO
+        DO i=1, nstate
+            DO j=1, nstate
+                res(j,i) = ( x(j) + eye * p(j) ) * ( x(i) - eye * p(i) ) * prod
+            END DO
+        END DO
 
     END FUNCTION twa_redmat
 
