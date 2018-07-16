@@ -1,9 +1,12 @@
 /*! \page input_file_info Setting
 
 
-<b> Reference List: </b>
+<b> Input file list: </b>
    *  <ul>
-   *  <li> under construction
+   *  <li> run.in
+   *  <li> hel.in
+   *  <li> continuumsd.in
+   *  <li> couplings.in
    *  </ul>
 
 */

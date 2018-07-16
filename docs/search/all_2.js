@@ -37,6 +37,8 @@ var searchData=
   ['calculate_5fsqc_5fredmat_2ef90',['calculate_sqc_redmat.f90',['../calculate__sqc__redmat_8f90.html',1,'']]],
   ['calculate_5fsqc_5fredmat_5fmpi',['calculate_sqc_redmat_mpi',['../calculate__sqc__redmat__mpi_8f90.html#ac50734cac32fc2164f8e9bf2dba09d32',1,'calculate_sqc_redmat_mpi.f90']]],
   ['calculate_5fsqc_5fredmat_5fmpi_2ef90',['calculate_sqc_redmat_mpi.f90',['../calculate__sqc__redmat__mpi_8f90.html',1,'']]],
+  ['calculate_5fsurface_5fhopping_5fredmat',['calculate_surface_hopping_redmat',['../calculate__surface__hopping__redmat_8f90.html#aad6fdf24845cccb6323520316236651d',1,'calculate_surface_hopping_redmat.f90']]],
+  ['calculate_5fsurface_5fhopping_5fredmat_2ef90',['calculate_surface_hopping_redmat.f90',['../calculate__surface__hopping__redmat_8f90.html',1,'']]],
   ['calculate_5ftwa_5fredmat',['calculate_twa_redmat',['../calculate__twa__redmat_8f90.html#a03a549e1c9cd9899097aa8e6ab94381f',1,'calculate_twa_redmat.f90']]],
   ['calculate_5ftwa_5fredmat_2ef90',['calculate_twa_redmat.f90',['../calculate__twa__redmat_8f90.html',1,'']]],
   ['calculate_5ftwa_5fredmat_5fmpi',['calculate_twa_redmat_mpi',['../calculate__twa__redmat__mpi_8f90.html#ae3eaf9c4edd0a5cda0db4ca02e829542',1,'calculate_twa_redmat_mpi.f90']]],

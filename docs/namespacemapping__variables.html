@@ -98,9 +98,9 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:aed67e3aca66a9ef475289ed49ca9e7be"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemapping__variables.html#aed67e3aca66a9ef475289ed49ca9e7be">sample_pldm_map</a> (x_init, p_init, xt_init, pt_init)</td></tr>
 <tr class="memdesc:aed67e3aca66a9ef475289ed49ca9e7be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sample the initial distribution of mapping variables for PLDM from gaussian distributions.  <a href="#aed67e3aca66a9ef475289ed49ca9e7be">More...</a><br /></td></tr>
 <tr class="separator:aed67e3aca66a9ef475289ed49ca9e7be"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a004c8f693d8e7129c2eee47b185d8039"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemapping__variables.html#a004c8f693d8e7129c2eee47b185d8039">pldm_map_hop</a> (c_f, c_b, x, p, xt, pt)</td></tr>
-<tr class="memdesc:a004c8f693d8e7129c2eee47b185d8039"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subroutine that takes the current density matrix and uses it for coefficients in a linear combination of new initial Hermite polynomials.  <a href="#a004c8f693d8e7129c2eee47b185d8039">More...</a><br /></td></tr>
-<tr class="separator:a004c8f693d8e7129c2eee47b185d8039"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa96d049bbc947bd05ae762b2f5ae959"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemapping__variables.html#aaa96d049bbc947bd05ae762b2f5ae959">pldm_map_hop</a> (c_f, c_b, x, p, xt, pt, islice)</td></tr>
+<tr class="memdesc:aaa96d049bbc947bd05ae762b2f5ae959"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subroutine that takes the current density matrix and uses it for coefficients in a linear combination of new initial Hermite polynomials.  <a href="#aaa96d049bbc947bd05ae762b2f5ae959">More...</a><br /></td></tr>
+<tr class="separator:aaa96d049bbc947bd05ae762b2f5ae959"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb27a86d2a3f9358e2c69b195c21a81d"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemapping__variables.html#afb27a86d2a3f9358e2c69b195c21a81d">sample_twa_map</a> (x_init, p_init)</td></tr>
 <tr class="memdesc:afb27a86d2a3f9358e2c69b195c21a81d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sample the initial distribution of mapping variables for truncated wigner approximation in action-angle variables.  <a href="#afb27a86d2a3f9358e2c69b195c21a81d">More...</a><br /></td></tr>
 <tr class="separator:afb27a86d2a3f9358e2c69b195c21a81d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -126,6 +126,10 @@ Variables</h2></td></tr>
 <tr class="separator:aafc29c3a8ef618342420363a2a115e66"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a16e5f91ca70e0e675e6424a7ce1c4b70"><td class="memItemLeft" align="right" valign="top">complex(dp)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemapping__variables.html#a16e5f91ca70e0e675e6424a7ce1c4b70">prod</a></td></tr>
 <tr class="separator:a16e5f91ca70e0e675e6424a7ce1c4b70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3aaaf3d657ffe69eea2292a3cd64d3d4"><td class="memItemLeft" align="right" valign="top">complex(dp)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemapping__variables.html#a3aaaf3d657ffe69eea2292a3cd64d3d4">weight_f</a></td></tr>
+<tr class="separator:a3aaaf3d657ffe69eea2292a3cd64d3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3cd66fb74feea5c81430b060f323f19e"><td class="memItemLeft" align="right" valign="top">complex(dp)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemapping__variables.html#a3cd66fb74feea5c81430b060f323f19e">weight_b</a></td></tr>
+<tr class="separator:a3cd66fb74feea5c81430b060f323f19e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This module contains the necessary functions and subroutines to use the Meyer-Miller mapping model which maps \(|\alpha\rangle \rightarrow \hat{a}_\alpha^\dagger = \frac{1}{\sqrt{2}}(\hat{x}_\alpha - i\hat{p}_\alpha) \). </p>
@@ -206,8 +210,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a004c8f693d8e7129c2eee47b185d8039"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a004c8f693d8e7129c2eee47b185d8039">&#9670;&nbsp;</a></span>pldm_map_hop()</h2>
+<a id="aaa96d049bbc947bd05ae762b2f5ae959"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa96d049bbc947bd05ae762b2f5ae959">&#9670;&nbsp;</a></span>pldm_map_hop()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -215,13 +219,13 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">subroutine mapping_variables::pldm_map_hop </td>
           <td>(</td>
-          <td class="paramtype">complex(dp), dimension( nstate )&#160;</td>
+          <td class="paramtype">complex(dp), dimension( nstate ), intent(in)&#160;</td>
           <td class="paramname"><em>c_f</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">complex(dp), dimension( nstate )&#160;</td>
+          <td class="paramtype">complex(dp), dimension( nstate ), intent(in)&#160;</td>
           <td class="paramname"><em>c_b</em>, </td>
         </tr>
         <tr>
@@ -246,7 +250,13 @@ Variables</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">real(dp), dimension( nstate ), intent(out)&#160;</td>
-          <td class="paramname"><em>pt</em>&#160;</td>
+          <td class="paramname"><em>pt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer&#160;</td>
+          <td class="paramname"><em>islice</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -483,6 +493,34 @@ Variables</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">real(dp), dimension(:), allocatable mapping_variables::pt_map</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3cd66fb74feea5c81430b060f323f19e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3cd66fb74feea5c81430b060f323f19e">&#9670;&nbsp;</a></span>weight_b</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">complex(dp) mapping_variables::weight_b</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3aaaf3d657ffe69eea2292a3cd64d3d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3aaaf3d657ffe69eea2292a3cd64d3d4">&#9670;&nbsp;</a></span>weight_f</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">complex(dp) mapping_variables::weight_f</td>
         </tr>
       </table>
 </div><div class="memdoc">

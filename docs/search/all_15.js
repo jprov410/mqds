@@ -1,5 +1,7 @@
 var searchData=
 [
+  ['weight_5fb',['weight_b',['../namespacemapping__variables.html#a3cd66fb74feea5c81430b060f323f19e',1,'mapping_variables']]],
+  ['weight_5ff',['weight_f',['../namespacemapping__variables.html#a3aaaf3d657ffe69eea2292a3cd64d3d4',1,'mapping_variables']]],
   ['window',['window',['../namespaceinput__output.html#ad6dc8a29a42a8f62bc5d1fb752f202b9',1,'input_output']]],
   ['windows',['windows',['../namespacewindows.html',1,'']]],
   ['windows_2ef90',['windows.f90',['../windows_8f90.html',1,'']]],

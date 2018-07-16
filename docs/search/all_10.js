@@ -1,5 +1,7 @@
 var searchData=
 [
+  ['radial_5fb',['radial_b',['../namespacerandom__numbers.html#a1e5afb698d04a2b79c57dc4074cb048e',1,'random_numbers']]],
+  ['radial_5ff',['radial_f',['../namespacerandom__numbers.html#a9e539eeae96bf19909eaa91c90c8c196',1,'random_numbers']]],
   ['random_5fnumbers',['random_numbers',['../namespacerandom__numbers.html',1,'']]],
   ['random_5fnumbers_2ef90',['random_numbers.f90',['../random__numbers_8f90.html',1,'']]],
   ['read_5fhel',['read_hel',['../namespacehamiltonians.html#ae07723dbd747ae24a04a3377e1d1925f',1,'hamiltonians']]],

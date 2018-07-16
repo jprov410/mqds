@@ -18,6 +18,7 @@ var searchData=
   ['calculate_5fsqc_5fabsorption_5fmpi',['calculate_sqc_absorption_mpi',['../calculate__sqc__absorption__mpi_8f90.html#ab11c18a5f31578cab87d115bd7bc95cf',1,'calculate_sqc_absorption_mpi.f90']]],
   ['calculate_5fsqc_5fredmat',['calculate_sqc_redmat',['../calculate__sqc__redmat_8f90.html#ab9fccf66fa0458032f3e1452116df5fd',1,'calculate_sqc_redmat.f90']]],
   ['calculate_5fsqc_5fredmat_5fmpi',['calculate_sqc_redmat_mpi',['../calculate__sqc__redmat__mpi_8f90.html#ac50734cac32fc2164f8e9bf2dba09d32',1,'calculate_sqc_redmat_mpi.f90']]],
+  ['calculate_5fsurface_5fhopping_5fredmat',['calculate_surface_hopping_redmat',['../calculate__surface__hopping__redmat_8f90.html#aad6fdf24845cccb6323520316236651d',1,'calculate_surface_hopping_redmat.f90']]],
   ['calculate_5ftwa_5fredmat',['calculate_twa_redmat',['../calculate__twa__redmat_8f90.html#a03a549e1c9cd9899097aa8e6ab94381f',1,'calculate_twa_redmat.f90']]],
   ['calculate_5ftwa_5fredmat_5fmpi',['calculate_twa_redmat_mpi',['../calculate__twa__redmat__mpi_8f90.html#ae3eaf9c4edd0a5cda0db4ca02e829542',1,'calculate_twa_redmat_mpi.f90']]],
   ['convert',['convert',['../namespaceunit__conversions.html#a685d2d4e6472765b7e24ca0fd819c207',1,'unit_conversions']]]

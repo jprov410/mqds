@@ -18,6 +18,7 @@ var searchData=
   ['calculate_5fsqc_5fabsorption_5fmpi_2ef90',['calculate_sqc_absorption_mpi.f90',['../calculate__sqc__absorption__mpi_8f90.html',1,'']]],
   ['calculate_5fsqc_5fredmat_2ef90',['calculate_sqc_redmat.f90',['../calculate__sqc__redmat_8f90.html',1,'']]],
   ['calculate_5fsqc_5fredmat_5fmpi_2ef90',['calculate_sqc_redmat_mpi.f90',['../calculate__sqc__redmat__mpi_8f90.html',1,'']]],
+  ['calculate_5fsurface_5fhopping_5fredmat_2ef90',['calculate_surface_hopping_redmat.f90',['../calculate__surface__hopping__redmat_8f90.html',1,'']]],
   ['calculate_5ftwa_5fredmat_2ef90',['calculate_twa_redmat.f90',['../calculate__twa__redmat_8f90.html',1,'']]],
   ['calculate_5ftwa_5fredmat_5fmpi_2ef90',['calculate_twa_redmat_mpi.f90',['../calculate__twa__redmat__mpi_8f90.html',1,'']]]
 ];

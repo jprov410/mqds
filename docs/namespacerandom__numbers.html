@@ -71,13 +71,14 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions/Subroutines</a>  </div>
+<a href="#func-members">Functions/Subroutines</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">random_numbers Module Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This module contains the necessary functions.  
+<p>This module contains the necessary functions for random number generation.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -91,21 +92,31 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a4d653fc79153e6e928a231b247f02f6f"><td class="memItemLeft" align="right" valign="top">real(dp) function, dimension(size(input))&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerandom__numbers.html#a4d653fc79153e6e928a231b247f02f6f">gaussian_rn</a> (input)</td></tr>
 <tr class="memdesc:a4d653fc79153e6e928a231b247f02f6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gaussian random number generation using the Box-Mueller process with two uniform [0,1) random number.  <a href="#a4d653fc79153e6e928a231b247f02f6f">More...</a><br /></td></tr>
 <tr class="separator:a4d653fc79153e6e928a231b247f02f6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa0ce06bd5d8c44f984da58bfb569033"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerandom__numbers.html#afa0ce06bd5d8c44f984da58bfb569033">build_current_cdfs</a> (c_f, c_b)</td></tr>
-<tr class="memdesc:afa0ce06bd5d8c44f984da58bfb569033"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is a subroutine that builds the normalized cumulative distribution functions for the radial portion of the ground and first excited state harmonic states in polar coordinates ( \( (x - i p) \rightarrow r e^{-i \theta} \))  <a href="#afa0ce06bd5d8c44f984da58bfb569033">More...</a><br /></td></tr>
-<tr class="separator:afa0ce06bd5d8c44f984da58bfb569033"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a131adecf5622979ee78b810e91e44147"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerandom__numbers.html#a131adecf5622979ee78b810e91e44147">build_current_cdfs</a> (c_f, c_b, islice)</td></tr>
+<tr class="memdesc:a131adecf5622979ee78b810e91e44147"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is a subroutine that builds the normalized cumulative distribution functions for the radial portion of the ground and first excited state harmonic states in polar coordinates ( \( (x - i p) \rightarrow r e^{-i \theta} \))  <a href="#a131adecf5622979ee78b810e91e44147">More...</a><br /></td></tr>
+<tr class="separator:a131adecf5622979ee78b810e91e44147"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5c5d548a15f97283e0389c2ed63bf91"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerandom__numbers.html#ad5c5d548a15f97283e0389c2ed63bf91">sample_current_cdfs</a> (r, rt)</td></tr>
+<tr class="memdesc:ad5c5d548a15f97283e0389c2ed63bf91"><td class="mdescLeft">&#160;</td><td class="mdescRight">subroutine to sample the current cumulative distribution functions for the radial portion of the harmonic oscillator states  <a href="#ad5c5d548a15f97283e0389c2ed63bf91">More...</a><br /></td></tr>
+<tr class="separator:ad5c5d548a15f97283e0389c2ed63bf91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3a1bd94001a80f095b5e8bfa500c7b51"><td class="memItemLeft" align="right" valign="top">real(dp) function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerandom__numbers.html#a3a1bd94001a80f095b5e8bfa500c7b51">ground_rn</a> ()</td></tr>
 <tr class="memdesc:a3a1bd94001a80f095b5e8bfa500c7b51"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function assigns a random number distributed according to the radial portion of the ground harmonic oscillator state in polar coordinates.  <a href="#a3a1bd94001a80f095b5e8bfa500c7b51">More...</a><br /></td></tr>
 <tr class="separator:a3a1bd94001a80f095b5e8bfa500c7b51"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7cdd100c0f501c6500939db17fa673fe"><td class="memItemLeft" align="right" valign="top">real(dp) function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerandom__numbers.html#a7cdd100c0f501c6500939db17fa673fe">excited_rn</a> ()</td></tr>
 <tr class="memdesc:a7cdd100c0f501c6500939db17fa673fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function assigns a random number distributed according to the radial portion of the first excited harmonic oscillator state in polar coordinates.  <a href="#a7cdd100c0f501c6500939db17fa673fe">More...</a><br /></td></tr>
 <tr class="separator:a7cdd100c0f501c6500939db17fa673fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a9e539eeae96bf19909eaa91c90c8c196"><td class="memItemLeft" align="right" valign="top">real(dp), dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerandom__numbers.html#a9e539eeae96bf19909eaa91c90c8c196">radial_f</a></td></tr>
+<tr class="separator:a9e539eeae96bf19909eaa91c90c8c196"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e5afb698d04a2b79c57dc4074cb048e"><td class="memItemLeft" align="right" valign="top">real(dp), dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacerandom__numbers.html#a1e5afb698d04a2b79c57dc4074cb048e">radial_b</a></td></tr>
+<tr class="separator:a1e5afb698d04a2b79c57dc4074cb048e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This module contains the necessary functions. </p>
+<div class="textblock"><p>This module contains the necessary functions for random number generation. </p>
 </div><h2 class="groupheader">Function/Subroutine Documentation</h2>
-<a id="afa0ce06bd5d8c44f984da58bfb569033"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afa0ce06bd5d8c44f984da58bfb569033">&#9670;&nbsp;</a></span>build_current_cdfs()</h2>
+<a id="a131adecf5622979ee78b810e91e44147"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a131adecf5622979ee78b810e91e44147">&#9670;&nbsp;</a></span>build_current_cdfs()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -113,14 +124,20 @@ Functions/Subroutines</h2></td></tr>
         <tr>
           <td class="memname">subroutine random_numbers::build_current_cdfs </td>
           <td>(</td>
-          <td class="paramtype">complex(dp), dimension( nstate )&#160;</td>
+          <td class="paramtype">complex(dp), dimension( nstate ), intent(in)&#160;</td>
           <td class="paramname"><em>c_f</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">complex(dp), dimension( nstate )&#160;</td>
-          <td class="paramname"><em>c_b</em>&#160;</td>
+          <td class="paramtype">complex(dp), dimension( nstate ), intent(in)&#160;</td>
+          <td class="paramname"><em>c_b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)&#160;</td>
+          <td class="paramname"><em>islice</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -213,6 +230,36 @@ Functions/Subroutines</h2></td></tr>
 
 </div>
 </div>
+<a id="ad5c5d548a15f97283e0389c2ed63bf91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5c5d548a15f97283e0389c2ed63bf91">&#9670;&nbsp;</a></span>sample_current_cdfs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine random_numbers::sample_current_cdfs </td>
+          <td>(</td>
+          <td class="paramtype">real(dp), dimension(nstate), intent(out)&#160;</td>
+          <td class="paramname"><em>r</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(dp), dimension(nstate), intent(out)&#160;</td>
+          <td class="paramname"><em>rt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>subroutine to sample the current cumulative distribution functions for the radial portion of the harmonic oscillator states </p>
+
+</div>
+</div>
 <a id="a3a5343e2f888ee451c41bb7915dab643"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3a5343e2f888ee451c41bb7915dab643">&#9670;&nbsp;</a></span>uniform_rn()</h2>
 
@@ -230,6 +277,35 @@ Functions/Subroutines</h2></td></tr>
 </div><div class="memdoc">
 
 <p>sample a uniform [0,1) random number </p>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="a1e5afb698d04a2b79c57dc4074cb048e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e5afb698d04a2b79c57dc4074cb048e">&#9670;&nbsp;</a></span>radial_b</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(dp), dimension(:,:), allocatable random_numbers::radial_b</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9e539eeae96bf19909eaa91c90c8c196"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e539eeae96bf19909eaa91c90c8c196">&#9670;&nbsp;</a></span>radial_f</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(dp), dimension(:,:), allocatable random_numbers::radial_f</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
