@@ -48,6 +48,8 @@ To compile this program (from the current directory), execute `mkdir build && cd
 followed by `cmake ../ && make`. To run tests, execute `make test`. The executables 
 will be in the `run` directory. To build the documentation, execute `make docs`.
 
+<a href="https://github.com/jprov410/mqds"><b>MQDS on GitHub</b></a>
+
 
 __JP gratefully acknowledges the Molecular Sciences Software Institute for funding the development of the MQDS package,
  as well as the mentorship of Dr. Benjamin Pritchard.__
