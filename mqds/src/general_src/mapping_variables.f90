@@ -239,7 +239,7 @@ CONTAINS
 
         DO i=1, nstate
             DO j=1, nstate
-                res(j,i) = ( x(j) + eye * p(j) ) * ( x(i) - eye * p(i) ) * prod
+                res(j,i) = (( x(j) + eye * p(j) ) * ( x(i) - eye * p(i) ) - 0.5_dp )* (prod - 0.5_dp)
             END DO
         END DO
 
