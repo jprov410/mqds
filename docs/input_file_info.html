@@ -85,39 +85,44 @@ continuumsd.in </li>
 couplings.in </li>
 </ul>
 <hr/>
-<p> <b> run.in: </b> Contains appropriate values of keywords required for a calculation. </p><ul>
+<p> <b> run.in: </b> Contains appropriate values of keywords required for a calculation. If no value is present for a keyword, then it takes the default value. Input file should be set up with columns "keyword", "value". </p><ul>
 <li>
-<b> basis: </b> basis for system degrees of freedom <ul>
+<p class="startli"><b> basis: </b> basis for system degrees of freedom </p><ul>
 <li>
 Default: diabatic, <b> (currently the only option) </b> </li>
 </ul>
+<p class="endli"></p>
 </li>
 <li>
-<b> bath: </b> basis for bath degrees of freedom <ul>
+<p class="startli"><b> bath: </b> basis for bath degrees of freedom </p><ul>
 <li>
 Default: harmonic, independent harmonic oscillators <b> (currently the only option) </b> </li>
 </ul>
+<p class="endli"></p>
 </li>
 <li>
-<b> branch1: </b> number of bath steps between observations during t1 in nonlinear spectroscopy simulations <ul>
+<p class="startli"><b> branch1: </b> number of bath steps between observations during t1 in nonlinear spectroscopy simulations </p><ul>
 <li>
 Default: 1, although it is favorable to increase this to the largest value possible while still being able to resolve the fourier transform at the frequency resonant with the largest difference between the relevant system eigenvalues. Each time there are <b> branch1 </b> bath steps, a new trajectory is "spawned". </li>
 </ul>
+<p class="endli"></p>
 </li>
 <li>
-<b> branch2: </b> number of bath steps between observations during t2 in nonlinear spectroscopy simulations <ul>
+<p class="startli"><b> branch2: </b> number of bath steps between observations during t2 in nonlinear spectroscopy simulations </p><ul>
 <li>
 Default: 1, although it is favorable to increase this, even though you generally won't FT over this time interval. In general, not a lot happens between each bath step. Each time there are <b> branch2 </b> bath steps, a new trajectory is "spawned". </li>
 </ul>
+<p class="endli"></p>
 </li>
 <li>
-<b> branch3: </b> number of bath steps between observations during t3 in nonlinear spectroscopy simulations <ul>
+<p class="startli"><b> branch3: </b> number of bath steps between observations during t3 in nonlinear spectroscopy simulations </p><ul>
 <li>
 Default: 1, you don't have to worry as much here, although I generally keep it the same as <b> branch1 </b> for symmetry purposes on the frequency axes of a 2-d spectroscopy plot. </li>
 </ul>
+<p class="endli"></p>
 </li>
 <li>
-<b> calculation: </b> type of calculation that you are performing <ul>
+<p class="startli"><b> calculation: </b> type of calculation that you are performing </p><ul>
 <li>
 Default: redmat, reduced density matrix dynamics (pldm, sqc, ipldm, twa) </li>
 <li>
@@ -125,6 +130,43 @@ absorption, linear response function needed for linear absorption spectrum (pldm
 <li>
 nonlinear, 3rd order nonlinear response function needed for 3rd order spectroscopy [2des, 1dpp] (pldm) </li>
 </ul>
+<p class="endli"></p>
+</li>
+<li>
+<p class="startli"><b> dump: </b> number of bath steps between observations in redmat calculation. </p><ul>
+<li>
+Default: 1, in general there are no ramifications to having a fine grid here. </li>
+</ul>
+<p class="endli"></p>
+</li>
+<li>
+<p class="startli"><b> initstate: </b> initial state of the "forward" wavefunction in redmat simulation. </p><ul>
+<li>
+Default: 1, you don't have to consider this in spectroscopy simulations. </li>
+</ul>
+<p class="endli"></p>
+</li>
+<li>
+<p class="startli"><b> initstatet: </b> initial state of the "backward" wavefunction in redmat simulation. </p><ul>
+<li>
+Default: 1, you don't have to consider this in spectroscopy simulations. </li>
+</ul>
+<p class="endli"></p>
+</li>
+<li>
+<p class="startli"><b> method: </b> dynamics method to use for calculation </p><ul>
+<li>
+Default: pldm </li>
+<li>
+sqc </li>
+<li>
+ipldm </li>
+<li>
+twa </li>
+<li>
+equilibrium (only does equilibrium reduced density matrix calculation) </li>
+</ul>
+<p class="endli"></p>
 </li>
 </ul>
 </div></div><!-- contents -->

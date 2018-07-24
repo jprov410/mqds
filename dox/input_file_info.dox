@@ -10,46 +10,55 @@
    *  </ul>
 
 <hr>
-<b> run.in: </b> Contains appropriate values of keywords required for a calculation.
+<b> run.in: </b> Contains appropriate values of keywords required for a calculation. If no value is present for a keyword, then it takes the default value. Input file should be set up with columns "keyword", "value".
    * <ul>
    * <li> <b> basis: </b> basis for system degrees of freedom
    * <ul>
    * <li> Default: diabatic,  <b> (currently the only option) </b>
    * </ul>
+
    * <li> <b> bath: </b> basis for bath degrees of freedom
    * <ul>
    * <li> Default: harmonic, independent harmonic oscillators <b> (currently the only option) </b>
    * </ul>
+
    * <li> <b> branch1: </b> number of bath steps between observations during t1 in nonlinear spectroscopy simulations
    * <ul>
    * <li> Default: 1, although it is favorable to increase this to the largest value possible while still being able to resolve the fourier transform at the frequency resonant with the largest difference between the relevant system eigenvalues. Each time there are <b> branch1 </b> bath steps, a new trajectory is "spawned".
    * </ul>
+
    * <li> <b> branch2: </b> number of bath steps between observations during t2 in nonlinear spectroscopy simulations
    * <ul>
    * <li> Default: 1, although it is favorable to increase this, even though you generally won't FT over this time interval. In general, not a lot happens between each bath step. Each time there are <b> branch2 </b> bath steps, a new trajectory is "spawned".
    * </ul>
+
    * <li> <b> branch3: </b> number of bath steps between observations during t3 in nonlinear spectroscopy simulations
    * <ul>
    * <li> Default: 1, you don't have to worry as much here, although I generally keep it the same as <b> branch1 </b> for symmetry purposes on the frequency axes of a 2-d spectroscopy plot.
    * </ul>
+
    * <li> <b> calculation: </b> type of calculation that you are performing
    * <ul>
    * <li> Default: redmat, reduced density matrix dynamics (pldm, sqc, ipldm, twa)
    * <li> absorption, linear response function needed for linear absorption spectrum (pldm, sqc)
    * <li> nonlinear, 3rd order nonlinear response function needed for 3rd order spectroscopy [2des, 1dpp] (pldm)
    * </ul>
+
    * <li> <b> dump: </b> number of bath steps between observations in redmat calculation.
    * <ul>
    * <li> Default: 1, in general there are no ramifications to having a fine grid here.
    * </ul>
+
    * <li> <b> initstate: </b> initial state of the "forward" wavefunction in redmat simulation.
    * <ul>
    * <li> Default: 1, you don't have to consider this in spectroscopy simulations.
    * </ul>
+
    * <li> <b> initstatet: </b> initial state of the "backward" wavefunction in redmat simulation.
    * <ul>
    * <li> Default: 1, you don't have to consider this in spectroscopy simulations.
    * </ul>
+
    * <li> <b> method: </b> dynamics method to use for calculation
    * <ul>
    * <li> Default: pldm
@@ -58,6 +67,7 @@
    * <li> twa
    * <li> equilibrium (only does equilibrium reduced density matrix calculation)
    * </ul>
+
    * </ul>
 
 
