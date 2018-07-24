@@ -24,7 +24,7 @@
 
    * <li> <b> branch1: </b> number of bath steps between observations during t1 in nonlinear spectroscopy simulations
    * <ul>
-   * <li> Default: 1, although it is favorable to increase this to the largest value possible while still being able to resolve the fourier transform at the frequency resonant with the largest difference between the relevant system eigenvalues. Each time there are <b> branch1 </b> bath steps, a new trajectory is "spawned".
+   * <li> Default: 1, although it is favorable to increase this to the largest value possible while still being able to resolve the fourier transform at the frequency resonant with the largest difference between the relevant system energy eigenvalues. Each time there are <b> branch1 </b> bath steps, a new trajectory is "spawned".
    * </ul>
 
    * <li> <b> branch2: </b> number of bath steps between observations during t2 in nonlinear spectroscopy simulations
@@ -68,8 +68,87 @@
    * <li> equilibrium (only does equilibrium reduced density matrix calculation)
    * </ul>
 
+   * <li> <b> nbstep: </b> number of bath steps during a reduced density matrix calculation.
+   * <ul>
+   * <li> Default: 1000, although for long simulations or high frequency bath modes more may be necessary.
    * </ul>
 
+   * <li> <b> nlit: </b> number of "little" system time steps PER bath time step (applies to all calculation types).
+   * <ul>
+   * <li> Default: 20, although more may be needed for high frequency system Rabi cycling.
+   * </ul>
 
+   * <li> <b> nslice: </b> number of time slices the overall runtime is cut into for iterative pldm simulations.
+   * <ul>
+   * <li> Default: 1, although multiple will be helpful for long-time convergence (1 slice ipldm = pldm)
+   * </ul>
+
+   * <li> <b> nstate: </b> number of system states.
+   * <ul>
+   * <li> Default: 2
+   * </ul>
+
+   * <li> <b> nbstep1: </b> number of bath steps during the t1 interval on nonlinear calculation.
+    * <ul>
+    * <li> Default: 500, although for long t1 intervals or high frequency bath modes more may be necessary.
+    * </ul>
+
+   * <li> <b> nbstep2: </b> number of bath steps during the t2 interval on nonlinear calculation.
+   * <ul>
+   * <li> Default: 0, although for non-zero t2 intervals or high frequency bath modes more may be necessary.
+   * </ul>
+
+   * <li> <b> nbstep3: </b> number of bath steps during the t3 interval on nonlinear calculation.
+   * <ul>
+   * <li> Default: 500, although for long t3 intervals or high frequency bath modes more may be necessary.
+   * </ul>
+
+   * <li> <b> ntraj: </b> number of independent trajectories the calculation is averaged over.
+   * <ul>
+   * <li> Default: 1000, although proper convergence generally requires a higher number of trajectories. Each trajectory corresponds to a unique sampling of initial conditions.
+   * </ul>
+
+   * <li> <b> runtime: </b> time (in femtosecond) that reduced density matrix dynamics are calculated for.
+   * <ul>
+   * <li> Default: 1000, (in femtoseconds!)
+   * </ul>
+
+   * <li> <b> tdelay1: </b> time (in femtosecond) for t1 interval of nonlinear response function calculation.
+   * <ul>
+   * <li> Default: 500, (in femtoseconds!)
+   * </ul>
+
+   * <li> <b> tdelay2: </b> time (in femtosecond) for t2 interval of nonlinear response function calculation.
+   * <ul>
+   * <li> Default: 0, (in femtoseconds!)
+   * </ul>
+
+   * <li> <b> tdelay3: </b> time (in femtosecond) for t3 interval of nonlinear response function calculation.
+   * <ul>
+   * <li> Default: 500, (in femtoseconds!)
+   * </ul>
+
+   * <li> <b> temperature: </b> in Kelvin
+   * <ul>
+   * <li> Default: 77, (in Kelvin!)
+   * </ul>
+
+   * <li> <b> window: </b> half-width of the <b> square </b> window in action-space used for SQC simulations.
+   * <ul>
+   * <li> Default: 0.366, as suggested by Cotton & Miller. (Only used for square window shape!)
+   * </ul>
+
+   * <li> <b> windowshape: </b> shape of window functions used in SQC calculations
+   * <ul>
+   * <li> Default: square
+   * <li> triangle (doesn't use window keyword and sets zpe parameter to 1/3)
+   * </ul>
+
+   * <li> <b> windowshape: </b> mapping oscillator zero-point energy used for SQC and TWA calculations.
+   * <ul>
+   * <li> Default: 0.366, should be set in [0, 0.5]. If triangle is chosen for window in SQC it defaults to 1/3.
+   * </ul>
+
+   * </ul>
 
  */
