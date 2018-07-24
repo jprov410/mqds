@@ -38,6 +38,26 @@
    * <li> absorption, linear response function needed for linear absorption spectrum (pldm, sqc)
    * <li> nonlinear, 3rd order nonlinear response function needed for 3rd order spectroscopy [2des, 1dpp] (pldm)
    * </ul>
+   * <li> <b> dump: </b> number of bath steps between observations in redmat calculation.
+   * <ul>
+   * <li> Default: 1, in general there are no ramifications to having a fine grid here.
+   * </ul>
+   * <li> <b> initstate: </b> initial state of the "forward" wavefunction in redmat simulation.
+   * <ul>
+   * <li> Default: 1, you don't have to consider this in spectroscopy simulations.
+   * </ul>
+   * <li> <b> initstatet: </b> initial state of the "backward" wavefunction in redmat simulation.
+   * <ul>
+   * <li> Default: 1, you don't have to consider this in spectroscopy simulations.
+   * </ul>
+   * <li> <b> method: </b> dynamics method to use for calculation
+   * <ul>
+   * <li> Default: pldm
+   * <li> sqc
+   * <li> ipldm
+   * <li> twa
+   * <li> equilibrium (only does equilibrium reduced density matrix calculation)
+   * </ul>
    * </ul>
 
 
