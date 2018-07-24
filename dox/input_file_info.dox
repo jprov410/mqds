@@ -43,5 +43,4 @@
             * <li> absorption, linear response function needed for linear absorption spectrum (pldm, sqc)
             * <li> nonlinear, 3rd order nonlinear response function needed for 3rd order spectroscopy [2des, 1dpp] (pldm)
          </ul>
-
    * </ul>
