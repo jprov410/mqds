@@ -4,7 +4,7 @@
 <b> Input file list: </b>
    *  <ul>
    *  <li> <a href="#run.in"><b>run.in</b></a>
-   *  <li> hel.in
+   *  <li> <a href="#hel.in"><b>hel.in</b></a>
    *  <li> continuumsd.in
    *  <li> couplings.in
    *  </ul>
@@ -152,4 +152,20 @@
 
    * </ul>
 
- */
+<hr>
+
+<a name="hel.in"></a>
+<b> hel.in: </b> system Hamiltonian matrix in the diabatic representation, <b> IN UNITS OF WAVENUMBERS </b>. Should be formatted as:
+\f[
+H_{el.in} = \begin{pmatrix}
+\epsilon_1 & \Delta_{12} & \dots & \Delta_{1\mathrm{n}} \\
+\Delta_{21} & \epsilon_2 & \dots & \Delta_{2\mathrm{n}} \\
+\vdots & \vdots & \ddots &  \\
+\Delta_{\mathrm{n}1} & \Delta_{\mathrm{n}2} & & \epsilon_{\mathrm{n}} \\
+\end{pmatrix}
+\f]
+
+
+
+
+*/
