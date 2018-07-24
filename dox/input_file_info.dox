@@ -9,8 +9,12 @@
    *  <li> couplings.in
    *  </ul>
 
+<hr>
 
 <b> run.in: </b> Contains appropriate values of keywords required for a calculation.
+
+<hr>
+
    * <ul>
    * <li> basis: basis for system degrees of freedom
    * <ul>
