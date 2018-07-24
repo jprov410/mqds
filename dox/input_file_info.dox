@@ -3,13 +3,14 @@
 
 <b> Input file list: </b>
    *  <ul>
-   *  <li> run.in
+   *  <li> <a href="#run.in">run.in</a>
    *  <li> hel.in
    *  <li> continuumsd.in
    *  <li> couplings.in
    *  </ul>
 
 <hr>
+<a name="run.in"></a>
 <b> run.in: </b> Contains appropriate values of keywords required for a calculation. If no value is present for a keyword, then it takes the default value. Input file should be set up with columns "keyword", "value".
    * <ul>
    * <li> <b> basis: </b> basis for system degrees of freedom
