@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['setting_20up_20input_20files',['Setting up input files',['../input_file_info.html',1,'']]],
   ['s2autime',['s2autime',['../namespaceparameters.html#ac1bcba9a4b5511048ef3bb39795cfa20',1,'parameters']]],
   ['s2fs',['s2fs',['../namespaceparameters.html#abb99e17b7d4b3209d06ec4200be1476d',1,'parameters']]],
   ['s2ps',['s2ps',['../namespaceparameters.html#ae407b142f53a707c5032d66bd2d76f1c',1,'parameters']]],
