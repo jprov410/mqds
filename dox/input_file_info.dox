@@ -13,34 +13,34 @@
 <b> run.in: </b> Contains appropriate values of keywords required for a calculation.
    * <ul>
    * <li> basis: basis for system degrees of freedom
-         <ul>
-            * <li> Default: diabatic,  <b> (currently the only option) </b>
-         </ul>
+          * <ul>
+          * <li> Default: diabatic,  <b> (currently the only option) </b>
+          * </ul>
    * <li> bath: basis for bath degrees of freedom
-         <ul>
-            * <li> Default: harmonic, independent harmonic oscillators <b> (currently the only option) </b>
-         </ul>
+         * <ul>
+         * <li> Default: harmonic, independent harmonic oscillators <b> (currently the only option) </b>
+         * </ul>
    * <li> branch1: number of bath steps between observations during t1 in nonlinear spectroscopy simulations
-         <ul>
-            * <li> Default: 1, although it is favorable to increase this to the largest value possible while still being
-            able to resolve the fourier transform at the frequency resonant with the largest difference between the
-            relevant system eigenvalues. Each time there are <b> branch1 </b> bath steps, a new trajectory is "spawned".
-         </ul>
+         * <ul>
+         * <li> Default: 1, although it is favorable to increase this to the largest value possible while still being
+           able to resolve the fourier transform at the frequency resonant with the largest difference between the
+           relevant system eigenvalues. Each time there are <b> branch1 </b> bath steps, a new trajectory is "spawned".
+         * </ul>
    * <li> branch2: number of bath steps between observations during t2 in nonlinear spectroscopy simulations
-         <ul>
-            * <li> Default: 1, although it is favorable to increase this, even though you generally won't FT over this
-            time interval. In general, not a lot happens between each bath step. Each time there are <b> branch2 </b>
-            bath steps, a new trajectory is "spawned".
-         </ul>
+         * <ul>
+         * <li> Default: 1, although it is favorable to increase this, even though you generally won't FT over this
+           time interval. In general, not a lot happens between each bath step. Each time there are <b> branch2 </b>
+           bath steps, a new trajectory is "spawned".
+         * </ul>
    * <li> branch3: number of bath steps between observations during t3 in nonlinear spectroscopy simulations
-         <ul>
-            * <li> Default: 1, you don't have to worry as much here, although I generally keep it the same as
-            <b> branch1 </b> for symmetry purposes on the frequency axes of a 2-d spectroscopy plot.
-         </ul>
+         * <ul>
+         * <li> Default: 1, you don't have to worry as much here, although I generally keep it the same as
+           <b> branch1 </b> for symmetry purposes on the frequency axes of a 2-d spectroscopy plot.
+         * </ul>
    * <li> calculation: type of calculation that you are performing
-         <ul>
-            * <li> Default: redmat, reduced density matrix dynamics (pldm, sqc, ipldm, twa)
-            * <li> absorption, linear response function needed for linear absorption spectrum (pldm, sqc)
-            * <li> nonlinear, 3rd order nonlinear response function needed for 3rd order spectroscopy [2des, 1dpp] (pldm)
-         </ul>
+         * <ul>
+         * <li> Default: redmat, reduced density matrix dynamics (pldm, sqc, ipldm, twa)
+         * <li> absorption, linear response function needed for linear absorption spectrum (pldm, sqc)
+         * <li> nonlinear, 3rd order nonlinear response function needed for 3rd order spectroscopy [2des, 1dpp] (pldm)
+         * </ul>
    * </ul>
