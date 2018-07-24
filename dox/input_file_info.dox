@@ -9,4 +9,11 @@
    *  <li> couplings.in
    *  </ul>
 
-*/
+
+<b> run.in: </b> Contains appropriate values of keywords required for a calculation.
+   * <ul>
+   * <li> basis: basis for system degrees of freedom
+         <ul>
+            * <li> Default: diabatic <b> (</b>
+         </ul>
+   * </ul>
