@@ -15,12 +15,12 @@
    * <ul>
    * <li> <b> basis: </b> basis for system degrees of freedom
    * <ul>
-   * <li> <b> Default: diabatic, (currently the only option) </b>
+   * <li> <b> Default: diabatic,</b> (currently the only option)
    * </ul>
 
    * <li> <b> bath: </b> basis for bath degrees of freedom
    * <ul>
-   * <li> <b> Default: harmonic, independent harmonic oscillators (currently the only option) </b>
+   * <li> <b> Default: harmonic</b>, independent harmonic oscillators (currently the only option)
    * </ul>
 
    * <li> <b> branch1: </b> number of bath steps between observations during t1 in nonlinear spectroscopy simulations
@@ -155,7 +155,7 @@
 <hr>
 
 <a name="hel.in"></a>
-<b> hel.in: </b> system Hamiltonian matrix in the diabatic representation, <b> IN UNITS OF WAVENUMBERS </b>. The matrix elements of the system Hamiltonian should be formatted as:
+<b> hel.in: </b> system Hamiltonian matrix in the diabatic representation, <b> in units of wavenumbers </b>. The matrix elements of the system Hamiltonian should be formatted as:
 \f[
 H_{el.in} = \begin{pmatrix}
 \epsilon_1 & \Delta_{12} & \dots & \Delta_{1\mathrm{n}} \\
