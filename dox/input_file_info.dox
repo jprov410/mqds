@@ -15,139 +15,139 @@
    * <ul>
    * <li> <b> basis: </b> basis for system degrees of freedom
    * <ul>
-   * <li> Default: diabatic,  <b> (currently the only option) </b>
+   * <li> <b> Default: diabatic, (currently the only option) </b>
    * </ul>
 
    * <li> <b> bath: </b> basis for bath degrees of freedom
    * <ul>
-   * <li> Default: harmonic, independent harmonic oscillators <b> (currently the only option) </b>
+   * <li> <b> Default: harmonic, independent harmonic oscillators (currently the only option) </b>
    * </ul>
 
    * <li> <b> branch1: </b> number of bath steps between observations during t1 in nonlinear spectroscopy simulations
    * <ul>
-   * <li> Default: 1, although it is favorable to increase this to the largest value possible while still being able to resolve the fourier transform at the frequency resonant with the largest difference between the relevant system energy eigenvalues. Each time there are <b> branch1 </b> bath steps, a new trajectory is "spawned".
+   * <li> <b> Default: 1</b>, although it is favorable to increase this to the largest value possible while still being able to resolve the fourier transform at the frequency resonant with the largest difference between the relevant system energy eigenvalues. Each time there are <b> branch1 </b> bath steps, a new trajectory is "spawned".
    * </ul>
 
    * <li> <b> branch2: </b> number of bath steps between observations during t2 in nonlinear spectroscopy simulations
    * <ul>
-   * <li> Default: 1, although it is favorable to increase this, even though you generally won't FT over this time interval. In general, not a lot happens between each bath step. Each time there are <b> branch2 </b> bath steps, a new trajectory is "spawned".
+   * <li> <b> Default: 1</b>, although it is favorable to increase this, even though you generally won't FT over this time interval. In general, not a lot happens between each bath step. Each time there are <b> branch2 </b> bath steps, a new trajectory is "spawned".
    * </ul>
 
    * <li> <b> branch3: </b> number of bath steps between observations during t3 in nonlinear spectroscopy simulations
    * <ul>
-   * <li> Default: 1, you don't have to worry as much here, although I generally keep it the same as <b> branch1 </b> for symmetry purposes on the frequency axes of a 2-d spectroscopy plot.
+   * <li> <b> Default: 1</b>, you don't have to worry as much here, although I generally keep it the same as <b> branch1 </b> for symmetry purposes on the frequency axes of a 2-d spectroscopy plot.
    * </ul>
 
    * <li> <b> calculation: </b> type of calculation that you are performing
    * <ul>
-   * <li> Default: redmat, reduced density matrix dynamics (pldm, sqc, ipldm, twa)
-   * <li> absorption, linear response function needed for linear absorption spectrum (pldm, sqc)
-   * <li> nonlinear, 3rd order nonlinear response function needed for 3rd order spectroscopy [2des, 1dpp] (pldm)
+   * <li> <b>Default: redmat</b>, reduced density matrix dynamics (pldm, sqc, ipldm, twa)
+   * <li> <b>absorption</b>, linear response function needed for linear absorption spectrum (pldm, sqc)
+   * <li> <b>nonlinear</b>, 3rd order nonlinear response function needed for 3rd order spectroscopy [2des, 1dpp] (pldm)
    * </ul>
 
    * <li> <b> dump: </b> number of bath steps between observations in redmat calculation.
    * <ul>
-   * <li> Default: 1, in general there are no ramifications to having a fine grid here.
+   * <li> <b>Default: 1</b>, in general there are no ramifications to having a fine grid here.
    * </ul>
 
    * <li> <b> initstate: </b> initial state of the "forward" wavefunction in redmat simulation.
    * <ul>
-   * <li> Default: 1, you don't have to consider this in spectroscopy simulations.
+   * <li> <b>Default: 1</b>, you don't have to consider this in spectroscopy simulations.
    * </ul>
 
    * <li> <b> initstatet: </b> initial state of the "backward" wavefunction in redmat simulation.
    * <ul>
-   * <li> Default: 1, you don't have to consider this in spectroscopy simulations.
+   * <li> <b>Default: 1</b>, you don't have to consider this in spectroscopy simulations.
    * </ul>
 
    * <li> <b> method: </b> dynamics method to use for calculation
    * <ul>
-   * <li> Default: pldm
+   * <li> <b>Default: pldm
    * <li> sqc
    * <li> ipldm
    * <li> twa
-   * <li> equilibrium (only does equilibrium reduced density matrix calculation)
+   * <li> equilibrium </b> (only does equilibrium reduced density matrix calculation)
    * </ul>
 
    * <li> <b> nbstep: </b> number of bath steps during a reduced density matrix calculation.
    * <ul>
-   * <li> Default: 1000, although for long simulations or high frequency bath modes more may be necessary.
+   * <li> <b>Default: 1000</b>, although for long simulations or high frequency bath modes more may be necessary.
    * </ul>
 
    * <li> <b> nlit: </b> number of "little" system time steps PER bath time step (applies to all calculation types).
    * <ul>
-   * <li> Default: 20, although more may be needed for high frequency system Rabi cycling.
+   * <li> <b>Default: 20</b>, although more may be needed for high frequency system Rabi cycling.
    * </ul>
 
    * <li> <b> nslice: </b> number of time slices the overall runtime is cut into for iterative pldm simulations.
    * <ul>
-   * <li> Default: 1, although multiple will be helpful for long-time convergence (1 slice ipldm = pldm)
+   * <li> <b>Default: 1</b>, although multiple will be helpful for long-time convergence (1 slice ipldm = pldm)
    * </ul>
 
    * <li> <b> nstate: </b> number of system states.
    * <ul>
-   * <li> Default: 2
+   * <li> <b>Default: 2 </b>
    * </ul>
 
    * <li> <b> nbstep1: </b> number of bath steps during the t1 interval on nonlinear calculation.
     * <ul>
-    * <li> Default: 500, although for long t1 intervals or high frequency bath modes more may be necessary.
+    * <li> <b>Default: 500</b>, although for long t1 intervals or high frequency bath modes more may be necessary.
     * </ul>
 
    * <li> <b> nbstep2: </b> number of bath steps during the t2 interval on nonlinear calculation.
    * <ul>
-   * <li> Default: 0, although for non-zero t2 intervals or high frequency bath modes more may be necessary.
+   * <li> <b>Default: 0</b>, although for non-zero t2 intervals or high frequency bath modes more may be necessary.
    * </ul>
 
    * <li> <b> nbstep3: </b> number of bath steps during the t3 interval on nonlinear calculation.
    * <ul>
-   * <li> Default: 500, although for long t3 intervals or high frequency bath modes more may be necessary.
+   * <li> <b>Default: 500</b>, although for long t3 intervals or high frequency bath modes more may be necessary.
    * </ul>
 
    * <li> <b> ntraj: </b> number of independent trajectories the calculation is averaged over.
    * <ul>
-   * <li> Default: 1000, although proper convergence generally requires a higher number of trajectories. Each trajectory corresponds to a unique sampling of initial conditions.
+   * <li> <b>Default: 1000</b>, although proper convergence generally requires a higher number of trajectories. Each trajectory corresponds to a unique sampling of initial conditions.
    * </ul>
 
    * <li> <b> runtime: </b> time (in femtosecond) that reduced density matrix dynamics are calculated for.
    * <ul>
-   * <li> Default: 1000, (in femtoseconds!)
+   * <li> <b>Default: 1000</b>, (in femtoseconds!)
    * </ul>
 
    * <li> <b> tdelay1: </b> time (in femtosecond) for t1 interval of nonlinear response function calculation.
    * <ul>
-   * <li> Default: 500, (in femtoseconds!)
+   * <li> <b>Default: 500</b>, (in femtoseconds!)
    * </ul>
 
    * <li> <b> tdelay2: </b> time (in femtosecond) for t2 interval of nonlinear response function calculation.
    * <ul>
-   * <li> Default: 0, (in femtoseconds!)
+   * <li> <b>Default: 0</b>, (in femtoseconds!)
    * </ul>
 
    * <li> <b> tdelay3: </b> time (in femtosecond) for t3 interval of nonlinear response function calculation.
    * <ul>
-   * <li> Default: 500, (in femtoseconds!)
+   * <li> <b>Default: 500</b>, (in femtoseconds!)
    * </ul>
 
    * <li> <b> temperature: </b> in Kelvin
    * <ul>
-   * <li> Default: 77, (in Kelvin!)
+   * <li> <b>Default: 77</b>, (in Kelvin!)
    * </ul>
 
    * <li> <b> window: </b> half-width of the <b> square </b> window in action-space used for SQC simulations.
    * <ul>
-   * <li> Default: 0.366, as suggested by Cotton & Miller. (Only used for square window shape!)
+   * <li> <b>Default: 0.366</b>, as suggested by Cotton & Miller. (Only used for square window shape!)
    * </ul>
 
    * <li> <b> windowshape: </b> shape of window functions used in SQC calculations
    * <ul>
-   * <li> Default: square
-   * <li> triangle (doesn't use window keyword and sets zpe parameter to 1/3)
+   * <li> <b>Default: square
+   * <li> triangle</b> (doesn't use window keyword and sets zpe parameter to 1/3)
    * </ul>
 
    * <li> <b> windowshape: </b> mapping oscillator zero-point energy used for SQC and TWA calculations.
    * <ul>
-   * <li> Default: 0.366, should be set in [0, 0.5]. If triangle is chosen for window in SQC it defaults to 1/3.
+   * <li> <b>Default: 0.366</b>, should be set in [0, 0.5]. If triangle is chosen for window in SQC it defaults to 1/3.
    * </ul>
 
    * </ul>
@@ -155,7 +155,7 @@
 <hr>
 
 <a name="hel.in"></a>
-<b> hel.in: </b> system Hamiltonian matrix in the diabatic representation, <b> IN UNITS OF WAVENUMBERS </b>. Should be formatted as:
+<b> hel.in: </b> system Hamiltonian matrix in the diabatic representation, <b> IN UNITS OF WAVENUMBERS </b>. The matrix elements of the system Hamiltonian should be formatted as:
 \f[
 H_{el.in} = \begin{pmatrix}
 \epsilon_1 & \Delta_{12} & \dots & \Delta_{1\mathrm{n}} \\
