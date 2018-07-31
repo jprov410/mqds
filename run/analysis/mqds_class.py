@@ -1,10 +1,8 @@
 import os
 import glob
-#import pandas as pd
 import numpy as np
-#import matplotlib.pyplot as plt
 
-__all__ = ['LinearResponse','ThirdOrderResponse','DensityMatrix']
+__all__ = ['LinearResponse','ThirdOrderResponse','DensityMatrix','SpectralDensity']
 
 class DensityMatrix(object):
     """
@@ -119,3 +117,67 @@ class ThirdOrderResponse(Response):
         self.time3 = np.array( self.time3 )
         self.real = np.array( self.real )
         self.imag = np.array( self.imag )
+
+class SpectralDensity(object):
+    """
+    class for spectral densities for the bath
+    types - obo, ohmic, lognorm
+    """
+    def __init__(self, type= 'obo', wmin=0.0, wmax=2000.0, wpts=2000, reorg=20.0, wc=50.0):
+        self.type = type
+        sdtypes = ['obo','ohmic']
+        
+        if self.type in sdtypes:
+            self.freq = self.omega(wmin, wmax, wpts)
+            self.sd = self.buildsd(reorg, wc)
+        else:
+            print('only obo (overdamped brownian oscillator) and ohmic')
+
+    def omega(self, wmin, wmax, wpts):
+        """
+        defines frequency range over which to Fourier transform the
+        linear response function
+        """
+        w = []
+        for i in range(0, wpts+1):
+            w.append( float( i * (wmax - wmin) / wpts + wmin ) )
+        w = np.array( w )
+        return w
+    
+    def buildsd(self, reorg, wc):
+        """
+        function that builds the spectral density 
+        """
+        if self.type == 'obo':
+            return self.obo_sd(reorg,wc)
+        elif self.type == 'ohmic':
+            return self.ohmic_sd(reorg,wc)
+        else:
+            print('There is no spectral density function for ' + self.type)
+
+
+    def obo_sd(self, reorg, wc):
+        """
+        overdamped brownian oscillator spectral density function
+        """
+        obo = []
+        for w in self.freq:
+            obo.append( 2.0 * reorg * ( (w/wc) / (1.0 + (w/wc)**2) ) )
+
+        obo = np.array(obo)
+        return obo
+
+    def ohmic_sd(self, reorg, wc):
+        """
+        overdamped brownian oscillator spectral density function
+        """
+        ohmic = []
+        for w in self.freq:
+            ohmic.append( np.pi * reorg * w / wc * np.exp(-w/wc) )
+
+        ohmic = np.array(ohmic)
+        return ohmic
+
+    def info(self):
+        print('type = ' + self.type)
+        print('wrange = ' + str(self.freq[0]) + ' to ' + str(self.freq[-1]) + ' cm-1 (dw = ' + str(self.freq[1] - self.freq[0]) + ')')

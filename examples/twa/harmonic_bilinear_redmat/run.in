@@ -1,5 +1,5 @@
 !~~GENERAL VARIABLES~~!
-method		    pldm		! dynamics method to use
+method		    twa		! dynamics method to use
 bath	  	    harmonic 	! bath model
 calculation	    redmat	! type of calculation
 basis		    diabatic 	! system basis
@@ -12,4 +12,5 @@ runtime		    1000.0 	! calculation time in femtoseconds
 nbstep		    1000	! number of bath timesteps in runtime
 nlit		    30	 	! number of system timesteps per bath step
 dump		    1	 	! number of bath steps per observation
-ntraj		    100000	! Number of trajectories
+ntraj		    10000	! Number of trajectories
+zpe		    0.5		! zero-point energy

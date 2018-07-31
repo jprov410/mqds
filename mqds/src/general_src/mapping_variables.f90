@@ -197,8 +197,8 @@ CONTAINS
         REAL(dp) :: n(nstate), q(nstate)
         prod = (0.0_dp, 0.0_dp)
 
-        p_init = gaussian_rn(p_init) / 2.0_dp
-        x_init = gaussian_rn(x_init) / 2.0_dp
+        p_init = gaussian_rn(p_init) / DSQRT(2.0_dp)
+        x_init = gaussian_rn(x_init) / DSQRT(2.0_dp)
 
         prod =  ( x_init(initstate) - eye * p_init(initstate) ) &
                 * ( x_init(initstatet) + eye * p_init(initstatet) )
@@ -239,7 +239,7 @@ CONTAINS
 
         DO i=1, nstate
             DO j=1, nstate
-                res(j,i) = (( x(j) + eye * p(j) ) * ( x(i) - eye * p(i) ) - 0.5_dp )* (prod - 0.5_dp)
+                res(j,i) = (( x(j) + eye * p(j) ) * ( x(i) - eye * p(i) ))* (prod)
             END DO
         END DO
 
