@@ -51,6 +51,9 @@ class DensityMatrix(object):
     def __getitem__(self, i):
         return self.rho[i]
 
+"""
+Response is the superclass for LinearResponse and ThirdOrderResponse
+"""
 class Response(object):
     """
     Superclass for response functions calculated with mqds
@@ -89,7 +92,6 @@ class LinearResponse(Response):
         self.time = np.array( self.time )
         self.real = np.array( self.real )
         self.imag = np.array( self.imag )
-
 
 class ThirdOrderResponse(Response):
     """
