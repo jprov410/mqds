@@ -11,7 +11,8 @@ set(MQDS_GENERAL_LIB
         focusing.f90
         windows.f90
         linear_algebra.f90
-        imaginary_time.f90)
+        imaginary_time.f90
+        fourier.f90)
 
 ### add a library containing all of the source other than main.f90
 add_library(generallib

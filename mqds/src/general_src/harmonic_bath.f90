@@ -5,7 +5,8 @@ MODULE harmonic_bath
   IMPLICIT NONE
   REAL(dp), ALLOCATABLE :: x_bath(:), p_bath(:) ! bath phase space DOFs
   REAL(dp), ALLOCATABLE :: omega(:), c(:,:) ! bath frequencies and coupling matrix elements
-
+  REAL(dp), ALLOCATABLE :: site_sd(:,:), site_reorg(:)
+  REAL(dp), ALLOCATABLE :: site_bath_freq(:)
 CONTAINS
 
     !> Allocates the necessary arrays to describe the bath and system-bath interactions. Also, the
@@ -53,11 +54,14 @@ CONTAINS
 
     ! Allocate all arrays needed to describe the bath
     ALLOCATE(freq(npts), sd(nbath, npts), lambda(nbath, npts), norm(nbath), &
-         cfactor(nbath, nstate), sampledw(nbath, nosc), sampledc(nbath, nosc), &
-         sampledj(nbath, nosc))
+            cfactor(nbath, nstate), sampledw(nbath, nosc), sampledc(nbath, nosc), &
+            sampledj(nbath, nosc), site_sd(nbath, npts), &
+            site_reorg(nbath), site_bath_freq(npts))
 
     freq = 0.0_dp ; sd = 0.0_dp ; lambda = 0.0_dp ; cfactor = 0.0_dp
     sampledw = 0.0_dp ; sampledc = 0.0_dp ; sampledj = 0.0_dp ; norm = 0.0_dp
+    site_sd = 0.0_dp ; site_reorg = 0.0_dp
+    site_bath_freq = 0.0_dp
 
     ! Read in the prefactor matrix to turn on/off site<->bath coupling
     DO i=1, nstate
@@ -78,6 +82,9 @@ CONTAINS
 
     dw = freq(2) - freq(1)
 
+    site_bath_freq = freq
+    site_sd = sd
+
     !> Sample bath according to the method described by
     !! Wang et al JCP 110, 4828 (1999)
     IF ( freq(1) /= 0.0_dp ) lambda(:,1) = dw * sd(:,1) / freq(1)
@@ -85,6 +92,7 @@ CONTAINS
        DO j=2, npts
           lambda(i,j) = lambda(i,j-1) + dw * sd(i,j) / freq(j)
        END DO
+       site_reorg(i) = lambda(i,npts)
        norm(i) = DBLE(nosc) / lambda(i,npts)
        lambda(i,:) = lambda(i,:) * norm(i)
     END DO
@@ -198,5 +206,45 @@ CONTAINS
 
  END FUNCTION bilinear_harmonic_force_twa
 
+    !> Calculate the harmonic bath correlation function for a bilinearly coupled
+    !! system-bath model in the Redfield Approximation for 1 ps
+    FUNCTION redfield_bath_correlation_function(sd,w,beta_local) RESULT(res)
+        USE kinds
+        USE parameters
+        USE input_output
+        IMPLICIT NONE
+        INTEGER :: itime, ifreq
+        REAL(dp), INTENT(in) :: sd(:), w(:)
+        REAL(dp), INTENT(in) :: beta_local
+        REAL(dp) :: res(0 : nbstep), t, dw, n_of_w
+        res = 0.0_dp ; dw = w(2) - w(1) ; n_of_w = 0.0_dp
+
+        DO ifreq = 1, SIZE(w)
+            n_of_w = 1.0_dp / ( exp(beta_local * w(ifreq)) - 1.0_dp )
+            DO itime = 0, nbstep
+                t = itime * ( runtime / DBLE(nbstep) )
+
+                res(itime) = res(itime) + sd(ifreq) &
+                        * ( ( n_of_w + 1.0_dp )* exp(-eye * w(ifreq) * t ) &
+                + n_of_w * exp( eye * w(ifreq) * t ) )
+
+            END DO
+        END DO
+        res = res * dw / pi
+    END FUNCTION redfield_bath_correlation_function
+
+    !> Subroutine to prepare the spectral density that is coupled
+    !! to an "intramolecular" vibrational mode
+    SUBROUTINE bath_coupled_to_vibrational_mode( q_init, pq_init, beta)
+        USE input_output
+        USE parameters
+        USE kinds
+        USE linear_algebra
+        USE unit_conversions
+        IMPLICIT NONE
+        REAL(dp), INTENT(inout) :: q_init(:), pq_init(:)
+        REAL(dp), INTENT(in) :: beta
+
+    END SUBROUTINE bath_coupled_to_vibrational_mode
 
 END MODULE harmonic_bath

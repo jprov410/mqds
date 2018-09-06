@@ -6,6 +6,7 @@ if(MPI_Fortran_FOUND)
     add_subdirectory(twa_src)
     add_subdirectory(ipldm_src)
     add_subdirectory(equilibrium_src)
+    add_subdirectory(redfield_src)
 
 ### Include the dircectories that contain libraries
     include_directories(
@@ -15,6 +16,7 @@ if(MPI_Fortran_FOUND)
             ${MQDS_BINARY_DIR}/mqds/src/mpi_src/twa_src
             ${MQDS_BINARY_DIR}/mqds/src/mpi_src/ipldm_src
             ${MQDS_BINARY_DIR}/mqds/src/mpi_src/equilibrium_src
+            ${MQDS_BINARY_DIR}/mqds/src/mpi_src/redfield_src
     )
     add_library(mpilib mpi_variables.f90)
 
@@ -25,7 +27,8 @@ if(MPI_Fortran_FOUND)
             twalib_mpi
             ipldmlib_mpi
             equilibriumlib_mpi
-            mpilib)
+            mpilib
+            redfieldlib_mpi)
 
     add_executable(mqds_mpi.exe main_mpi.f90)
 

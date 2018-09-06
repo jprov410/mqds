@@ -40,6 +40,10 @@ PROGRAM mqds_mpi
       CALL equilibrium_master_mpi
   END IF
 
+  IF ( method == 'redfield' ) THEN
+      CALL redfield_master_mpi
+  END IF
+
   CALL MPI_FINALIZE(ierr)
 
 END PROGRAM mqds_mpi

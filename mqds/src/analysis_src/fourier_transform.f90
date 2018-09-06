@@ -91,7 +91,7 @@ PROGRAM fourier_transform
 
     IF ( calc_type == 2 ) THEN
         WRITE(*,*) 'APOLOGIES, THE NONLINEAR PORTION OF THE CODE HAS &
-                BEEN IMPLEMENTED YET :( ...'
+               NOT BEEN IMPLEMENTED YET :( ...'
         STOP
     END IF
 
