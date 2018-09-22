@@ -5,8 +5,8 @@
    *  <ul>
    *  <li> <a href="#run.in"><b>run.in</b></a>
    *  <li> <a href="#hel.in"><b>hel.in</b></a>
-   *  <li> continuumsd.in
-   *  <li> couplings.in
+   *  <li> <a href="#continuumsd.in"><b>continuumsd.in</b></a>
+   *  <li> <a href="#couplings.in"><b>couplings.in</b></a>
    *  </ul>
 
 <hr>
@@ -168,18 +168,28 @@ H_{el.in} = \begin{pmatrix}
 <hr>
 
 <a name="continuumsd.in"></a>
-<b> continuumsd.in: </b> , <b> in units of wavenumbers </b>. The matrix elements of the system Hamiltonian should be formatted as:
+<b> continuumsd.in: </b> File containing spectral density which reports the coupling-weighted frequency profile of the quantum subsystem's environment <b> in units of wavenumbers </b>. This file should be formatted (column-wise) as:
 \f[
-H_{el.in} = \begin{pmatrix}
-\epsilon_1 & \Delta_{12} & \dots & \Delta_{1\mathrm{n}} \\
-\Delta_{21} & \epsilon_2 & \dots & \Delta_{2\mathrm{n}} \\
-\vdots & \vdots & \ddots &  \\
-\Delta_{\mathrm{n}1} & \Delta_{\mathrm{n}2} & & \epsilon_{\mathrm{n}} \\
-\end{pmatrix}
+\omega \ \ J_1(\omega) \ \ J_2(\omega) \ \ \dots \ \ J_{n_{bath}}(\omega)
 \f]
 
 
+<hr>
 
-
+<a name="couplings.in"></a>
+<b> couplings.in: </b> Contains information about the number of independent baths, oscillators per bath, and which states each bath is coupled to. This file should be formatted as:
+\f[
+n_{bath} \ \mathrm{baths} \ n_{osc} \ \mathrm{oscillators \ each}
+\f]
+format: nbath (horizontal) by nstate (vertical)
+\f[
+\begin{pmatrix}
+C_1^{(1)} & C_2^{(1)} & \dots & C_{n_{bath}}^{(1)} \\
+C_1^{(2)} & C_2^{(2)} & \dots & C_{n_{bath}}^{(2)} \\
+\vdots & \vdots & \vdots & \vdots \\
+C_1^{(n_{state})} & C_2^{(n_{state})} & \dots & C_{n_{bath}}^{(n_{state})} \\
+\end{pmatrix}
+\f]
+Where C are matrix elements that are usually set to 1.0 (0.0) depending on whether the user wants to turn on (off) the coupling between that particular bath and state. Can be set to fractional amounts and negative values depending on if the user wants the state weakly (or strongly (>1)) coupled to the bath. A negative value for C would change the direction that the harmonic potential energy surface is shifted in the excited electronic state.
 
 */
