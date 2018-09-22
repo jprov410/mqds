@@ -29,6 +29,8 @@ var searchData=
   ['calculate_5fpldm_5fredmat_5fmaphop_5fmpi_2ef90',['calculate_pldm_redmat_maphop_mpi.f90',['../calculate__pldm__redmat__maphop__mpi_8f90.html',1,'']]],
   ['calculate_5fpldm_5fredmat_5fmpi',['calculate_pldm_redmat_mpi',['../calculate__pldm__redmat__mpi_8f90.html#a7a2ea8e6cb185a35449bdd8e59db9da3',1,'calculate_pldm_redmat_mpi.f90']]],
   ['calculate_5fpldm_5fredmat_5fmpi_2ef90',['calculate_pldm_redmat_mpi.f90',['../calculate__pldm__redmat__mpi_8f90.html',1,'']]],
+  ['calculate_5fredfield_5frates_5fmpi',['calculate_redfield_rates_mpi',['../calculate__redfield__rates__mpi_8f90.html#a6ea375d6bb8a323484be441fd41988ee',1,'calculate_redfield_rates_mpi.f90']]],
+  ['calculate_5fredfield_5frates_5fmpi_2ef90',['calculate_redfield_rates_mpi.f90',['../calculate__redfield__rates__mpi_8f90.html',1,'']]],
   ['calculate_5fsqc_5fabsorption',['calculate_sqc_absorption',['../calculate__sqc__absorption_8f90.html#a866127da71a2fe58e2512ef0657fb2fa',1,'calculate_sqc_absorption.f90']]],
   ['calculate_5fsqc_5fabsorption_2ef90',['calculate_sqc_absorption.f90',['../calculate__sqc__absorption_8f90.html',1,'']]],
   ['calculate_5fsqc_5fabsorption_5fmpi',['calculate_sqc_absorption_mpi',['../calculate__sqc__absorption__mpi_8f90.html#ab11c18a5f31578cab87d115bd7bc95cf',1,'calculate_sqc_absorption_mpi.f90']]],

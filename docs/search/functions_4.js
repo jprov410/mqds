@@ -9,5 +9,6 @@ var searchData=
   ['focus_5fpldm_5fmap',['focus_pldm_map',['../namespacefocusing.html#a12627ded75400082077b1cf71a1b09c5',1,'focusing']]],
   ['focus_5fredmat',['focus_redmat',['../namespacefocusing.html#a488a4fe0a4220b40601c724efa410099',1,'focusing']]],
   ['fourier_5ftransform',['fourier_transform',['../fourier__transform_8f90.html#a7a44e98ab45e3f53176b1d91a1c88380',1,'fourier_transform.f90']]],
-  ['ft',['ft',['../fourier__transform_8f90.html#a744874f5316b3f37bbf1c48479ca41f1',1,'fourier_transform.f90']]]
+  ['ft',['ft',['../fourier__transform_8f90.html#a744874f5316b3f37bbf1c48479ca41f1',1,'fourier_transform.f90']]],
+  ['ft_5fat_5fomega',['ft_at_omega',['../namespacefourier.html#a8c378351eb5eb8d7c7469fd93bc63b48',1,'fourier']]]
 ];

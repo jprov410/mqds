@@ -97,6 +97,12 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a33a526cc5d5d3e0bf792ddf07af9b978"><td class="memItemLeft" align="right" valign="top">real(dp) function, dimension(nbath *nosc)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceharmonic__bath.html#a33a526cc5d5d3e0bf792ddf07af9b978">bilinear_harmonic_force_twa</a> (x, x_map, p_map)</td></tr>
 <tr class="memdesc:a33a526cc5d5d3e0bf792ddf07af9b978"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the bilinear coupling force for TWA and SQC calculations.  <a href="#a33a526cc5d5d3e0bf792ddf07af9b978">More...</a><br /></td></tr>
 <tr class="separator:a33a526cc5d5d3e0bf792ddf07af9b978"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f9b147dcbdde65b21f9b01edcaa38d8"><td class="memItemLeft" align="right" valign="top">real(dp) function, dimension(0 :nbstep)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceharmonic__bath.html#a9f9b147dcbdde65b21f9b01edcaa38d8">redfield_bath_correlation_function</a> (sd, w, beta_local)</td></tr>
+<tr class="memdesc:a9f9b147dcbdde65b21f9b01edcaa38d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the harmonic bath correlation function for a bilinearly coupled system-bath model in the Redfield Approximation for 1 ps.  <a href="#a9f9b147dcbdde65b21f9b01edcaa38d8">More...</a><br /></td></tr>
+<tr class="separator:a9f9b147dcbdde65b21f9b01edcaa38d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e63f2d27ce47211a6f7727b2864fc7c"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceharmonic__bath.html#a5e63f2d27ce47211a6f7727b2864fc7c">bath_coupled_to_vibrational_mode</a> (q_init, pq_init, beta)</td></tr>
+<tr class="memdesc:a5e63f2d27ce47211a6f7727b2864fc7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subroutine to prepare the spectral density that is coupled to an "intramolecular" vibrational mode.  <a href="#a5e63f2d27ce47211a6f7727b2864fc7c">More...</a><br /></td></tr>
+<tr class="separator:a5e63f2d27ce47211a6f7727b2864fc7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -108,10 +114,52 @@ Variables</h2></td></tr>
 <tr class="separator:a7a7488b50828de3332bc2b7d12e423a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b017527879ae7f4788a9b6978e45d30"><td class="memItemLeft" align="right" valign="top">real(dp), dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceharmonic__bath.html#a2b017527879ae7f4788a9b6978e45d30">c</a></td></tr>
 <tr class="separator:a2b017527879ae7f4788a9b6978e45d30"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95f124d4b68e9043db5c3a1aecf72afc"><td class="memItemLeft" align="right" valign="top">real(dp), dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceharmonic__bath.html#a95f124d4b68e9043db5c3a1aecf72afc">site_sd</a></td></tr>
+<tr class="separator:a95f124d4b68e9043db5c3a1aecf72afc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67a708f9cda872110a2e5ba0763e2f8d"><td class="memItemLeft" align="right" valign="top">real(dp), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceharmonic__bath.html#a67a708f9cda872110a2e5ba0763e2f8d">site_reorg</a></td></tr>
+<tr class="separator:a67a708f9cda872110a2e5ba0763e2f8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71aedc88d524906f33fc10fc9a91b67b"><td class="memItemLeft" align="right" valign="top">real(dp), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceharmonic__bath.html#a71aedc88d524906f33fc10fc9a91b67b">site_bath_freq</a></td></tr>
+<tr class="separator:a71aedc88d524906f33fc10fc9a91b67b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Module to handle a harmonic-oscillator model for the bath in quantum dynamics simulations. </p>
 </div><h2 class="groupheader">Function/Subroutine Documentation</h2>
+<a id="a5e63f2d27ce47211a6f7727b2864fc7c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e63f2d27ce47211a6f7727b2864fc7c">&#9670;&nbsp;</a></span>bath_coupled_to_vibrational_mode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine harmonic_bath::bath_coupled_to_vibrational_mode </td>
+          <td>(</td>
+          <td class="paramtype">real(dp), dimension(:), intent(inout)&#160;</td>
+          <td class="paramname"><em>q_init</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(dp), dimension(:), intent(inout)&#160;</td>
+          <td class="paramname"><em>pq_init</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(dp), intent(in)&#160;</td>
+          <td class="paramname"><em>beta</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Subroutine to prepare the spectral density that is coupled to an "intramolecular" vibrational mode. </p>
+
+</div>
+</div>
 <a id="a22ca617dad70bf3ce86539b72b68bea3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a22ca617dad70bf3ce86539b72b68bea3">&#9670;&nbsp;</a></span>bilinear_harmonic_force_pldm()</h2>
 
@@ -235,6 +283,42 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="a9f9b147dcbdde65b21f9b01edcaa38d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f9b147dcbdde65b21f9b01edcaa38d8">&#9670;&nbsp;</a></span>redfield_bath_correlation_function()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(dp) function, dimension(0 : nbstep) harmonic_bath::redfield_bath_correlation_function </td>
+          <td>(</td>
+          <td class="paramtype">real(dp), dimension(:), intent(in)&#160;</td>
+          <td class="paramname"><em>sd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(dp), dimension(:), intent(in)&#160;</td>
+          <td class="paramname"><em>w</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(dp), intent(in)&#160;</td>
+          <td class="paramname"><em>beta_local</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculate the harmonic bath correlation function for a bilinearly coupled system-bath model in the Redfield Approximation for 1 ps. </p>
+
+</div>
+</div>
 <a id="a209ab4c6fcbee56d4130900dd03bde8d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a209ab4c6fcbee56d4130900dd03bde8d">&#9670;&nbsp;</a></span>sample_thermal_wigner()</h2>
 
@@ -308,6 +392,48 @@ Variables</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">real(dp), dimension(:), allocatable harmonic_bath::p_bath</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a71aedc88d524906f33fc10fc9a91b67b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71aedc88d524906f33fc10fc9a91b67b">&#9670;&nbsp;</a></span>site_bath_freq</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(dp), dimension(:), allocatable harmonic_bath::site_bath_freq</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a67a708f9cda872110a2e5ba0763e2f8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67a708f9cda872110a2e5ba0763e2f8d">&#9670;&nbsp;</a></span>site_reorg</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(dp), dimension(:), allocatable harmonic_bath::site_reorg</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a95f124d4b68e9043db5c3a1aecf72afc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95f124d4b68e9043db5c3a1aecf72afc">&#9670;&nbsp;</a></span>site_sd</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(dp), dimension(:,:), allocatable harmonic_bath::site_sd</td>
         </tr>
       </table>
 </div><div class="memdoc">

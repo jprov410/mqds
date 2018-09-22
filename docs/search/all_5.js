@@ -10,8 +10,11 @@ var searchData=
   ['focus_5fredmat',['focus_redmat',['../namespacefocusing.html#a488a4fe0a4220b40601c724efa410099',1,'focusing']]],
   ['focusing',['focusing',['../namespacefocusing.html',1,'']]],
   ['focusing_2ef90',['focusing.f90',['../focusing_8f90.html',1,'']]],
+  ['fourier',['fourier',['../namespacefourier.html',1,'']]],
+  ['fourier_2ef90',['fourier.f90',['../fourier_8f90.html',1,'']]],
   ['fourier_5ftransform',['fourier_transform',['../fourier__transform_8f90.html#a7a44e98ab45e3f53176b1d91a1c88380',1,'fourier_transform.f90']]],
   ['fourier_5ftransform_2ef90',['fourier_transform.f90',['../fourier__transform_8f90.html',1,'']]],
   ['fs2s',['fs2s',['../namespaceparameters.html#acec52fb4df9623e24f0ec35fae032b74',1,'parameters']]],
-  ['ft',['ft',['../fourier__transform_8f90.html#a744874f5316b3f37bbf1c48479ca41f1',1,'fourier_transform.f90']]]
+  ['ft',['ft',['../fourier__transform_8f90.html#a744874f5316b3f37bbf1c48479ca41f1',1,'fourier_transform.f90']]],
+  ['ft_5fat_5fomega',['ft_at_omega',['../namespacefourier.html#a8c378351eb5eb8d7c7469fd93bc63b48',1,'fourier']]]
 ];

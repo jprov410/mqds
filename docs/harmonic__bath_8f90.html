@@ -105,6 +105,12 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a33a526cc5d5d3e0bf792ddf07af9b978"><td class="memItemLeft" align="right" valign="top">real(dp) function, dimension(nbath *nosc)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceharmonic__bath.html#a33a526cc5d5d3e0bf792ddf07af9b978">harmonic_bath::bilinear_harmonic_force_twa</a> (x, x_map, p_map)</td></tr>
 <tr class="memdesc:a33a526cc5d5d3e0bf792ddf07af9b978"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the bilinear coupling force for TWA and SQC calculations.  <a href="namespaceharmonic__bath.html#a33a526cc5d5d3e0bf792ddf07af9b978">More...</a><br /></td></tr>
 <tr class="separator:a33a526cc5d5d3e0bf792ddf07af9b978"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f9b147dcbdde65b21f9b01edcaa38d8"><td class="memItemLeft" align="right" valign="top">real(dp) function, dimension(0 :nbstep)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceharmonic__bath.html#a9f9b147dcbdde65b21f9b01edcaa38d8">harmonic_bath::redfield_bath_correlation_function</a> (sd, w, beta_local)</td></tr>
+<tr class="memdesc:a9f9b147dcbdde65b21f9b01edcaa38d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the harmonic bath correlation function for a bilinearly coupled system-bath model in the Redfield Approximation for 1 ps.  <a href="namespaceharmonic__bath.html#a9f9b147dcbdde65b21f9b01edcaa38d8">More...</a><br /></td></tr>
+<tr class="separator:a9f9b147dcbdde65b21f9b01edcaa38d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e63f2d27ce47211a6f7727b2864fc7c"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceharmonic__bath.html#a5e63f2d27ce47211a6f7727b2864fc7c">harmonic_bath::bath_coupled_to_vibrational_mode</a> (q_init, pq_init, beta)</td></tr>
+<tr class="memdesc:a5e63f2d27ce47211a6f7727b2864fc7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subroutine to prepare the spectral density that is coupled to an "intramolecular" vibrational mode.  <a href="namespaceharmonic__bath.html#a5e63f2d27ce47211a6f7727b2864fc7c">More...</a><br /></td></tr>
+<tr class="separator:a5e63f2d27ce47211a6f7727b2864fc7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -116,6 +122,12 @@ Variables</h2></td></tr>
 <tr class="separator:a7a7488b50828de3332bc2b7d12e423a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b017527879ae7f4788a9b6978e45d30"><td class="memItemLeft" align="right" valign="top">real(dp), dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceharmonic__bath.html#a2b017527879ae7f4788a9b6978e45d30">harmonic_bath::c</a></td></tr>
 <tr class="separator:a2b017527879ae7f4788a9b6978e45d30"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95f124d4b68e9043db5c3a1aecf72afc"><td class="memItemLeft" align="right" valign="top">real(dp), dimension(:,:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceharmonic__bath.html#a95f124d4b68e9043db5c3a1aecf72afc">harmonic_bath::site_sd</a></td></tr>
+<tr class="separator:a95f124d4b68e9043db5c3a1aecf72afc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67a708f9cda872110a2e5ba0763e2f8d"><td class="memItemLeft" align="right" valign="top">real(dp), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceharmonic__bath.html#a67a708f9cda872110a2e5ba0763e2f8d">harmonic_bath::site_reorg</a></td></tr>
+<tr class="separator:a67a708f9cda872110a2e5ba0763e2f8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71aedc88d524906f33fc10fc9a91b67b"><td class="memItemLeft" align="right" valign="top">real(dp), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceharmonic__bath.html#a71aedc88d524906f33fc10fc9a91b67b">harmonic_bath::site_bath_freq</a></td></tr>
+<tr class="separator:a71aedc88d524906f33fc10fc9a91b67b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->

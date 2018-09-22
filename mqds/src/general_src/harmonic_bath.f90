@@ -245,6 +245,7 @@ CONTAINS
         REAL(dp), INTENT(inout) :: q_init(:), pq_init(:)
         REAL(dp), INTENT(in) :: beta
 
+
     END SUBROUTINE bath_coupled_to_vibrational_mode
 
 END MODULE harmonic_bath

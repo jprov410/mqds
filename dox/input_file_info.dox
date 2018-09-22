@@ -155,7 +155,7 @@
 <hr>
 
 <a name="hel.in"></a>
-<b> hel.in: </b> system Hamiltonian matrix in the diabatic representation, <b> in units of wavenumbers </b>. The matrix elements of the system Hamiltonian should be formatted as:
+<b> hel.in: </b> System Hamiltonian matrix in the diabatic representation, <b> in units of wavenumbers </b>. The matrix elements of the system Hamiltonian should be formatted as:
 \f[
 H_{el.in} = \begin{pmatrix}
 \epsilon_1 & \Delta_{12} & \dots & \Delta_{1\mathrm{n}} \\
@@ -164,6 +164,20 @@ H_{el.in} = \begin{pmatrix}
 \Delta_{\mathrm{n}1} & \Delta_{\mathrm{n}2} & & \epsilon_{\mathrm{n}} \\
 \end{pmatrix}
 \f]
+
+<hr>
+
+<a name="continuumsd.in"></a>
+<b> continuumsd.in: </b> , <b> in units of wavenumbers </b>. The matrix elements of the system Hamiltonian should be formatted as:
+\f[
+H_{el.in} = \begin{pmatrix}
+\epsilon_1 & \Delta_{12} & \dots & \Delta_{1\mathrm{n}} \\
+\Delta_{21} & \epsilon_2 & \dots & \Delta_{2\mathrm{n}} \\
+\vdots & \vdots & \ddots &  \\
+\Delta_{\mathrm{n}1} & \Delta_{\mathrm{n}2} & & \epsilon_{\mathrm{n}} \\
+\end{pmatrix}
+\f]
+
 
 
 
