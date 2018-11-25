@@ -7,6 +7,8 @@
 
 __*A high-performance molecular quantum dynamics and spectroscopy package*__
 
+__*A C++ version of the code is currently in development here https://github.com/jprov410/MQDScpp
+
 * Documentation and instructions for preparing input files can be found at ( https://jprov410.github.io/mqds ) 
 
 #### This package is currently capable of the following calculations:

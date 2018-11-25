@@ -68,4 +68,16 @@ CONTAINS
 
     END FUNCTION trace_complex_matrix
 
+
+    FUNCTION cross_product_3d( a, b ) RESULT( res )
+        USE kinds
+        IMPLICIT NONE
+        REAL(dp) :: a(3), b(3)
+        REAL(dp) :: res(3)
+
+        res(1) = a(2) * b(3) - b(2) * a(3)
+        res(2) = -(a(1) * b(3) - b(1) * a(3))
+        res(3) = a(1) * b(2) - b(1) * a(2)
+
+    END FUNCTION cross_product_3d
 END MODULE linear_algebra
